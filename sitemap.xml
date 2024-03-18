@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/about/posts/post-5/</loc>
+    <loc>https://elecbrandy.github.io/about/posts/post-5/</loc>
     <lastmod>2024-01-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/tag1/</loc>
+    <loc>https://elecbrandy.github.io/tags/tag1/</loc>
     <lastmod>2024-01-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/about/posts/post-4/</loc>
+    <loc>https://elecbrandy.github.io/about/posts/post-4/</loc>
     <lastmod>2024-01-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/tag2/</loc>
+    <loc>https://elecbrandy.github.io/tags/tag2/</loc>
     <lastmod>2024-01-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/about/posts/post-3/</loc>
+    <loc>https://elecbrandy.github.io/about/posts/post-3/</loc>
     <lastmod>2024-01-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/about/posts/post-2/</loc>
+    <loc>https://elecbrandy.github.io/about/posts/post-2/</loc>
     <lastmod>2024-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/info/</loc>
+    <loc>https://elecbrandy.github.io/tags/info/</loc>
     <lastmod>2024-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/about/posts/post-1/</loc>
+    <loc>https://elecbrandy.github.io/about/posts/post-1/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/red/</loc>
+    <loc>https://elecbrandy.github.io/tags/red/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/</loc>
+    <loc>https://elecbrandy.github.io/</loc>
     <lastmod>2023-01-01T08:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/</loc>
+    <loc>https://elecbrandy.github.io/tags/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/about/</loc>
+    <loc>https://elecbrandy.github.io/about/</loc>
     <lastmod>1999-10-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/</loc>
+    <loc>https://elecbrandy.github.io/categories/</loc>
   </url>
 </urlset>
