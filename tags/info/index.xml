@@ -15,5 +15,12 @@
       <guid>https://elecbrandy.github.io/about/posts/post-2/</guid>
       <description> Color Set&#xA;This theme supports light/dark mode. You can switch between the modes via the toggle in the top right corner of the header.&#xA;@root @light @dark CSS code&#xA;This is the CSS that represents the above color settings. If you want to change the color settings, you can do so in assets/css/main.css.&#xA;:root { --primary-color: #FF53B0; --white-color: #FFFFFF; --black-color: #181818; --dgray-color: #282828; --lgray-color: #f2f2f2; } body[data-theme=&amp;#34;light&amp;#34;] { --background-color: var(--white-color); --text-color: var(--black-color); --gray-color: var(--lgray-color); } body[data-theme=&amp;#34;dark&amp;#34;] { --background-color: var(--black-color); --text-color: var(--white-color); --gray-color: var(--dgray-color); } </description>
     </item>
+    <item>
+      <title>02. Color set</title>
+      <link>https://elecbrandy.github.io/posts/post-2/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/post-2/</guid>
+      <description> Color Set&#xA;This theme supports light/dark mode. You can switch between the modes via the toggle in the top right corner of the header.&#xA;@root @light @dark CSS code&#xA;This is the CSS that represents the above color settings. If you want to change the color settings, you can do so in assets/css/main.css.&#xA;:root { --primary-color: #FF53B0; --white-color: #FFFFFF; --black-color: #181818; --dgray-color: #282828; --lgray-color: #f2f2f2; } body[data-theme=&amp;#34;light&amp;#34;] { --background-color: var(--white-color); --text-color: var(--black-color); --gray-color: var(--lgray-color); } body[data-theme=&amp;#34;dark&amp;#34;] { --background-color: var(--black-color); --text-color: var(--white-color); --gray-color: var(--dgray-color); } </description>
+    </item>
   </channel>
 </rss>
