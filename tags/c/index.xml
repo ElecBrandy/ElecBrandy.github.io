@@ -20,14 +20,14 @@
       <link>https://elecbrandy.github.io/posts/cs101/filedescriptor/</link>
       <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/cs101/filedescriptor/</guid>
-      <description>운영 체제에서 파일이나 입출력 자원을 식별하기 위해 사용하는&amp;hellip; Libft 과제에 이어 get_next_line 과제를 진행하던 중 파일 디스크립터 개념을 만나게 되어 정리했다. 결국은 파일에게 접근하기 위한 번호이자 거창하게는 파일 포인터 개념으로 이해하고 넘어가자.&#xA;File Descripot 리눅스 시스템에서는 모든 것이 파일 객체, 행동, 디바이스, 네트워크 연결, 디렉터리, 프로세스 등등 이때 시스템이 이 파일들에게 접근 시 File Descriptor라는 개념을 이용함 File Descriptor는 Non-negative Integer 값을 가짐(0 ~ OPEN_MAX) Process에서 열린 파일의 목록을 관리하는 테이블의 인덱스!</description>
+      <description>운영 체제에서 파일이나 입출력 자원을 식별하기 위해 사용하는&amp;hellip;&#xA;Libft 과제에 이어 get_next_line 과제를 진행하던 중 파일 디스크립터 개념을 만나게 되어 정리했다. 결국은 파일에게 접근하기 위한 번호이자 거창하게는 파일 포인터 개념으로 이해하고 넘어가자.&#xA;File Descripot 리눅스 시스템에서는 모든 것이 파일 객체, 행동, 디바이스, 네트워크 연결, 디렉터리, 프로세스 등등 이때 시스템이 이 파일들에게 접근 시 File Descriptor라는 개념을 이용함 File Descriptor는 Non-negative Integer 값을 가짐(0 ~ OPEN_MAX) Process에서 열린 파일의 목록을 관리하는 테이블의 인덱스!</description>
     </item>
     <item>
       <title>[42cursus] GET_NEXT_LINE</title>
       <link>https://elecbrandy.github.io/posts/42cursus/get_next_line/</link>
       <pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/get_next_line/</guid>
-      <description>Reading a line on a fd is way too tedious 42서울 본과정 입과 후 세번째로 수행한 과제로, 파일 디스크립터로부터 읽혀진 - 개행으로 끝나는 한 줄을 반환하는 함수를 만드는 과제이다. 즉 파일 하나를 연 다음, 파일 내용에서 개행으로 끝나는 줄 하나를 반환해야한다.&#xA;01 소개 파일을 열고, 지정된 BUFFER_SIZE 만큼 read함수를 통해 파일을 읽다가 개행문자 \n이 나타나면 개행문자 전까지만 반환한다.&#xA;02 GET_NEXT_LINE 명세서 PROTOTYPE char *get_next_line(int fd); PARAMETER int fd : 읽어들일 파일의 디스크립터 DESCRIPTION Mandatory part 호출마다 한 번에 한 줄씩 파일 디스크립터가 가리키는 파일을 읽어온다.</description>
+      <description>Reading a line on a fd is way too tedious&#xA;42서울 본과정 입과 후 세번째로 수행한 과제로, 파일 디스크립터로부터 읽혀진 - 개행으로 끝나는 한 줄을 반환하는 함수를 만드는 과제이다. 즉 파일 하나를 연 다음, 파일 내용에서 개행으로 끝나는 줄 하나를 반환해야한다.&#xA;01 소개 파일을 열고, 지정된 BUFFER_SIZE 만큼 read함수를 통해 파일을 읽다가 개행문자 \n이 나타나면 개행문자 전까지만 반환한다.&#xA;02 GET_NEXT_LINE 명세서 PROTOTYPE char *get_next_line(int fd); PARAMETER int fd : 읽어들일 파일의 디스크립터 DESCRIPTION Mandatory part 호출마다 한 번에 한 줄씩 파일 디스크립터가 가리키는 파일을 읽어온다.</description>
     </item>
     <item>
       <title>[42cursus] FT_PRINTF</title>
@@ -41,21 +41,21 @@
       <link>https://elecbrandy.github.io/posts/42cursus/libft/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/libft/</guid>
-      <description>Your very first own library Libft 42서울 본과정 입과 후 첫번째로 만나는 과제로 앞으로 본과정에서 사용할 라이브러리를 만드는 것이 목표이다. 이후 과제를 수행하며 자주 사용할 함수들이 몇가지 있기 때문에 최대한 범용성 높게 - 커스텀하기 쉽게 만드는 것을 목표로 했다. 항상 느끼는 것이지만 norm 규칙의 첫번째 목표는 카뎃이 다른 카뎃의 코드를 보았을 때 최소한의 일관성을 유지하여 쉽게 읽을 수 있게 하는 것&amp;hellip; 이고 두번째는 코드 길이를 적당히 조절함으로써 자연스럽게 모듈화를 하게 하는 것.</description>
+      <description>Your very first own library&#xA;Libft 42서울 본과정 입과 후 첫번째로 만나는 과제로 앞으로 본과정에서 사용할 라이브러리를 만드는 것이 목표이다. 이후 과제를 수행하며 자주 사용할 함수들이 몇가지 있기 때문에 최대한 범용성 높게 - 커스텀하기 쉽게 만드는 것을 목표로 했다. 항상 느끼는 것이지만 norm 규칙의 첫번째 목표는 카뎃이 다른 카뎃의 코드를 보았을 때 최소한의 일관성을 유지하여 쉽게 읽을 수 있게 하는 것&amp;hellip; 이고 두번째는 코드 길이를 적당히 조절함으로써 자연스럽게 모듈화를 하게 하는 것.</description>
     </item>
     <item>
       <title>C build</title>
       <link>https://elecbrandy.github.io/posts/cs101/buildc/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/cs101/buildc/</guid>
-      <description>컴파일 언어(compiled language)는 코드가 실행되기 전 컴파일러를 거쳐서 기계어로 모두 변환되어 실행되는 프로그래밍 언어이다. 1. Preprocess 전처리기 cpp 에 의해 수행 header inclusion 헤더 파일에 정의된 변수와 함수를 포함하는 과정 macro expansion #define 같은 매크로 등을 소스코드로 변경 .c -&amp;gt; .i 2. Complie 컴파일러 ccl 에 의해 수행 c언어 코드를 어셈블리어로 변환 .i -&amp;gt; .s 3. Assemble 어셈블러 as 에 의해 수행 어셈블리어를 바이너리 형태로 변환 (목적 파일 생성) .s -&amp;gt; .</description>
+      <description>컴파일 언어(compiled language)는 코드가 실행되기 전 컴파일러를 거쳐서 기계어로 모두 변환되어 실행되는 프로그래밍 언어이다.&#xA;1. Preprocess 전처리기 cpp 에 의해 수행 header inclusion 헤더 파일에 정의된 변수와 함수를 포함하는 과정 macro expansion #define 같은 매크로 등을 소스코드로 변경 .c -&amp;gt; .i 2. Complie 컴파일러 ccl 에 의해 수행 c언어 코드를 어셈블리어로 변환 .i -&amp;gt; .s 3. Assemble 어셈블러 as 에 의해 수행 어셈블리어를 바이너리 형태로 변환 (목적 파일 생성) .</description>
     </item>
     <item>
       <title>Makefile</title>
       <link>https://elecbrandy.github.io/posts/cs101/makefile/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/cs101/makefile/</guid>
-      <description>The script that automates software build processes with the make utility Makefile은 소프트웨어 개발 과정에서 빌드를 자동화하는 강력한 도구이다. 복잡한 빌드 단계를 단순하고 반복 가능하게 만들어 주는 것이 핵심 기능이다. 프로그래머들에게 시간을 절약하고 오류를 줄여주는 데 큰 도움을 준다. Makefile Makefile 이란 자동화, 의존성 관리, 효율성, 모듈성, 표준화를 목적으로 함 자동화 복잡한 빌드 명령어를 자동화하여 개발자가 빌드 프로세스를 쉽게 반복 의존성 관리 소스 파일과 헤더 파일 간의 의존성을 추적하여 변경 시에만 관련 파일을 재컴파일 효율성 전체 프로젝트를 빌드하는 대신 변경된 부분만 빌드하여 시간과 자원을 절약 모듈성 빌드 프로세스를 여러 단계로 분리하여 복잡성을 관리해 유지보수가 용이 표준화 일관된 빌드 절차로 다른 개발자가 쉽게 이해하고 사용할 수 있음 Makefile 의 기본적 구성 target : 하나의 실행 가능 파일 dependency : 하나의 대상과 그것이 의존하는 소스파일 rule : 의존 파일들로부터 대상 파일을 생성하는 방법을 정의 예시 CC = cc CFLAGS = -Wall -Wextra -Werror INS = .</description>
+      <description>The script that automates software build processes with the make utility&#xA;Makefile은 소프트웨어 개발 과정에서 빌드를 자동화하는 강력한 도구이다. 복잡한 빌드 단계를 단순하고 반복 가능하게 만들어 주는 것이 핵심 기능이다. 프로그래머들에게 시간을 절약하고 오류를 줄여주는 데 큰 도움을 준다. Makefile Makefile 이란 자동화, 의존성 관리, 효율성, 모듈성, 표준화를 목적으로 함 자동화 복잡한 빌드 명령어를 자동화하여 개발자가 빌드 프로세스를 쉽게 반복 의존성 관리 소스 파일과 헤더 파일 간의 의존성을 추적하여 변경 시에만 관련 파일을 재컴파일 효율성 전체 프로젝트를 빌드하는 대신 변경된 부분만 빌드하여 시간과 자원을 절약 모듈성 빌드 프로세스를 여러 단계로 분리하여 복잡성을 관리해 유지보수가 용이 표준화 일관된 빌드 절차로 다른 개발자가 쉽게 이해하고 사용할 수 있음 Makefile 의 기본적 구성 target : 하나의 실행 가능 파일 dependency : 하나의 대상과 그것이 의존하는 소스파일 rule : 의존 파일들로부터 대상 파일을 생성하는 방법을 정의 예시 CC = cc CFLAGS = -Wall -Wextra -Werror INS = .</description>
     </item>
   </channel>
 </rss>
