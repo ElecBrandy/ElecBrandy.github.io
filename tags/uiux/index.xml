@@ -10,16 +10,16 @@
     <atom:link href="https://elecbrandy.github.io/tags/uiux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>사용성 테스트 101</title>
-      <link>https://elecbrandy.github.io/posts/uiux/sesac-ut101/</link>
+      <link>https://elecbrandy.github.io/posts/uiux/ut101/</link>
       <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/posts/uiux/sesac-ut101/</guid>
+      <guid>https://elecbrandy.github.io/posts/uiux/ut101/</guid>
       <description>절대/직접/물어보지 마</description>
     </item>
     <item>
       <title>유저리서치 101</title>
-      <link>https://elecbrandy.github.io/posts/uiux/sesac-ux101/</link>
+      <link>https://elecbrandy.github.io/posts/uiux/ux101/</link>
       <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/posts/uiux/sesac-ux101/</guid>
+      <guid>https://elecbrandy.github.io/posts/uiux/ux101/</guid>
       <description>나의 첫 유저리서치</description>
     </item>
   </channel>
