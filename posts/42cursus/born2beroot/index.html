@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>[42cursus] Born2beroot | Elecbrandy</title>
+
+      <link rel="stylesheet" href="/css/main.min.0a80fde61a7926eab09bd0cd94577318b88beaa7cbb18c0974dc480ef7425324.css" integrity="sha256-CoD95hp5Juqwm9DNlFdzGLiL6qfLsYwJdNxIDvdCUyQ=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/min700.min.2bcf847d60d198d878bbf49b39374a02cdc7cd4e66411bfa42ada12fe8b580ba.css" integrity="sha256-K8&#43;EfWDRmNh4u/SbOTdKAs3HzU5mQRv6Qq2hL&#43;i1gLo=" crossorigin="anonymous">
+
+
+      <script src="/js/main.0740a53bb4495dfc0d897c89f56fe801f29d1ad0d7e20f51491e421debb12f67.js" integrity="sha256-B0ClO7RJXfwNiXyJ9W/oAfKdGtDX4g9RSR5CHeuxL2c=" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6vP0kLaVwmS/tB1lCew8HlB/iMDmD4B9Vq3OU9bfXjMWmWrARyAZF9a3F7sKwDx" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+  <header>
+    <header class="header-other">
+	<div class="header-container">
+		<div class="header-title">
+			<a href="https://elecbrandy.github.io/">Elecbrandy</a>
+	  	</div>
+	  	<ul class="header-menu">
+			<li><a href="https://elecbrandy.github.io//tags">TAGS</a></li>
+			<li><a href="https://elecbrandy.github.io//about">ABOUT</a></li>
+			<button id="theme-toggle" aria-label="Toggle theme">
+				<img src="/dark.svg" alt="Dark mode" id="dark-icon">
+				<img src="/light.svg" alt="Light mode" id="light-icon">
+			  </button>
+		</ul>
+	</div>
+	
+		<div class="progress-bar"></div>
+  	
+</header>
+
+  </header>
+  
+    
+        <div class="pre-content" style="background-image: url('http://t1.daumcdn.net/cfile/14492610B091CC6254');"></div>
+        <div class="pre-title">
+            
+            
+            <time datetime="2024-01-18T00:00:00&#43;00:00">January 18, 2024</time>
+            <h1>[42cursus] Born2beroot</h1>
+        </div>
+    
+
+
+  <div class="content">
+    
+  <blockquote>
+<p>YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD</p>
+</blockquote>
+<br>
+<p>42서울 본과정 입과 후 네번째로 수행한 과제로, 가상머신에 리눅스를 설치하고 공부하는 과정이다.</p>
+<br>
+<h1 id="01-소개">01 소개</h1>
+<img src="https://user-images.githubusercontent.com/87311268/221544778-c85cb3d8-32f4-4919-aa1c-0db54b33b38a.jpg" width="700">
+<p>가상머신에 리눅스(Debian or Rocky)를 설치하고, LVM를 통한 파티션 설정과 기타 여러가지 기능을 직접 실습한다. 백문불여일견. 요구사항이 상당히 많고 처음 접한다면 배워야할 개념도 상당히 많다&hellip; 화이팅!
+리눅스 설치는 하다보면 100번이라도 해야만 하는 상황이기 때문에 중요한 개념 위주로만 정리했다.</p>
+<br>
+<h1 id="02-born2beroot-개념정리">02 <code>Born2beroot</code> 개념정리</h1>
+<h2 id="운영체제">운영체제</h2>
+<p>Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원을 사용할 수 있는 인터페이스를 제공하고, 그 결과를 돌려주는 시스템 소프트웨어이다. CPU, Memory, 저장장치 등의 하드웨어를 관리하고 Process 관리, 자원 접근 및 할당, 파일 시스템을 관리한다.</p>
+<br>
+<h1 id="virtual-machinevm">Virtual Machine(VM)</h1>
+<p>하나의 컴퓨터 안에서 여러 개의 독립된 환경을 만들어 내는 것으로 물리적 하드웨어 시스템 위에 구축되는 소프트웨어 기반의 컴퓨터이다. 자체적인 OS, CPU, Memory, Network interface, 저장장치 등을 가지고 있고, Hypervisor를 통해 하드웨어에서 VM의 소스를 분리하고 적절히 프로비저닝하여 VM에서 사용할 수 있게 만든다.</p>
+<h3 id="vm-장점">VM 장점</h3>
+<p>완벽한 격리 보안, 대화형 개발, 스냅샷 기능 등</p>
+<h3 id="vm-단점">VM 단점</h3>
+<p>온전한 OS를 부팅, 운영, 관리해야하므로 속도가 느리고 호스트 컴퓨터에서 디스크 공간 부족 문제가 발생할 수 있다.</p>
+<br>
+<h1 id="debian">Debian</h1>
+<p>다양한 환경에서 광범위 하게 사용되는 운영체제로, 다양한 소프트웨어 패키지를 제공한다.
+커뮤니티 중심으로 개발되는 프로젝트이며, 자유 소프트웨어 원칙을 강력히 지지하는 것이 특징! 패키지 관리자로 Package management tools, 보안 모듈로 AppArmor를 사용한다.</p>
+<h3 id="debian과-rocky의-차이점">Debian과 Rocky의 차이점</h3>
+<table>
+<thead>
+<tr>
+<th>기준</th>
+<th>Debian</th>
+<th>Rocky Linux</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>기반</strong></td>
+<td>리눅스 커널 기반</td>
+<td>리눅스 커널 기반</td>
+</tr>
+<tr>
+<td><strong>목적</strong></td>
+<td>범용성, 다양한 환경에 적합</td>
+<td>엔터프라이즈급 환경, 서버 및 데이터 센터에 적합</td>
+</tr>
+<tr>
+<td><strong>커뮤니티/개발</strong></td>
+<td>커뮤니티 중심, 자유 소프트웨어 원칙 강조</td>
+<td>Red Hat Enterprise Linux(RHEL)와의 호환성 강조</td>
+</tr>
+<tr>
+<td><strong>패키지 관리자</strong></td>
+<td>APT 등</td>
+<td>dnf 등</td>
+</tr>
+<tr>
+<td><strong>보안 모듈</strong></td>
+<td>AppArmor, SELinux 옵션 제공</td>
+<td>권장 보안 모듈 SELinux</td>
+</tr>
+<tr>
+<td><strong>이식성</strong></td>
+<td>다양한 하드웨어 아키텍처 지원</td>
+<td>주로 x86_64 아키텍처에 초점</td>
+</tr>
+<tr>
+<td><strong>사용자 친화성</strong></td>
+<td>데스크톱 및 서버 사용에 모두 적합</td>
+<td>주로 서버 및 데이터 센터 운영에 초점</td>
+</tr>
+<tr>
+<td><strong>라이선스</strong></td>
+<td>대부분 GPL 및 다양한 오픈 소스 라이선스</td>
+<td>GPL 및 RHEL 호환 라이선스</td>
+</tr>
+</tbody>
+</table>
+<h1 id="package-management-tools">Package management tools</h1>
+<p>Linux의 패키징 시스템을 관리하는 도구 모음으로 패키지 설치, 업그레이드, 제거 등을 자동화하여 쉽게 관리 가능하다. 특정 소프트웨어가 필요로 하는 모든 추가 패키지를 자동으로 파악하고 설치함으로써 의존성 문제를 해결했다. <strong>Debian과 Rocky 사이의 Package management tools의 차이점을 더 공부해보자 :)</strong></p>
+<h1 id="apparmor">AppArmor</h1>
+<p>시스템 관리자가 개별 응용프로그램이 엑세스 할 수 있는 시스템 리소스와 권한을 제어 할 수 있게 하는 Linux Kernel 보안 모듈로 MAC(Mandatory Access Control) 방식을 통해 사전에 정의된 규칙(Profile)에 기반하여 권한을 제어한다. 즉, 특정 프로그램이 파일/네트워크/기타 시스템 자원에 접근하는 방식을 경로를 통해 구분한다. 타 모듈에 비해 간단한 설정이 장점이지만, 단순한만큼 복잡한 보안 요구 사항을 충족시키지 못할 수 있으며 Profile 로딩 시간 때문에 시스템 시작 속도에 영향을 미칠 수 있다. 또한 동일 어플리케이션에 대하여 여러 경로가 존재할 수 있기 때문, 한 프로그램에 대하여 여러 보안 Profile이 생성될 수 있다. <strong>그렇다면 AppArmor가 없었던 시절에는 어떻게 관리했을까?</strong></p>
+<h1 id="sudo">Sudo</h1>
+<p>Sudo(Superuser do)는 Unix 및 Linux 기반 시스템에서 슈퍼유저 또는 root 권한으로 명령을 실행할 수 있게 해주는 프로그램이다. 일반 사용자에게 관리자(루트) 권한으로 명령을 실행할 수 있는 권한을 제한적으로 부여하여 루트 사용자로의 지속적인 로그인을 방지하고, 보안 위험을 줄일 수 있다. 또한 루트 권한으로 실행된 모든 명령과 사용자를 기록 가능해 시스템 관리, 감시 추적 등이 용이하다. <strong>sudo log를 어디서 확인 할 수 있을까?</strong></p>
+<br>
+<h1 id="tty">TTY</h1>
+<p>TTY(Tele Type Writer)는 컴퓨터와 연결된 가상의 터미널로 한 컴퓨터를 여럿이서 사용하기 위해 (물리적 한계 극복) 사용했으며 현재 UNIX 시스템에서 터미널 역할을 수행한다. 텍스트 기반 인터페이스와 다중 터미널 세션 기능, 원격 접속과 시스템 관리 및 표준 입출력 관리가 특징이다. 이때 Sudo가 TTY를 요구한다는 것은 Sudo 명령어를 사용자가 직접 터미널 세션에서 입력해야만 SUdo 권한을 사용할 수 있다는 것을 의미한다. <strong>이것이 왜 필요한지 공부해보자!</strong></p>
+<br>
+<h1 id="ufw">UFW</h1>
+<p>UFW(Uncomlicted FireWall)은 사용자 친화적인 방화벽 관리 인터페이스로 기존 iptables의 복잡성을 단순화 시켰으며 주로 입출력 트래픽을 제어하고, 원하지 않는 네트워크 접근을 차단하기 위해 사용한다.</p>
+<br>
+<h1 id="ssh">SSH</h1>
+<p>SSH(Secure SHell) 이란 컴퓨터가 같은 public network를 통해 통신 시 보안적으로 안전하게 통신을 하기 위한 프로토콜으로 보안적으로 안전한 채널을 구축한 뒤 정보를 교환하는 방식(키 기반의 인증 / 암호화)이다. S<strong>SH의 작동원리 두가지 (대칭키 암호화, 비대칭키 암호화)와 키 검증 방식을 공부해보자!</strong></p>
+<br>
+<h1 id="linux-partition">Linux Partition</h1>
+<ul>
+<li><strong>Primary Partition</strong>
+<ul>
+<li>(주, 기본 파티션)</li>
+<li>disk를 Logical하게 분할하는 가장 기본적인 방법 중 하나</li>
+<li>MBR 시스템에서 최대 4개의 기본 Partition을 가질 수 있으며, GPT 기반 시스템에서는 이보다 많은 기본 Partition을 지원함</li>
+</ul>
+</li>
+<li><strong>Extended Partition</strong>
+<ul>
+<li>(확장 파티션)</li>
+<li>MBR의 기본 Partition의 제한(최대 4개)을 극복하기 위해 사용</li>
+<li>Extended Partition 내부에는 여러 개의 Logical Partition을 생성할 수 있음</li>
+</ul>
+</li>
+<li><strong>Logical Partition</strong>
+<ul>
+<li>(논리 파티션)</li>
+<li>Extend Partition 내부에 생성</li>
+<li>기본 Partition의 제한을 넘어서 추가적인 파티션을 생성할 수 있음</li>
+</ul>
+</li>
+<li><strong>Swap Partition</strong>
+<ul>
+<li>(스왑 파티션)</li>
+<li>Memory가 부족할 때 사용되는 영역</li>
+<li>Swap Partition은 시스템의 성능과 안정성을 개선</li>
+</ul>
+</li>
+<li><strong>LVM</strong>
+<ul>
+<li>(Logical Volume Manager)</li>
+<li>여러 개의 Disk 또는 Partition을 하나의 큰 Logical Volume으로 운용 가능</li>
+<li>Partition 크기 변경, 스냅샷, RAID구성에 유용</li>
+</ul>
+</li>
+</ul>
+<br>
+<h1 id="mbr">MBR</h1>
+<p>MBR(Master Boot Record)은 HDD의 맨 앞에 기록되어 있는 시스템 영역으로 컴퓨터에 전원이 들어오면 가장 먼저 HDD의 MBR에 기록되어있는 <strong>OS의 위치를 식별하며, 시스템 부팅에 사용되는 HDD의 Partition을 결정하는 프로그램</strong>이 읽히게 된다. <strong>MBR과 sba5의 관계에 대하여 공부해보자!</strong></p>
+<br>
+<h1 id="lvm">LVM</h1>
+<p>LVM(Linux Volume Manager)은 Linux에서 복잡한 스토리지 구성을 효율적으로 관리하기 위한 시스템으로 물리적 디스크를 하나의 논리적 볼륨으로 결합할 수 있고, 볼륨의 크기를 쉽게 조정 가능하다.</p>
+<h2 id="lvm-단위-구성">LVM 단위 구성</h2>
+<ul>
+<li><strong>PV</strong>
+<ul>
+<li>Physical Volume</li>
+<li>LVM에서 블록장치에 접근하기 위해서 PV로 초기화가 필요</li>
+</ul>
+</li>
+<li><strong>PE</strong>
+<ul>
+<li>Physical Extent</li>
+<li>PV를 구성하는 일정한 크기의 블록으로 LVM2에서 기본 크기가 4MB</li>
+<li>LV의 LE와 1:1로 대응</li>
+</ul>
+</li>
+<li><strong>VG</strong>
+<ul>
+<li>Volume Group</li>
+<li>PV들의 집합으로 LV를 할당할 수 있는 공간</li>
+<li>PV로 초기화된 장치들은 VG로 통합됨</li>
+<li>사용자는 VG 안에서 유연성 높게 공간을 쪼개 LV 생성 가능</li>
+</ul>
+</li>
+<li><strong>LV</strong>
+<ul>
+<li>Logical Volume</li>
+<li>사용자가 최종적으로 다루게 되는 논리적 스토리지</li>
+</ul>
+</li>
+<li><strong>LE</strong>
+<ul>
+<li>LV를 구성하는 일정한 크기의 블록으로 PE와 마찬가지로 4MB</li>
+<li>각각의 LV들은 PE들과 1:1로 맵핑됨</li>
+</ul>
+</li>
+</ul>
+<br>
+<h1 id="cron">Cron</h1>
+<p>Cron이란 OS Time-based job scheduling으로 demon의 일종이다. <code>/etc/crontab</code> 에 위치해 있다. <strong>Cron 코드 작성 시 Sudo 명령어의 갯수를 잘 카운트해야한다!</strong></p>
+<details>
+<summary>cron code</summary>
+<div markdown="1">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># The architecture of your operating system and its kernel version.</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#Architecture: &#34;</span>
+</span></span><span style="display:flex;"><span>uname -a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The number of physical processors</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#CPU physical : &#34;</span>
+</span></span><span style="display:flex;"><span>cat /proc/cpuinfo | grep <span style="color:#e6db74">&#34;physical id&#34;</span> | sort -u | wc -l
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The number of virtual processors</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#vCPU : &#34;</span>
+</span></span><span style="display:flex;"><span>cat /proc/cpuinfo | grep processor | wc -l
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The current available RAM on your server and its utilization rate as a percentage</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#Memory Usage: &#34;</span>
+</span></span><span style="display:flex;"><span>m_total<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>free -m | awk <span style="color:#e6db74">&#39;$1 == &#34;Mem:&#34; {print $2}&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>m_used<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>free -m | awk <span style="color:#e6db74">&#39;$1 == &#34;Mem:&#34; {print $3}&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>m_usage<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>awk <span style="color:#e6db74">&#34;BEGIN {printf \&#34;%.2f\&#34;, (</span>$m_used<span style="color:#e6db74">/</span>$m_total<span style="color:#e6db74">)*100}&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;%s/%s MB (%s%%)\n&#34;</span> <span style="color:#e6db74">&#34;</span>$m_used<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$m_total<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$m_usage<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The current available memory on your server and its utilization rate as a percentage.</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#Disk Usage: &#34;</span>
+</span></span><span style="display:flex;"><span>d_total<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>df -Bg | grep <span style="color:#e6db74">&#39;^/dev/&#39;</span> | grep -v <span style="color:#e6db74">&#39;/boot$&#39;</span> | awk <span style="color:#e6db74">&#39;{ft += $2} END {print ft}&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>d_used<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>df -Bm | grep <span style="color:#e6db74">&#39;^/dev/&#39;</span> | grep -v <span style="color:#e6db74">&#39;/boot$&#39;</span> | awk <span style="color:#e6db74">&#39;{ut += $3} END {print ut}&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>d_per<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>df -Bm | grep <span style="color:#e6db74">&#39;^/dev/&#39;</span> | grep -v <span style="color:#e6db74">&#39;/boot$&#39;</span> | awk <span style="color:#e6db74">&#39;{ut += $3} {ft += $2} END {printf(&#34;%d%%&#34;, ut/ft*100)}&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;%s/%sGb (%s)\n&#34;</span> <span style="color:#e6db74">&#34;</span>$d_used<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$d_total<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$d_per<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The current utilization rate of your processors as a percentage</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#CPU load: &#34;</span>
+</span></span><span style="display:flex;"><span>mpstat | grep all | awk <span style="color:#e6db74">&#39;{printf &#34;%.1f%%\n&#34;, 100-$13}&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The date and time of the last reboot</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#Last boot: &#34;</span>
+</span></span><span style="display:flex;"><span>last_boot<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>who -b | awk <span style="color:#e6db74">&#39;{print $3, $4}&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;%s\n&#34;</span> <span style="color:#e6db74">&#34;</span>$last_boot<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Whether LVM is active or not</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> lsblk | grep -q <span style="color:#e6db74">&#34;lvm&#34;</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    printf <span style="color:#e6db74">&#34;#LVM use: yes\n&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    printf <span style="color:#e6db74">&#34;#LVM use: no\n&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The number of active connections</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#Connections TCP : &#34;</span>
+</span></span><span style="display:flex;"><span>ss | grep <span style="color:#e6db74">&#39;ESTAB&#39;</span> | wc -l | tr -d <span style="color:#e6db74">&#39;\n&#39;</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34; ESTABLISHED\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The number of users using the server</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#User log: &#34;</span>
+</span></span><span style="display:flex;"><span>who | wc -l
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The IPv4 address of your server and its MAC (Media Access Control) address</span>
+</span></span><span style="display:flex;"><span>ip<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>hostname -I<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>mac<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>ip link show | awk <span style="color:#e6db74">&#39;$1 == &#34;link/ether&#34; {print $2}&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#Network: IP %s (%s)\n&#34;</span> <span style="color:#e6db74">&#34;</span>$ip<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$mac<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The number of commands executed with the sudo program</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;#Sudo : &#34;</span>
+</span></span><span style="display:flex;"><span>grep <span style="color:#e6db74">&#39;COMMAND=&#39;</span> /var/log/auth.log | wc -l | tr -d <span style="color:#e6db74">&#39;\n&#39;</span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34; cmd\n&#34;</span>
+</span></span></code></pre></div></div>
+</details>
+<br>
+<div class="alert">
+    <span><a href="https://elecbrandy.github.io/tags/42cursus"> 42cursus </a></span>
+</div>
+
+
+
+  </div>
+  <footer>
+    
+
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop({
+  diameter: 40,
+  backgroundColor: 'rgb(255, 83, 176)',
+  textColor: '#fff'
+})</script>
+
+  </footer>
+</body>
+</html>

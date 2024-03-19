@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CS101 on Elecbrandy</title>
+    <link>https://elecbrandy.github.io/tags/cs101/</link>
+    <description>Recent content in CS101 on Elecbrandy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://elecbrandy.github.io/tags/cs101/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>파일 디스크립터</title>
+      <link>https://elecbrandy.github.io/posts/cs101/filedescriptor/</link>
+      <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/cs101/filedescriptor/</guid>
+      <description>운영 체제에서 파일이나 입출력 자원을 식별하기 위해 사용하는 정수형 식별자</description>
+    </item>
+    <item>
+      <title>C언어 빌드과정</title>
+      <link>https://elecbrandy.github.io/posts/cs101/buildc/</link>
+      <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/cs101/buildc/</guid>
+      <description>The script that automates software build processes with the make utility</description>
+    </item>
+    <item>
+      <title>Makefile</title>
+      <link>https://elecbrandy.github.io/posts/cs101/makefile/</link>
+      <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/cs101/makefile/</guid>
+      <description>The script that automates software build processes with the make utility</description>
+    </item>
+  </channel>
+</rss>

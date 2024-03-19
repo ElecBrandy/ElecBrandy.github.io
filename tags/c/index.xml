@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on Elecbrandy</title>
+    <link>https://elecbrandy.github.io/tags/c/</link>
+    <description>Recent content in C on Elecbrandy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://elecbrandy.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[42cursus] Born2beroot</title>
+      <link>https://elecbrandy.github.io/posts/42cursus/born2beroot/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/42cursus/born2beroot/</guid>
+      <description>YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD</description>
+    </item>
+    <item>
+      <title>[42cursus] GET_NEXT_LINE</title>
+      <link>https://elecbrandy.github.io/posts/42cursus/get_next_line/</link>
+      <pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/42cursus/get_next_line/</guid>
+      <description>Reading a line on a fd is way too tedious</description>
+    </item>
+    <item>
+      <title>[42cursus] FT_PRINTF</title>
+      <link>https://elecbrandy.github.io/posts/42cursus/ft_printf/</link>
+      <pubDate>Wed, 15 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/42cursus/ft_printf/</guid>
+      <description>putnbr and putstr aren’t enough</description>
+    </item>
+    <item>
+      <title>[42cursus] LIBFT</title>
+      <link>https://elecbrandy.github.io/posts/42cursus/libft/</link>
+      <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/42cursus/libft/</guid>
+      <description>Your very first own library&#xA;Libft 42서울 본과정 입과 후 첫번째로 만나는 과제로 앞으로 본과정에서 사용할 라이브러리를 만드는 것이 목표이다. 이후 과제를 수행하며 자주 사용할 함수들이 몇가지 있기 때문에 최대한 범용성 높게 - 커스텀하기 쉽게 만드는 것을 목표로 했다. 항상 느끼는 것이지만 norm 규칙의 첫번째 목표는 카뎃이 다른 카뎃의 코드를 보았을 때 최소한의 일관성을 유지하여 쉽게 읽을 수 있게 하는 것&amp;hellip; 이고 두번째는 코드 길이를 적당히 조절함으로써 자연스럽게 모듈화를 하게 하는 것.</description>
+    </item>
+    <item>
+      <title>C언어 빌드과정</title>
+      <link>https://elecbrandy.github.io/posts/cs101/buildc/</link>
+      <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/cs101/buildc/</guid>
+      <description>The script that automates software build processes with the make utility</description>
+    </item>
+    <item>
+      <title>Makefile</title>
+      <link>https://elecbrandy.github.io/posts/cs101/makefile/</link>
+      <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/cs101/makefile/</guid>
+      <description>The script that automates software build processes with the make utility</description>
+    </item>
+  </channel>
+</rss>

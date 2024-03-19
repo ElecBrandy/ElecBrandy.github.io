@@ -6,8 +6,22 @@
     <description>Recent content in Tags on Elecbrandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://elecbrandy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>42Seoul</title>
+      <link>https://elecbrandy.github.io/tags/42seoul/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/42seoul/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C</title>
+      <link>https://elecbrandy.github.io/tags/c/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/c/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Tag1</title>
       <link>https://elecbrandy.github.io/tags/tag1/</link>
@@ -34,6 +48,69 @@
       <link>https://elecbrandy.github.io/tags/red/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/red/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>42cursus</title>
+      <link>https://elecbrandy.github.io/tags/42cursus/</link>
+      <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/42cursus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CS101</title>
+      <link>https://elecbrandy.github.io/tags/cs101/</link>
+      <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/cs101/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Born2beroot</title>
+      <link>https://elecbrandy.github.io/tags/born2beroot/</link>
+      <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/born2beroot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://elecbrandy.github.io/tags/linux/</link>
+      <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OS</title>
+      <link>https://elecbrandy.github.io/tags/os/</link>
+      <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/os/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>https://elecbrandy.github.io/tags/ai/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Colab</title>
+      <link>https://elecbrandy.github.io/tags/colab/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/colab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://elecbrandy.github.io/tags/python/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UIUX</title>
+      <link>https://elecbrandy.github.io/tags/uiux/</link>
+      <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/uiux/</guid>
       <description></description>
     </item>
   </channel>

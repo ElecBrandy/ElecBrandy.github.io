@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>[42cursus] FT_PRINTF | Elecbrandy</title>
+
+      <link rel="stylesheet" href="/css/main.min.0a80fde61a7926eab09bd0cd94577318b88beaa7cbb18c0974dc480ef7425324.css" integrity="sha256-CoD95hp5Juqwm9DNlFdzGLiL6qfLsYwJdNxIDvdCUyQ=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/min700.min.2bcf847d60d198d878bbf49b39374a02cdc7cd4e66411bfa42ada12fe8b580ba.css" integrity="sha256-K8&#43;EfWDRmNh4u/SbOTdKAs3HzU5mQRv6Qq2hL&#43;i1gLo=" crossorigin="anonymous">
+
+
+      <script src="/js/main.0740a53bb4495dfc0d897c89f56fe801f29d1ad0d7e20f51491e421debb12f67.js" integrity="sha256-B0ClO7RJXfwNiXyJ9W/oAfKdGtDX4g9RSR5CHeuxL2c=" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6vP0kLaVwmS/tB1lCew8HlB/iMDmD4B9Vq3OU9bfXjMWmWrARyAZF9a3F7sKwDx" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+  <header>
+    <header class="header-other">
+	<div class="header-container">
+		<div class="header-title">
+			<a href="https://elecbrandy.github.io/">Elecbrandy</a>
+	  	</div>
+	  	<ul class="header-menu">
+			<li><a href="https://elecbrandy.github.io//tags">TAGS</a></li>
+			<li><a href="https://elecbrandy.github.io//about">ABOUT</a></li>
+			<button id="theme-toggle" aria-label="Toggle theme">
+				<img src="/dark.svg" alt="Dark mode" id="dark-icon">
+				<img src="/light.svg" alt="Light mode" id="light-icon">
+			  </button>
+		</ul>
+	</div>
+	
+		<div class="progress-bar"></div>
+  	
+</header>
+
+  </header>
+  
+    
+        <div class="pre-content" style="background-image: url('http://t1.daumcdn.net/cfile/146B7E10B091A05214');"></div>
+        <div class="pre-title">
+            
+            
+            <time datetime="2023-11-15T00:00:00&#43;00:00">November 15, 2023</time>
+            <h1>[42cursus] FT_PRINTF</h1>
+        </div>
+    
+
+
+  <div class="content">
+    
+  <blockquote>
+<p>putnbr and putstr aren’t enough</p>
+</blockquote>
+<br>
+<p>42서울 본과정 입과 후 두번째로 수행한 과제로, 말 그대로 C언어의 <code>printf</code> 함수를 재현하는 과제이다. bonus는 수행하지 않았고, 기본적인 내용만 구현하다보니 생각보다 난이도가 쉬웠던 것 같다.</p>
+<br>
+<h1 id="01-소개">01 소개</h1>
+<p>libc의 <code>printf</code> 함수를 재구현해야 하며, 실제 <code>printf</code>처럼 버퍼 관리를 수행해서는 안 된다. 서식 지정자 <code>cspdiuxX%</code>를 구현해야한다.</p>
+<br>
+<h1 id="02-ft_printf-명세서">02 <code>FT_PRINTF</code> 명세서</h1>
+<ul>
+<li><strong>PROTOTYPE</strong>
+<ul>
+<li><code>int ft_printf(const char *str, ...);</code></li>
+</ul>
+</li>
+<li><strong>PARAMETER</strong>
+<ul>
+<li><code>const char *str</code> : format 이라는 이름의 문자열 상수 (서식 문자열)</li>
+<li><code>...</code> : 생략 기호로, 두번째 이후 인수부터는 인수의 개수와 타입을 점검하지 않으며, 컴파일러는 이후의 인수에 대해서 개수, 타입에 상관없이 그대로 함수에 넘겨줌</li>
+</ul>
+</li>
+<li><strong>DESCRIPTION</strong>
+<ul>
+<li><code>%c</code> 단일 문자를 인쇄</li>
+<li><code>%s</code> 문자열을 인쇄</li>
+<li><code>%p</code> void * 포인터 인수는 16진수 형식으로 인쇄</li>
+<li><code>%d</code> 십진수(기본 10)를 인쇄</li>
+<li><code>%i</code> 기본 10의 정수를 인쇄</li>
+<li><code>%u</code> 부호 없는 10진수(베이스 10)를 인쇄</li>
+<li><code>%x</code> 16진수(베이스 16) 소문자 형식으로 숫자를 인쇄</li>
+<li><code>%X</code> 16진수(베이스 16) 대문자 형식으로 숫자를 인쇄</li>
+<li><code>%%</code> 백분율 기호를 인쇄</li>
+<li><code>External functs</code>
+<ul>
+<li>malloc, free, write</li>
+<li>va_start, va_arg, va_copy, va_end</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>RETURN VALUES</strong>
+<ul>
+<li><em>Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings).</em></li>
+<li>성공적으로 반환되면, 이 함수들은 인쇄된 문자 수를 반환합니다.(출력을 끝내는 데 사용되는 널 바이트 제외) 문자열을 반환합니다.</li>
+</ul>
+</li>
+</ul>
+<br>
+<h1 id="03-mandatory">03 Mandatory</h1>
+<img src="https://imgur.com/Ghuekwt.png" width="700">
+<h2 id="mandatory-구현">Mandatory 구현</h2>
+<h3 id="ft_printf"><code>ft_printf</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span>	<span style="color:#a6e22e">ft_printf</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>format, ...)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span>		print_cnt;
+</span></span><span style="display:flex;"><span>	va_list	ap;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">va_start</span>(ap, format);
+</span></span><span style="display:flex;"><span>	print_cnt <span style="color:#f92672">=</span> <span style="color:#a6e22e">ft_print_format</span>(format, ap);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">va_end</span>(ap);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> (print_cnt);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>우선 <code>printf</code>의 return 값은 print된 문자의 수이므로 <code>printf_cnt</code> 함수에 담았다가 return 하는 방식을 선택했다.</p>
+<br>
+<h3 id="ft_printf_format"><code>ft_printf_format</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span>	<span style="color:#a6e22e">ft_print_format</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>str, va_list ap)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span>	print_cnt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	print_cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (<span style="color:#f92672">*</span>str)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (<span style="color:#f92672">*</span>str <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;%&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">ft_isformat</span>(<span style="color:#f92672">*</span>(str <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">ft_parse_format</span>(<span style="color:#f92672">*</span>(str <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>), ap, <span style="color:#f92672">&amp;</span>print_cnt);
+</span></span><span style="display:flex;"><span>			str<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">ft_putchar_fd</span>(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">*</span>str, <span style="color:#f92672">&amp;</span>print_cnt);
+</span></span><span style="display:flex;"><span>		str<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> (print_cnt);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>함수 <code>ft_printf_format</code>은 인자로 받은 <code>const char *fortmat</code>을 문자 <code>%</code>가 나올 때까지 탐색한다. 문자 <code>%</code>을 발견하면, <code>%</code> 바로 뒤의 포맷을 확인해서 해당하는 포맷과 알맞은 출력을 진행한다.</p>
+<br>
+<h1 id="04-ft_printf-주의사항">04 <code>FT_PRINTF</code> 주의사항</h1>
+<h2 id="가변인자">가변인자</h2>
+<p>가변인자 다루는 것에 중점을 둔 과제인 만큼, <code>va_</code> 함수를 통해 가변인자를 통제하는 방법을 알아야한다.</p>
+<br>
+<h2 id="한번쯤-고민해볼만한-charva_argap-int">한번쯤 고민해볼만한 <code>(char)va_arg(ap, int);</code></h2>
+<h3 id="과연-바이트-패딩-때문일까">과연 바이트 패딩 때문일까?</h3>
+<p>우리는 왜 char형을 읽는 순간 <code>(char)va_arg(ap, int);</code> 을 사용하는가? char형 자료를 읽는데 왜 int형 만큼 읽어오는 것인가?
+바이트 패딩은 CPU가 데이터를 효율적으로 처리하게 하는 데 중요한 역할을 하며, 당연하게도 이는 32비트와 64비트 운영 체제 간의 데이터 처리 방식에 차이를 가져온다.</p>
+<h3 id="바이트-패딩만으로-설명할-수-있을까">바이트 패딩만으로 설명할 수 있을까?</h3>
+<p>다만 바이트 패딩만으로 위 질문에 답하기 애매한것은 운영체제의 비트에 따라 데이터 처리 단위가 상이하기 때문이다. 32비트 운영 체제는 4바이트, 64비트 운영 체제는 8바이트 단위로 데이터를 처리하기 때문에, 카뎃의 의도가 정말 바이트 패딩을 통해 데이터를 효율적으로 처리하기 위함이었다면 운영체제의 종류를 고민한 흔적이 코드에 들어있어야 할 것 이다. 그렇지만 대부분 <code>(char)va_arg(ap, int);</code> 을 명시적으로 사용하곤 한다.</p>
+<h3 id="원시-c언어의-흔적">원시 C언어의 흔적</h3>
+<p>유력한 다른 이유는 원시 C언어 시절에는 함수 프로토타입이 존재하지 않았기 때문에, 함수로 전달되는 인자의 정확한 자료형을 알 수 없었다. 따라서 모든 인자는 int로 처리되었고, 이러한 관행의 흔적이라고 보는 것이 좀 더 타당해보인다.</p>
+<br>
+<h2 id="진수-변환">진수 변환</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span>    <span style="color:#a6e22e">ft_putbase</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> n, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>base, <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> number, <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>cnt)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">*</span>cnt <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">/</span> number <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">ft_putbase</span>(n <span style="color:#f92672">/</span> number, base, number, cnt);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ft_putchar_fd</span>(<span style="color:#ae81ff">1</span>, base[n <span style="color:#f92672">%</span> number], cnt);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>진법에 맞는 숫자로 출력을 원할 때, 재귀를 사용하면 생각보다 코드가 깔끔해진다.</p>
+<br>
+<h1 id="05-reference">05 Reference</h1>
+<ul>
+<li><a href="https://jangsalt.tistory.com/entry/%EA%B0%80%EB%B3%80-%EC%9D%B8%EC%88%98-vastart-vaend-vaarg-valist">https://jangsalt.tistory.com/entry/%EA%B0%80%EB%B3%80-%EC%9D%B8%EC%88%98-vastart-vaend-vaarg-valist</a></li>
+<li><a href="https://jhnyang.tistory.com/293">https://jhnyang.tistory.com/293</a></li>
+<li><a href="https://www.gnu.org/software/libc/manual/html_node/Argument-Macros.html">https://www.gnu.org/software/libc/manual/html_node/Argument-Macros.html</a></li>
+<li><a href="https://azrael.digipen.edu/~mmead/www/Courses/CS120/VariadicFunctions.html#STACKS">https://azrael.digipen.edu/~mmead/www/Courses/CS120/VariadicFunctions.html#STACKS</a></li>
+</ul>
+<br>
+<div class="alert">
+    <span><a href="https://elecbrandy.github.io/tags/42cursus"> 42cursus </a></span>
+</div>
+
+<br>
+
+
+  </div>
+  <footer>
+    
+
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop({
+  diameter: 40,
+  backgroundColor: 'rgb(255, 83, 176)',
+  textColor: '#fff'
+})</script>
+
+  </footer>
+</body>
+</html>

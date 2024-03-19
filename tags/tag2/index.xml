@@ -13,7 +13,7 @@
       <link>https://elecbrandy.github.io/posts/post-4/</link>
       <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/post-4/</guid>
-      <description>&#xA;On this page, we&amp;rsquo;ll introduce you to shortcuts that FreshPink supports for pages. We&amp;rsquo;ll be adding more of these in the future.&#xA;alert&#xA;This works similarly to a button that lets you jump to a link of your choice. You can associate this with a specific tag, home, post, etc.&#xA;{{&amp;lt; alert &amp;gt;}} &amp;lt;a href=&amp;#34;https://example.org/&amp;#34;&amp;gt;placeholder&amp;lt;/a&amp;gt; {{&amp;lt; /alert &amp;gt;}} @example placeholder </description>
+      <description>On this page, we&amp;rsquo;ll introduce you to shortcuts that FreshPink supports for pages. We&amp;rsquo;ll be adding more of these in the future.&#xA;alert&#xA;This works similarly to a button that lets you jump to a link of your choice. You can associate this with a specific tag, home, post, etc.&#xA;{{&amp;lt; alert &amp;gt;}} &amp;lt;a href=&amp;#34;https://example.org/&amp;#34;&amp;gt;placeholder&amp;lt;/a&amp;gt; {{&amp;lt; /alert &amp;gt;}} @example placeholder freshquote&#xA;This is to help you use more customized quotes.</description>
     </item>
     <item>
       <title>03. Features</title>

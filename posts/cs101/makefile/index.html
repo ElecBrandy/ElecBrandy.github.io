@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Makefile | Elecbrandy</title>
+
+      <link rel="stylesheet" href="/css/main.min.0a80fde61a7926eab09bd0cd94577318b88beaa7cbb18c0974dc480ef7425324.css" integrity="sha256-CoD95hp5Juqwm9DNlFdzGLiL6qfLsYwJdNxIDvdCUyQ=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/min700.min.2bcf847d60d198d878bbf49b39374a02cdc7cd4e66411bfa42ada12fe8b580ba.css" integrity="sha256-K8&#43;EfWDRmNh4u/SbOTdKAs3HzU5mQRv6Qq2hL&#43;i1gLo=" crossorigin="anonymous">
+
+
+      <script src="/js/main.0740a53bb4495dfc0d897c89f56fe801f29d1ad0d7e20f51491e421debb12f67.js" integrity="sha256-B0ClO7RJXfwNiXyJ9W/oAfKdGtDX4g9RSR5CHeuxL2c=" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6vP0kLaVwmS/tB1lCew8HlB/iMDmD4B9Vq3OU9bfXjMWmWrARyAZF9a3F7sKwDx" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+  <header>
+    <header class="header-other">
+	<div class="header-container">
+		<div class="header-title">
+			<a href="https://elecbrandy.github.io/">Elecbrandy</a>
+	  	</div>
+	  	<ul class="header-menu">
+			<li><a href="https://elecbrandy.github.io//tags">TAGS</a></li>
+			<li><a href="https://elecbrandy.github.io//about">ABOUT</a></li>
+			<button id="theme-toggle" aria-label="Toggle theme">
+				<img src="/dark.svg" alt="Dark mode" id="dark-icon">
+				<img src="/light.svg" alt="Light mode" id="light-icon">
+			  </button>
+		</ul>
+	</div>
+	
+		<div class="progress-bar"></div>
+  	
+</header>
+
+  </header>
+  
+    
+        <div class="pre-content" style="background-image: url('https://images.unsplash.com/photo-1589557944589-c1d0eaabc88e?w=900&amp;auto=format&amp;fit=crop&amp;q=60&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8JUVCJTgzJTg0JUVCJUI5JTg0JTIwJUVDJTlBJTk0JUVCJUE2JUFDfGVufDB8fDB8fHww');"></div>
+        <div class="pre-title">
+            
+            
+            <time datetime="2023-11-03T00:00:00&#43;00:00">November 3, 2023</time>
+            <h1>Makefile</h1>
+        </div>
+    
+
+
+  <div class="content">
+    
+  <blockquote>
+<p>The script that automates software build processes with the make utility</p>
+</blockquote>
+<p>Makefile은 소프트웨어 개발 과정에서 빌드를 자동화하는 강력한 도구이다. 복잡한 빌드 단계를 단순하고 반복 가능하게 만들어 주는 것이 핵심 기능이다. 프로그래머들에게 시간을 절약하고 오류를 줄여주는 데 큰 도움을 준다.
+<br></p>
+<h1 id="makefile">Makefile</h1>
+<ul>
+<li><code>Makefile</code> 이란 자동화, 의존성 관리, 효율성, 모듈성, 표준화를 목적으로 함
+<ul>
+<li>자동화
+<ul>
+<li>복잡한 빌드 명령어를 자동화하여 개발자가 빌드 프로세스를 쉽게 반복</li>
+</ul>
+</li>
+<li>의존성 관리
+<ul>
+<li>소스 파일과 헤더 파일 간의 의존성을 추적하여 변경 시에만 관련 파일을 재컴파일</li>
+</ul>
+</li>
+<li>효율성
+<ul>
+<li>전체 프로젝트를 빌드하는 대신 변경된 부분만 빌드하여 시간과 자원을 절약</li>
+</ul>
+</li>
+<li>모듈성
+<ul>
+<li>빌드 프로세스를 여러 단계로 분리하여 복잡성을 관리해 유지보수가 용이</li>
+</ul>
+</li>
+<li>표준화
+<ul>
+<li>일관된 빌드 절차로 다른 개발자가 쉽게 이해하고 사용할 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>Makefile</code> 의 기본적 구성
+<ul>
+<li><code>target</code> : 하나의 실행 가능 파일</li>
+<li><code>dependency</code> : 하나의 대상과 그것이 의존하는 소스파일</li>
+<li><code>rule</code> : 의존 파일들로부터 대상 파일을 생성하는 방법을 정의</li>
+</ul>
+</li>
+</ul>
+<br>
+<h2 id="예시">예시</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>CC <span style="color:#f92672">=</span> cc
+</span></span><span style="display:flex;"><span>CFLAGS <span style="color:#f92672">=</span> -Wall -Wextra -Werror
+</span></span><span style="display:flex;"><span>INS <span style="color:#f92672">=</span> .
+</span></span><span style="display:flex;"><span>NAME <span style="color:#f92672">=</span> libft.a
+</span></span></code></pre></div><ul>
+<li><code>cc</code> 컴파일러와 <code>-Wall -Wextra -Werror</code> 옵션을 이용할 예정</li>
+<li>헤더파일을 검색할 곳은 <code>.</code> 즉 현재 폴더</li>
+<li>최종으로 만들 것 <code>libft.a</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span>SRCS <span style="color:#f92672">=</span> ~.c
+</span></span><span style="display:flex;"><span>OBJS <span style="color:#f92672">=</span> <span style="color:#66d9ef">$(</span>SRCS:.c<span style="color:#f92672">=</span>.o<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SRC_BONUS <span style="color:#f92672">=</span> ~~.c
+</span></span><span style="display:flex;"><span>OBJS_BONUS <span style="color:#f92672">=</span> <span style="color:#66d9ef">$(</span>SRC_BONUS:.c<span style="color:#f92672">=</span>.o<span style="color:#66d9ef">)</span>
+</span></span></code></pre></div><ul>
+<li><code>SRCS</code> 는 사용자가 설정한 <code>.c</code> 확장자 파일을 뜻하며, <code>SRCS</code> 에서 파생된 <code>.o</code> 파일을 <code>OBJS</code> 라고 정의함</li>
+<li><code>SRCS_BONUS</code> 는 사용자가 설정한 <code>.c</code> 확장자 파일을 뜻하며, <code>SRCS_BONUS</code> 에서 파생된 <code>.o</code> 파일을 <code>OBJS_BONUS</code> 라고 정의함</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span><span style="color:#a6e22e">all </span><span style="color:#f92672">:</span> <span style="color:#66d9ef">$(</span>NAME<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$(NAME) </span><span style="color:#f92672">:</span> <span style="color:#66d9ef">$(</span>OBJS<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>	ar -rc $@ $^
+</span></span></code></pre></div><ul>
+<li><code>$(NAME)</code> 라는 의존성 파일로부터 타겟인 <code>all</code> 을 생성(하겠음)</li>
+<li><code>$(OBJS)</code> 라는 의존성 파일로부터 타겟인 <code>$(NAME)</code> 을 생성(하겠음)
+<ul>
+<li><code>ar</code> : 아카이브 유틸리티를 의미하며 정적 라이브러리를 생성, 수정 시 사용</li>
+<li><code>-r</code> : <code>ar</code> 에 주어진 옵션으로, 라이브러리에 파일을 추가하거나 기존 파일을 대체하라는 의미</li>
+<li><code>-c</code> : <code>ar</code> 에 주어진 옵션으로, 라이브러리 생성 시 경고메세지를 억제하라는 의미</li>
+<li><code>$@</code> : 현재 타겟을 의미하는 자동 변수</li>
+<li><code>$^</code> : 현재 모든 의존성 리스트를 의미하는 자동변수</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">ifdef</span> <span style="color:#960050;background-color:#1e0010">tmp</span>
+</span></span><span style="display:flex;"><span>	OBJS <span style="color:#f92672">:=</span> <span style="color:#66d9ef">$(</span>OBJS<span style="color:#66d9ef">)</span> <span style="color:#66d9ef">$(</span>OBJS_BONUS<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">endif</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bonus </span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span> 	@tmp<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> make
+</span></span></code></pre></div><ul>
+<li><code>bonus</code> 명령어의 경우 <code>tmp=1</code> 경우의 <code>make</code> 를 수행함</li>
+<li><code>@</code> 의 경우 명령어의 출력을 가려줌</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span><span style="color:#a6e22e">%.o</span><span style="color:#f92672">:</span> %.c
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">$(</span>CC<span style="color:#66d9ef">)</span> <span style="color:#66d9ef">$(</span>CFLAGS<span style="color:#66d9ef">)</span> -c $&lt; -o $@ -I<span style="color:#66d9ef">$(</span>INS<span style="color:#66d9ef">)</span>
+</span></span></code></pre></div><ul>
+<li><code>%.c</code> 라는 의존성 파일로부터 타겟인 <code>%.o</code> 를 생성(하겠음)
+<ul>
+<li><code>$(CC) $(CFLAGS)</code> : 앞서 설정한 다양한 변수에 담긴 내용</li>
+<li><code>-c</code> : 컴파일러에게 컴파일만하고 링킹을 하지 말라는 옵션 only compile</li>
+<li><code>$&lt;</code> : 현재 의존성 목록에서 첫 번째 요소로, 현재 처리 중인 <code>.c</code> 파일</li>
+<li><code>-o $@</code> : 출력 파일로 , <code>$@</code> 는 현재 타겟을 의미</li>
+<li><code>-I$(INS)</code> : 컴파일러에게 include files의 위치를 알려줌
+<ul>
+<li>여기서 $(INS)는 include 디렉터리를 지정하는 변수!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span><span style="color:#a6e22e">clean </span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	rm -f <span style="color:#66d9ef">$(</span>OBJS<span style="color:#66d9ef">)</span> <span style="color:#66d9ef">$(</span>OBJS_BONUS<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fclean </span><span style="color:#f92672">:</span> clean
+</span></span><span style="display:flex;"><span>	rm -f <span style="color:#66d9ef">$(</span>NAME<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">re </span><span style="color:#f92672">:</span> fclean all
+</span></span></code></pre></div><ul>
+<li><code>clean</code> 의 경우 <code>rm -f $(OBJS) $(OBJS_BONUS)</code> 를 이행함</li>
+<li><code>fclean</code> 의 경우 <code>clean</code> 을 의존성 파일로 가지고 있음
+<ul>
+<li>실행 시 <code>clean</code> 이후 <code>rm -f $(NAME)</code> 를 이행함</li>
+</ul>
+</li>
+<li><code>re</code> 의 경우 <code>fclean</code> 이후  <code>all</code> 을 이행함</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span><span style="color:#a6e22e">.PHONY</span><span style="color:#f92672">:</span> all clean fclean re bonus
+</span></span></code></pre></div><ul>
+<li><code>.PHONY</code> 타겟은 makefile 내에서 가짜 타겟이나 특별한 타겟을 명시하기 위해 사용됨
+<ul>
+<li>해당 설정을 하지 않을 경우 대상 파일 내에 <code>clean</code> 이 존재할 경우, <code>make clean</code> 을 실행하면 단순히 해당 파일의 타임스탬프만 확인하고 아무 일도 없을 수 있음</li>
+</ul>
+</li>
+</ul>
+<br>
+<h2 id="relink">Relink</h2>
+<ul>
+<li>Relink란 소스파일이 수정되지 않은 상태에서 <code>make</code> 명령어를 다시 실행했을 때 <code>.a</code> 이 다시 만들어지는 것</li>
+<li><a href="../42cursus/libft.md">Libft</a> 에서 bonus 과제와 관련된 Relink 문제 발생
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span><span style="color:#a6e22e">bonus </span><span style="color:#f92672">:</span> <span style="color:#66d9ef">$(</span>OBJS<span style="color:#66d9ef">)</span> <span style="color:#66d9ef">$(</span>OBJS_BONUS<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>	ar -rsc $@ $^
+</span></span></code></pre></div><ul>
+<li>Makefile은 타겟 파일을 만들면서 의존성파일의 타임 스탬프를 항상 확인함</li>
+<li>이때 bonus의 경우 타겟 파일이 아닌 명령어이기 때문에, make는 타임스탬프는 확인하지만 일단 주어진 명령(레시피)을 무조건 실행함</li>
+<li>타임스탬프를 비교할 파일이 없는 것과 다름없음</li>
+<li>이 과정에서 make bonus를 할 경우 relink가 계속 일어날 수 있음</li>
+</ul>
+</li>
+</ul>
+<br>
+<h2 id="test">Test</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Makefile" data-lang="Makefile"><span style="display:flex;"><span><span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">$(</span>OBJS<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">$(</span>CC<span style="color:#66d9ef">)</span> <span style="color:#66d9ef">$(</span>CFLAGS<span style="color:#66d9ef">)</span> $^ -o a.out
+</span></span></code></pre></div><br>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://www.gnu.org/software/make/manual/make.html#Archive-Suffix-Rules">https://www.gnu.org/software/make/manual/make.html#Archive-Suffix-Rules</a></li>
+<li><a href="https://www.ibm.com/docs/ko/aix/7.2?topic=ar-command">https://www.ibm.com/docs/ko/aix/7.2?topic=ar-command</a></li>
+</ul>
+<br>
+<div class="alert">
+    <span><a href="https://elecbrandy.github.io/tags/CS101"> CS101 </a></span>
+</div>
+
+
+
+  </div>
+  <footer>
+    
+
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop({
+  diameter: 40,
+  backgroundColor: 'rgb(255, 83, 176)',
+  textColor: '#fff'
+})</script>
+
+  </footer>
+</body>
+</html>
