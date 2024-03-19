@@ -62,7 +62,7 @@
       <link>https://elecbrandy.github.io/posts/cs101/makefile/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/cs101/makefile/</guid>
-      <description>The script that automates software build processes with the make utility&#xA;Makefile은 소프트웨어 개발 과정에서 빌드를 자동화하는 강력한 도구이다. 복잡한 빌드 단계를 단순하고 반복 가능하게 만들어 주는 것이 핵심 기능이다. 프로그래머들에게 시간을 절약하고 오류를 줄여주는 데 큰 도움을 준다. Makefile Makefile 이란 자동화, 의존성 관리, 효율성, 모듈성, 표준화를 목적으로 함 자동화 복잡한 빌드 명령어를 자동화하여 개발자가 빌드 프로세스를 쉽게 반복 의존성 관리 소스 파일과 헤더 파일 간의 의존성을 추적하여 변경 시에만 관련 파일을 재컴파일 효율성 전체 프로젝트를 빌드하는 대신 변경된 부분만 빌드하여 시간과 자원을 절약 모듈성 빌드 프로세스를 여러 단계로 분리하여 복잡성을 관리해 유지보수가 용이 표준화 일관된 빌드 절차로 다른 개발자가 쉽게 이해하고 사용할 수 있음 Makefile 의 기본적 구성 target : 하나의 실행 가능 파일 dependency : 하나의 대상과 그것이 의존하는 소스파일 rule : 의존 파일들로부터 대상 파일을 생성하는 방법을 정의 예시 CC = cc CFLAGS = -Wall -Wextra -Werror INS = .</description>
+      <description>The script that automates software build processes with the make utility&#xA;Makefile 은 소프트웨어 개발 과정에서 빌드를 자동화하는 강력한 도구이다. 복잡한 빌드 단계를 단순하고 반복 가능하게 만들어 주는 것이 핵심 기능이다. 프로그래머들에게 시간을 절약하고 오류를 줄여주는 데 큰 도움을 준다. Makefile Makefile 이란 자동화, 의존성 관리, 효율성, 모듈성, 표준화를 목적으로 함 자동화 복잡한 빌드 명령어를 자동화하여 개발자가 빌드 프로세스를 쉽게 반복 의존성 관리 소스 파일과 헤더 파일 간의 의존성을 추적하여 변경 시에만 관련 파일을 재컴파일 효율성 전체 프로젝트를 빌드하는 대신 변경된 부분만 빌드하여 시간과 자원을 절약 모듈성 빌드 프로세스를 여러 단계로 분리하여 복잡성을 관리해 유지보수가 용이 표준화 일관된 빌드 절차로 다른 개발자가 쉽게 이해하고 사용할 수 있음 Makefile 의 기본적 구성 target : 하나의 실행 가능 파일 dependency : 하나의 대상과 그것이 의존하는 소스파일 rule : 의존 파일들로부터 대상 파일을 생성하는 방법을 정의 예시 CC = cc CFLAGS = -Wall -Wextra -Werror INS = .</description>
     </item>
     <item>
       <title>2023 데이터 청년 캠퍼스</title>
