@@ -5,9 +5,7 @@ featured_image = "http://t1.daumcdn.net/cfile/146B7E10B091A05214"
 tags = ['C', '42Seoul']
 +++
 
-{{<freshquote>}}
 > putnbr and putstr aren’t enough
-{{</freshquote>}}
 
 <br>
 

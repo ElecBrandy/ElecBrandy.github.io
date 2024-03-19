@@ -5,9 +5,7 @@ featured_image = "https://images.unsplash.com/photo-1589557944589-c1d0eaabc88e?w
 tags = ['C', '42Seoul', 'CS101']
 +++
 
-{{<freshquote>}}
-The script that automates software build processes with the make utility
-{{</freshquote>}}
+> The script that automates software build processes with the make utility
 
 <br>
 

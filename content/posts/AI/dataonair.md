@@ -5,9 +5,7 @@ featured_image = "https://images.unsplash.com/photo-1504711434969-e33886168f5c?i
 tags = ["AI", "Colab", "Python"]
 +++
 
-{{<freshquote>}}
-2023 데이터 청년 캠퍼스 경제/금융분야 페이크 뉴스 탐지 시스템 구축을 주제로
-{{</freshquote>}}
+> 2023 데이터 청년 캠퍼스 경제/금융분야 페이크 뉴스 탐지 시스템 구축을 주제로
 
 <br>
 

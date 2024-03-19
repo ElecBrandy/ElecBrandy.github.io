@@ -5,9 +5,7 @@ featured_image = "http://t1.daumcdn.net/cfile/15110210A8445BF80D"
 tags = ['C', '42Seoul']
 +++
 
-{{<freshquote>}}
-Reading a line on a fd is way too tedious
-{{</freshquote>}}
+> Reading a line on a fd is way too tedious
 
 <br>
 

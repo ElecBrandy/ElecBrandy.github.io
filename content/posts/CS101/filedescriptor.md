@@ -5,9 +5,7 @@ featured_image = "http://db.kookje.co.kr/news2000/photo/2017/0117/L20170117.9900
 tags = ['C', '42Seoul', 'CS101']
 +++
 
-{{<freshquote>}}
-운영 체제에서 파일이나 입출력 자원을 식별하기 위해 사용하는...
-{{</freshquote>}}
+> 운영 체제에서 파일이나 입출력 자원을 식별하기 위해 사용하는...
 
 <br>
 

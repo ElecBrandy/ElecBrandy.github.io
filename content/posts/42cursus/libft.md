@@ -5,9 +5,7 @@ featured_image = "http://t1.daumcdn.net/cfile/116C5A10B09188A10A"
 tags = ['C', '42Seoul']
 +++
 
-{{<freshquote>}}
-Your very first own library
-{{</freshquote>}}
+> Your very first own library
 
 <br>
 

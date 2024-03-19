@@ -5,9 +5,7 @@ featured_image = "http://t1.daumcdn.net/cfile/14492610B091CC6254"
 tags = ['C', '42Seoul']
 +++
 
-
 > YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD
-
 
 <br>
 
