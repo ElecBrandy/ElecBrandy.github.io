@@ -1,12 +1,15 @@
----
-title: "파일 디스크립터"
-date: "2023-12-24"
-tags: ["42cursus", "CS101"]
-featured_image: "http://db.kookje.co.kr/news2000/photo/2017/0117/L20170117.99002154311i1.jpg"
-summary: "운영 체제에서 파일이나 입출력 자원을 식별하기 위해 사용하는 정수형 식별자"
----
++++
+title = 'File descriptor'
+date = 2023-12-24
+featured_image = "http://db.kookje.co.kr/news2000/photo/2017/0117/L20170117.99002154311i1.jpg"
+tags = ['C', '42Seoul', 'CS101']
++++
 
-> 운영 체제에서 파일이나 입출력 자원을 식별하기 위해 사용하는...
+{{<freshquote>}}
+운영 체제에서 파일이나 입출력 자원을 식별하기 위해 사용하는...
+{{</freshquote>}}
+
+<br>
 
 Libft 과제에 이어 get_next_line 과제를 진행하던 중 파일 디스크립터 개념을 만나게 되어 정리했다. 결국은 파일에게 접근하기 위한 번호이자 거창하게는 파일 포인터 개념으로 이해하고 넘어가자.
 

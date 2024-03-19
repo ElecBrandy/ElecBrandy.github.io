@@ -1,12 +1,14 @@
----
-title: "C언어 빌드과정"
-date: "2023-11-03"
-tags: ["C", "42cursus", "CS101"]
-featured_image: "http://t1.daumcdn.net/cfile/180D9C41504A57C90D"
-summary: "The script that automates software build processes with the make utility"
----
 
-> 컴파일 언어(compiled language)는 코드가 실행되기 전 컴파일러를 거쳐서 기계어로 모두 변환되어 실행되는 프로그래밍 언어이다.
++++
+title = 'C build'
+date = 2023-11-03
+featured_image = "http://t1.daumcdn.net/cfile/180D9C41504A57C90D"
+tags = ['C', '42Seoul', 'CS101']
++++
+
+{{<freshquote>}}
+컴파일 언어(compiled language)는 코드가 실행되기 전 컴파일러를 거쳐서 기계어로 모두 변환되어 실행되는 프로그래밍 언어이다.
+{{</freshquote>}}
 
 <br>
 

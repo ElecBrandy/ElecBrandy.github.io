@@ -1,12 +1,15 @@
----
-title: "Makefile"
-date: "2023-11-03"
-tags: ["C", "42cursus", "CS101"]
-featured_image: "https://images.unsplash.com/photo-1589557944589-c1d0eaabc88e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8JUVCJTgzJTg0JUVCJUI5JTg0JTIwJUVDJTlBJTk0JUVCJUE2JUFDfGVufDB8fDB8fHww"
-summary: "The script that automates software build processes with the make utility"
----
++++
+title = 'Makefile'
+date = 2023-11-03
+featured_image = "https://images.unsplash.com/photo-1589557944589-c1d0eaabc88e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8JUVCJTgzJTg0JUVCJUI5JTg0JTIwJUVDJTlBJTk0JUVCJUE2JUFDfGVufDB8fDB8fHww"
+tags = ['C', '42Seoul', 'CS101']
++++
 
-> The script that automates software build processes with the make utility
+{{<freshquote>}}
+The script that automates software build processes with the make utility
+{{</freshquote>}}
+
+<br>
 
 Makefile은 소프트웨어 개발 과정에서 빌드를 자동화하는 강력한 도구이다. 복잡한 빌드 단계를 단순하고 반복 가능하게 만들어 주는 것이 핵심 기능이다. 프로그래머들에게 시간을 절약하고 오류를 줄여주는 데 큰 도움을 준다.
 <br>

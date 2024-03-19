@@ -5,11 +5,11 @@ featured_image = "http://t1.daumcdn.net/cfile/14492610B091CC6254"
 tags = ['C', '42Seoul']
 +++
 
-{{<freshquote>}}
-YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD
-{{</freshquote>}}
+
+> YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD
 
 
+<br>
 
 42서울 본과정 입과 후 네번째로 수행한 과제로, 가상머신에 리눅스를 설치하고 공부하는 과정이다.
 
