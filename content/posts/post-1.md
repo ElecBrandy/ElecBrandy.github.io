@@ -47,4 +47,3 @@ To begin using FreshPink for your development blog, follow the installation and 
 
 **_Happy blogging!_**
 Your journey to sharing your development insights and projects in a fresh, engaging way starts with FreshPink.
-
