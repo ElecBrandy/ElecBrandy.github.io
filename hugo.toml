@@ -3,3 +3,8 @@ languageCode = 'en-us'
 title = 'Elecbrandy'
 
 theme = "freshpink"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
