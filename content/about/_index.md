@@ -60,3 +60,12 @@ draft = false
 - 경제/금융분야 가짜뉴스 탐지 서비스 구축
 
 <br>
+
+
+<style>
+div.skill img {
+  width: auto;
+  height: 20px;
+  min-width: 10px;
+}
+</style>
