@@ -1,12 +1,13 @@
----
-title: "[42cursus] GET_NEXT_LINE"
-date: "2023-12-18"
-tags: ["C", "42Seoul"]
-featured_image: "http://t1.daumcdn.net/cfile/15110210A8445BF80D"
-summary: "Reading a line on a fd is way too tedious"
----
++++
+title = '[42cursus] GET_NEXT_LINE'
+date = 2023-12-18
+featured_image = "http://t1.daumcdn.net/cfile/15110210A8445BF80D"
+tags = ['C', '42Seoul']
++++
 
-> Reading a line on a fd is way too tedious
+{{<freshquote>}}
+Reading a line on a fd is way too tedious
+{{</freshquote>}}
 
 <br>
 

@@ -1,12 +1,15 @@
----
-title: "데이터 청년 캠퍼스"
-date: "2023-09-07"
-tags: ["AI", "Colab", "Python"]
-featured_image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80"
-summary: "페이크 뉴스 탐지 시스템 구축"
----
++++
+title = '2023 데이터 청년 캠퍼스'
+date = 2023-09-07
+featured_image = "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80"
+tags = ["AI", "Colab", "Python"]
++++
 
-> 2023 데이터 청년 캠퍼스 :: _경제/금융분야 페이크 뉴스 탐지 시스템 구축을 주제로_ ::
+{{<freshquote>}}
+2023 데이터 청년 캠퍼스 경제/금융분야 페이크 뉴스 탐지 시스템 구축을 주제로
+{{</freshquote>}}
+
+<br>
 
 3학년 여름방학에 데이터와 코딩 관련 경험을 해보고자 과학기술정보통신부와 한국데이터산업진흥원에서 국내 대학교와 함께 운영하는 **2023 데이터 청년 캠퍼스**에 신청했다. 사실 그렇게 전공이라고 보기에 애매한 상황에서 붙을 수 있을까 고민했는데, 다행히 선발되어 상명대학교 데이터융합과정 (빅데이터 분석 기반 금융분야 비즈니스 인사이트 역량제고 과정)에 참여하게 되었다. 크게 4주 동안의 집체교육, 이후 6주 동안의 프로젝트 기간으로 구성되어있으며 집체교육 동안에는 파이썬 기초부터 ~ 딥러닝(...의 형상을 하고있는 무언가)를 공부하게된다.
 

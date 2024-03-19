@@ -17,19 +17,20 @@ draft = false
 
 ## Skills
 ---
-<img src="https://img.shields.io/badge/C-0275d8?style=flat-square&logo=C&logoColor=white"/>
-<img src="https://img.shields.io/badge/Python-244e71?style=flat-square&logo=Python&logoColor=white"/>
-</br>
-<img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/>
-<img src="https://img.shields.io/badge/Hugo-FF4088?style=flat-square&logo=Hugo&logoColor=white"/>
-<br>
-<img src="https://img.shields.io/badge/Adobe-FF0000?style=flat-square&logo=Adobe&logoColor=white"/>
-<img src="https://img.shields.io/badge/Lightroom-31A8FF?style=flat-square&logo=adobelightroom&logoColor=white"/>
-<img src="https://img.shields.io/badge/Photoshop-03A9F4?style=flat-square&logo=adobephotoshop&logoColor=white"/>
-<img src="https://img.shields.io/badge/Illustrator-FF9A00?style=flat-square&logo=adobeillustrator&logoColor=white"/>
-<img src="https://img.shields.io/badge/Aftereffects-B388FF?style=flat-square&logo=adobeaftereffects&logoColor=white"/>
-<img src="https://img.shields.io/badge/Premierepro-9999FF?style=flat-square&logo=adobepremierepro&logoColor=white"/>
-
+<div class="skill">
+	<img src="https://img.shields.io/badge/C-0275d8?style=flat-square&logo=C&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Python-244e71?style=flat-square&logo=Python&logoColor=white"/>
+	</br>
+	<img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Hugo-FF4088?style=flat-square&logo=Hugo&logoColor=white"/>
+	<br>
+	<img src="https://img.shields.io/badge/Adobe-FF0000?style=flat-square&logo=Adobe&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Lightroom-31A8FF?style=flat-square&logo=adobelightroom&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Photoshop-03A9F4?style=flat-square&logo=adobephotoshop&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Illustrator-FF9A00?style=flat-square&logo=adobeillustrator&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Aftereffects-B388FF?style=flat-square&logo=adobeaftereffects&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Premierepro-9999FF?style=flat-square&logo=adobepremierepro&logoColor=white"/>
+</div>
 
 <br>
 <br>

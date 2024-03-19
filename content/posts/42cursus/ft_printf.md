@@ -1,12 +1,13 @@
----
-title: "[42cursus] FT_PRINTF"
-date: "2023-11-15"
-tags: ["C", "42Seoul"]
-featured_image: "http://t1.daumcdn.net/cfile/146B7E10B091A05214"
-summary: "putnbr and putstr aren’t enough"
----
++++
+title = '[42cursus] FT_PRINTF'
+date = 2023-11-15
+featured_image = "http://t1.daumcdn.net/cfile/146B7E10B091A05214"
+tags = ['C', '42Seoul']
++++
 
+{{<freshquote>}}
 > putnbr and putstr aren’t enough
+{{</freshquote>}}
 
 <br>
 

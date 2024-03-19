@@ -5,7 +5,9 @@ featured_image = "http://t1.daumcdn.net/cfile/116C5A10B09188A10A"
 tags = ['C', '42Seoul']
 +++
 
-> Your very first own library
+{{<freshquote>}}
+Your very first own library
+{{</freshquote>}}
 
 <br>
 
@@ -17,8 +19,7 @@ tags = ['C', '42Seoul']
 
 <br>
 
-# Libft 명세서
-
+> Libft 명세서
 ## Part 1 - Libs functions
 - ft_isalpha, ft_isdigit, ft_isalnum, ft_isascii, ft_isprint
 - ft_strlen , ft_memset, ft_bzero, ft_memcpy, ft_memmove, ft_strlcpy, ft_strlcat, ft_strncmp
@@ -35,7 +36,7 @@ tags = ['C', '42Seoul']
 
 <br>
 
-# Libft 주의사항
+> Libft 주의사항
 ### `size_t`
 - 해당 운영체제에서 포함할 수 있는 최대 크기의 데이터 타입으로, 32비트 운영체제에서 4바이트, 64비트 운영체제에서 8바이트로 정의되어있다.
 - 객체의 크리를 나타내는 부호 없는 정수 유형이다.
