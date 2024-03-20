@@ -13,7 +13,7 @@
       <link>https://elecbrandy.github.io/posts/42cursus/born2beroot/</link>
       <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/born2beroot/</guid>
-      <description>YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD&#xA;42서울 본과정 입과 후 네번째로 수행한 과제로, 가상머신에 리눅스를 설치하고 공부하는 과정이다.&#xA;01 소개 가상머신에 리눅스(Debian or Rocky)를 설치하고, LVM를 통한 파티션 설정과 기타 여러가지 기능을 직접 실습한다. 백문불여일견. 요구사항이 상당히 많고 처음 접한다면 배워야할 개념도 상당히 많다&amp;hellip; 화이팅! 리눅스 설치는 하다보면 100번이라도 해야만 하는 상황이기 때문에 중요한 개념 위주로만 정리했다.&#xA;02 Born2beroot 개념정리 운영체제 Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원을 사용할 수 있는 인터페이스를 제공하고, 그 결과를 돌려주는 시스템 소프트웨어이다.</description>
+      <description>YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD&#xA;01 소개 42서울 본과정 입과 후 네번째로 수행한 과제로, 가상머신에 리눅스를 설치하고 공부하는 과정이다. 가상머신에 리눅스(Debian or Rocky)를 설치하고, LVM를 통한 파티션 설정과 기타 여러가지 기능을 직접 실습한다. 백문불여일견. 요구사항이 상당히 많고 처음 접한다면 배워야할 개념도 상당히 많다&amp;hellip; 화이팅! 리눅스 설치는 하다보면 100번이라도 해야만 하는 상황이기 때문에 중요한 개념 위주로만 정리했다.&#xA;02 Born2beroot 개념정리 운영체제 Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원을 사용할 수 있는 인터페이스를 제공하고, 그 결과를 돌려주는 시스템 소프트웨어이다.</description>
     </item>
     <item>
       <title>File descriptor</title>
@@ -27,14 +27,14 @@
       <link>https://elecbrandy.github.io/posts/42cursus/get_next_line/</link>
       <pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/get_next_line/</guid>
-      <description>Reading a line on a fd is way too tedious&#xA;42서울 본과정 입과 후 세번째로 수행한 과제로, 파일 디스크립터로부터 읽혀진 - 개행으로 끝나는 한 줄을 반환하는 함수를 만드는 과제이다. 즉 파일 하나를 연 다음, 파일 내용에서 개행으로 끝나는 줄 하나를 반환해야한다.&#xA;01 소개 파일을 열고, 지정된 BUFFER_SIZE 만큼 read함수를 통해 파일을 읽다가 개행문자 \n이 나타나면 개행문자 전까지만 반환한다.&#xA;02 GET_NEXT_LINE 명세서 PROTOTYPE char *get_next_line(int fd); PARAMETER int fd : 읽어들일 파일의 디스크립터 DESCRIPTION Mandatory part 호출마다 한 번에 한 줄씩 파일 디스크립터가 가리키는 파일을 읽어온다.</description>
+      <description>Reading a line on a fd is way too tedious&#xA;01 소개 42서울 본과정 입과 후 세번째로 수행한 과제로, 파일 디스크립터로부터 읽혀진 - 개행으로 끝나는 한 줄을 반환하는 함수를 만드는 과제이다. 즉 파일 하나를 연 다음, 파일 내용에서 개행으로 끝나는 줄 하나를 반환해야한다. 파일을 열고, 지정된 BUFFER_SIZE 만큼 read함수를 통해 파일을 읽다가 개행문자 \n이 나타나면 개행문자 전까지만 반환한다.&#xA;02 GET_NEXT_LINE 명세서 PROTOTYPE char *get_next_line(int fd); PARAMETER int fd : 읽어들일 파일의 디스크립터 DESCRIPTION Mandatory part 호출마다 한 번에 한 줄씩 파일 디스크립터가 가리키는 파일을 읽어온다.</description>
     </item>
     <item>
       <title>[42cursus] FT_PRINTF</title>
       <link>https://elecbrandy.github.io/posts/42cursus/ft_printf/</link>
       <pubDate>Wed, 15 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/ft_printf/</guid>
-      <description>putnbr and putstr aren’t enough&#xA;42서울 본과정 입과 후 두번째로 수행한 과제로, 말 그대로 C언어의 printf 함수를 재현하는 과제이다. bonus는 수행하지 않았고, 기본적인 내용만 구현하다보니 생각보다 난이도가 쉬웠던 것 같다.&#xA;01 소개 libc의 printf 함수를 재구현해야 하며, 실제 printf처럼 버퍼 관리를 수행해서는 안 된다. 서식 지정자 cspdiuxX%를 구현해야한다.&#xA;02 FT_PRINTF 명세서 PROTOTYPE int ft_printf(const char *str, ...); PARAMETER const char *str : format 이라는 이름의 문자열 상수 (서식 문자열) .</description>
+      <description>putnbr and putstr aren’t enough&#xA;01 소개 42서울 본과정 입과 후 두번째로 수행한 과제로, 말 그대로 C언어의 printf 함수를 재현하는 과제이다. bonus는 수행하지 않았고, 기본적인 내용만 구현하다보니 생각보다 난이도가 쉬웠던 것 같다. libc의 printf 함수를 재구현해야 하며, 실제 printf처럼 버퍼 관리를 수행해서는 안 된다. 서식 지정자 cspdiuxX%를 구현해야한다.&#xA;02 FT_PRINTF 명세서 PROTOTYPE int ft_printf(const char *str, ...); PARAMETER const char *str : format 이라는 이름의 문자열 상수 (서식 문자열) .</description>
     </item>
     <item>
       <title>[42cursus] LIBFT</title>
