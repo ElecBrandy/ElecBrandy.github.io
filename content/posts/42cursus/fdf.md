@@ -1,8 +1,9 @@
 +++
-title = '[42cursus] GET_NEXT_LINE'
-date = 2023-12-18
+title = '[42cursus] FDF'
+date = 2024-04-09
 featured_image = "http://t1.daumcdn.net/cfile/15110210A8445BF80D"
 tags = ['C', '42cursus']
+draft = true
 +++
 
 > Reading a line on a fd is way too tedious
@@ -10,7 +11,10 @@ tags = ['C', '42cursus']
 <br>
 
 # 01 소개
-42서울 본과정 입과 후 세번째로 수행한 과제로, 파일 디스크립터로부터 읽혀진 - 개행으로 끝나는 한 줄을 반환하는 함수를 만드는 과제이다. 즉 파일 하나를 연 다음, 파일 내용에서 개행으로 끝나는 줄 하나를 반환해야한다. 파일을 열고, 지정된 **BUFFER_SIZE** 만큼 `read`함수를 통해 파일을 읽다가 개행문자 `\n`이 나타나면 개행문자 전까지만 반환한다.
+<img src="https://imgur.com/2R4ZmUq.png" width="700">
+
+42서울 본과정 입과 후 세번째로 수행한 과제로, 파일 디스크립터로부터 읽혀진 - 개행으로 끝나는 한 줄을 반환하는 함수를 만드는 과제이다. 즉 파일 하나를 연 다음, 파일 내용에서 개행으로 끝나는 줄 하나를 반환해야한다.
+파일을 열고, 지정된 **BUFFER_SIZE** 만큼 `read`함수를 통해 파일을 읽다가 개행문자 `\n`이 나타나면 개행문자 전까지만 반환한다.
 
 <br>
 
@@ -20,15 +24,15 @@ tags = ['C', '42cursus']
 - **PARAMETER**
 	- `int fd` : 읽어들일 파일의 디스크립터
 - **DESCRIPTION**
-    - **Mandatory part**
+    - **`Mandatory part`**
     	- 호출마다 한 번에 한 줄씩 파일 디스크립터가 가리키는 파일을 읽어온다.
     	- 더 이상 읽어올 것이 없거나 에러가 발생하면 `NULL`을 반환한다.
     	- 파일 끝에 도달하였고, 개행문자 `\n`이 존재하지 않을 때를 제외하고 반환하는 문자열에는 `\n`이 포함되어야 한다.
-    - **Bonus part**
+    - **`Bonus part`**
 		- 정적 변수를 하나만 사용하여 개발해야한다.
 		- `get_next_line()` 이 여러 개의 파일 디스크립터를 한번에 관리해야 한다.
 		- 한번 호출하여 3, 4, 5 그 이후 다시 4, 5 등등을 읽을 수 있어야 한다.
-	- **External functs**
+	- `External functs`
 		- read, malloc, free
 - **RETURN VALUES**
 	- 한 줄을 제대로 읽은 정상작동의 경우 읽은 라인을 반환한다.
@@ -38,31 +42,19 @@ tags = ['C', '42cursus']
 
 # 03 Mandatory
 
-## Madatory 로직
-
-### 1. 파싱
-
-<img src="https://imgur.com/2R4ZmUq.png" width="700">
-
-파일을 열고, 지정된 **BUFFER_SIZE** 만큼 `read`함수를 통해 파일을 읽다가 개행문자 `\n`이 나타나면 개행문자 전까지만 반환한다.
-
-<br>
-
-### 2. get_next_line
-
 <img src="https://imgur.com/w1qsdXS.png" width="700">
 
-### step 01
+#### step 01
 개행문자 `\n`을 만날 때까지 또는 `EOF`에 도달할 때까지 **BUFFER_SIZE** 만큼 읽어나간다.
-### step 02
+#### step 02
 개행문자 전까지만 따로 분리해서 return을 준비한다.
-### step 03
+#### step 03
 추후 **BUFFER_SIZE** 실행을 위해서 `main_buf`에 나머지 남은 문자열을 저장한다.
 
 <br>
 
 ## Mandatory 구현
-### `get_next_line`
+### get_next_line
 ``` c
 char	*get_next_line(int fd)
 {
@@ -90,8 +82,8 @@ char	*get_next_line(int fd)
 <br>
 
 # 04 BONUS
-## BONUS 구현
-### `get_next_line_bonus`
+### BONUS 구현
+### get_next_line_bonus
 ``` c
 char	*get_next_line(int fd)
 {

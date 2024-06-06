@@ -2,7 +2,7 @@
 title = 'Makefile'
 date = 2023-11-03
 featured_image = "https://images.unsplash.com/photo-1589557944589-c1d0eaabc88e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8JUVCJTgzJTg0JUVCJUI5JTg0JTIwJUVDJTlBJTk0JUVCJUE2JUFDfGVufDB8fDB8fHww"
-tags = ['C', '42Seoul', 'CS101']
+tags = ['C', '42cursus', 'CS101']
 +++
 
 > The script that automates software build processes with the make utility
