@@ -4,10 +4,31 @@
     <title>Posts on Elecbrandy</title>
     <link>https://elecbrandy.github.io/posts/</link>
     <description>Recent content in Posts on Elecbrandy</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Apr 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://elecbrandy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>생성형 AI 레드팀 챌린지</title>
+      <link>https://elecbrandy.github.io/posts/ai/airedteam/</link>
+      <pubDate>Thu, 11 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/ai/airedteam/</guid>
+      <description>AI 안전과 신뢰, 그리고 레드팀&#xA;01 소개 과학기술정보통신부 주최로 개최한 &amp;lsquo;생성형 AI 레드팀 챌린지&amp;rsquo;는 국내 생성형 AI 모델을 대상으로 사용자의 프롬프트 공격을 방어하기 위해 잠재적 위험 요소를 식별하기 위한 프로그램이다. 생성형 AI가 사용자의 프롬프트의 내용에 따라 부적절한 내용(인종차별, 혐오, 잘못된 정보 등)을 생성할 수 있다. 때문에 기업에서는 이를 방어하고자 레드팀을 꾸려 시스템의 취약점과 결함을 찾고자 노력하고 있으며, 정부 차원에서 받아들여&#xA;02 Born2beroot 개념정리 운영체제 Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원을 사용할 수 있는 인터페이스를 제공하고, 그 결과를 돌려주는 시스템 소프트웨어이다.</description>
+    </item>
+    <item>
+      <title>[42cursus] PIPEX</title>
+      <link>https://elecbrandy.github.io/posts/42cursus/pipex/</link>
+      <pubDate>Wed, 28 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/42cursus/pipex/</guid>
+      <description>Cristina: &amp;ldquo;Go dance salsa somewhere :)&amp;rdquo;&#xA;01 소개 42서울 본과정 입과 후 다섯번째로 수행한 과제로, UNIX 동작 원리를 프로그래밍을 통해 상세히 파헤쳐보는 과제이다. Shell에서의 파이프를 구현하는 과제이며 Redriection, File discriptor, Process, Pipe, Fork 등을 공부할 수 있다.&#xA;02 PIPEX 명세서 Mandatory part pipex는 ./pipex file1 cmd1 cmd2 file2 형태로 실행된다. file1과 file2는 파일 이름이다. cmd1과 cmd2는 매개 변수가 존재하는 쉘 명령어이다. 프로그램은 &amp;lt; file1 cmd1 | cmd2 &amp;gt; file2 명령과 동일하게 작동해야 한다.</description>
+    </item>
+    <item>
+      <title>[42cursus] PUSH_SWAP</title>
+      <link>https://elecbrandy.github.io/posts/42cursus/push_swap/</link>
+      <pubDate>Mon, 12 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/42cursus/push_swap/</guid>
+      <description>Because Swap_push isn’t as natural&#xA;01 소개 42서울 본과정 입과 후 네번째로 수행한 과제로, 스택에 있는 데이터를 한정된 명령어를 이용하여 최대한 적은 횟수 내에 정렬하는 것을 목표로 하는 과제이다. 상당히 아이러니한 과제이다. 스택이라고 명시되어있지만, 과제에서 요구하는 구조는 스택과는 거리가 멀고, 명령어도 한정되어있다. 또한 정렬 시 복잡도를 고려하는 것이 아니라 명령어 갯수만 어떻게든 줄여서 출력하면 ok를 받을 수 있다. 그렇다보니 가장 많이 쓰이는 방법이 그리디 알고리즘를 통해 모든 정렬 경우의 수를 먼저 체크하고, 명령어 수를 최적화하여 이후에 출력하는 것이다.</description>
+    </item>
     <item>
       <title>[42cursus] Born2beroot</title>
       <link>https://elecbrandy.github.io/posts/42cursus/born2beroot/</link>
@@ -48,7 +69,7 @@
       <link>https://elecbrandy.github.io/posts/42cursus/libft/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/libft/</guid>
-      <description>Your very first own library&#xA;Libft 42서울 본과정 입과 후 첫번째로 만나는 과제로 앞으로 본과정에서 사용할 라이브러리를 만드는 것이 목표이다. 이후 과제를 수행하며 자주 사용할 함수들이 몇가지 있기 때문에 최대한 범용성 높게 - 커스텀하기 쉽게 만드는 것을 목표로 했다. 항상 느끼는 것이지만 norm 규칙의 첫번째 목표는 카뎃이 다른 카뎃의 코드를 보았을 때 최소한의 일관성을 유지하여 쉽게 읽을 수 있게 하는 것&amp;hellip; 이고 두번째는 코드 길이를 적당히 조절함으로써 자연스럽게 모듈화를 하게 하는 것.</description>
+      <description>Your very first own library&#xA;01 소개 42서울 본과정 입과 후 첫번째로 만나는 과제로 앞으로 본과정에서 사용할 라이브러리를 만드는 것이 목표이다. 이후 과제를 수행하며 자주 사용할 함수들이 몇가지 있기 때문에 최대한 범용성 높게 - 커스텀하기 쉽게 만드는 것을 목표로 했다. 항상 느끼는 것이지만 norm 규칙의 첫번째 목표는 카뎃이 다른 카뎃의 코드를 보았을 때 최소한의 일관성을 유지하여 쉽게 읽을 수 있게 하는 것&amp;hellip; 이고 두번째는 코드 길이를 적당히 조절함으로써 자연스럽게 모듈화를 하게 하는 것.</description>
     </item>
     <item>
       <title>C build</title>

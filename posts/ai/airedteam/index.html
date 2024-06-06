@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>[42cursus] Born2beroot | Elecbrandy</title>
+<title>생성형 AI 레드팀 챌린지 | Elecbrandy</title>
 
       <link rel="stylesheet" href="/css/main.min.a584a498e66b366ce23f6c318388d8431601c04bd0991b73298beaba65470c92.css" integrity="sha256-pYSkmOZrNmziP2wxg4jYQxYBwEvQmRtzKYvqumVHDJI=" crossorigin="anonymous">
       <link rel="stylesheet" href="/css/min700.min.2bcf847d60d198d878bbf49b39374a02cdc7cd4e66411bfa42ada12fe8b580ba.css" integrity="sha256-K8&#43;EfWDRmNh4u/SbOTdKAs3HzU5mQRv6Qq2hL&#43;i1gLo=" crossorigin="anonymous">
@@ -41,12 +41,12 @@
   </header>
   
     
-        <div class="pre-content" style="background-image: url('http://t1.daumcdn.net/cfile/14492610B091CC6254');"></div>
+        <div class="pre-content" style="background-image: url('https://orgthumb.mt.co.kr/06/2024/03/2024032815132786760_1.jpg');"></div>
         <div class="pre-title">
             
             
-            <time datetime="2024-01-18T00:00:00&#43;00:00">January 18, 2024</time>
-            <h1>[42cursus] Born2beroot</h1>
+            <time datetime="2024-04-11T00:00:00&#43;00:00">April 11, 2024</time>
+            <h1>생성형 AI 레드팀 챌린지</h1>
         </div>
     
 
@@ -54,14 +54,12 @@
   <div class="content">
     
   <blockquote>
-<p>YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD</p>
+<p>AI 안전과 신뢰, 그리고 레드팀</p>
 </blockquote>
 <br>
 <h1 id="01-소개">01 소개</h1>
 <img src="https://user-images.githubusercontent.com/87311268/221544778-c85cb3d8-32f4-4919-aa1c-0db54b33b38a.jpg" width="700">
-<p>42서울 본과정 입과 후 네번째로 수행한 과제로, 가상머신에 리눅스를 설치하고 공부하는 과정이다.
-가상머신에 리눅스(Debian or Rocky)를 설치하고, LVM를 통한 파티션 설정과 기타 여러가지 기능을 직접 실습한다. 백문불여일견. 요구사항이 상당히 많고 처음 접한다면 배워야할 개념도 상당히 많다&hellip; 화이팅!
-리눅스 설치는 하다보면 100번이라도 해야만 하는 상황이기 때문에 중요한 개념 위주로만 정리했다.</p>
+<p>과학기술정보통신부 주최로 개최한 &lsquo;생성형 AI 레드팀 챌린지&rsquo;는 국내 생성형 AI 모델을 대상으로 사용자의 프롬프트 공격을 방어하기 위해 잠재적 위험 요소를 식별하기 위한 프로그램이다. 생성형 AI가 사용자의 프롬프트의 내용에 따라 부적절한 내용(인종차별, 혐오, 잘못된 정보 등)을 생성할 수 있다. 때문에 기업에서는 이를 방어하고자 레드팀을 꾸려 시스템의 취약점과 결함을 찾고자 노력하고 있으며, 정부 차원에서 받아들여</p>
 <br>
 <h1 id="02-born2beroot-개념정리">02 <code>Born2beroot</code> 개념정리</h1>
 <h2 id="운영체제">운영체제</h2>
@@ -77,58 +75,6 @@
 <h1 id="debian">Debian</h1>
 <p>다양한 환경에서 광범위 하게 사용되는 운영체제로, 다양한 소프트웨어 패키지를 제공한다.
 커뮤니티 중심으로 개발되는 프로젝트이며, 자유 소프트웨어 원칙을 강력히 지지하는 것이 특징! 패키지 관리자로 Package management tools, 보안 모듈로 AppArmor를 사용한다.</p>
-<h3 id="debian과-rocky의-차이점">Debian과 Rocky의 차이점</h3>
-<table>
-<thead>
-<tr>
-<th>기준</th>
-<th>Debian</th>
-<th>Rocky Linux</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>기반</strong></td>
-<td>리눅스 커널 기반</td>
-<td>리눅스 커널 기반</td>
-</tr>
-<tr>
-<td><strong>목적</strong></td>
-<td>범용성, 다양한 환경에 적합</td>
-<td>엔터프라이즈급 환경, 서버 및 데이터 센터에 적합</td>
-</tr>
-<tr>
-<td><strong>커뮤니티/개발</strong></td>
-<td>커뮤니티 중심, 자유 소프트웨어 원칙 강조</td>
-<td>Red Hat Enterprise Linux(RHEL)와의 호환성 강조</td>
-</tr>
-<tr>
-<td><strong>패키지 관리자</strong></td>
-<td>APT 등</td>
-<td>dnf 등</td>
-</tr>
-<tr>
-<td><strong>보안 모듈</strong></td>
-<td>AppArmor, SELinux 옵션 제공</td>
-<td>권장 보안 모듈 SELinux</td>
-</tr>
-<tr>
-<td><strong>이식성</strong></td>
-<td>다양한 하드웨어 아키텍처 지원</td>
-<td>주로 x86_64 아키텍처에 초점</td>
-</tr>
-<tr>
-<td><strong>사용자 친화성</strong></td>
-<td>데스크톱 및 서버 사용에 모두 적합</td>
-<td>주로 서버 및 데이터 센터 운영에 초점</td>
-</tr>
-<tr>
-<td><strong>라이선스</strong></td>
-<td>대부분 GPL 및 다양한 오픈 소스 라이선스</td>
-<td>GPL 및 RHEL 호환 라이선스</td>
-</tr>
-</tbody>
-</table>
 <h1 id="package-management-tools">Package management tools</h1>
 <p>Linux의 패키징 시스템을 관리하는 도구 모음으로 패키지 설치, 업그레이드, 제거 등을 자동화하여 쉽게 관리 가능하다. 특정 소프트웨어가 필요로 하는 모든 추가 패키지를 자동으로 파악하고 설치함으로써 의존성 문제를 해결했다. <strong>Debian과 Rocky 사이의 Package management tools의 차이점을 더 공부해보자 :)</strong></p>
 <h1 id="apparmor">AppArmor</h1>
