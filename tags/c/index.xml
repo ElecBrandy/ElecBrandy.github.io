@@ -9,21 +9,21 @@
     <lastBuildDate>Wed, 28 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://elecbrandy.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[42cursus] PIPEX</title>
+      <title>[42cursus] pipex</title>
       <link>https://elecbrandy.github.io/posts/42cursus/pipex/</link>
       <pubDate>Wed, 28 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/pipex/</guid>
       <description>Cristina: &amp;ldquo;Go dance salsa somewhere :)&amp;rdquo;&#xA;01 소개 42서울 본과정 입과 후 다섯번째로 수행한 과제로, UNIX 동작 원리를 프로그래밍을 통해 상세히 파헤쳐보는 과제이다. Shell에서의 파이프를 구현하는 과제이며 Redriection, File discriptor, Process, Pipe, Fork 등을 공부할 수 있다.&#xA;02 PIPEX 명세서 Mandatory part pipex는 ./pipex file1 cmd1 cmd2 file2 형태로 실행된다. file1과 file2는 파일 이름이다. cmd1과 cmd2는 매개 변수가 존재하는 쉘 명령어이다. 프로그램은 &amp;lt; file1 cmd1 | cmd2 &amp;gt; file2 명령과 동일하게 작동해야 한다.</description>
     </item>
     <item>
-      <title>[42cursus] PUSH_SWAP</title>
+      <title>[42cursus] push_swap</title>
       <link>https://elecbrandy.github.io/posts/42cursus/push_swap/</link>
       <pubDate>Mon, 12 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/push_swap/</guid>
       <description>Because Swap_push isn’t as natural&#xA;01 소개 42서울 본과정 입과 후 네번째로 수행한 과제로, 스택에 있는 데이터를 한정된 명령어를 이용하여 최대한 적은 횟수 내에 정렬하는 것을 목표로 하는 과제이다. 상당히 아이러니한 과제이다. 스택이라고 명시되어있지만, 과제에서 요구하는 구조는 스택과는 거리가 멀고, 명령어도 한정되어있다. 또한 정렬 시 복잡도를 고려하는 것이 아니라 명령어 갯수만 어떻게든 줄여서 출력하면 ok를 받을 수 있다. 그렇다보니 가장 많이 쓰이는 방법이 그리디 알고리즘를 통해 모든 정렬 경우의 수를 먼저 체크하고, 명령어 수를 최적화하여 이후에 출력하는 것이다.</description>
     </item>
     <item>
-      <title>[42cursus] Born2beroot</title>
+      <title>[42cursus] born2beroot</title>
       <link>https://elecbrandy.github.io/posts/42cursus/born2beroot/</link>
       <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/born2beroot/</guid>
@@ -37,21 +37,21 @@
       <description>운영 체제에서 파일이나 입출력 자원을 식별하기 위해 사용하는&amp;hellip;&#xA;Libft 과제에 이어 get_next_line 과제를 진행하던 중 파일 디스크립터 개념을 만나게 되어 정리했다. 결국은 파일에게 접근하기 위한 번호이자 거창하게는 파일 포인터 개념으로 이해하고 넘어가자.&#xA;File Descripot 리눅스 시스템에서는 모든 것이 파일 객체, 행동, 디바이스, 네트워크 연결, 디렉터리, 프로세스 등등 이때 시스템이 이 파일들에게 접근 시 File Descriptor라는 개념을 이용함 File Descriptor는 Non-negative Integer 값을 가짐(0 ~ OPEN_MAX) Process에서 열린 파일의 목록을 관리하는 테이블의 인덱스!</description>
     </item>
     <item>
-      <title>[42cursus] GET_NEXT_LINE</title>
+      <title>[42cursus] get_next_line</title>
       <link>https://elecbrandy.github.io/posts/42cursus/get_next_line/</link>
       <pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/get_next_line/</guid>
       <description>Reading a line on a fd is way too tedious&#xA;01 소개 42서울 본과정 입과 후 세번째로 수행한 과제로, 파일 디스크립터로부터 읽혀진 - 개행으로 끝나는 한 줄을 반환하는 함수를 만드는 과제이다. 즉 파일 하나를 연 다음, 파일 내용에서 개행으로 끝나는 줄 하나를 반환해야한다. 파일을 열고, 지정된 BUFFER_SIZE 만큼 read함수를 통해 파일을 읽다가 개행문자 \n이 나타나면 개행문자 전까지만 반환한다.&#xA;02 GET_NEXT_LINE 명세서 PROTOTYPE char *get_next_line(int fd); PARAMETER int fd : 읽어들일 파일의 디스크립터 DESCRIPTION Mandatory part 호출마다 한 번에 한 줄씩 파일 디스크립터가 가리키는 파일을 읽어온다.</description>
     </item>
     <item>
-      <title>[42cursus] FT_PRINTF</title>
+      <title>[42cursus] ft_printf</title>
       <link>https://elecbrandy.github.io/posts/42cursus/ft_printf/</link>
       <pubDate>Wed, 15 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/ft_printf/</guid>
       <description>putnbr and putstr aren’t enough&#xA;01 소개 42서울 본과정 입과 후 두번째로 수행한 과제로, 말 그대로 C언어의 printf 함수를 재현하는 과제이다. bonus는 수행하지 않았고, 기본적인 내용만 구현하다보니 생각보다 난이도가 쉬웠던 것 같다. libc의 printf 함수를 재구현해야 하며, 실제 printf처럼 버퍼 관리를 수행해서는 안 된다. 서식 지정자 cspdiuxX%를 구현해야한다.&#xA;02 FT_PRINTF 명세서 PROTOTYPE int ft_printf(const char *str, ...); PARAMETER const char *str : format 이라는 이름의 문자열 상수 (서식 문자열) .</description>
     </item>
     <item>
-      <title>[42cursus] LIBFT</title>
+      <title>[42cursus] libft</title>
       <link>https://elecbrandy.github.io/posts/42cursus/libft/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/libft/</guid>
