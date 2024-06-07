@@ -1,5 +1,5 @@
 +++
-title = '[42cursus] PUSH_SWAP'
+title = '[42cursus] push_swap'
 date = 2024-02-12
 featured_image = "https://i.imgur.com/SdY8X4J.png"
 tags = ['C', '42cursus']

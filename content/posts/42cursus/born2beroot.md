@@ -1,5 +1,5 @@
 +++
-title = '[42cursus] Born2beroot'
+title = '[42cursus] born2beroot'
 date = 2024-01-18
 featured_image = "http://t1.daumcdn.net/cfile/14492610B091CC6254"
 tags = ['C', '42cursus']

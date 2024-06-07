@@ -1,5 +1,5 @@
 +++
-title = '[42cursus] GET_NEXT_LINE'
+title = '[42cursus] get_next_line'
 date = 2023-12-18
 featured_image = "http://t1.daumcdn.net/cfile/15110210A8445BF80D"
 tags = ['C', '42cursus']
