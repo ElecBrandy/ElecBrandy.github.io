@@ -6,15 +6,8 @@
     <description>Recent content in AI on Elecbrandy</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://elecbrandy.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>생성형 AI 레드팀 챌린지</title>
-      <link>https://elecbrandy.github.io/posts/ai/airedteam/</link>
-      <pubDate>Thu, 11 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/posts/ai/airedteam/</guid>
-      <description>AI 안전과 신뢰, 그리고 레드팀&#xA;01 소개 과학기술정보통신부 주최로 개최한 &amp;lsquo;생성형 AI 레드팀 챌린지&amp;rsquo;는 국내 생성형 AI 모델을 대상으로 사용자의 프롬프트 공격을 방어하기 위해 잠재적 위험 요소를 식별하기 위한 프로그램이다. 생성형 AI가 사용자의 프롬프트의 내용에 따라 부적절한 내용(인종차별, 혐오, 잘못된 정보 등)을 생성할 수 있다. 때문에 기업에서는 이를 방어하고자 레드팀을 꾸려 시스템의 취약점과 결함을 찾고자 노력하고 있으며, 정부 차원에서 받아들여&#xA;02 Born2beroot 개념정리 운영체제 Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원을 사용할 수 있는 인터페이스를 제공하고, 그 결과를 돌려주는 시스템 소프트웨어이다.</description>
-    </item>
     <item>
       <title>2023 데이터 청년 캠퍼스</title>
       <link>https://elecbrandy.github.io/posts/ai/dataonair/</link>
