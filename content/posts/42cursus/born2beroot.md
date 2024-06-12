@@ -9,23 +9,25 @@ tags = ['C', '42cursus']
 
 <br>
 
-# 01 소개
+# 소개
+____
 <img src="https://user-images.githubusercontent.com/87311268/221544778-c85cb3d8-32f4-4919-aa1c-0db54b33b38a.jpg" width="700">
 
 42서울 본과정 입과 후 네번째로 수행한 과제로, 가상머신에 리눅스를 설치하고 공부하는 과정이다.
+
 가상머신에 리눅스(Debian or Rocky)를 설치하고, LVM를 통한 파티션 설정과 기타 여러가지 기능을 직접 실습한다. 백문불여일견. 요구사항이 상당히 많고 처음 접한다면 배워야할 개념도 상당히 많다... 화이팅!
 리눅스 설치는 하다보면 100번이라도 해야만 하는 상황이기 때문에 중요한 개념 위주로만 정리했다.
 
 <br>
 
-# 02 `Born2beroot` 개념정리
+# 개념정리
 
 ## 운영체제
 Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원을 사용할 수 있는 인터페이스를 제공하고, 그 결과를 돌려주는 시스템 소프트웨어이다. CPU, Memory, 저장장치 등의 하드웨어를 관리하고 Process 관리, 자원 접근 및 할당, 파일 시스템을 관리한다.
 
 <br>
 
-# Virtual Machine(VM)
+## Virtual Machine(VM)
 하나의 컴퓨터 안에서 여러 개의 독립된 환경을 만들어 내는 것으로 물리적 하드웨어 시스템 위에 구축되는 소프트웨어 기반의 컴퓨터이다. 자체적인 OS, CPU, Memory, Network interface, 저장장치 등을 가지고 있고, Hypervisor를 통해 하드웨어에서 VM의 소스를 분리하고 적절히 프로비저닝하여 VM에서 사용할 수 있게 만든다.
 ### VM 장점
 완벽한 격리 보안, 대화형 개발, 스냅샷 기능 등
@@ -34,7 +36,7 @@ Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원�
 
 <br>
 
-# Debian
+## Debian
 다양한 환경에서 광범위 하게 사용되는 운영체제로, 다양한 소프트웨어 패키지를 제공한다.
 커뮤니티 중심으로 개발되는 프로젝트이며, 자유 소프트웨어 원칙을 강력히 지지하는 것이 특징! 패키지 관리자로 Package management tools, 보안 모듈로 AppArmor를 사용한다.
 ### Debian과 Rocky의 차이점
@@ -49,33 +51,33 @@ Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원�
 | **사용자 친화성** | 데스크톱 및 서버 사용에 모두 적합        | 주로 서버 및 데이터 센터 운영에 초점            |
 | **라이선스**      | 대부분 GPL 및 다양한 오픈 소스 라이선스  | GPL 및 RHEL 호환 라이선스                       |
 
-# Package management tools
+## Package management tools
 Linux의 패키징 시스템을 관리하는 도구 모음으로 패키지 설치, 업그레이드, 제거 등을 자동화하여 쉽게 관리 가능하다. 특정 소프트웨어가 필요로 하는 모든 추가 패키지를 자동으로 파악하고 설치함으로써 의존성 문제를 해결했다. **Debian과 Rocky 사이의 Package management tools의 차이점을 더 공부해보자 :)**
 
-# AppArmor
+## AppArmor
 시스템 관리자가 개별 응용프로그램이 엑세스 할 수 있는 시스템 리소스와 권한을 제어 할 수 있게 하는 Linux Kernel 보안 모듈로 MAC(Mandatory Access Control) 방식을 통해 사전에 정의된 규칙(Profile)에 기반하여 권한을 제어한다. 즉, 특정 프로그램이 파일/네트워크/기타 시스템 자원에 접근하는 방식을 경로를 통해 구분한다. 타 모듈에 비해 간단한 설정이 장점이지만, 단순한만큼 복잡한 보안 요구 사항을 충족시키지 못할 수 있으며 Profile 로딩 시간 때문에 시스템 시작 속도에 영향을 미칠 수 있다. 또한 동일 어플리케이션에 대하여 여러 경로가 존재할 수 있기 때문, 한 프로그램에 대하여 여러 보안 Profile이 생성될 수 있다. **그렇다면 AppArmor가 없었던 시절에는 어떻게 관리했을까?**
 
-# Sudo
+## Sudo
 Sudo(Superuser do)는 Unix 및 Linux 기반 시스템에서 슈퍼유저 또는 root 권한으로 명령을 실행할 수 있게 해주는 프로그램이다. 일반 사용자에게 관리자(루트) 권한으로 명령을 실행할 수 있는 권한을 제한적으로 부여하여 루트 사용자로의 지속적인 로그인을 방지하고, 보안 위험을 줄일 수 있다. 또한 루트 권한으로 실행된 모든 명령과 사용자를 기록 가능해 시스템 관리, 감시 추적 등이 용이하다. **sudo log를 어디서 확인 할 수 있을까?**
 
 <br>
 
-# TTY
+## TTY
 TTY(Tele Type Writer)는 컴퓨터와 연결된 가상의 터미널로 한 컴퓨터를 여럿이서 사용하기 위해 (물리적 한계 극복) 사용했으며 현재 UNIX 시스템에서 터미널 역할을 수행한다. 텍스트 기반 인터페이스와 다중 터미널 세션 기능, 원격 접속과 시스템 관리 및 표준 입출력 관리가 특징이다. 이때 Sudo가 TTY를 요구한다는 것은 Sudo 명령어를 사용자가 직접 터미널 세션에서 입력해야만 SUdo 권한을 사용할 수 있다는 것을 의미한다. **이것이 왜 필요한지 공부해보자!**
 
 <br>
 
-# UFW
+## UFW
 UFW(Uncomlicted FireWall)은 사용자 친화적인 방화벽 관리 인터페이스로 기존 iptables의 복잡성을 단순화 시켰으며 주로 입출력 트래픽을 제어하고, 원하지 않는 네트워크 접근을 차단하기 위해 사용한다.
 
 <br>
 
-# SSH
+## SSH
 SSH(Secure SHell) 이란 컴퓨터가 같은 public network를 통해 통신 시 보안적으로 안전하게 통신을 하기 위한 프로토콜으로 보안적으로 안전한 채널을 구축한 뒤 정보를 교환하는 방식(키 기반의 인증 / 암호화)이다. S**SH의 작동원리 두가지 (대칭키 암호화, 비대칭키 암호화)와 키 검증 방식을 공부해보자!**
 
 <br>
 
-# Linux Partition
+## Linux Partition
 - **Primary Partition**
 	- (주, 기본 파티션)
 	- disk를 Logical하게 분할하는 가장 기본적인 방법 중 하나
@@ -99,14 +101,14 @@ SSH(Secure SHell) 이란 컴퓨터가 같은 public network를 통해 통신 시
 
 <br>
 
-# MBR
+## MBR
 MBR(Master Boot Record)은 HDD의 맨 앞에 기록되어 있는 시스템 영역으로 컴퓨터에 전원이 들어오면 가장 먼저 HDD의 MBR에 기록되어있는 **OS의 위치를 식별하며, 시스템 부팅에 사용되는 HDD의 Partition을 결정하는 프로그램**이 읽히게 된다. **MBR과 sba5의 관계에 대하여 공부해보자!**
 
 <br>
 
-# LVM
+## LVM
 LVM(Linux Volume Manager)은 Linux에서 복잡한 스토리지 구성을 효율적으로 관리하기 위한 시스템으로 물리적 디스크를 하나의 논리적 볼륨으로 결합할 수 있고, 볼륨의 크기를 쉽게 조정 가능하다.
-## LVM 단위 구성
+### LVM 단위 구성
 - **PV**
 	- Physical Volume
 	- LVM에서 블록장치에 접근하기 위해서 PV로 초기화가 필요
@@ -128,7 +130,7 @@ LVM(Linux Volume Manager)은 Linux에서 복잡한 스토리지 구성을 효율
 
 <br>
 
-# Cron
+## Cron
 Cron이란 OS Time-based job scheduling으로 demon의 일종이다. `/etc/crontab` 에 위치해 있다. **Cron 코드 작성 시 Sudo 명령어의 갯수를 잘 카운트해야한다!**
 
 <details>

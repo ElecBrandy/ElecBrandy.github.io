@@ -18,7 +18,7 @@ ____
 
 <br>
 
-# `LIBFT` 명세서
+# `libft` 명세서
 ____
 ## Part 1 - Libs functions
 - ft_isalpha, ft_isdigit, ft_isalnum, ft_isascii, ft_isprint

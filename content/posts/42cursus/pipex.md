@@ -10,12 +10,13 @@ tags = ['C', '42cursus']
 <br>
 
 # 소개
+____
 42서울 본과정 입과 후 다섯번째로 수행한 과제로, UNIX 동작 원리를 프로그래밍을 통해 상세히 파헤쳐보는 과제이다.
 Shell에서의 파이프를 구현하는 과제이며 Redriection, File discriptor, Process, Pipe, Fork 등을 공부할 수 있다.
 
 <br>
 
-# `PIPEX` 명세서
+# `pipex` 명세서
 ____
 ## Mandatory part
 - `pipex`는 `./pipex file1 cmd1 cmd2 file2` 형태로 실행된다.
@@ -35,7 +36,7 @@ ____
 <br>
 
 # 개념정리
-____
+___
 ## Redirection
 redirection은 shell에서 입력과 출력의 흐름을 재지정하는 프로세스이다. 기본적으로 커맨드는 표준 입력(stdin), 표준 출력(stdout), 그리고 표준 에러(stderr)라는 세 가지 주요 통신 채널을 사용한다. 리디렉션을 사용하면 이러한 통신 채널을 파일이나 다른 프로그램으로 전환할 수 있다. 유닉스 및 리눅스 기반 시스템에서 매우 강력한 도구로 시스템 관리, 스크립팅 및 데이터 관리에 유용하다.
 
@@ -132,7 +133,7 @@ yes | head -n 1
 
 <br>
 
-# Mandatory 구현
+# Mandatory
 ____
 
 <img src="https://i.imgur.com/s1coAtk.png" width="700">
@@ -232,7 +233,10 @@ Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택�
 전자의 경우 데이터 흐름을 이해하기 쉽지만 그만큼 자원이 많이 들어가기 때문에 이후 과제인 minishell을 생각하면 피하는게 좋아보인다. 따라서 나는 후자를 선택했다.
 (기본적으로 Redirection 조절 등은 Mandatory와 유사하다.)
 
-## 1. pipe 생성
+다음 자식이 어느 파이프에 읽어야하는지를 부모에서 잠시 기억해준다고 생각하자.
+이해 과정에서 너무 헷갈려서 최대한 상세히 정리했다.
+
+## step 01
 
 <img src="https://i.imgur.com/FpX35wF.png" width="700">
 
@@ -241,7 +245,7 @@ Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택�
 
 <br>
 
-## 2. pipe 연결
+## step 02
 
 <img src="https://i.imgur.com/8I9BFHE.png" width="700">
 
@@ -251,7 +255,7 @@ Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택�
 
 <br>
 
-## 3.
+## step 03
 
 <img src="https://i.imgur.com/6HHkOA9.png" width="700">
 
@@ -261,7 +265,7 @@ Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택�
 
 <br>
 
-## 4.
+## step 04
 
 <img src="https://i.imgur.com/6HHkOA9.png" width="700">
 
