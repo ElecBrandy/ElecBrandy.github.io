@@ -58,10 +58,11 @@
 </blockquote>
 <br>
 <h1 id="소개">소개</h1>
+<hr>
 <p>42서울 본과정 입과 후 다섯번째로 수행한 과제로, UNIX 동작 원리를 프로그래밍을 통해 상세히 파헤쳐보는 과제이다.
 Shell에서의 파이프를 구현하는 과제이며 Redriection, File discriptor, Process, Pipe, Fork 등을 공부할 수 있다.</p>
 <br>
-<h1 id="pipex-명세서"><code>PIPEX</code> 명세서</h1>
+<h1 id="pipex-명세서"><code>pipex</code> 명세서</h1>
 <hr>
 <h2 id="mandatory-part">Mandatory part</h2>
 <ul>
@@ -163,7 +164,7 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 <li><strong>yes</strong> 는 계속해서 파이프에 쓰려고하지만, 해당 파이프의 한쪽 끝은 이미 닫혀있어 <code>SIGPIPE</code> 신호가 발생하고 종료된다.</li>
 </ul>
 <br>
-<h1 id="mandatory-구현">Mandatory 구현</h1>
+<h1 id="mandatory">Mandatory</h1>
 <hr>
 <img src="https://i.imgur.com/s1coAtk.png" width="700">
 <br>
@@ -249,14 +250,16 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 <p>Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택지가 존재한다. 첫번째 동적할당으로 필요한만큼 파이프 fd를 사용하는 것, 두번째는 fd값을 재활용하는 것.
 전자의 경우 데이터 흐름을 이해하기 쉽지만 그만큼 자원이 많이 들어가기 때문에 이후 과제인 minishell을 생각하면 피하는게 좋아보인다. 따라서 나는 후자를 선택했다.
 (기본적으로 Redirection 조절 등은 Mandatory와 유사하다.)</p>
-<h2 id="1-pipe-생성">1. pipe 생성</h2>
+<p>다음 자식이 어느 파이프에 읽어야하는지를 부모에서 잠시 기억해준다고 생각하자.
+이해 과정에서 너무 헷갈려서 최대한 상세히 정리했다.</p>
+<h2 id="step-01">step 01</h2>
 <img src="https://i.imgur.com/FpX35wF.png" width="700">
 <ol>
 <li>부모 프로세스인 상태에서, pipe를 하나 연다.</li>
 <li>부모 프로세스는 이제 pipe1의 읽기와 쓰기 끝 주소를 모두 알고 있는 상태이다.</li>
 </ol>
 <br>
-<h2 id="2-pipe-연결">2. pipe 연결</h2>
+<h2 id="step-02">step 02</h2>
 <img src="https://i.imgur.com/8I9BFHE.png" width="700">
 <ol>
 <li>pipe1의 읽기와 쓰기 끝을 아는 상태에서 <code>fork()</code>하고, <code>dup2</code>를 통해 자식 프로세스가 pipe1의 쓰기 끝에 쓰게한다.</li>
@@ -264,7 +267,7 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 <li>각각의 프로세스에서 쓸모없어진 fd를 닫는다.</li>
 </ol>
 <br>
-<h2 id="3">3.</h2>
+<h2 id="step-03">step 03</h2>
 <img src="https://i.imgur.com/6HHkOA9.png" width="700">
 <ol>
 <li>pipe1의 읽기 끝을 아는 상태에서 <code>fork()</code>하고, <code>dup2</code>를 통해 자식 프로세스가 pipe2의 쓰기 끝에 쓰게한다.</li>
@@ -272,7 +275,7 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 <li>각각의 프로세스에서 쓸모없어진 fd를 닫는다.</li>
 </ol>
 <br>
-<h2 id="4">4.</h2>
+<h2 id="step-04">step 04</h2>
 <img src="https://i.imgur.com/6HHkOA9.png" width="700">
 <ol>
 <li>pipe1의 읽기 끝을 아는 상태에서 <code>fork()</code>하고, <code>dup2</code>를 통해 자식 프로세스가 pipe2의 쓰기 끝에 쓰게한다.</li>
