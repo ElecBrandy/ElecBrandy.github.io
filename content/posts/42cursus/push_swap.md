@@ -3,6 +3,7 @@ title = '[42cursus] push_swap'
 date = 2024-02-12
 featured_image = "https://i.imgur.com/SdY8X4J.png"
 tags = ['C', '42cursus']
+draft = false
 +++
 
 > Because Swap_push isn’t as natural

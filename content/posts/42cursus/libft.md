@@ -9,7 +9,8 @@ tags = ['C', '42cursus']
 
 <br>
 
-# 01 소개
+# 소개
+____
 42서울 본과정 입과 후 첫번째로 만나는 과제로 앞으로 본과정에서 사용할 라이브러리를 만드는 것이 목표이다.
 이후 과제를 수행하며 자주 사용할 함수들이 몇가지 있기 때문에 최대한 범용성 높게 - 커스텀하기 쉽게 만드는 것을 목표로 했다.
 항상 느끼는 것이지만 `norm` 규칙의 첫번째 목표는 카뎃이 다른 카뎃의 코드를 보았을 때 최소한의 일관성을 유지하여 쉽게 읽을 수 있게 하는 것... 이고
@@ -17,7 +18,8 @@ tags = ['C', '42cursus']
 
 <br>
 
-# 02 `LIBFT` 명세서
+# `LIBFT` 명세서
+____
 ## Part 1 - Libs functions
 - ft_isalpha, ft_isdigit, ft_isalnum, ft_isascii, ft_isprint
 - ft_strlen , ft_memset, ft_bzero, ft_memcpy, ft_memmove, ft_strlcpy, ft_strlcat, ft_strncmp
@@ -34,7 +36,8 @@ tags = ['C', '42cursus']
 
 <br>
 
-# 03 `LIBFT` 명세서
+# 개념정리
+____
 ## `size_t`
 - 해당 운영체제에서 포함할 수 있는 최대 크기의 데이터 타입으로, 32비트 운영체제에서 4바이트, 64비트 운영체제에서 8바이트로 정의되어있다.
 - 객체의 크리를 나타내는 부호 없는 정수 유형이다.
