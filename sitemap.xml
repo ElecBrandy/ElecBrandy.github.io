@@ -4,85 +4,141 @@
   <url>
     <loc>https://elecbrandy.github.io/posts/</loc>
     <lastmod>2024-04-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/pipex/</loc>
     <lastmod>2024-02-28T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/42cursus/</loc>
     <lastmod>2024-02-28T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/c/</loc>
     <lastmod>2024-02-28T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/push_swap/</loc>
     <lastmod>2024-02-12T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/born2beroot/</loc>
     <lastmod>2024-01-18T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/</loc>
     <lastmod>2024-01-01T08:00:00-07:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/cs101/</loc>
     <lastmod>2023-12-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/cs101/filedescriptor/</loc>
     <lastmod>2023-12-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/born2beroot/</loc>
     <lastmod>2023-12-20T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/linux/</loc>
     <lastmod>2023-12-20T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/cs101/lvm/</loc>
     <lastmod>2023-12-20T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/os/</loc>
     <lastmod>2023-12-20T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/get_next_line/</loc>
     <lastmod>2023-12-18T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/ft_printf/</loc>
     <lastmod>2023-11-15T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/libft/</loc>
     <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/cs101/buildc/</loc>
     <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/cs101/makefile/</loc>
     <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/ai/dataonair/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/ai/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/colab/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/python/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/uiux/</loc>
     <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/uiux/ut101/</loc>
     <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/uiux/ux101/</loc>
     <lastmod>2021-01-17T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/about/</loc>
     <lastmod>1999-10-26T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/categories/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
