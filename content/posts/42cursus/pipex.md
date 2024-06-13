@@ -267,17 +267,19 @@ Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택�
 
 ## step 04
 
-<img src="https://i.imgur.com/6HHkOA9.png" width="700">
+<img src="https://i.imgur.com/c1jOzry.png" width="700">
 
-1. pipe1의 읽기 끝을 아는 상태에서 `fork()`하고, `dup2`를 통해 자식 프로세스가 pipe2의 쓰기 끝에 쓰게한다.
-2. 이때 부모 프로세스는 `dup2`를 통해 pipe2의 읽기 끝 주소를 fd table 0번에 잠시 기억하게 한다. 이는 다음 자식 프로세스가 데이터를 읽어와야할지 알려주기 위함이다.
-3. 각각의 프로세스에서 쓸모없어진 fd를 닫는다.
+최종적으로 자식 프로세스는 자신이 읽어야할 파이프의 위치, 써야할 파이프의 위치를 모두 알고 있는 상태에서 작동하며, 각각의 자식 프로세스는 **병렬**로 작동한다는 점!
+
+<br>
 
 # Reference
 ____
-- [wiki] https://buly.kr/6tZknhQ
-- [tistory] https://buly.kr/CshW9Qu
-- [velog] https://velog.io/@blank_/PushSwap-Radix-Sort
+- https://man7.org/linux/man-pages/man2/pipe.2.html
+- https://www.gnu.org/software/libc/manual/html_node/Creating-a-Pipe.html
+- https://nomad-programmer.tistory.com/110
+- https://www.youtube.com/watch?v=bKzonnwoR2I
+- https://www.youtube.com/watch?v=uHH7nHkgZ4w
 
 <br>
 {{<alert>}}

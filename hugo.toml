@@ -8,3 +8,12 @@ theme = "freshpink"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# robots.txt
+enableRobotsTXT = true
+
+# sitemap 생성
+[sitemap]
+  changefreq = "daily"
+  filename = "sitemap.xml"
+  priority = 0.5
