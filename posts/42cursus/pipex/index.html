@@ -75,12 +75,18 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 <h2 id="bonus-part">Bonus part</h2>
 <ul>
 <li><strong>Bonus part</strong>에서는 다중 파이프와 here_doc를 구현해야 한다.</li>
-<li>다중 파이프</li>
+<li><strong>다중 파이프</strong>
+<ul>
 <li>pipex : <code>./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2</code></li>
 <li>bash : <code>&lt; file1 cmd1 | cmd2 | cmd3 ... | cmdn &gt; file2</code></li>
-<li>here_doc</li>
+</ul>
+</li>
+<li><strong>here_doc</strong>
+<ul>
 <li>pipex : <code>./pipex here_doc LIMITER cmd cmd1 file</code></li>
 <li>bash : <code>cmd &lt;&lt; LIMITER | cmd1 &gt;&gt; file</code></li>
+</ul>
+</li>
 </ul>
 <br>
 <h1 id="개념정리">개념정리</h1>
@@ -166,9 +172,10 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 <br>
 <h1 id="mandatory">Mandatory</h1>
 <hr>
+<h2 id="mandatory-구조">Mandatory 구조</h2>
 <img src="https://i.imgur.com/s1coAtk.png" width="700">
 <br>
-<h2 id="1-redirection-조절">1. Redirection 조절</h2>
+<h3 id="step-01--redirection-조절">step 01 : Redirection 조절</h3>
 <p>기본적으로 infile과 outfile이 존재해야하므로, 각각의 파일을 <code>open</code> 한다.
 이어서 <code>dup</code> 또는 <code>dup2</code> 함수를 통해서 입출력을 조절하고, <code>close</code> 를 통해 fd 테이블을 정리한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">int</span>	<span style="color:#a6e22e">open_file</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>av, t_data <span style="color:#f92672">*</span>data)
@@ -185,7 +192,7 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><br>
-<h2 id="2-pipeline-생성과-fork">2. Pipeline 생성과 fork</h2>
+<h3 id="step-02-pipeline-생성과-fork">step 02 Pipeline 생성과 fork</h3>
 <p>Mandatory는 단순히 두 커맨드 사이의 상호작용, 즉 두 자식 프로세스의 통신을 구현하는 것이다.
 부모에서(main) pipe를 열고 자식 프로세스 2개를 fork 하면, 해당 자식 프로세스들은 pipe를 통해 통신이 가능하다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#75715e">// 프로세스 관리 함수
@@ -245,21 +252,22 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> ;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><br>
-<h1 id="bonus-구현">Bonus 구현</h1>
+<h1 id="bonus">Bonus</h1>
 <hr>
+<h2 id="bonus-구조">BONUS 구조</h2>
 <p>Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택지가 존재한다. 첫번째 동적할당으로 필요한만큼 파이프 fd를 사용하는 것, 두번째는 fd값을 재활용하는 것.
 전자의 경우 데이터 흐름을 이해하기 쉽지만 그만큼 자원이 많이 들어가기 때문에 이후 과제인 minishell을 생각하면 피하는게 좋아보인다. 따라서 나는 후자를 선택했다.
 (기본적으로 Redirection 조절 등은 Mandatory와 유사하다.)</p>
 <p>다음 자식이 어느 파이프에 읽어야하는지를 부모에서 잠시 기억해준다고 생각하자.
 이해 과정에서 너무 헷갈려서 최대한 상세히 정리했다.</p>
-<h2 id="step-01">step 01</h2>
+<h3 id="step-01">step 01</h3>
 <img src="https://i.imgur.com/FpX35wF.png" width="700">
 <ol>
 <li>부모 프로세스인 상태에서, pipe를 하나 연다.</li>
 <li>부모 프로세스는 이제 pipe1의 읽기와 쓰기 끝 주소를 모두 알고 있는 상태이다.</li>
 </ol>
 <br>
-<h2 id="step-02">step 02</h2>
+<h3 id="step-02">step 02</h3>
 <img src="https://i.imgur.com/8I9BFHE.png" width="700">
 <ol>
 <li>pipe1의 읽기와 쓰기 끝을 아는 상태에서 <code>fork()</code>하고, <code>dup2</code>를 통해 자식 프로세스가 pipe1의 쓰기 끝에 쓰게한다.</li>
@@ -267,7 +275,7 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 <li>각각의 프로세스에서 쓸모없어진 fd를 닫는다.</li>
 </ol>
 <br>
-<h2 id="step-03">step 03</h2>
+<h3 id="step-03">step 03</h3>
 <img src="https://i.imgur.com/6HHkOA9.png" width="700">
 <ol>
 <li>pipe1의 읽기 끝을 아는 상태에서 <code>fork()</code>하고, <code>dup2</code>를 통해 자식 프로세스가 pipe2의 쓰기 끝에 쓰게한다.</li>
@@ -275,7 +283,7 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 <li>각각의 프로세스에서 쓸모없어진 fd를 닫는다.</li>
 </ol>
 <br>
-<h2 id="step-04">step 04</h2>
+<h3 id="step-04">step 04</h3>
 <img src="https://i.imgur.com/c1jOzry.png" width="700">
 <p>최종적으로 자식 프로세스는 자신이 읽어야할 파이프의 위치, 써야할 파이프의 위치를 모두 알고 있는 상태에서 작동하며, 각각의 자식 프로세스는 <strong>병렬</strong>로 작동한다는 점!</p>
 <br>
