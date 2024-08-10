@@ -61,7 +61,8 @@
 <hr>
 <p>42서울 본과정 입과 후 두번째로 수행한 과제로, 말 그대로 C언어의 <code>printf</code> 함수를 재현하는 과제이다. bonus는 수행하지 않았고, 기본적인 내용만 구현하다보니 생각보다 난이도가 쉬웠던 것 같다. libc의 <code>printf</code> 함수를 재구현해야 하며, 실제 <code>printf</code>처럼 버퍼 관리를 수행해서는 안 된다. 서식 지정자 <code>cspdiuxX%</code>를 구현해야한다.</p>
 <br>
-<h1 id="ft_printf-명세서"><code>ft_printf</code> 명세서</h1>
+<br>
+<h1 id="ft_printf-명세서">ft_printf 명세서</h1>
 <hr>
 <ul>
 <li><strong>PROTOTYPE</strong>
@@ -101,6 +102,7 @@
 </ul>
 </li>
 </ul>
+<br>
 <br>
 <h1 id="개념정리">개념정리</h1>
 <hr>
@@ -172,6 +174,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ft_putchar_fd</span>(<span style="color:#ae81ff">1</span>, base[n <span style="color:#f92672">%</span> number], cnt);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>진법에 맞는 숫자로 출력을 원할 때, 재귀를 사용하면 생각보다 코드가 깔끔해진다.</p>
+<br>
 <br>
 <h1 id="reference">Reference</h1>
 <hr>
