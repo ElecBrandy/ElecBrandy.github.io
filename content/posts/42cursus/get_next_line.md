@@ -15,8 +15,6 @@ ____
 
 42서울 본과정 입과 후 세번째로 수행한 과제로, 파일 디스크립터로부터 읽혀진 - 개행으로 끝나는 한 줄을 반환하는 함수를 만드는 과제이다. 즉 파일 하나를 연 다음, 파일 내용에서 개행으로 끝나는 줄 하나를 반환해야한다. 파일을 열고, 지정된 **BUFFER_SIZE** 만큼 `read`함수를 통해 파일을 읽다가 개행문자 `\n`이 나타나면 개행문자 전까지만 반환한다.
 
-
-
 <br>
 
 # `get_next_line` 명세서
@@ -81,16 +79,18 @@ void	ft_free(void **target)
 	}
 }
 ```
-메모리 해제 후 포인터를 NULL로 설정함으로써, 포인터의 Dangling Pointer 상태(해제된 메모리를 가르키는 상태)를 방지한다. 또한 이 과정을 통해 이미 할당 해제된 메모리 주소에 다시 접근하는 것을 방지할 수 있다.
+메모리 해제 후 포인터를 NULL로 설정함으로써, 포인터의 `Dangling Pointer` 상태(해제된 메모리를 가르키는 상태)를 방지한다. 또한 이 과정을 통해 이미 할당 해제된 메모리 주소에 다시 접근하는 것을 방지할 수 있다.
 
 <br>
 
 # Mandatory
 ____
 
-## `get_next_line` 작동
+## Mandatory 구조
 
 <img src="https://imgur.com/w1qsdXS.png" width="700">
+
+<br>
 
 ### step 01
 개행문자 `\n`을 만날 때까지 또는 `EOF`에 도달할 때까지 **BUFFER_SIZE** 만큼 읽어나간다.
@@ -101,7 +101,9 @@ ____
 
 <br>
 
-## `get_next_line` 구현
+## Mandatory 구현
+
+### `get_next_line`
 
 ``` c
 char	*get_next_line(int fd)
@@ -134,13 +136,13 @@ char	*get_next_line(int fd)
 
 # BONUS
 ____
-## `get_next_line_bonus` 작동
+## BONUS 구조
 본 과제를 **BONUS**까지 수행한다면,
 위에서 언급한 것 처럼 우리가 만든 `get_next_line`이 여러 파일 디스트립터를 관리할 수 있어야 한다. 쉽게 말하면, **a.txt**를 읽다가 갑자기 **b.txt**을 읽을 수 있어야 한다는 것! 다시 **a.txt**로 읽기 위해 돌아갔을 때, 그 전에 어디까지 읽었는지 당연히 기억하고 있어야 한다.
 
 아래는 `OPEN_MAX`를 통해 디스크립터 테이블만큼 배열을 만들어 정적 배열을 통해 여러 파일 디스크립터를 다루는 방법이다.
 
-## `get_next_line_bonus` 구현
+## BONUS 구현
 ``` c
 char	*get_next_line(int fd)
 {
@@ -164,6 +166,7 @@ char	*get_next_line(int fd)
 <br>
 
 # Reference
+____
 - https://man7.org/linux/man-pages/man2/read.2.html
 - https://www.gnu.org/software/libc/manual/html_node/Streams-and-File-Descriptors.html
 - https://code-lab1.tistory.com/65

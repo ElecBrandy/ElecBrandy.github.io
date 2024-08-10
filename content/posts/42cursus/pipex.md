@@ -24,14 +24,15 @@ ____
 - cmd1과 cmd2는 매개 변수가 존재하는 쉘 명령어이다.
 - 프로그램은 `< file1 cmd1 | cmd2 > file2` 명령과 동일하게 작동해야 한다.
 - 즉, file1을 input으로 받아 cmd1를 실행하고, 그 결과를 파이프를 통해 cmd2로 넘긴 후 output인 file2로 내보낸다.
+
 ## Bonus part
 - **Bonus part**에서는 다중 파이프와 here_doc를 구현해야 한다.
-- 다중 파이프
-- pipex : `./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2`
-- bash : `< file1 cmd1 | cmd2 | cmd3 ... | cmdn > file2`
-- here_doc
-- pipex : `./pipex here_doc LIMITER cmd cmd1 file`
-- bash : `cmd << LIMITER | cmd1 >> file`
+- **다중 파이프**
+	- pipex : `./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2`
+	- bash : `< file1 cmd1 | cmd2 | cmd3 ... | cmdn > file2`
+- **here_doc**
+	- pipex : `./pipex here_doc LIMITER cmd cmd1 file`
+	- bash : `cmd << LIMITER | cmd1 >> file`
 
 <br>
 
@@ -136,11 +137,13 @@ yes | head -n 1
 # Mandatory
 ____
 
+## Mandatory 구조
+
 <img src="https://i.imgur.com/s1coAtk.png" width="700">
 
 <br>
 
-## 1. Redirection 조절
+### step 01 : Redirection 조절
 기본적으로 infile과 outfile이 존재해야하므로, 각각의 파일을 `open` 한다.
 이어서 `dup` 또는 `dup2` 함수를 통해서 입출력을 조절하고, `close` 를 통해 fd 테이블을 정리한다.
 
@@ -162,7 +165,7 @@ int	open_file(char **av, t_data *data)
 
 <br>
 
-## 2. Pipeline 생성과 fork
+### step 02 Pipeline 생성과 fork
 Mandatory는 단순히 두 커맨드 사이의 상호작용, 즉 두 자식 프로세스의 통신을 구현하는 것이다.
 부모에서(main) pipe를 열고 자식 프로세스 2개를 fork 하면, 해당 자식 프로세스들은 pipe를 통해 통신이 가능하다.
 
@@ -227,8 +230,10 @@ static void	child_02(char **av, char **envp, t_data *data)
 
 <br>
 
-# Bonus 구현
+# Bonus
 ____
+
+## BONUS 구조
 Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택지가 존재한다. 첫번째 동적할당으로 필요한만큼 파이프 fd를 사용하는 것, 두번째는 fd값을 재활용하는 것.
 전자의 경우 데이터 흐름을 이해하기 쉽지만 그만큼 자원이 많이 들어가기 때문에 이후 과제인 minishell을 생각하면 피하는게 좋아보인다. 따라서 나는 후자를 선택했다.
 (기본적으로 Redirection 조절 등은 Mandatory와 유사하다.)
@@ -236,7 +241,7 @@ Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택�
 다음 자식이 어느 파이프에 읽어야하는지를 부모에서 잠시 기억해준다고 생각하자.
 이해 과정에서 너무 헷갈려서 최대한 상세히 정리했다.
 
-## step 01
+### step 01
 
 <img src="https://i.imgur.com/FpX35wF.png" width="700">
 
@@ -245,7 +250,7 @@ Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택�
 
 <br>
 
-## step 02
+### step 02
 
 <img src="https://i.imgur.com/8I9BFHE.png" width="700">
 
@@ -255,7 +260,7 @@ Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택�
 
 <br>
 
-## step 03
+### step 03
 
 <img src="https://i.imgur.com/6HHkOA9.png" width="700">
 
@@ -265,7 +270,7 @@ Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택�
 
 <br>
 
-## step 04
+### step 04
 
 <img src="https://i.imgur.com/c1jOzry.png" width="700">
 
