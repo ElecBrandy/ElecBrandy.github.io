@@ -21,6 +21,7 @@ ____
 정렬 시 사용한 명령어 개수에 따라 점수가 달라질 수 있다. (**기수 정렬**도 하나의 방법!)
 
 <br>
+<br>
 
 # push_swap 명세서
 ____
@@ -37,22 +38,21 @@ ____
 		- 단, **Mandatory part**가 100점으로 완벽해야 **Bonus part** 점수를 얻을 수 있다는 것 유념하자.
 
 <br>
+<br>
 
 # 개념정리
 ____
-## push_swap 규칙
-
 <img src="https://i.imgur.com/tOh91Wf.png" width="700">
 
-### Swap
+## Swap 규칙
 - `sa` : stack a의 상위 두 요소를 교환한다.
 - `sb` : stack b의 상위 두 요소를 교환한다.
 
-### Push
+## Push 규칙
 - `pa` : stack b의 상위 요소를 stack a의 상위로 보낸다.
 - `pb` : stack a의 상위 요소를 stack b의 상위로 보낸다.
 
-### Rotate
+## Rotate 규칙
 - `ra` : stack a의 최상위 요소를 stack a의 최하위로 보낸다.
 - `rb` : stack b의 최상위 요소를 stack b의 최하위로 보낸다.
 - `rra` : stack a의 최하위 요소를 stack a의 최상위로 보낸다.
@@ -74,12 +74,7 @@ ____
 박스가 많아질수록 공간 복잡도가 높아지고 시간 복잡도는 줄어들겠지만, 박스를 늘릴 경우 요소의 이동과정에서 신경써야할 것이 많아진다.
 또한 이번 과제의 최종 산출물은 시간 복잡도 측면에서 우수한 프로그램이 아니라 명령어 최적화를 통한 적은 명령어 수 출력이기 때문에 큰 기수를 가진 정렬은 논외로 했다. 최종적으로 2진수 기수정렬 (박스 2개 필요)와 3진수 정렬 (박스 3개 필요) 중에서 고민하다가 결국 **3진수 정렬**을 선택했다.
 
-아래 블로그와 위키를 통해 기수정렬을 더욱 쉽게 정리할 수 있을 듯 하다.
-
-#### 기수정렬 Reference
-- [wiki] https://buly.kr/6tZknhQ
-- [tistory] https://buly.kr/CshW9Qu
-
+<br>
 <br>
 
 # Mandatory
@@ -94,7 +89,7 @@ ____
 
 <br>
 
-### step2 :  `Hard sorting`
+### step2 : Hard sorting
 ``` c
 void	ps_hardsort(t_head *head, int len)
 {
@@ -198,6 +193,7 @@ int	main(int ac, char **av)
 }
 ```
 
+<br>
 <br>
 
 # Reference

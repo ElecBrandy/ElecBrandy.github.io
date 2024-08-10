@@ -14,8 +14,9 @@ ____
 42서울 본과정 입과 후 두번째로 수행한 과제로, 말 그대로 C언어의 `printf` 함수를 재현하는 과제이다. bonus는 수행하지 않았고, 기본적인 내용만 구현하다보니 생각보다 난이도가 쉬웠던 것 같다. libc의 `printf` 함수를 재구현해야 하며, 실제 `printf`처럼 버퍼 관리를 수행해서는 안 된다. 서식 지정자 `cspdiuxX%`를 구현해야한다.
 
 <br>
+<br>
 
-# `ft_printf` 명세서
+# ft_printf 명세서
 ____
 - **PROTOTYPE**
 	- `int ft_printf(const char *str, ...);`
@@ -39,6 +40,7 @@ ____
 	- _Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings)._
 	- 성공적으로 반환되면, 이 함수들은 인쇄된 문자 수를 반환합니다.(출력을 끝내는 데 사용되는 널 바이트 제외) 문자열을 반환함
 
+<br>
 <br>
 
 # 개념정리
@@ -135,6 +137,7 @@ void ft_putbase(unsigned int n, char *base, unsigned int number, int *cnt)
 ```
 진법에 맞는 숫자로 출력을 원할 때, 재귀를 사용하면 생각보다 코드가 깔끔해진다.
 
+<br>
 <br>
 
 # Reference

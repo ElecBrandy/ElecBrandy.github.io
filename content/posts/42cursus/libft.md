@@ -17,6 +17,7 @@ ____
 두번째는 코드 길이를 적당히 조절함으로써 자연스럽게 모듈화를 하게 하는 것. 그 이상의 의미는 두지 않기로 했다.
 
 <br>
+<br>
 
 # libft 명세서
 ____
@@ -34,6 +35,7 @@ ____
 - **Part 3 - Bonus functions**
 	- ft_lstnew, ft_lstadd_front, ft_lstsize, ft_lstlast, ft_lstadd_back, ft_lstdelone, ft_lstclear, ft_lstiter, ft_lstmap
 
+<br>
 <br>
 
 # 개념정리
@@ -58,6 +60,7 @@ ____
 - 오류 검출을 위해 전송하는 데이터의 끝에 1비트를 더하여 전송하는 방법이다.
 - 1바이트(8비트) 구조에서 피리티 비트는 7비트 크기의 ASCII 코드를 제외한 나머지 1비트를 의미한다.
 
+<br>
 <br>
 
 {{<alert>}}
