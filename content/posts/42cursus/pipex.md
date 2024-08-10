@@ -140,9 +140,10 @@ yes | head -n 1
 - **yes** 는 계속해서 파이프에 쓰려고하지만, 해당 파이프의 한쪽 끝은 이미 닫혀있어 `SIGPIPE` 신호가 발생하고 종료된다.
 
 <br>
+<br>
 
 # Mandatory
-
+____
 <img src="https://i.imgur.com/s1coAtk.png" width="700">
 
 <br>
