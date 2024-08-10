@@ -22,7 +22,7 @@ ____
 
 <br>
 
-# `push_swap` 명세서
+# push_swap 명세서
 ____
 - **PROTOTYPE**
 	- `push_swap`
@@ -85,8 +85,6 @@ ____
 # Mandatory
 ____
 
-# Mandatory 구조
-
 ### step 01 : 사전 최적화
 결국 숫자를 순서대로 정렬하는 것이고, 3진수로 변환해야하기 때문에 인자의 크기는 작을수록 좋다.
 인자의 크기가 커질수록 3진수로 변환된 길이는 길어질 것이고, 그만큼 비교-정렬 과정이 길어질 것이다.
@@ -130,7 +128,7 @@ void	ps_hardsort(t_head *head, int len)
 
 ## Mandatory 구현
 
-### `ps_radixsort`
+### ps_radixsort
 
 ``` c
 void	ps_radixsort(t_head *head, int len, int trlen)
@@ -168,7 +166,7 @@ void	ps_radixsort(t_head *head, int len, int trlen)
 
 <br>
 
-### `main`
+### main
 ``` c
 int	main(int ac, char **av)
 {

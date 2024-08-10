@@ -16,7 +16,7 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 
 <br>
 
-# `pipex` 명세서
+# pipex 명세서
 ____
 ## Mandatory part
 - `pipex`는 `./pipex file1 cmd1 cmd2 file2` 형태로 실행된다.
@@ -110,6 +110,8 @@ cat a.txt | grep A | sort
 - **grep** 은 첫 번째 파이프에서 EOF 신호를 받고, 더 이상 읽을 데이터가 없음을 인지하고 종료된다.
 - **sort** 또한 두 번째 파이프에서 EOF 신호를 받아 읽을 데이터가 없음을 인지하고 종료된다.
 
+<br>
+
 ### Case 02
 ``` bash
 cat | cat | ls
@@ -121,6 +123,8 @@ cat | cat | ls
 - 사용자의 shell 을통한 첫 번째 입력은 두 번째 **cat** 에 전달된다.
 - 두 번째 **cat** 은 입력을 받은 후 두 번째 파이프에 쓰려고 하지만, 해당 파이프의 한쪽 끝이 이미 닫혀 있어 `SIGPIPE` 신호가 발생하고 종료된다.
 - 첫 번째 **cat** 또한 입력을 받은 후 첫 번째 파이프에 쓰려고 하지만, 이 파이프의 한쪽 끝도 이미 닫혀 있어 `SIGPIPE` 신호가 발생하며 종료된다.
+
+<br>
 
 ### Case 03
 ```bash
@@ -135,9 +139,6 @@ yes | head -n 1
 <br>
 
 # Mandatory
-____
-
-## Mandatory 구조
 
 <img src="https://i.imgur.com/s1coAtk.png" width="700">
 
@@ -165,7 +166,7 @@ int	open_file(char **av, t_data *data)
 
 <br>
 
-### step 02 Pipeline 생성과 fork
+### step 02 : Pipeline 생성과 fork
 Mandatory는 단순히 두 커맨드 사이의 상호작용, 즉 두 자식 프로세스의 통신을 구현하는 것이다.
 부모에서(main) pipe를 열고 자식 프로세스 2개를 fork 하면, 해당 자식 프로세스들은 pipe를 통해 통신이 가능하다.
 
@@ -233,7 +234,6 @@ static void	child_02(char **av, char **envp, t_data *data)
 # Bonus
 ____
 
-## BONUS 구조
 Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택지가 존재한다. 첫번째 동적할당으로 필요한만큼 파이프 fd를 사용하는 것, 두번째는 fd값을 재활용하는 것.
 전자의 경우 데이터 흐름을 이해하기 쉽지만 그만큼 자원이 많이 들어가기 때문에 이후 과제인 minishell을 생각하면 피하는게 좋아보인다. 따라서 나는 후자를 선택했다.
 (기본적으로 Redirection 조절 등은 Mandatory와 유사하다.)

@@ -17,7 +17,7 @@ ____
 
 <br>
 
-# `get_next_line` 명세서
+# get_next_line 명세서
 ____
 - **PROTOTYPE**
 	- `char *get_next_line(int fd);`
@@ -86,8 +86,6 @@ void	ft_free(void **target)
 # Mandatory
 ____
 
-## Mandatory 구조
-
 <img src="https://imgur.com/w1qsdXS.png" width="700">
 
 <br>
@@ -103,7 +101,7 @@ ____
 
 ## Mandatory 구현
 
-### `get_next_line`
+### get_next_line
 
 ``` c
 char	*get_next_line(int fd)
@@ -136,7 +134,7 @@ char	*get_next_line(int fd)
 
 # BONUS
 ____
-## BONUS 구조
+
 본 과제를 **BONUS**까지 수행한다면,
 위에서 언급한 것 처럼 우리가 만든 `get_next_line`이 여러 파일 디스트립터를 관리할 수 있어야 한다. 쉽게 말하면, **a.txt**를 읽다가 갑자기 **b.txt**을 읽을 수 있어야 한다는 것! 다시 **a.txt**로 읽기 위해 돌아갔을 때, 그 전에 어디까지 읽었는지 당연히 기억하고 있어야 한다.
 
