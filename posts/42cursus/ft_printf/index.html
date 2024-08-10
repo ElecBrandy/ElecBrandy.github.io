@@ -58,6 +58,7 @@
 </blockquote>
 <br>
 <h1 id="소개">소개</h1>
+<hr>
 <p>42서울 본과정 입과 후 두번째로 수행한 과제로, 말 그대로 C언어의 <code>printf</code> 함수를 재현하는 과제이다. bonus는 수행하지 않았고, 기본적인 내용만 구현하다보니 생각보다 난이도가 쉬웠던 것 같다. libc의 <code>printf</code> 함수를 재구현해야 하며, 실제 <code>printf</code>처럼 버퍼 관리를 수행해서는 안 된다. 서식 지정자 <code>cspdiuxX%</code>를 구현해야한다.</p>
 <br>
 <h1 id="ft_printf-명세서"><code>ft_printf</code> 명세서</h1>
@@ -105,19 +106,18 @@
 <hr>
 <h2 id="가변인자">가변인자</h2>
 <p>가변인자 다루는 것에 중점을 둔 과제인 만큼, <code>va_</code> 함수를 통해 가변인자를 통제하는 방법을 알아야한다.</p>
+<br>
 <h2 id="한번쯤-고민해볼만한-charva_argap-int">한번쯤 고민해볼만한 <code>(char)va_arg(ap, int);</code></h2>
 <p>우리는 왜 char형을 읽는 순간 <code>(char)va_arg(ap, int);</code> 을 사용하는가? char형 자료를 읽는데 왜 int형 만큼 읽어오는 것인가?
 바이트 패딩은 CPU가 데이터를 효율적으로 처리하게 하는 데 중요한 역할을 하며, 당연하게도 이는 32비트와 64비트 운영 체제 간의 데이터 처리 방식에 차이를 가져온다.</p>
-<h2 id="바이트-패딩만으로-설명할-수-있을까">바이트 패딩만으로 설명할 수 있을까?</h2>
-<p>다만 바이트 패딩만으로 위 질문에 답하기 애매한것은 운영체제의 비트에 따라 데이터 처리 단위가 상이하기 때문이다.
-32비트 운영 체제는 4바이트, 64비트 운영 체제는 8바이트 단위로 데이터를 처리하기 때문에, 카뎃의 의도가 정말 바이트 패딩을 통해 데이터를 효율적으로 처리하기 위함이었다면 운영체제의 종류를 고민한 흔적이 코드에 들어있어야 할 것 이다.
+<p>그러나 바이트 패딩만으로 설명할 수 있을까?
+다만 바이트 패딩만으로 위 질문에 답하기 애매한것은 운영체제의 비트에 따라 데이터 처리 단위가 상이하기 때문이다.
+32비트 운영 체제는 4바이트, 64비트 운영 체제는 8바이트 단위로 데이터를 처리하기 때문에, 카뎃의 의도가 정말 바이트 패딩을 통해 데이터를 효율적으로 처리하기 위함이었다면 운영체제의 종류를 고민한 흔적이 코드에 들어있어야 할 것 이다.<br>
 그렇지만 대부분 <code>(char)va_arg(ap, int);</code> 을 명시적으로 사용하곤 한다.</p>
-<h2 id="원시-c언어의-흔적">원시 C언어의 흔적</h2>
 <p>유력한 다른 이유는 원시 C언어 시절에는 함수 프로토타입이 존재하지 않았기 때문에, 함수로 전달되는 인자의 정확한 자료형을 알 수 없었다. 따라서 모든 인자는 int로 처리되었고, 이러한 관행의 흔적이라고 보는 것이 좀 더 타당해보인다.</p>
 <br>
 <h1 id="mandatory">Mandatory</h1>
 <hr>
-<h2 id="mandatory-구조">Mandatory 구조</h2>
 <img src="https://imgur.com/Ghuekwt.png" width="700">
 <br>
 <h3 id="step-01">step 01</h3>
@@ -128,7 +128,7 @@
 <p>지정된 포맷이 아닌 경우, 문자 하나 하나 <code>write</code> 함수를 통해 출력한다.</p>
 <br>
 <h2 id="mandatory-구현">Mandatory 구현</h2>
-<h3 id="ft_printf"><code>ft_printf</code></h3>
+<h3 id="ft_printf">ft_printf</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span>	<span style="color:#a6e22e">ft_printf</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>format, ...)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span>		print_cnt;
@@ -141,7 +141,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>우선 <code>printf</code>의 return 값은 print된 문자의 수이므로 <code>printf_cnt</code> 함수에 담았다가 return 하는 방식을 선택했다.</p>
 <br>
-<h3 id="ft_printf_format"><code>ft_printf_format</code></h3>
+<h3 id="ft_printf_format">ft_printf_format</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span>	<span style="color:#a6e22e">ft_print_format</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>str, va_list ap)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span>	print_cnt;
@@ -162,7 +162,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>함수 <code>ft_printf_format</code>은 인자로 받은 <code>const char *fortmat</code>을 문자 <code>%</code>가 나올 때까지 탐색한다. 문자 <code>%</code>을 발견하면, <code>%</code> 바로 뒤의 포맷을 확인해서 해당하는 포맷과 알맞은 출력을 진행한다.</p>
 <br>
-<h3 id="ft_putbase"><code>ft_putbase</code></h3>
+<h3 id="ft_putbase">ft_putbase</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ft_putbase</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> n, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>base, <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> number, <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>cnt)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">*</span>cnt <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)

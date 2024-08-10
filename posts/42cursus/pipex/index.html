@@ -62,7 +62,7 @@
 <p>42서울 본과정 입과 후 다섯번째로 수행한 과제로, UNIX 동작 원리를 프로그래밍을 통해 상세히 파헤쳐보는 과제이다.
 Shell에서의 파이프를 구현하는 과제이며 Redriection, File discriptor, Process, Pipe, Fork 등을 공부할 수 있다.</p>
 <br>
-<h1 id="pipex-명세서"><code>pipex</code> 명세서</h1>
+<h1 id="pipex-명세서">pipex 명세서</h1>
 <hr>
 <h2 id="mandatory-part">Mandatory part</h2>
 <ul>
@@ -149,6 +149,7 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 <li><strong>grep</strong> 은 첫 번째 파이프에서 EOF 신호를 받고, 더 이상 읽을 데이터가 없음을 인지하고 종료된다.</li>
 <li><strong>sort</strong> 또한 두 번째 파이프에서 EOF 신호를 받아 읽을 데이터가 없음을 인지하고 종료된다.</li>
 </ul>
+<br>
 <h3 id="case-02">Case 02</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat | cat | ls
 </span></span></code></pre></div><p>각 커맨드는 실행되자마자 자신의 역할을 수행한다.</p>
@@ -160,6 +161,7 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 <li>두 번째 <strong>cat</strong> 은 입력을 받은 후 두 번째 파이프에 쓰려고 하지만, 해당 파이프의 한쪽 끝이 이미 닫혀 있어 <code>SIGPIPE</code> 신호가 발생하고 종료된다.</li>
 <li>첫 번째 <strong>cat</strong> 또한 입력을 받은 후 첫 번째 파이프에 쓰려고 하지만, 이 파이프의 한쪽 끝도 이미 닫혀 있어 <code>SIGPIPE</code> 신호가 발생하며 종료된다.</li>
 </ul>
+<br>
 <h3 id="case-03">Case 03</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yes | head -n <span style="color:#ae81ff">1</span>
 </span></span></code></pre></div><p>각 커맨드는 실행되자마자 자신의 역할을 수행한다.</p>
@@ -171,8 +173,6 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 </ul>
 <br>
 <h1 id="mandatory">Mandatory</h1>
-<hr>
-<h2 id="mandatory-구조">Mandatory 구조</h2>
 <img src="https://i.imgur.com/s1coAtk.png" width="700">
 <br>
 <h3 id="step-01--redirection-조절">step 01 : Redirection 조절</h3>
@@ -192,7 +192,7 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><br>
-<h3 id="step-02-pipeline-생성과-fork">step 02 Pipeline 생성과 fork</h3>
+<h3 id="step-02--pipeline-생성과-fork">step 02 : Pipeline 생성과 fork</h3>
 <p>Mandatory는 단순히 두 커맨드 사이의 상호작용, 즉 두 자식 프로세스의 통신을 구현하는 것이다.
 부모에서(main) pipe를 열고 자식 프로세스 2개를 fork 하면, 해당 자식 프로세스들은 pipe를 통해 통신이 가능하다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#75715e">// 프로세스 관리 함수
@@ -254,7 +254,6 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 </span></span></code></pre></div><br>
 <h1 id="bonus">Bonus</h1>
 <hr>
-<h2 id="bonus-구조">BONUS 구조</h2>
 <p>Bonus 부분에서는 다중 파이프를 구현해야한다. 두가지 선택지가 존재한다. 첫번째 동적할당으로 필요한만큼 파이프 fd를 사용하는 것, 두번째는 fd값을 재활용하는 것.
 전자의 경우 데이터 흐름을 이해하기 쉽지만 그만큼 자원이 많이 들어가기 때문에 이후 과제인 minishell을 생각하면 피하는게 좋아보인다. 따라서 나는 후자를 선택했다.
 (기본적으로 Redirection 조절 등은 Mandatory와 유사하다.)</p>

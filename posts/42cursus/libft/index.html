@@ -64,7 +64,7 @@
 항상 느끼는 것이지만 <code>norm</code> 규칙의 첫번째 목표는 카뎃이 다른 카뎃의 코드를 보았을 때 최소한의 일관성을 유지하여 쉽게 읽을 수 있게 하는 것&hellip; 이고
 두번째는 코드 길이를 적당히 조절함으로써 자연스럽게 모듈화를 하게 하는 것. 그 이상의 의미는 두지 않기로 했다.</p>
 <br>
-<h1 id="libft-명세서"><code>libft</code> 명세서</h1>
+<h1 id="libft-명세서">libft 명세서</h1>
 <hr>
 <ul>
 <li>
@@ -94,20 +94,22 @@
 <br>
 <h1 id="개념정리">개념정리</h1>
 <hr>
-<h2 id="size_t"><code>size_t</code></h2>
+<h2 id="size_t">size_t</h2>
 <ul>
 <li>해당 운영체제에서 포함할 수 있는 최대 크기의 데이터 타입으로, 32비트 운영체제에서 4바이트, 64비트 운영체제에서 8바이트로 정의되어있다.</li>
 <li>객체의 크리를 나타내는 부호 없는 정수 유형이다.</li>
 <li><code>sizeof</code> 연산자의 결과값이기도 하며, 결국 &lsquo;크기&rsquo;를 다룰 때 선호한다.</li>
 <li>레지스터 별로 달랐던 자료의 범위 값으로 인한 메모리의 낭비나 부족을 막기 위해 사용했다.</li>
 </ul>
-<h2 id="atoi의-한계"><code>atoi</code>의 한계</h2>
+<br>
+<h2 id="atoi의-한계">atoi의 한계</h2>
 <ul>
 <li>사실 <code>atoi</code> 함수는 <strong>LONG_MAX</strong>와 <strong>LONG_MIN</strong>을 초과하는 범위에서 결과값이 고정되어있다.</li>
 <li>이는 현재 <code>atoi</code> 함수 내부를 들여다보면 궁금증을 풀 수 있으니 여러 버전의 오픈소스를 통해 <code>atoi</code>의 구현을 살펴보자.</li>
 <li><code>strol</code> 함수에 대해서 공부해보자.</li>
 </ul>
-<h2 id="parity-bit"><code>Parity bit</code></h2>
+<br>
+<h2 id="parity-bit">Parity bit</h2>
 <ul>
 <li>패리티 비트는 정보 전달 과정에서 오류가 생겼는지 검사하기 위한 비트이다.</li>
 <li>오류 검출을 위해 전송하는 데이터의 끝에 1비트를 더하여 전송하는 방법이다.</li>

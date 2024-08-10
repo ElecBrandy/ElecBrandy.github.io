@@ -65,7 +65,7 @@
 <p>그렇다보니 가장 많이 쓰이는 방법이 그리디 알고리즘를 통해 모든 정렬 경우의 수를 먼저 체크하고, 명령어 수를 최적화하여 이후에 출력하는 것이다.
 정렬 시 사용한 명령어 개수에 따라 점수가 달라질 수 있다. (<strong>기수 정렬</strong>도 하나의 방법!)</p>
 <br>
-<h1 id="push_swap-명세서"><code>push_swap</code> 명세서</h1>
+<h1 id="push_swap-명세서">push_swap 명세서</h1>
 <hr>
 <ul>
 <li><strong>PROTOTYPE</strong>
@@ -134,7 +134,6 @@
 <br>
 <h1 id="mandatory">Mandatory</h1>
 <hr>
-<h1 id="mandatory-구조">Mandatory 구조</h1>
 <h3 id="step-01--사전-최적화">step 01 : 사전 최적화</h3>
 <p>결국 숫자를 순서대로 정렬하는 것이고, 3진수로 변환해야하기 때문에 인자의 크기는 작을수록 좋다.
 인자의 크기가 커질수록 3진수로 변환된 길이는 길어질 것이고, 그만큼 비교-정렬 과정이 길어질 것이다.
@@ -172,7 +171,7 @@
 </ol>
 <br>
 <h2 id="mandatory-구현">Mandatory 구현</h2>
-<h3 id="ps_radixsort"><code>ps_radixsort</code></h3>
+<h3 id="ps_radixsort">ps_radixsort</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span>	<span style="color:#a6e22e">ps_radixsort</span>(t_head <span style="color:#f92672">*</span>head, <span style="color:#66d9ef">int</span> len, <span style="color:#66d9ef">int</span> trlen)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span>		i;
@@ -205,7 +204,7 @@
 이때 0그룹과 1그룹의 위치를 어디에 놓아야 명령어 갯수가 최적화 되는지 다양하게 살펴보자. 0부터 1000까지 정수를 3진수로 변환했을때
 각각 기수 0의 갯수, 1의 갯수, 2의 갯수를 카운트하는 것도 도움이 될 수 있다.</p>
 <br>
-<h3 id="main"><code>main</code></h3>
+<h3 id="main">main</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span>	<span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> ac, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>av)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	t_input	<span style="color:#f92672">*</span>input;
