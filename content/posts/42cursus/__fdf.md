@@ -3,6 +3,7 @@ title = '[42cursus] get_next_line'
 date = 2024-04-19
 featured_image = "http://t1.daumcdn.net/cfile/15110210A8445BF80D"
 tags = ['C', '42cursus']
+draft = true
 +++
 
 > Reading a line on a fd is way too tedious
