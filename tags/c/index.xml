@@ -6,15 +6,8 @@
     <description>Recent content in C on Elecbrandy</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://elecbrandy.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[42cursus] get_next_line</title>
-      <link>https://elecbrandy.github.io/posts/42cursus/fdf/</link>
-      <pubDate>Fri, 19 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/posts/42cursus/fdf/</guid>
-      <description>Reading a line on a fd is way too tedious&#xA;소개 42서울 본과정 입과 후 세번째로 수행한 과제로, 파일 디스크립터로부터 읽혀진 - 개행으로 끝나는 한 줄을 반환하는 함수를 만드는 과제이다. 즉 파일 하나를 연 다음, 파일 내용에서 개행으로 끝나는 줄 하나를 반환해야한다. 파일을 열고, 지정된 BUFFER_SIZE 만큼 read함수를 통해 파일을 읽다가 개행문자 \n이 나타나면 개행문자 전까지만 반환한다.&#xA;get_next_line 명세서 PROTOTYPE char *get_next_line(int fd); PARAMETER int fd : 읽어들일 파일의 디스크립터 DESCRIPTION Mandatory part 호출마다 한 번에 한 줄씩 파일 디스크립터가 가리키는 파일을 읽어온다.</description>
-    </item>
     <item>
       <title>[42cursus] pipex</title>
       <link>https://elecbrandy.github.io/posts/42cursus/pipex/</link>
