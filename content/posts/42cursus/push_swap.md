@@ -89,7 +89,7 @@ ____
 
 <br>
 
-### step2 : Hard sorting
+### step 02 : Hard sorting
 ``` c
 void	ps_hardsort(t_head *head, int len)
 {
@@ -107,7 +107,7 @@ void	ps_hardsort(t_head *head, int len)
 
 <br>
 
-### step3 : 기수정렬
+### step 03 : 기수정렬
 
 <img src="https://i.imgur.com/yiREh79.png" width="700">
 
