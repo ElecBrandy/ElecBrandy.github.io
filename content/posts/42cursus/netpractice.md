@@ -54,6 +54,11 @@ ___
 
 <br>
 
+## 프로토콜
+네트워크에서 통신이 이루어지기 위한 규칙과 절차를 의미한다. 네트워크에서 두 개 이상의 장치가 데이터를 주고 받기 위해서는 서로가 데이터를 어떻게 보낼지, 받을지, 해석할지에 대한 공통의 약속이 필요하며 그것이 바로 프로토콜임! 약속이자 규정으로 생각하자. 예를 들어 데이터가 전송되는 방법, 오류가 검출되고 수저오디는 방법, 데이터를 조각내어 전송한 후 조합하는 방법 등등. TCP/IP, HTTP 모두 널리 알려진 프로토콜의 일종이다.
+
+<br>
+
 ## OSI 7계층 모델
 <img src="https://www.freecodecamp.org/news/content/images/2021/10/osi-vs-tcpip-1.png" width="700">  
 
@@ -103,7 +108,9 @@ OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으�
 
 전송 계층은 흐름제어 및 오류 제어 기능의 역할도 수행하지만, 네트워크 간 통신에 대해서만 작동한다.  
 
-전송 계층 프로토콜에는 TCP(전송 제어 프로토콜), UDP(사용자 데이터그램 프로토콜)이 존재한다.
+전송 계층 프로토콜에는 TCP(전송 제어 프로토콜), UDP(사용자 데이터그램 프로토콜)이 존재한다.  
+
+<br>
 
 ### 3. 네트워크 계층 : The Network Layer
 <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/3g2Hv0frHsql5SFauJL5EG/d8cede7b6a780e63413bd86de9eee7f9/osi_model_network_layer_3.png" width="700">
@@ -115,7 +122,7 @@ OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으�
 네트워크 계층은 데이터를 패킷 단위로 처리한다. 패킷은 목적지 IP 주소를 포함하고 있으며, 이를 기반으로 데이터를 목적지까지 포워딩(전달)한다. 
 
 네트워크 계층 프로토콜에는 IP, ICMP, IGMP, 그리고 장비로는 라우터 등이 존재한다.  
-
+ 
 <br>
 
 ### 2. 데이터 연결 계층 : The Data Link Layer
@@ -138,7 +145,7 @@ OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으�
 
 단순히 데이터를 전달하는 역할만 수행하며, 내용은 관여하지 않는다. 에러 검출이나 신뢰성에 대해 무관심하고 알 수도 없다.  
 
-네트워크 어댑터, 리피터와 허브, 케이블, 커넥터 등이 존재한다.
+네트워크 어댑터, 리피터와 허브, 케이블, 커넥터 등이 존재한다.  
 
 <br>
 
@@ -149,7 +156,11 @@ TCP/IP란 TCP 및 IP라 불리는 프로토콜을 중심으로 구성되는 일�
 
 TCP/IP 모델은 OSI모델과 유사하게 네트워크 통신을 계층화하여 설명하는 모델이지만, 더 간소화된  구조를 가지고 있다. 실질적으로 인터넷의 기반이 되는 프로토콜 스택으로, 각각의 계층은 특정한 기능을 담당한다. 아래는 TCP/IP 모델의 주요 프로토콜 간의 상호작용을 나타내고 있다.
 
+<br>
+
 <img src = "https://i.imgur.com/1ARBFjM.png" width = "700">
+
+<br>
 
 ### 응용 계층 : Application Layer
 응용 계층은 TCP/IP 모델에서 사용자와 가장 가까운 계층으로, 응용 프로그램이 네트워크와 상호작용하는 인터페이스를 제공한다. 이 계층은 OSI 모델의 **응용 프로그램 계층, 프레젠테이션 계층, 세션 계층**의 기능을 통합하고 있다.  
@@ -294,7 +305,7 @@ AND 결과    : 11000000.10101000.00000001.00000000
 ____
 
 <details>
-<summary><h4>LEVEL_01</h4></summary>
+<summary>LEVEL_01</summary>
 <div markdown="1">
 
 ## LEVEL_01
@@ -311,7 +322,7 @@ IP 주소와 서브넷 마스크를 AND 연산하여 네트워크 ID `104.94.23.
 <br>
 
 <details>
-<summary><h4>LEVEL_02</h4></summary>
+<summary>LEVEL_02</summary>
 <div markdown="1">
 
 ## LEVEL_02
@@ -335,7 +346,7 @@ B의 IP 주소와 서브넷 마스크를 AND 연산하여 네트워크 ID `192.1
 <br>
 
 <details>
-<summary><h4>LEVEL_03</h4></summary>
+<summary>LEVEL_03</summary>
 <div markdown="1">
 
 ## LEVEL_03
@@ -357,7 +368,7 @@ A의 IP 주소가 고정되어 있으므로, A의 IP 주소와 서브넷 마스�
 <br>
 
 <details>
-<summary><h4>LEVEL_04</h4></summary>
+<summary>LEVEL_04</summary>
 <div markdown="1">
 
 ## LEVEL_04
@@ -379,7 +390,7 @@ A의 IP 주소가 고정되어 있으므로, A의 IP 주소와 서브넷 마스�
 <br>
 
 <details>
-<summary><h4>LEVEL_05</h4></summary>
+<summary>LEVEL_05</summary>
 <div markdown="1">
 
 ## LEVEL_05
@@ -401,7 +412,7 @@ A가 속한 서브넷을 벗어나는 트래픽(외부 네트워크로 가는 �
 <br>
 
 <details>
-<summary><h4>LEVEL_06</h4></summary>
+<summary>LEVEL_06</summary>
 <div markdown="1">
 
 ## LEVEL_06
