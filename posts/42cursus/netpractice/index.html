@@ -86,6 +86,9 @@
 <p>각 계층의 프로세스가 직접 통신하는 형태를 보이지만, 실제로는 항상 물리 계층을 통해 데이터가 전송된다.</p>
 <p>일반 사용자는 전송해야하는 데이터가 있으면 이를 응용 프로그램 계층에 보내 전송을 요청한다(송신 호스트). 응용 프로그램 계층은 원 데이터에 자신의 프로토콜에서 정의한 헤더 정보를 추가한다. 밑으로 내려가면서 각 계층 또한 이하 동문으로 헤더정보를 추가한다. 수신 호스트에서는 계층별로 올라오면서 추가되어있는 헤더를 해석하고 처리하고, 최종적으로 원 데이터를 수신 받을 수 있다.</p>
 <br>
+<h2 id="프로토콜">프로토콜</h2>
+<p>네트워크에서 통신이 이루어지기 위한 규칙과 절차를 의미한다. 네트워크에서 두 개 이상의 장치가 데이터를 주고 받기 위해서는 서로가 데이터를 어떻게 보낼지, 받을지, 해석할지에 대한 공통의 약속이 필요하며 그것이 바로 프로토콜임! 약속이자 규정으로 생각하자. 예를 들어 데이터가 전송되는 방법, 오류가 검출되고 수저오디는 방법, 데이터를 조각내어 전송한 후 조합하는 방법 등등. TCP/IP, HTTP 모두 널리 알려진 프로토콜의 일종이다.</p>
+<br>
 <h2 id="osi-7계층-모델">OSI 7계층 모델</h2>
 <img src="https://www.freecodecamp.org/news/content/images/2021/10/osi-vs-tcpip-1.png" width="700">  
 <p>OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으로 나누어 설명하는 표준화된 모델이다. 이는 통신 시스템의 다양한 기능을 7개의 계층으로 나누어 설명하며 네트워크 설계 및 문제 해결을 용이하게 한다. 현대 인터넷에서는 OSI 모델을 엄격하게 따르고 있지는 않지만, 이러한 유형의 구분은 네트워크 문제를 해결하는데 유용하다.</p>
@@ -114,6 +117,7 @@
 <p>전송 계층은 두 기기 간의 종단 간 통신을 담당하며, 데이터를 가져와 <strong>세그먼트</strong>라는 조각으로 분할하는 역할을 수행한다. 이를 통해 <strong>신뢰성 있는 전송</strong>을 보장하는 것에 중점을 둔다. 또한 전송 계층은 컴퓨터 내부에서 논리적으로 구축되는 통신 당사자인 프로세스 사이의 통신 문제를 다룬다. 예를 들면 통화자 사이에 통화 연결을 설정하는 역할을 하는 것! 전송 계층 하위에 있는 물리 / 데이터 링크 / 네트워크 계층은 전송계층의 연결을 설정하고 어떻게 활용할지 다루는 것 뿐이다.</p>
 <p>전송 계층은 흐름제어 및 오류 제어 기능의 역할도 수행하지만, 네트워크 간 통신에 대해서만 작동한다.</p>
 <p>전송 계층 프로토콜에는 TCP(전송 제어 프로토콜), UDP(사용자 데이터그램 프로토콜)이 존재한다.</p>
+<br>
 <h3 id="3-네트워크-계층--the-network-layer">3. 네트워크 계층 : The Network Layer</h3>
 <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/3g2Hv0frHsql5SFauJL5EG/d8cede7b6a780e63413bd86de9eee7f9/osi_model_network_layer_3.png" width="700">
 <p>네트워크 계층은 서로 다른 두 네트워크 간 데이터 전송을 용이하게 하며 라우팅, IP 주소 관리, 패킷 포워딩 등의 기능을 수행한다. 이때 서로 통신하는 두 장치가 동일한 네트워크에 있는 경우에는 네트워크 계층이 필요하지 않음!</p>
@@ -138,7 +142,9 @@
 <img src="https://www.freecodecamp.org/news/content/images/2021/10/osi-vs-tcpip-1.png" width="700">  
 <p>TCP/IP란 TCP 및 IP라 불리는 프로토콜을 중심으로 구성되는 일련의 프로토콜들의 총칭이다. 일반적으로 TCP/IP 프로토콜이라 하면, TCP와 IP 뿐만 아니라 관련된 프로토콜 집단을 의미한다.</p>
 <p>TCP/IP 모델은 OSI모델과 유사하게 네트워크 통신을 계층화하여 설명하는 모델이지만, 더 간소화된  구조를 가지고 있다. 실질적으로 인터넷의 기반이 되는 프로토콜 스택으로, 각각의 계층은 특정한 기능을 담당한다. 아래는 TCP/IP 모델의 주요 프로토콜 간의 상호작용을 나타내고 있다.</p>
+<br>
 <img src = "https://i.imgur.com/1ARBFjM.png" width = "700">
+<br>
 <h3 id="응용-계층--application-layer">응용 계층 : Application Layer</h3>
 <p>응용 계층은 TCP/IP 모델에서 사용자와 가장 가까운 계층으로, 응용 프로그램이 네트워크와 상호작용하는 인터페이스를 제공한다. 이 계층은 OSI 모델의 <strong>응용 프로그램 계층, 프레젠테이션 계층, 세션 계층</strong>의 기능을 통합하고 있다.</p>
 <p>주요 프로토콜으로 HTTP, FTP, SMTP, DNS, TELNET, SNMP 등이 있으며, 이들 프로토콜은 웹 서비스, 파일 전송, 이메일, 도메인 이름 해석 등 다양한 네트워크 서비스를 제공한다. 예를 들면, 사용자가 웹 브라우저를 통해 웹 페이지를 요청할 때 HTTP 프로토콜을 사용하여 요청을 처리하고 서버에서 페이지를 받아온다.</p>
@@ -265,7 +271,7 @@ AND 결과    : 11000000.10101000.00000001.00000000
 <h1 id="mandatory">Mandatory</h1>
 <hr>
 <details>
-<summary><h4>LEVEL_01</h4></summary>
+<summary>LEVEL_01</summary>
 <div markdown="1">
 <h2 id="level_01">LEVEL_01</h2>
 <img src="https://i.imgur.com/X1c2YZn.png" width="600">
@@ -276,7 +282,7 @@ AND 결과    : 11000000.10101000.00000001.00000000
 </details>
 <br>
 <details>
-<summary><h4>LEVEL_02</h4></summary>
+<summary>LEVEL_02</summary>
 <div markdown="1">
 <h2 id="level_02">LEVEL_02</h2>
 <img src="https://i.imgur.com/X1c2YZn.png" width="600">
@@ -295,7 +301,7 @@ AND 결과    : 11000000.10101000.00000001.00000000
 </details>
 <br>
 <details>
-<summary><h4>LEVEL_03</h4></summary>
+<summary>LEVEL_03</summary>
 <div markdown="1">
 <h2 id="level_03">LEVEL_03</h2>
 <img src="https://i.imgur.com/X1c2YZn.png" width="600">
@@ -311,7 +317,7 @@ Goal 3 : Host B need to communicate with Host C</p>
 </details>
 <br>
 <details>
-<summary><h4>LEVEL_04</h4></summary>
+<summary>LEVEL_04</summary>
 <div markdown="1">
 <h2 id="level_04">LEVEL_04</h2>
 <img src="https://i.imgur.com/X1c2YZn.png" width="600">
@@ -327,7 +333,7 @@ Goal 3 : Another host need to communicate with My_Gate</p>
 </details>
 <br>
 <details>
-<summary><h4>LEVEL_05</h4></summary>
+<summary>LEVEL_05</summary>
 <div markdown="1">
 <h2 id="level_05">LEVEL_05</h2>
 <img src="https://i.imgur.com/X1c2YZn.png" width="600">
@@ -343,7 +349,7 @@ Goal 3 : Machine A need to communicate with Machine B</p>
 </details>
 <br>
 <details>
-<summary><h4>LEVEL_06</h4></summary>
+<summary>LEVEL_06</summary>
 <div markdown="1">
 <h2 id="level_06">LEVEL_06</h2>
 <img src="https://i.imgur.com/X1c2YZn.png" width="600">
