@@ -40,7 +40,7 @@ ____
 <br>
 <br>
 
-# 개념정리
+# 개념 정리
 ____
 <img src="https://i.imgur.com/tOh91Wf.png" width="700">
 
