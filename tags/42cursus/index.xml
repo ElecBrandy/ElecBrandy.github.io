@@ -13,7 +13,7 @@
       <link>https://elecbrandy.github.io/posts/42cursus/netpractice/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/netpractice/</guid>
-      <description>This document is a System Administration related exercise.&#xA;소개 42서울 본과정 입과 후 n번째로 수행한 과제로, 교육 인터페이스 상에서 소규모 네트워크를 구성하는 과제이다. 네트워킹 문제를 해결하여 네트워크가 실행되도록 만들어야한다. 총 10개의 문제를 완료하고, Git 저장소에 제출하는 것이 최종 목표이다.&#xA;개념정리 네트워크란? 네트워크는 두 대 이상의 컴퓨터 시스템이 서로 연결되어 데이터를 교환할 수 있는 구조를 의미한다. 이 연결은 다양한 방법으로 이루어질 수 있으며, 물리적 케이블, 무선 신호, 또는 혼합된 방식으로 네트워크를 구성할 수 있다.</description>
+      <description>This document is a System Administration related exercise.&#xA;소개 42서울 본과정 입과 후 n번째로 수행한 과제로, 교육 인터페이스상에서 소규모 네트워크를 구성하는 과제이다. 네트워킹 문제를 해결하여 네트워크가 실행되도록 만들어야 한다. 총 10개의 문제를 완료하고, Git 저장소에 제출하는 것이 최종 목표이다.&#xA;개념 정리 네트워크란? 네트워크는 두 대 이상의 컴퓨터 시스템이 서로 연결되어 데이터를 교환할 수 있는 구조를 의미한다. 이 연결은 다양한 방법으로 이루어질 수 있으며, 물리적 케이블, 무선 신호, 또는 혼합된 방식으로 네트워크를 구성할 수 있다.</description>
     </item>
     <item>
       <title>[42cursus] pipex</title>
@@ -34,7 +34,7 @@
       <link>https://elecbrandy.github.io/posts/42cursus/born2beroot/</link>
       <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/posts/42cursus/born2beroot/</guid>
-      <description>YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD&#xA;소개 42서울 본과정 입과 후 네번째로 수행한 과제로, 가상머신에 리눅스를 설치하고 공부하는 과정이다.&#xA;가상머신에 리눅스(Debian or Rocky)를 설치하고, LVM를 통한 파티션 설정과 기타 여러가지 기능을 직접 실습한다. 백문불여일견. 요구사항이 상당히 많고 처음 접한다면 배워야할 개념도 상당히 많다&amp;hellip; 화이팅! 리눅스 설치는 하다보면 100번이라도 해야만 하는 상황이기 때문에 중요한 개념 위주로만 정리했다.&#xA;개념정리 운영체제 Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원을 사용할 수 있는 인터페이스를 제공하고, 그 결과를 돌려주는 시스템 소프트웨어이다.</description>
+      <description>YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD&#xA;소개 42서울 본과정 입과 후 네번째로 수행한 과제로, 가상머신에 리눅스를 설치하고 공부하는 과정이다.&#xA;가상머신에 리눅스(Debian or Rocky)를 설치하고, LVM를 통한 파티션 설정과 기타 여러가지 기능을 직접 실습한다. 백문불여일견. 요구사항이 상당히 많고 처음 접한다면 배워야할 개념도 상당히 많다&amp;hellip; 화이팅! 리눅스 설치는 하다보면 100번이라도 해야만 하는 상황이기 때문에 중요한 개념 위주로만 정리했다.&#xA;개념 정리 운영체제 Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원을 사용할 수 있는 인터페이스를 제공하고, 그 결과를 돌려주는 시스템 소프트웨어이다.</description>
     </item>
     <item>
       <title>File descriptor</title>
