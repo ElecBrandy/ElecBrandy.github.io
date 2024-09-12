@@ -41,7 +41,6 @@ ____
 <br>
 
 ## C로 구현한 Stack(Array)
-____
 
 ### 노드 구조
 
@@ -104,6 +103,7 @@ int do_pop(t_stack *stack) {
 <br>
 
 ## STL::Stack
+
 ``` C++
 #include <iostream>
 #include <stack>

@@ -223,6 +223,7 @@ void insert_node(t_node **head, t_node *new_node, int position) {
 <br>
 
 ## STL::Linked List
+
 ``` C++
 #include <iostream>
 #include <list>
