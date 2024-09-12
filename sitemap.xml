@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://elecbrandy.github.io/posts/cs101/datastructure/__stack/</loc>
+    <loc>https://elecbrandy.github.io/posts/cs101/datastructure/stack/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -27,27 +27,22 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://elecbrandy.github.io/posts/42cursus/circle_4/cpp00/</loc>
-    <lastmod>2024-09-08T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://elecbrandy.github.io/tags/42cursus/</loc>
-    <lastmod>2024-09-08T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://elecbrandy.github.io/tags/c&#43;&#43;/</loc>
-    <lastmod>2024-09-08T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://elecbrandy.github.io/posts/cs101/datastructure/__queue/</loc>
     <lastmod>2024-09-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://elecbrandy.github.io/tags/c&#43;&#43;/</loc>
+    <lastmod>2024-09-05T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/circle_4/netpractice/</loc>
+    <lastmod>2024-08-15T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://elecbrandy.github.io/tags/42cursus/</loc>
     <lastmod>2024-08-15T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -82,7 +77,7 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://elecbrandy.github.io/posts/cs101/filedescriptor/</loc>
+    <loc>https://elecbrandy.github.io/posts/cs101/etc/filedescriptor/</loc>
     <lastmod>2023-12-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -97,7 +92,7 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://elecbrandy.github.io/posts/cs101/lvm/</loc>
+    <loc>https://elecbrandy.github.io/posts/cs101/etc/lvm/</loc>
     <lastmod>2023-12-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -122,12 +117,12 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://elecbrandy.github.io/posts/cs101/buildc/</loc>
+    <loc>https://elecbrandy.github.io/posts/cs101/etc/buildc/</loc>
     <lastmod>2023-11-03T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://elecbrandy.github.io/posts/cs101/makefile/</loc>
+    <loc>https://elecbrandy.github.io/posts/cs101/etc/makefile/</loc>
     <lastmod>2023-11-03T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
