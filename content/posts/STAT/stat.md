@@ -1,7 +1,7 @@
 +++
-title = '[42cursus] minishell'
+title = '[기초통계] 01'
 date = 2024-06-04
-featured_image = "https://i.imgur.com/YVVHgN6.png"
+featured_image = "https://64.media.tumblr.com/f3d68e23f22d838acfecbb3ba63e54fb/ca332e19c19528dd-05/s640x960/19d6054e78181fa162efdceed5348572fd06ce15.jpg"
 tags = ['C', '42cursus']
 draft = true
 +++
@@ -27,7 +27,7 @@ ____
 - **DESCRIPTION**
 	1. **명령 대기 중 프롬프트 표시**
 		- 새 명령을 기다릴 때 프롬프트를 표시해야함!
-	
+
 	2. **작업 이력 관리**
 		- 이전 명령의 작업 이력을 관리할 수 있어야 함!
 	
@@ -106,9 +106,9 @@ ____
 
 명령어 파싱의 경우 bonus를 고려하지 않으면 주로 연결리스트로 관리를 하고, bonus를 고려할 경우 트리형태로 관리한다. 실행부의 경우 이전 과제인 **pipex**와 사실상 유사하기 때문에 익숙한 작업이 주를 이룬다.  
 
-우리 팀의 경우 내가 `실행부 + 빌트인함수`를 맡았고, 함께한 `dongeunk` 님이 `파싱부 + here_doc 등`을 맡았다. `파싱부 + here_doc` 부분이 절대적인 양과 예외처리 부분이 상당히 많다. 팀원분이 잘하시는 분이라... 감사합니다.  
+우리 팀의 경우 내가 `실행부 + 빌트인함수`를 맡았고, 함께한 `dongeunk` 님이 `파싱부 + here_doc 등`을 맡았다. `파싱부 + here_doc` 부분이 예외처리 부분이 상당히 많다. 팀원분이 상당히 수고해주셔서.. 너무 고생하셨고 대단하심.  
 
-따라서 이번 과제 정리는 내가 담당한 빌트인 함수를 주로 다루어보고자 한다. (실행부는 **pipex**와 유사)
+이에 따라, 이번 과제 정리는 내가 담당한 빌트인 함수만 주로 다루어보고자 한다. (실행부는 **pipex**와 유사)
 
 <br>
 
@@ -195,14 +195,6 @@ static int	move_path(t_env **env, char *path)
 ```
 
 bash에서의 `cd`
-
-`main_buf` 변수는 **static** 변수이기 때문에, 프로그램 실행 시 단 한 번 초기화 되며, 이후에 `get_next_line` 함수가 호출되어도 초기화되지 않고 이전에 저장된 값을 유지한다.
-
-`read_line_fd`를 통해 개행 또는 EOF 전까지 **BUFFER_SIZE**만큼씩 파일을 읽는다.
-
-읽은 내용은 `main_buf`에 저장되며, `extrac_line` 함수를 통해 개행 전까지 잘라 `line`에 담는다.
-
-`read_main_buf`를 통해 `main_buf`를 정리(잘라낸 line을 없애고 나머지만 남김)하여 다음 호출을 대비한다.
 
 <br>
 <br>

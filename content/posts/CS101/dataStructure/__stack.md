@@ -1,54 +1,113 @@
 +++
 title = '[자료구조] Stack'
 date = 2024-09-01
-featured_image = "https://programmercave.com/assets/images/Memes-Linkedlist/llmeme1.jpg"
-draft = true
+featured_image = "https://image.fnnews.com/resource/media/image/2012/11/04/201211041607219413_l.jpg"
 tags = ['C++', 'dataStructure', 'CS101']
 +++
 
-> 데이터를 효율적으로 저장하고 관리하는 방법
+draft = true
 
 **📂 : 자료구조**
 ____
-<a href="https://elecbrandy.github.io/tags/dataStructure/list"> [0] List </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/stack"> [1] Stack </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/queue"> [2] Queue </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/heap"> [3] Heap </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/tree"> [4] Tree </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/graph"> [5] Graph </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/hashtable"> [5] HashTable </a>
+> <a href="https://elecbrandy.github.io/tags/dataStructure/list"> **[0]** List </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/stack"> **[1]** Stack </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/queue"> **[2]** Queue </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/heap"> **[3]** Heap </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/tree"> **[4]** Tree </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/graph"> **[5]** Graph </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/hashtable"> **[6]** HashTable </a>  
+
 
 <br>
 <br>
 
 # Stack
 ____
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Data_stack.svg/600px-Data_stack.svg.png" width="700">
-Stack은 **LIFO(Last in, First Out)** 방식으로 작동하는 선형 자료구조이다. 즉, 가장 마지막에 삽입된 데이터가 가장 먼저 삭제되는 구조인 것!
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20240606180735/Stack-representation-in-Data-Structures-(1).webp" width="700">
 
-## Stack 주요 연산
-
-Array List는 연속적인 메모리 공간에 데이터를 저장하는 방식이다. 이는 인덱스를 통한 빠른 접근 속도(시간 복잡도 O(1))가 특징이지만, 크기를 미리 지정해야 하는 제약이 있다. 만약 리스트가 가득 차면 새로운 더 큰 메모리 공간을 할당하고, 기존 요소를 복사하는 과정을 거쳐야하며 이 복사 작업의 평균 시간 복잡도는 O(n)이다. 대표적인 예시로 `vector`를 들 수 있다.  
-
-기존 크기가 10인 Array list에 요소를 한가지 더 추가한다면, 내부적으로 11의 공간을 할당한 후, 기존 데이터를 복사한 다음 요소를 추가하는 작업이 존재한다. 물론 일반적으로는 배열 크기를 증가 시킬 때 10 -> 11 처럼 좀좀따리가 아니라 두배정도 증가시켜 추가 연산을 어느정도 제한하고 있다.
-
-<br>
-
-## Linked List
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Data_stack.svg/600px-Data_stack.svg.png" width="700">
-
-**Linked List**는 선형 데이터 구조로, 요소가 연속된 메모리 위치에 저장되어있지 않다. 즉, 일반 배열 처럼 `a[i]`의 다음 주소에 `a[i + 1]`이 무조건적으로 존재하지 않는다. 이 각 요소는 포인터를 사용해서 연결되어 있다.  
-
-보통 각 요소를 하나의 노드라고 칭하며, 각 노드는 **데이터**부분과 다음 노드의 주소가 담긴 **포인터**부분으로 구성되어 있다. 이때 각 노드가 다음 노드 뿐만 아니라 이전 노드의 주소도 담고 있게 만들어 활용할 수 있다. 혹은 마지막 노드가 첫번째 노드의 주소를 담고 있게 하면 Circular Linked List(원형 연결 리스트)로도 구현이 가능하다.  
-
-첫번째 노드의 주소가 담긴 HEAD의 경우 노드 구조와 별개로 포인터를 따로 두거나, 더미노드(데이터 부분이 비어있는 노드)로 만드는 방법이 존재한다.  
-
-전체적으로 활용도가 높기 때문에, Linked List를 이용해서 여러가지 자료구조를 구현할 수 있다. `C++`의 STL의 경우 다양한 자료구조를 Linked List를 이용해 구현해놓았다!  
-
-Linked List는 노드의 포인터를 통해 연결을 관리하기 때문에 자료의 추가나 삭제가 매우 용이하다. 그러나 자료 조회 측면에서는 배열에 비해 많은 자원이 소모된다. 배열은 인덱스를 통해 원하는 정보에 바로 접근할 수 있지만, Linked List는 조회를 위해 처음 노드부터 하나하나 순회하면서 조건에 맞는 노드를 찾아야하기 때문이다.  
+Stack은 **LIFO(Last in, First Out)** 방식으로 작동하는 선형 자료구조이다. 즉, 가장 마지막에 삽입된 데이터가 가장 먼저 삭제되는 구조인 것! Stack의 입/출력은 오로지 Stack의 꼭대기에서만 이루어진다. 갑자기 중간에 있는 데이터를 삭제하거나 끼워넣을 수 없으며, 맨 아래 데이터에 접근하기 위해서는 그 위에 있는 데이터를 모두 걷어내야한다.
 
 <br>
 <br>
+
+# Stack의 연산
+____
+Stack의 주요 기능은 **삽입(push)**과 **제거(pop)**가 존재한다. 나머지는 두 연산을 위한 보조 연산이라고 생각하면 된다.
+
+<br>
+<br>
+
+# Stack의 구현
+____
+여러 환경에서 이미 Stack은 구현되어있는 자료구조이지만, 공부를 위해서 직접 구현해보자. 일단은 Array로 구현해보고, `C++`의 STL에 속한 Stack 자료구조 사용법을 익혀보자.
+
+## Array로 구현하는 Stack
+
+### 기본구조
+
+``` C
+// Stack의 노드 하나
+typedef struct s_node {
+	int data;
+} t_node;
+
+// 스택 자료구조
+typedef struct s_stack {
+	int capacity;   // 해당 Stack이 얼마만큼의 노드를 가질 수 있는지 알기 위해
+	int top;		// 삽입, 제거 연산 시 필요한 최상위 노드의 위치
+	t_node *nodes;	// 노드 배열
+} t_stack;
+```
+
+Stack을 배열로 구현할 경우 용량, 최상위 노드의 위치, 노드 배열 이렇게 세 가지 정보를 가지고 있어야 한다. 이제 이어서 Stack을 할당하고 해제하는 함수를 만들어보자.
+
+<br>
+
+### 할당과 해제
+``` C
+void create_stack(t_stack **stack, int capacity) {
+	(*stack) = (t_stack *a)malloc(sizeof(t_stack));				// 1. Stack을 할당하고
+	(*stack)->nodes = (node *)malloc(sizeof(node) * capacity) 	// 2. size 만큼의 노드를 추가
+	(*stack)->capacity = capacity;								// 3. capacity 초기화
+	(*stack)->top = -1;											// 4. top 초기화
+}
+
+void free_stack(t_stack *stack) {
+	free(stack->nodes);
+	free(stack);
+}
+```
+
+이때 컴퓨터 배열 인덱스 상 첫번쨰 요소를 0으로 사용하므로, 비어있는 Stack의 최상위는 이보다 작아야한다. 따라서 `top`을 `-1`로 초기화한다. 이어서 삽입과 제거 연산도 만들어보자.
+
+<br>
+
+### 각종 연산
+``` C
+void do_push(t_stack *stack, int insert_data) {
+	stack->top++;									// 1. 최상위 인덱스 업데이트 (증가)
+	stack->nodes[stack->top].data = insert_data;	// 2. 업데이트 된 최상위 인덱스의 노드에 data 입력
+}
+
+int do_pop(t_stack *stack) {
+	int tmp = stack->top--; 						// 1. 최상위 인덱스 업데이트 (감소)
+	return stack->nodes[tmp].data; 					// 2. pop, 즉 Stack에서 제거한 노드의 data를 호출자에게 반환해주자.
+}
+```
+
+이 외에도 Stack이 비어있는지 검사하거나, 최상위 노드 데이터만 반환하는 함수 등을 만들어 사용할 수 있다.
+
+<br>
+<br>
+
+## STL::STACK
+--> 여기서부터 
 
 # Reference
 ____

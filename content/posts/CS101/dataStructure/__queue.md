@@ -1,22 +1,25 @@
 +++
-title = '[자료구조] List'
-date = 2024-09-01
+title = '[자료구조] Queue'
+date = 2024-09-05
 featured_image = "https://programmercave.com/assets/images/Memes-Linkedlist/llmeme1.jpg"
-draft = true
 tags = ['C++', 'dataStructure', 'CS101']
 +++
 
-> 데이터를 효율적으로 저장하고 관리하는 방법
-
 **📂 : 자료구조**
 ____
-<a href="https://elecbrandy.github.io/tags/dataStructure/list"> [0] List </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/stack"> [1] Stack </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/queue"> [2] Queue </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/heap"> [3] Heap </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/tree"> [4] Tree </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/graph"> [5] Graph </a>
-<a href="https://elecbrandy.github.io/tags/dataStructure/hashtable"> [5] HashTable </a>
+> <a href="https://elecbrandy.github.io/tags/dataStructure/list"> **[0]** List </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/stack"> **[1]** Stack </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/queue"> **[2]** Queue </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/heap"> **[3]** Heap </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/tree"> **[4]** Tree </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/graph"> **[5]** Graph </a>  
+
+> <a href="https://elecbrandy.github.io/tags/dataStructure/hashtable"> **[6]** HashTable </a>  
 
 <br>
 <br>
@@ -48,6 +51,11 @@ Array List는 연속적인 메모리 공간에 데이터를 저장하는 방식�
 전체적으로 활용도가 높기 때문에, Linked List를 이용해서 여러가지 자료구조를 구현할 수 있다. `C++`의 STL의 경우 다양한 자료구조를 Linked List를 이용해 구현해놓았다!  
 
 Linked List는 노드의 포인터를 통해 연결을 관리하기 때문에 자료의 추가나 삭제가 매우 용이하다. 그러나 자료 조회 측면에서는 배열에 비해 많은 자원이 소모된다. 배열은 인덱스를 통해 원하는 정보에 바로 접근할 수 있지만, Linked List는 조회를 위해 처음 노드부터 하나하나 순회하면서 조건에 맞는 노드를 찾아야하기 때문이다.  
+
+## Linked List 구현
+``` C
+```
+**Linked List**를 실제로 구현해보자.
 
 <br>
 <br>
