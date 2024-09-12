@@ -6,8 +6,22 @@
     <description>Recent content in Tags on Elecbrandy</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://elecbrandy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CS101</title>
+      <link>https://elecbrandy.github.io/tags/cs101/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/cs101/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DataStructure</title>
+      <link>https://elecbrandy.github.io/tags/datastructure/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/datastructure/</guid>
+      <description></description>
+    </item>
     <item>
       <title>42cursus</title>
       <link>https://elecbrandy.github.io/tags/42cursus/</link>
@@ -20,20 +34,6 @@
       <link>https://elecbrandy.github.io/tags/c&#43;&#43;/</link>
       <pubDate>Sun, 08 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/c&#43;&#43;/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>CS101</title>
-      <link>https://elecbrandy.github.io/tags/cs101/</link>
-      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/tags/cs101/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>DataStructure</title>
-      <link>https://elecbrandy.github.io/tags/datastructure/</link>
-      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/tags/datastructure/</guid>
       <description></description>
     </item>
     <item>
