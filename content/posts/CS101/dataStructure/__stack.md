@@ -1,11 +1,9 @@
 +++
 title = '[자료구조] Stack'
-date = 2024-09-01
+date = 2024-09-11
 featured_image = "https://image.fnnews.com/resource/media/image/2012/11/04/201211041607219413_l.jpg"
-tags = ['C++', 'dataStructure', 'CS101']
+tags = ['dataStructure', 'CS101']
 +++
-
-draft = true
 
 **📂 : 자료구조**
 ____
@@ -36,28 +34,27 @@ Stack은 **LIFO(Last in, First Out)** 방식으로 작동하는 선형 자료구
 <br>
 <br>
 
-# Stack의 연산
+# StacK의 구현
 ____
-Stack의 주요 기능은 **삽입(push)**과 **제거(pop)**가 존재한다. 나머지는 두 연산을 위한 보조 연산이라고 생각하면 된다.
+여러 환경에서 이미 Stack은 구현되어있는 자료구조이지만, 공부를 위해서 직접 구현해보자. 일단은 `C`를 이용해 Array로 구현해보고, `C++`의 STL에 속한 Stack 자료구조 사용법을 익혀보자. Linked List를 통해서도 Stack을 구현할 수 있으며, 전체용량을 관리하기 쉽다는 이점이 있다. <a href="https://elecbrandy.github.io/tags/dataStructure/list"> Linked List </a> 의 여러 규칙에 규칙을 더해주기만 하면 만들 수 있다.
 
 <br>
-<br>
 
-# Stack의 구현
+## C로 구현한 Stack(Array)
 ____
-여러 환경에서 이미 Stack은 구현되어있는 자료구조이지만, 공부를 위해서 직접 구현해보자. 일단은 Array로 구현해보고, `C++`의 STL에 속한 Stack 자료구조 사용법을 익혀보자.
 
-## Array로 구현하는 Stack
-
-### 기본구조
+### 노드 구조
 
 ``` C
-// Stack의 노드 하나
 typedef struct s_node {
 	int data;
 } t_node;
+```
 
-// 스택 자료구조
+<br>
+
+### 스택 구조
+``` C
 typedef struct s_stack {
 	int capacity;   // 해당 Stack이 얼마만큼의 노드를 가질 수 있는지 알기 위해
 	int top;		// 삽입, 제거 연산 시 필요한 최상위 노드의 위치
@@ -72,7 +69,7 @@ Stack을 배열로 구현할 경우 용량, 최상위 노드의 위치, 노드 �
 ### 할당과 해제
 ``` C
 void create_stack(t_stack **stack, int capacity) {
-	(*stack) = (t_stack *a)malloc(sizeof(t_stack));				// 1. Stack을 할당하고
+	(*stack) j= (t_stack *a)malloc(sizeof(t_stack));				// 1. Stack을 할당하고
 	(*stack)->nodes = (node *)malloc(sizeof(node) * capacity) 	// 2. size 만큼의 노드를 추가
 	(*stack)->capacity = capacity;								// 3. capacity 초기화
 	(*stack)->top = -1;											// 4. top 초기화
@@ -88,7 +85,7 @@ void free_stack(t_stack *stack) {
 
 <br>
 
-### 각종 연산
+### Stack 연산
 ``` C
 void do_push(t_stack *stack, int insert_data) {
 	stack->top++;									// 1. 최상위 인덱스 업데이트 (증가)
@@ -106,15 +103,42 @@ int do_pop(t_stack *stack) {
 <br>
 <br>
 
-## STL::STACK
---> 여기서부터 
+## STL::Stack
+``` C++
+#include <iostream>
+#include <stack>
+
+int main() {
+    std::stack<int> myStack;
+
+    // 요소 삽입
+    myStack.push(10);
+    myStack.push(20);
+    myStack.push(30);
+
+    // 최상위 요소 출력 및 제거
+    std::cout << "Top element: " << myStack.top() << std::endl;
+    myStack.pop();
+
+    std::cout << "After pop, top element: " << myStack.top() << std::endl;
+
+    return 0;
+}
+
+``` 
+
+`C++`의 **STL**에서는 std::list라는 자료구조를 제공하여 Stack을 쉽게 사용할 수 있다.  
+
+<br>
+<br>
 
 # Reference
 ____
 - https://www.geeksforgeeks.org/stack-data-structure/
+- https://www.w3schools.com/dsa/dsa_data_stacks.php
 
 <br>
 {{<alert>}}
-<a href="https://elecbrandy.github.io/tags/dataStructure"> 자료구조 </a>
+<a href="https://elecbrandy.github.io/tags/datastructure/"> 자료구조 </a>
 {{</alert>}}
 <br>
