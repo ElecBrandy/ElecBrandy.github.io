@@ -37,6 +37,16 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://elecbrandy.github.io/posts/cs101/oop/capsule/</loc>
+    <lastmod>2024-09-02T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://elecbrandy.github.io/tags/opp/</loc>
+    <lastmod>2024-09-02T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/circle_4/netpractice/</loc>
     <lastmod>2024-08-15T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>

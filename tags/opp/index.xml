@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Opp on Elecbrandy</title>
+    <link>https://elecbrandy.github.io/tags/opp/</link>
+    <description>Recent content in Opp on Elecbrandy</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://elecbrandy.github.io/tags/opp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[OOP] 캡슐화</title>
+      <link>https://elecbrandy.github.io/posts/cs101/oop/capsule/</link>
+      <pubDate>Mon, 02 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/cs101/oop/capsule/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;??? : Class는 붕어빵 틀, instance는 붕어빵&amp;hellip;?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;br&gt;&#xA;&lt;p&gt;&lt;strong&gt;📂 : OPP&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://elecbrandy.github.io/tags/opp/capsule&#34;&gt; &lt;strong&gt;[0]&lt;/strong&gt; 캡슐화 &lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://elecbrandy.github.io/tags/opp/&#34;&gt; &lt;strong&gt;[1]&lt;/strong&gt; Stack &lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://elecbrandy.github.io/tags/opp/&#34;&gt; &lt;strong&gt;[2]&lt;/strong&gt; Queue &lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;br&gt;&#xA;&lt;h1 id=&#34;객체지향-이전의-세계&#34;&gt;객체지향 이전의 세계&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;객체지향이란 무엇일까? 인터넷에 검색해보면 &amp;ldquo;객체를 지향하는 프로그래밍&amp;quot;이라는 복잡한 설명과 함께, &amp;ldquo;클래스는 붕어빵 틀이고 인스턴스는 그 틀로 찍어낸 붕어빵이다&amp;hellip;&amp;rdquo; 같은 비유를 흔히 보게 된다. 그런데 이런 설명만으로는 객체지향의 본질을 파악하기 어렵다. 그렇다면 객체지향을 공부하기 전에, 이 개념이 왜 등장하게 되었는지 먼저 살펴보자.&lt;/p&gt;&#xA;&lt;p&gt;42과정을 진행하면서 처음으로 접하게 되는 언어는 C이다. C는 대표적인 절차지향 언어로, 프로그램을 일련의 명령과 함수로 구성해 나가는 방식이다. 처음엔 간단한 프로그램을 짜는 데 어려움이 없었고, 몇몇 과제는 금방 끝났다. 하지만 과제가 점점 복잡해지고, 코드의 규모가 커질수록 문제들이 발생하기 시작했다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
