@@ -5,17 +5,23 @@ featured_image = "https://miro.medium.com/v2/resize:fit:910/format:webp/1*SDetxW
 tags = ['C++', 'CS101', 'opp']
 +++
 
-> ??? : Class는 붕어빵 틀, instance는 붕어빵...?
+<details>
+<summary><strong>📂 : OPP 모아보기</strong></summary>
+<div markdown="1">
+
+
+- <a href="https://elecbrandy.github.io/tags/opp/capsule"> **[0]** : 캡슐화 </a>  
+
+- <a href="https://elecbrandy.github.io/tags/opp/"> **[1]** : Stack </a>  
+
+- <a href="https://elecbrandy.github.io/tags/opp/"> **[2]** : Queue </a>  
+
+</div>
+</details>
 
 <br>
 
-**📂 : OPP**
-____
-> <a href="https://elecbrandy.github.io/tags/opp/capsule"> **[0]** 캡슐화 </a>  
-
-> <a href="https://elecbrandy.github.io/tags/opp/"> **[1]** Stack </a>  
-
-> <a href="https://elecbrandy.github.io/tags/opp/"> **[2]** Queue </a>  
+> ??? : Class는 붕어빵 틀, instance는 붕어빵...?
 
 <br>
 
@@ -66,10 +72,11 @@ ____
 
 # 클래스
 ____
-## 클래스의 정의
-먼저 클래스를 알아보자. 객체지향에서 객체를 만들기 위해서는 클래스라는 개념이 필요하다. 클래스는 객체를 정의하는 청사진 또는 설계도라고 할 수 있다. 클래스는 데이터를 저장하는 **변수(속성)**와 데이터를 처리하는 **함수(메서드)**를 포함하고 있다. 이러한 클래스라는 설계도를 통해 우리는 실제로 사용할 **객체(인스턴스)**를 만들 수 있다.  
 
-즉, 클래스는 객체를 정의하는 틀이고, 이를 기반으로 생성된 것이 바로 **객체(인스턴스)**이다.
+## 클래스의 정의
+먼저 클래스를 알아보자. 객체지향에서 객체를 만들기 위해서는 클래스라는 개념이 필요하다. 클래스는 객체를 정의하는 청사진 또는 설계도라고 할 수 있다. 클래스는 데이터를 저장하는 변수(속성)와 데이터를 처리하는 함수(메서드)를 포함하고 있다. 이러한 클래스라는 설계도를 통해 우리는 실제로 사용할 객체(인스턴스)를 만들 수 있다.  
+
+즉, 클래스는 객체를 정의하는 틀이고, 이를 기반으로 생성된 것이 바로 객체(인스턴스)이다.
 
 <br>
 <br>
@@ -90,7 +97,6 @@ ____
 <br>
 
 ## public과 private
-____
 그러면 왜 굳이 public과 private로 접근을 구분할까? 간단한 이유는 보안과 데이터 무결성을 위해서다. 특정 데이터는 외부에서 쉽게 조작되지 않도록 보호할 필요가 있기 때문이다. 이제 코드를 통해 살펴보겠지만, 이 개념을 쉽게 이해할 수 있는 예를 들어보자.  
 
 사용자 정보를 저장하는 User 클래스가 있다고 하자. 이 클래스에는 사용자의 비밀번호를 저장하는 변수가 있을 것이다. 하지만 비밀번호는 매우 중요한 정보이므로, 아무나 변경할 수 있으면 안 된다. 그래서 비밀번호는 private 변수로 설정해 외부에서 직접 접근하지 못하게 한다.  
@@ -185,7 +191,6 @@ ___
 
 # Reference
 ____
-- https://www.codestates.com/blog/content/객체-지향-프로그래밍-특징
 - https://wikidocs.net/16469
 - https://modoocode.com/135
 
