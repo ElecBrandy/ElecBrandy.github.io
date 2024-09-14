@@ -3,56 +3,104 @@
 <head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>유저리서치 101 | Elecbrandy</title>
+<link rel="stylesheet" href="/css/reset.css">
+<title>유저리서치 101 | home</title>
 
-      <link rel="stylesheet" href="/css/main.min.354dee9209e140b5a30068642042c47f9c24a67414df1372513601840a6a69e0.css" integrity="sha256-NU3ukgnhQLWjAGhkIELEf5wkpnQU3xNyUTYBhApqaeA=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/min700.min.2bcf847d60d198d878bbf49b39374a02cdc7cd4e66411bfa42ada12fe8b580ba.css" integrity="sha256-K8&#43;EfWDRmNh4u/SbOTdKAs3HzU5mQRv6Qq2hL&#43;i1gLo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.830529474f3e538d158886bdcfa1ba6071455ff9912f37b04b8145c6b716cd97.css" integrity="sha256-gwUpR08&#43;U40ViIa9z6G6YHFFX/mRLzewS4FFxrcWzZc=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/min700.min.c55885430d625813d1a6770ef6712b8534781fdd318699edd1bb9c6f62907507.css" integrity="sha256-xViFQw1iWBPRpncO9nErhTR4H90xhpnt0bucb2KQdQc=" crossorigin="anonymous">
 
 
-      <script src="/js/main.0740a53bb4495dfc0d897c89f56fe801f29d1ad0d7e20f51491e421debb12f67.js" integrity="sha256-B0ClO7RJXfwNiXyJ9W/oAfKdGtDX4g9RSR5CHeuxL2c=" crossorigin="anonymous"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6vP0kLaVwmS/tB1lCew8HlB/iMDmD4B9Vq3OU9bfXjMWmWrARyAZF9a3F7sKwDx" crossorigin="anonymous">
-
-
-
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <header class="header-other">
-	<div class="header-container">
-		<div class="header-title">
-			<a href="https://elecbrandy.github.io/">Elecbrandy</a>
-	  	</div>
-	  	<ul class="header-menu">
-			<li><a href="https://elecbrandy.github.io//tags">TAGS</a></li>
-			<li><a href="https://elecbrandy.github.io//about">ABOUT</a></li>
-			<button id="theme-toggle" aria-label="Toggle theme">
-				<img src="/dark.svg" alt="Dark mode" id="dark-icon">
-				<img src="/light.svg" alt="Light mode" id="light-icon">
-			  </button>
-		</ul>
-	</div>
-	
-		<div class="progress-bar"></div>
-  	
-</header>
-
+    <header class="main-header">
+	<nav>
+	  <li><a href="/">/home</a></li>
+	  <li><a href="/tags">/tags</a></li>
+	  <li><a href="/about">/about</a></li>
+	  <li id="theme-toggle" style="cursor: pointer;">/todark</li>
+	</nav>
   </header>
   
+  <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  const themeToggle = document.getElementById('theme-toggle');
+	  
+	  
+	  let currentTheme = localStorage.getItem('theme') || 'light';
+  
+	  
+	  document.body.setAttribute('data-theme', currentTheme);
+	  themeToggle.textContent = currentTheme === 'dark' ? '/tolight' : '/todark';
+  
+	  
+	  function toggleTheme() {
+		
+		const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  
+		
+		document.body.setAttribute('data-theme', newTheme);
+  
+		
+		localStorage.setItem('theme', newTheme);
+  
+		
+		themeToggle.textContent = newTheme === 'dark' ? '/tolight' : '/todark';
+	  }
+  
+	  
+	  themeToggle.addEventListener('click', toggleTheme);
+	});
+  </script>
+  
     
-        <div class="pre-content" style="background-image: url('https://images.unsplash.com/photo-1640888847620-73a3764c9589?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHVpdXh8ZW58MHx8MHx8fDA%3D&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60');"></div>
-        <div class="pre-title">
-            
-            
-            <time datetime="2021-01-17T00:00:00&#43;00:00">January 17, 2021</time>
-            <h1>유저리서치 101</h1>
-        </div>
-    
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#정성-조사">정성 조사</a></li>
+        <li><a href="#정량-조사">정량 조사</a></li>
+        <li><a href="#실무에서-사용하는-삼각법--혼합연구법">실무에서 사용하는 삼각법 / 혼합연구법</a></li>
+      </ul>
+    </li>
+  </ul>
 
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#리서치-진행-방법">리서치 진행 방법</a></li>
+        <li><a href="#성공적인-조사를-위해서">성공적인 조사를 위해서</a></li>
+        <li><a href="#idi인뎁스-인터뷰">IDI(인뎁스 인터뷰)</a></li>
+      </ul>
+    </li>
+  </ul>
 
-  <div class="content">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#마켓-컬리--왜-고객들은-마켓컬리에서-신선냉동식품을-주문하지-않을까">마켓 컬리 : 왜 고객들은 마켓컬리에서 신선/냉동식품을 주문하지 않을까?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  <div class="featured-container">
     
+      <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1640888847620-73a3764c9589?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHVpdXh8ZW58MHx8MHx8fDA%3D&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60" alt="Featured Image for 유저리서치 101">
+      </div>
+    
+    <div class="overlay-text">
+      <small>2021.01.01</small>
+      <div class="singleTitle">유저리서치 101</div>
+    </div>
+  </div>
   <blockquote>
 <p>&ldquo;우리 서비스 좋죠?&rdquo; 금지! &ldquo;왜 해당 기능을 사용 안하시나요?&rdquo; 금지! 다 금지&hellip; 완곡한 문답 속에서 필요한 정보를 찾아내기</p>
 </blockquote>
@@ -316,12 +364,12 @@
 <p>예를 들어 인터뷰이가 &ldquo;저는 원래 물건을 검색할 때 직접 타이핑하는 사람이에요.&ldquo;라는 대답을 했을 때 리서처는 면담자의 해당 대답이 과연 인사이트를 도출하는 과정에서 의미가 있는 정보일지 잘 생각해 보아야 한다. 대부분 인터뷰이만의 고유한 습관일 뿐 큰 도움이 되지는 않으며, 이러면 진행자가 더 세심하게 질문을 조정해야 한다.</p>
 <br>
 <div class="alert">
-    <span><a href="https://elecbrandy.github.io/tags/uiux/">UI/UX 시리즈</a></span>
+    <span>
+<a href="https://elecbrandy.github.io/tags/uiux/">UI/UX 시리즈</a>
+</span>
 </div>
 
 
-  </div>
-  <footer>
     
 
 <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
@@ -331,6 +379,5 @@
   textColor: '#fff'
 })</script>
 
-  </footer>
 </body>
 </html>

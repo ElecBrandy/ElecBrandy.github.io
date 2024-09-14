@@ -3,56 +3,125 @@
 <head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>2023 데이터 청년 캠퍼스 | Elecbrandy</title>
+<link rel="stylesheet" href="/css/reset.css">
+<title>2023 데이터 청년 캠퍼스 | home</title>
 
-      <link rel="stylesheet" href="/css/main.min.354dee9209e140b5a30068642042c47f9c24a67414df1372513601840a6a69e0.css" integrity="sha256-NU3ukgnhQLWjAGhkIELEf5wkpnQU3xNyUTYBhApqaeA=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/min700.min.2bcf847d60d198d878bbf49b39374a02cdc7cd4e66411bfa42ada12fe8b580ba.css" integrity="sha256-K8&#43;EfWDRmNh4u/SbOTdKAs3HzU5mQRv6Qq2hL&#43;i1gLo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.830529474f3e538d158886bdcfa1ba6071455ff9912f37b04b8145c6b716cd97.css" integrity="sha256-gwUpR08&#43;U40ViIa9z6G6YHFFX/mRLzewS4FFxrcWzZc=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/min700.min.c55885430d625813d1a6770ef6712b8534781fdd318699edd1bb9c6f62907507.css" integrity="sha256-xViFQw1iWBPRpncO9nErhTR4H90xhpnt0bucb2KQdQc=" crossorigin="anonymous">
 
 
-      <script src="/js/main.0740a53bb4495dfc0d897c89f56fe801f29d1ad0d7e20f51491e421debb12f67.js" integrity="sha256-B0ClO7RJXfwNiXyJ9W/oAfKdGtDX4g9RSR5CHeuxL2c=" crossorigin="anonymous"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6vP0kLaVwmS/tB1lCew8HlB/iMDmD4B9Vq3OU9bfXjMWmWrARyAZF9a3F7sKwDx" crossorigin="anonymous">
-
-
-
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <header class="header-other">
-	<div class="header-container">
-		<div class="header-title">
-			<a href="https://elecbrandy.github.io/">Elecbrandy</a>
-	  	</div>
-	  	<ul class="header-menu">
-			<li><a href="https://elecbrandy.github.io//tags">TAGS</a></li>
-			<li><a href="https://elecbrandy.github.io//about">ABOUT</a></li>
-			<button id="theme-toggle" aria-label="Toggle theme">
-				<img src="/dark.svg" alt="Dark mode" id="dark-icon">
-				<img src="/light.svg" alt="Light mode" id="light-icon">
-			  </button>
-		</ul>
-	</div>
-	
-		<div class="progress-bar"></div>
-  	
-</header>
-
+    <header class="main-header">
+	<nav>
+	  <li><a href="/">/home</a></li>
+	  <li><a href="/tags">/tags</a></li>
+	  <li><a href="/about">/about</a></li>
+	  <li id="theme-toggle" style="cursor: pointer;">/todark</li>
+	</nav>
   </header>
   
+  <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  const themeToggle = document.getElementById('theme-toggle');
+	  
+	  
+	  let currentTheme = localStorage.getItem('theme') || 'light';
+  
+	  
+	  document.body.setAttribute('data-theme', currentTheme);
+	  themeToggle.textContent = currentTheme === 'dark' ? '/tolight' : '/todark';
+  
+	  
+	  function toggleTheme() {
+		
+		const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  
+		
+		document.body.setAttribute('data-theme', newTheme);
+  
+		
+		localStorage.setItem('theme', newTheme);
+  
+		
+		themeToggle.textContent = newTheme === 'dark' ? '/tolight' : '/todark';
+	  }
+  
+	  
+	  themeToggle.addEventListener('click', toggleTheme);
+	});
+  </script>
+  
     
-        <div class="pre-content" style="background-image: url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2670&amp;q=80');"></div>
-        <div class="pre-title">
-            
-            
-            <time datetime="2023-09-07T00:00:00&#43;00:00">September 7, 2023</time>
-            <h1>2023 데이터 청년 캠퍼스</h1>
-        </div>
-    
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#가짜뉴스">가짜뉴스?</a></li>
+        <li><a href="#해외의-경우">해외의 경우!</a></li>
+      </ul>
+    </li>
+  </ul>
 
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#데이터-수집-및-확인">데이터 수집 및 확인</a></li>
+        <li><a href="#라벨링-인덱스">라벨링 인덱스</a></li>
+        <li><a href="#워드클라우드">워드클라우드</a></li>
+        <li><a href="#데이터-전처리">데이터 전처리</a></li>
+        <li><a href="#모델링">모델링</a></li>
+      </ul>
+    </li>
+  </ul>
 
-  <div class="content">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#데이터-수집-및-확인-1">데이터 수집 및 확인</a></li>
+        <li><a href="#데이터-전처리-1">데이터 전처리</a></li>
+        <li><a href="#모델링-1">모델링</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#checkonomy">Checkonomy</a></li>
+        <li><a href="#chrome-확장-프로그램">Chrome 확장 프로그램</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#프로젝트를-마치고">프로젝트를 마치고</a></li>
+        <li><a href="#그-이후">그 이후</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  <div class="featured-container">
     
+      <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2670&amp;q=80" alt="Featured Image for 2023 데이터 청년 캠퍼스">
+      </div>
+    
+    <div class="overlay-text">
+      <small>2023.09.09</small>
+      <div class="singleTitle">2023 데이터 청년 캠퍼스</div>
+    </div>
+  </div>
   <blockquote>
 <p>2023 데이터 청년 캠퍼스 경제/금융분야 페이크 뉴스 탐지 시스템 구축을 주제로</p>
 </blockquote>
@@ -122,7 +191,9 @@ Word2Vec 벡터화된 데이터를 양방향 LSTM (BiLSTM) 모델에 적용하�
 <p><img src="/images/Data_on_air/10.png" alt="Checknomy">
 우리가 만든 모델을 가지고 어떻게 활용할 수 있을까 봐 청사진을 멋지게 그려보았을 때 가장 먼저 생각난 것은 다른 서비스로 확장성이었다. 그 첫번째로 웹사이트 구축! 온라인 뉴스의 이용률이 증가하고 있는 만큼, 접근성 측면에서 가장 뛰어나다고 생각했던 웹페이지 형식으로 가짜뉴스 탐지 서비스를 제공하면 좋겠다는 아이디어가 나왔고 이에 Checknomy라는 이름의 웹사이트를 제작했다! 사실 아직 모델과 미 연동된 상태로 기능별 구역 구분만 되어있지만, 코딩과 접점이 전혀 없는 조원들이 만들어 낸 결과물이라 너무 대단했고, 멋있다고 생각했다. 이번 프로그램에서 가장 많이 배운 것은 뭐든지 깨부하면서 하면 되는구나&hellip; 였다.
 <div class="alert">
-    <span><a href="https://64ed9d4d8e967a2a277e2d9d--stellular-sundae-f4c52b.netlify.app/">Checkonomy 구경하기</a></span>
+    <span>
+<a href="https://64ed9d4d8e967a2a277e2d9d--stellular-sundae-f4c52b.netlify.app/">Checkonomy 구경하기</a>
+</span>
 </div>
 </p>
 <br>
@@ -144,13 +215,13 @@ Word2Vec 벡터화된 데이터를 양방향 LSTM (BiLSTM) 모델에 적용하�
 <p>비록 이번 프로젝트에서 모든 것을 완벽히 마스터하지는 못했지만, 2달 동안 많은 것을 배우고 경험한 것을 느끼며, 특히 팀원들과의 협력 과정에서 많은 것을 얻었다. 모르는 분야에서 팀원들과 함께 여러가지를 도전한 경험이 뜻깊었고, 이를 통해 많은 것을 배울 수 있었다! 이러한 경험을 헛되게 두지 않기 위해 추가적인 개인 프로젝트를 진행해보고 싶다. 물론 일단 바쁜게 끝난 다음에&hellip;</p>
 <p>전반적인 프로그래밍에 힘써준 피쌤과, 발표자료부터 전처리<del>모델링 과정에서 힘써준 조쌤, 전처리</del>웹사이트 구축에 힘써준 박쌤1-유쌤, 자료 스크래핑에 힘써준 박쌤2 다들 고생 많았고 이제 복학해서 성불하세요 :)</p>
 <div class="alert">
-    <span><a href="https://elecbrandy.github.io/">&raquo; Elecbrandy.github.io &raquo;</a></span>
+    <span>
+<a href="https://elecbrandy.github.io/">>> Elecbrandy.github.io >></a>
+</span>
 </div>
 
 
 
-  </div>
-  <footer>
     
 
 <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
@@ -160,6 +231,5 @@ Word2Vec 벡터화된 데이터를 양방향 LSTM (BiLSTM) 모델에 적용하�
   textColor: '#fff'
 })</script>
 
-  </footer>
 </body>
 </html>

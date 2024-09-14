@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Elecbrandy</title>
+    <title>tags on home</title>
     <link>https://elecbrandy.github.io/tags/</link>
-    <description>Recent content in Tags on Elecbrandy</description>
+    <description>Recent content in tags on home</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 Sep 2024 00:00:00 +0000</lastBuildDate>
@@ -16,11 +16,11 @@
       <description></description>
     </item>
     <item>
-      <title>DataStructure</title>
+      <title>dataStructure</title>
       <link>https://elecbrandy.github.io/tags/datastructure/</link>
       <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/datastructure/</guid>
-      <description></description>
+      <description>&lt;h4 id=&#34;-tagsdatastructure&#34;&gt;🏷️ /tags/dataStructure&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
       <title>C&#43;&#43;</title>
@@ -41,7 +41,7 @@
       <link>https://elecbrandy.github.io/tags/42cursus/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/42cursus/</guid>
-      <description></description>
+      <description>&lt;h4 id=&#34;-tags42cursus&#34;&gt;🏷️ /tags/42cursus&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
       <title>C</title>

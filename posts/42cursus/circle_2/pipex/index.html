@@ -3,56 +3,117 @@
 <head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>[42cursus] pipex | Elecbrandy</title>
+<link rel="stylesheet" href="/css/reset.css">
+<title>[42cursus] pipex | home</title>
 
-      <link rel="stylesheet" href="/css/main.min.354dee9209e140b5a30068642042c47f9c24a67414df1372513601840a6a69e0.css" integrity="sha256-NU3ukgnhQLWjAGhkIELEf5wkpnQU3xNyUTYBhApqaeA=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/min700.min.2bcf847d60d198d878bbf49b39374a02cdc7cd4e66411bfa42ada12fe8b580ba.css" integrity="sha256-K8&#43;EfWDRmNh4u/SbOTdKAs3HzU5mQRv6Qq2hL&#43;i1gLo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.830529474f3e538d158886bdcfa1ba6071455ff9912f37b04b8145c6b716cd97.css" integrity="sha256-gwUpR08&#43;U40ViIa9z6G6YHFFX/mRLzewS4FFxrcWzZc=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/min700.min.c55885430d625813d1a6770ef6712b8534781fdd318699edd1bb9c6f62907507.css" integrity="sha256-xViFQw1iWBPRpncO9nErhTR4H90xhpnt0bucb2KQdQc=" crossorigin="anonymous">
 
 
-      <script src="/js/main.0740a53bb4495dfc0d897c89f56fe801f29d1ad0d7e20f51491e421debb12f67.js" integrity="sha256-B0ClO7RJXfwNiXyJ9W/oAfKdGtDX4g9RSR5CHeuxL2c=" crossorigin="anonymous"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6vP0kLaVwmS/tB1lCew8HlB/iMDmD4B9Vq3OU9bfXjMWmWrARyAZF9a3F7sKwDx" crossorigin="anonymous">
-
-
-
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <header class="header-other">
-	<div class="header-container">
-		<div class="header-title">
-			<a href="https://elecbrandy.github.io/">Elecbrandy</a>
-	  	</div>
-	  	<ul class="header-menu">
-			<li><a href="https://elecbrandy.github.io//tags">TAGS</a></li>
-			<li><a href="https://elecbrandy.github.io//about">ABOUT</a></li>
-			<button id="theme-toggle" aria-label="Toggle theme">
-				<img src="/dark.svg" alt="Dark mode" id="dark-icon">
-				<img src="/light.svg" alt="Light mode" id="light-icon">
-			  </button>
-		</ul>
-	</div>
-	
-		<div class="progress-bar"></div>
-  	
-</header>
-
+    <header class="main-header">
+	<nav>
+	  <li><a href="/">/home</a></li>
+	  <li><a href="/tags">/tags</a></li>
+	  <li><a href="/about">/about</a></li>
+	  <li id="theme-toggle" style="cursor: pointer;">/todark</li>
+	</nav>
   </header>
   
+  <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  const themeToggle = document.getElementById('theme-toggle');
+	  
+	  
+	  let currentTheme = localStorage.getItem('theme') || 'light';
+  
+	  
+	  document.body.setAttribute('data-theme', currentTheme);
+	  themeToggle.textContent = currentTheme === 'dark' ? '/tolight' : '/todark';
+  
+	  
+	  function toggleTheme() {
+		
+		const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  
+		
+		document.body.setAttribute('data-theme', newTheme);
+  
+		
+		localStorage.setItem('theme', newTheme);
+  
+		
+		themeToggle.textContent = newTheme === 'dark' ? '/tolight' : '/todark';
+	  }
+  
+	  
+	  themeToggle.addEventListener('click', toggleTheme);
+	});
+  </script>
+  
     
-        <div class="pre-content" style="background-image: url('https://i.imgur.com/TqbaZ79.png');"></div>
-        <div class="pre-title">
-            
-            
-            <time datetime="2024-02-28T00:00:00&#43;00:00">February 28, 2024</time>
-            <h1>[42cursus] pipex</h1>
-        </div>
-    
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mandatory-part">Mandatory part</a></li>
+    <li><a href="#bonus-part">Bonus part</a></li>
+  </ul>
 
+  <ul>
+    <li><a href="#redirection">Redirection</a></li>
+    <li><a href="#here-documents">Here Documents</a></li>
+    <li><a href="#pipeline">Pipeline</a></li>
+    <li><a href="#eof-end-of-file">EOF (End of File)</a></li>
+    <li><a href="#sigpipe">SIGPIPE</a></li>
+    <li><a href="#eof와-sigpipe의-차이점">EOF와 SIGPIPE의 차이점</a></li>
+    <li><a href="#pipeline-작동">Pipeline 작동</a>
+      <ul>
+        <li><a href="#case-01">Case 01</a></li>
+        <li><a href="#case-02">Case 02</a></li>
+        <li><a href="#case-03">Case 03</a></li>
+      </ul>
+    </li>
+  </ul>
 
-  <div class="content">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#step-01--redirection-조절">step 01 : Redirection 조절</a></li>
+        <li><a href="#step-02--pipeline-생성과-fork">step 02 : Pipeline 생성과 fork</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#step-01">step 01</a></li>
+        <li><a href="#step-02">step 02</a></li>
+        <li><a href="#step-03">step 03</a></li>
+        <li><a href="#step-04">step 04</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  <div class="featured-container">
     
+      <div class="featured-image">
+        <img src="https://i.imgur.com/TqbaZ79.png" alt="Featured Image for [42cursus] pipex">
+      </div>
+    
+    <div class="overlay-text">
+      <small>2024.02.02</small>
+      <div class="singleTitle">[42cursus] pipex</div>
+    </div>
+  </div>
   <blockquote>
 <p>Cristina: &ldquo;Go dance salsa somewhere :)&rdquo;</p>
 </blockquote>
@@ -307,14 +368,14 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
 </ul>
 <br>
 <div class="alert">
-    <span><a href="https://elecbrandy.github.io/tags/42cursus/"> 42cursus</a></span>
+    <span>
+<a href="https://elecbrandy.github.io/tags/42cursus/"> 42cursus</a>
+</span>
 </div>
 
 <br>
 
 
-  </div>
-  <footer>
     
 
 <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
@@ -324,6 +385,5 @@ Shell에서의 파이프를 구현하는 과제이며 Redriection, File discript
   textColor: '#fff'
 })</script>
 
-  </footer>
 </body>
 </html>
