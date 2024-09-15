@@ -2,7 +2,7 @@
 title = '[기초통계] 01'
 date = 2024-06-04
 featured_image = "https://64.media.tumblr.com/f3d68e23f22d838acfecbb3ba63e54fb/ca332e19c19528dd-05/s640x960/19d6054e78181fa162efdceed5348572fd06ce15.jpg"
-tags = ['C', '42cursus']
+tags = ['stat']
 draft = true
 +++
 

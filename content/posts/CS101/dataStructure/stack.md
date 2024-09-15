@@ -2,27 +2,11 @@
 title = '[자료구조] Stack'
 date = 2024-09-11
 featured_image = "https://image.fnnews.com/resource/media/image/2012/11/04/201211041607219413_l.jpg"
-tags = ['dataStructure', 'CS101']
+tags = ['dataStructure', 'cs101']
 +++
 
-**📂 : 자료구조**
-____
-> <a href="https://elecbrandy.github.io/tags/dataStructure/list"> **[0]** List </a>  
+{{<series title="📚 /dataStructure" series="dataStructure">}}  
 
-> <a href="https://elecbrandy.github.io/tags/dataStructure/stack"> **[1]** Stack </a>  
-
-> <a href="https://elecbrandy.github.io/tags/dataStructure/queue"> **[2]** Queue </a>  
-
-> <a href="https://elecbrandy.github.io/tags/dataStructure/heap"> **[3]** Heap </a>  
-
-> <a href="https://elecbrandy.github.io/tags/dataStructure/tree"> **[4]** Tree </a>  
-
-> <a href="https://elecbrandy.github.io/tags/dataStructure/graph"> **[5]** Graph </a>  
-
-> <a href="https://elecbrandy.github.io/tags/dataStructure/hashtable"> **[6]** HashTable </a>  
-
-
-<br>
 <br>
 
 # Stack

@@ -5,37 +5,38 @@ featured_image = "http://t1.daumcdn.net/cfile/146F1B10ACE3228B52"
 tags = ['C', '42cursus']
 +++
 
-> This document is a System Administration related exercise.
+{{<series title="📚 /42cursus" series="42cursus">}}
 
 <br>
 
-# 소개
+## 1. 소개
 ____
-<img src="https://i.imgur.com/UCUbHvr.png" width="700">
+
+> This document is a System Administration related exercise.
 
 42서울 본과정 입과 후 n번째로 수행한 과제로, 교육 인터페이스상에서 소규모 네트워크를 구성하는 과제이다. 네트워킹 문제를 해결하여 네트워크가 실행되도록 만들어야 한다. 총 10개의 문제를 완료하고, Git 저장소에 제출하는 것이 최종 목표이다.
 
 <br>
 <br>
 
-# 개념 정리
+## 2. 개념 정리
 ___
-## 네트워크란?
+### 2-1. 네트워크란?
 네트워크는 두 대 이상의 컴퓨터 시스템이 서로 연결되어 데이터를 교환할 수 있는 구조를 의미한다. 이 연결은 다양한 방법으로 이루어질 수 있으며, 물리적 케이블, 무선 신호, 또는 혼합된 방식으로 네트워크를 구성할 수 있다.
 
 <br>
 
-## 네트워크의 구성요소
-### 서버
+### 2-2. 네트워크의 구성요소
+#### 서버
 네트워크에서 데이터를 저장하고, 관리하며, 이를 클라이언트에게 제공하는 역할을 수행한다. 예를 들어, 파일 서버는 파일을 저장하고 이를 필요로 하는 클라이언트에 제공하는 역할을 수행한다.
 
-### 클라이언트
+#### 클라이언트
 클라이언트는 서버에 요청을 보내고, 서버로부터 데이터를 수신하는 장치로, 클라이언트는 개인용 컴퓨터, 스마트폰, 태블릿 등이 될 수 있다.
 
-### 라우터 (Router)
+#### 라우터 (Router)
 라우터는 네트워크 간에 데이터 패킷을 전송하는 장치로, 라우터는 IP 주소를 기반으로 데이터를 목적지까지 전달하며, 인터넷 연결에서 중요한 역할을 한다.
 
-### 스위치
+#### 스위치
 동일한 네트워크 내에서 장치 간에 데이터를 전송하는 장치로, 각 장치의 MAC 주소를 기반으로 데이터를 올바른 장치로 전달한다.
 
 ### 호스트
@@ -44,7 +45,7 @@ ___
 <br>
 <br>
 
-## 네트워크 통신 과정
+### 2-3.네트워크 통신 과정
 네트워크 통신을 위해서 **패킷**이라는 데이터 전송 단위를 만들어서 사용하며, 이를 만들거나 해석할 때에는 **TCP/IP** 모델을 사용한다. **TCP/IP** 모델은 기존의 **OSI 7계층 모델**을 간결화시킨 모델이고, 현대 대부분의 네트워크 통신의 기반이 되고 있다.
 
 네트워크 통신에는 송신자와 수신자가 존재하며, 송신자는 패킷을 만들어 수신자에게 전송한다. 이때 송신자가 패킷을 송신할 때는 통신 모델의 최상위 계층부터 순차적으로 만들고, 수신자가 패킷을 수신할 때는 통신 모델의 최하위 계층부터 순차적으로 해석한다.
@@ -56,20 +57,20 @@ ___
 <br>
 <br>
 
-## 프로토콜
+### 2-4. 프로토콜
 네트워크에서 통신이 이루어지기 위한 규칙과 절차를 의미한다. 네트워크에서 두 개 이상의 장치가 데이터를 주고받기 위해서는 서로가 데이터를 어떻게 보낼지, 받을지, 해석할지에 대한 공통의 약속이 필요하며 그것이 바로 프로토콜임! 약속이자 규정으로 생각하자. 예를 들어 데이터가 전송되는 방법, 오류가 검출되고 수정되는 방법, 데이터를 조각내어 전송한 후 조합하는 방법 등등. TCP/IP, HTTP 모두 널리 알려진 프로토콜의 일종이다.
 
 <br>
 <br>
 
-## OSI 7계층 모델
+### 2-5. OSI 7계층 모델
 <img src="https://www.freecodecamp.org/news/content/images/2021/10/osi-vs-tcpip-1.png" width="700">
 
 OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으로 나누어 설명하는 표준화된 모델이다. 이는 통신 시스템의 다양한 기능을 7개의 계층으로 나누어 설명하며 네트워크 설계 및 문제 해결을 용이하게 한다. 현대 인터넷에서는 OSI 모델을 엄격하게 따르고 있지는 않지만, 이러한 유형의 구분은 네트워크 문제를 해결하는 데 유용하다. 사용자와 가장 가까운 응용 프로그램 계층부터 알아보자!
 
 <br>
 
-### 7. 응용 프로그램 계층 : Application Layer
+#### 계층 [7] : 응용 프로그램 계층 : Application Layer
 <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/2rcDKpr4WLqoyAZ7GDKkyJ/7cab96402de7ac5465b86e617da3da4e/osi_model_application_layer_7.png" width="700">
 
 응용 프로그램 계층은 사용자와 직접 상호작용하는 유일한 계층으로, 사용자가 네트워크에 접근하고 데이터를 주고받을 수 있는 인터페이스를 제공한다. 이는 웹 브라우저, 이메일 클라이언트, 파일 전송 애플리케이션 등 다양한 형태로 구현된다.  
@@ -80,7 +81,7 @@ OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으�
 
 <br>
 
-### 6. 프레젠테이션 계층 : The Presetation Layer
+#### 계층 [6] : 프레젠테이션 계층 : The Presetation Layer
 <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/19L86neKKT8srUkOSe4rf7/ff4c91c94a1790651df7b48433913f59/osi_model_presentation_layer_6.png" width="700">
 
 프레젠테이션 계층은 응용 프로그램 계층과 직접 상호작용하며, 응용 프로그램이 데이터를 올바르게 해석하고 표시할 수 있도록 데이터를 준비하는 역할을 수행한다.  
@@ -93,7 +94,7 @@ OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으�
 
 <br>
 
-### 5. 세션 계층 : The Session Layer
+#### 계층 [5] : 세션 계층 : The Session Layer
 <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/29mRrgK22AqJVlg2MMlD86/34d8f4071b6cc0d3b03c93f55e4d89b7/osi_model_session_layer_5.png" width="700">
 
 세션 계층은 통신 세션의 설정, 관리 그리고 종료를 담당한다. 이때 통신이 시작될 때부터 종료될 때까지의 시간을 세션이라고 하며, 세션 계층은 교환되고 있는 모든 데이터를 전송할 수 있도록 충분히 오랫동안 세션을 개방한 다음 리소스를 낭비하지 않기 위해 세션을 즉시 닫을 수 있게 한다. 즉, 송신자와 수신자 간의 대화를 관리하고 데이터 교환이 원활하게 이루어질 수 있도록 돕는 역할을 수행한다.  
@@ -106,7 +107,7 @@ OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으�
 
 <br>
 
-### 4. 전송 계층 : Transport Layer
+#### 계층 [4] : 전송 계층 : Transport Layer
 <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/3OlO75NcADGL3SmEADFDqd/723b8c7639c4e2e6b4febcbe7fd36e0e/osi_model_transport_layer_4.png" width="700">
 
 전송 계층은 두 기기 간의 종단 간 통신을 담당하며, 데이터를 가져와 **세그먼트**라는 조각으로 분할하는 역할을 수행한다. 이를 통해 **신뢰성 있는 전송**을 보장하는 것에 중점을 둔다. 또한 전송 계층은 컴퓨터 내부에서 논리적으로 구축되는 통신 당사자인 프로세스 사이의 통신 문제를 다룬다. 예를 들면 통화자 사이에 통화 연결을 설정하는 역할을 하는 것! 전송 계층 하위에 있는 물리 / 데이터 링크 / 네트워크 계층은 전송계층의 연결을 설정하고 어떻게 활용할지 다루는 것  뿐이다.  
@@ -117,7 +118,7 @@ OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으�
 
 <br>
 
-### 3. 네트워크 계층 : The Network Layer
+#### 계층 [3] : 네트워크 계층 : The Network Layer
 <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/3g2Hv0frHsql5SFauJL5EG/d8cede7b6a780e63413bd86de9eee7f9/osi_model_network_layer_3.png" width="700">
 
 네트워크 계층은 서로 다른 두 네트워크 간 데이터 전송을 용이하게 하며 라우팅, IP 주소 관리, 패킷 포워딩 등의 기능을 수행한다. 이때 서로 통신하는 두 장치가 동일한 네트워크에 있는 경우에는 네트워크 계층이 필요하지 않음!
@@ -130,7 +131,7 @@ OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으�
 
 <br>
 
-### 2. 데이터 연결 계층 : The Data Link Layer
+#### 계층 [2] : 데이터 연결 계층 : The Data Link Layer
 <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/3TLHavXiotb9ayyZFKECf3/9456d1c431cd71ceea7f4b407f076f11/data_link_layer_osi_model.png" width="700">
 
 상위 계층에서 전달받은 데이터를 받아 Frame(물리 계층을 통해 전송할 수 있는 데이터 패킷)으로 나누고, 각 프레임에는 시작과 끝을 알리는 특정 비트 패턴과 제어 정보를 포함하여 데이터의 구분/무결성을 유지한다. 주로 CRC(Cyclic Redundancy Chec : 패리티 비트 또는 체크섬 방식 등)을 사용한다.
@@ -143,7 +144,7 @@ OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으�
 
 <br>
 
-### 1. 물리 계층 : The physical layer
+#### 계층 [1] : 물리 계층 : The physical layer
 <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/1HQ1W5P4XAinIdM37DTu4U/900ccdceda346baf03ce8b9f977d2974/osi_model_physical_layer_1.png" width="700">
 
 상위 계층에서 전달된 데이터를 물리적 매체를 통해 전송할 수 있는 형태(Bit 형태)로 변환하여 전송한다. 즉, 데이터를 비트 스트림으로 나누어 전송하고, 수신 측에서 다시 원래 데이터로 재조립하는 것!
@@ -155,7 +156,7 @@ OSI(Open Systems Interconnextion) 모델은 네트워크 통신을 계층적으�
 <br>
 <br>
 
-## TCP/IP 모델
+### 2-6. TCP/IP 모델
 <img src="https://www.freecodecamp.org/news/content/images/2021/10/osi-vs-tcpip-1.png" width="700">
 
 TCP/IP란 TCP 및 IP라 불리는 프로토콜을 중심으로 구성되는 일련의 프로토콜들의 총칭이다. 일반적으로 TCP/IP 프로토콜이라 하면, TCP와 IP뿐만 아니라 관련된 프로토콜 집단을 의미한다.  
@@ -168,14 +169,14 @@ TCP/IP 모델은 OSI 모델과 유사하게 네트워크 통신을 계층화하�
 
 <br>
 
-### 응용 계층 : Application Layer
+#### 응용 계층 : Application Layer
 응용 계층은 TCP/IP 모델에서 사용자와 가장 가까운 계층으로, 응용 프로그램이 네트워크와 상호작용하는 인터페이스를 제공한다. 이 계층은 OSI 모델의 **응용 프로그램 계층, 프레젠테이션 계층, 세션 계층**의 기능을 통합하고 있다.
 
 주요 프로토콜으로 HTTP, FTP, SMTP, DNS, TELNET, SNMP 등이 있으며, 이들 프로토콜은 웹 서비스, 파일 전송, 이메일, 도메인 이름 해석 등 다양한 네트워크 서비스를 제공한다. 예를 들면, 사용자가 웹 브라우저를 통해 웹 페이지를 요청할 때 HTTP 프로토콜을 사용하여 요청을 처리하고 서버에서 페이지를 받아온다.
 
 <br>
 
-### 전송 계층 : Transport Layer
+#### 전송 계층 : Transport Layer
 전송 계층은 데이터를 작은 조각으로 나누어 송신자와 수신자 간에 신뢰성 있는 데이터 전송을 보장한다. 이 계층은 데이터 전송의 신뢰성을 확보하고, 데이터의 순서와 무결성을 관리한다.  
 
 주요 프로토콜에는 TCP와 UDP가 존재하며, TCP는 연결 지향적 프로토콜로, 데이터의 순서와 신뢰성을 보장하고 UDP는 비연결 지향적 프로토콜로, 빠른 전송이 필요할 때 사용되며, 신뢰성은 보장하지 않는다.  
@@ -184,7 +185,7 @@ TCP/IP 모델은 OSI 모델과 유사하게 네트워크 통신을 계층화하�
 
 <br>
 
-### 인터넷 계층 : Internet Layer
+#### 인터넷 계층 : Internet Layer
 인터넷 계층은 패킷이 출발지에서 목적지까지 이동할 수 있도록 경로를 결정하는 역할을 한다. 이 계층은 OSI 모델의 네트워크 계층과 유사한 역할을 수행하며, IP 주소를 사용하여 패킷을 라우팅한다.
 
 주요 프로토콜에는 IP(Internet Protocol), ICMP(Internet Control Message Protocol), ARP(Address Resolution Protocol), RIP(Routing Information Protocol) 등이 존재한다.
@@ -195,7 +196,7 @@ TCP/IP 모델은 OSI 모델과 유사하게 네트워크 통신을 계층화하�
 
 <br>
 
-### 네트워크 인터페이스 계층 : Network Interface Layer
+#### 네트워크 인터페이스 계층 : Network Interface Layer
 네트워크 인터페이스 계층(또는 링크 계층, 네트워크 접근 계층)은 물리적 네트워크 하드웨어와 데이터를 송수신하는 데 필요한 모든 것을 처리한다. 이 계층은 OSI 모델의 물리 계층과 데이터 링크 계층의 기능을 통합한 역할을 수행한다.
 
 주요 프로토콜에는 이더넷, Wi-Fi, PPP(Point-to-Point Protocol), ARP 등이 존재한다. 예를 들면, 이더넷 케이블을 통해 컴퓨터와 라우터가 연결될 때, 이 계층에서 데이터가 전기 신호로 변환되어 전송된다. Wi-Fi를 통해 무선으로 데이터가 전송될 때도 이 계층이 작동한다.
@@ -203,12 +204,12 @@ TCP/IP 모델은 OSI 모델과 유사하게 네트워크 통신을 계층화하�
 <br>
 <br>
 
-## IP
+### 2-7. IP
 IP는 Internet Protocol로 TCP/IP 모델의 인터넷 계층에서 사용되는 프로토콜이다. 네트워크에 존재하는 각 장비들을 식별하기 위한 논리주소이며 모든 장비는 IP 주소를 통해 출발지와 목적지를 식별하여 패킷을 주고받는다. 현재 IP 주소는 주로 IPv4와 IPv6 두 가지 버전이 사용된다.  
 
 인터넷의 성장에 따라 IPv4에 할당할 수 있는 주소 공간이 부족해지자 더 넓은 주소 공간을 제공하는 IPv6가 도입되었다.  
 
-### IPv4
+#### IPv4
 <img src="https://i.imgur.com/X1c2YZn.png" width="700">
 
 IPv4 주소는 32비트 길이로 구성되며 이 비트는 2^32개의 고유한 주소를 만들 수 있다.
@@ -248,7 +249,7 @@ IPv4 주소는 총 4개의 Octet으로 나뉘는데, 각 Octet은 8비트로 구
 
 <br>
 
-### IPv6
+#### IPv6
 <img src="https://i.imgur.com/Fc3YAgp.png" width="700">
 
 IPv6 주소는 128비트 길이로 구성되며 2^128개의 고유한 주소를 만들 수 있다. IPv6는 기본적으로 더 많은 주소 공간을 제공하며, IPsec을 통해 보안을 기본적으로 통합하고 호스트가 네트워크에 연결되었을 때 자동으로 주소를 구성할 수 있도록 설계되었다.
@@ -260,27 +261,27 @@ IPv6 주소는 총 8개의 16비트 블록으로 나뉘는데, 각 Octet은 8비
 
 <br>
 
-## 서브넷
+### 2-8. 서브넷
 서브넷은 큰 네트워크를 더 작은 네트워크로 나눈 것을 의미한다. 서브넷을 통해 네트워크를 효율적으로 관리하고 자원을 최적화할 수 있다. 예를 들어 42회사에 하나의 큰 네트워크가 있다고 가정하자. 이 네트워크를 서브넷으로 나누면 (IT 부서, 영업 부서, 관리 부서 등) 각 부서가 독립적인 네트워크를 사용할 수 있다.
 
 <br>
 
-## 서브넷 마스크
+### 2-9. 서브넷 마스크
 서브넷 마스크는 IP주소를 네트워크 부분과 호스트부분으로 구분하는데 사용한다. 서브넷 마스크를 통해 비로소 네트워크를 더 작은 서브넷으로 나눌 수 있다.
 
 <br>
 
-## 스위치의 기능과 데이터 처리 방법
+### 2-10. 스위치의 기능과 데이터 처리 방법
 **스위치**는 네트워크의 장치들을 연결하는 장비로 데이터 링크 계층(2)에서 동작하며, **동일한 네트워크** 내에서 데이터 패킷을 전달한다. 스위치는 `MAC` 주소를 기반으로 데이터를 처리하고 전송하는데, `MAC` 주소 테이블을 통해 각 포트에 연결된 장치들의 `MAC` 주소를 학습하여 데이터를 적잘한 장치로 전송한다.
 
 <br>
 
-## 라우터의 기능과 데이터 처리 방법
+### 2-11. 라우터의 기능과 데이터 처리 방법
 **라우터**는 서로 다른 네트워크를 연결하는 장비로, 네트워크 계층(3)에서 동작하며, 라우터는 네트워크의 경로를 설정하고 최적의 경로로 패킷을 전송하는 기능을 담당한다. 라우터는 데이터 패킷의 헤더를 분석하여 목적이 `IP` 주소를 확인하고, 라우팅 테이블을 참조하여 패킷을 어느 네트워크로 보내야 할지를 결정한다. 때문에 라우터는 서로 다른 서브넷 간의 통신을 가능하게 한다.
 
 <br>
 
-## 정적 라우팅과 동적 라우팅?
+### 2-12. 정적 라우팅과 동적 라우팅?
 정적 라우팅과 동적 라우팅은 네트워크에서 패킷을 전달하는 경로를 설정하는 두 가지 주요 방법이다!
 | 구분 | / 정적 라우팅 | / 동적 라우팅 |
 | --- | --- | --- |
@@ -293,7 +294,7 @@ IPv6 주소는 총 8개의 16비트 블록으로 나뉘는데, 각 Octet은 8비
 
 <br>
 
-## 라우터의 패킷 처리 방식
+### 2-13. 라우터의 패킷 처리 방식
 1. **패킷 수신**
 우선 라우터는 네트워크 포트로 들어오는 데이터 패킷을 수신한다. 이 패킷에는 목적지 `IP` 주소가 포함되어 있다.
 
@@ -308,14 +309,14 @@ IPv6 주소는 총 8개의 16비트 블록으로 나뉘는데, 각 Octet은 8비
 
 <br>
 
-## 0.0.0.0/0, default의 정체
+### 2-14. default와 0.0.0.0/0의 정체
 그렇다면 과제에 나오는 의문의 범위... `0.0.0.0/0`과 default의 정체는 무엇일까?
 
 정적 라우팅에서 `0.0.0.0/0`이 설정된 경우, 이 경로는 기본 경로(default)로 사용된다. 보통 내부 네트워크에서 목적지가 명확하지 않은 모든 트래픽을 ISP의 게이트웨이로 보내기 위해 기본 경로를 설정한다.
 
 <br>
 
-# Mandatory
+## 3. Mandatory
 ____
 
 <details>
@@ -424,7 +425,6 @@ A가 속한 서브넷을 벗어나는 트래픽(외부 네트워크로 가는 �
 <summary>LEVEL_06</summary>
 <div markdown="1">
 
-## LEVEL_06
 <img src="https://i.imgur.com/sQYZYIk.png" width="600">
 
 > Goal 1 : Interface A1 need to communicate with interface Somewhere on the Net
@@ -443,7 +443,7 @@ LEVEL 06 부터 인터넷이 등장한다. 라우터와 A를 연결하자. R1과
 <br>
 <br>
 
-# Reference
+## 4. Reference
 ____
 
 - https://www.cloudflare.com/ko-kr/learning/ddos/glossary/
@@ -458,10 +458,5 @@ ____
 
 - https://80000coding.oopy.io/17d8f803-479c-4e67-ab77-0be44da1e6d4
 
-
 <br>
-{{<alert>}}
-<a href="https://elecbrandy.github.io/tags/42cursus"> 42cursus </a>
-{{</alert>}}
 <br>
-

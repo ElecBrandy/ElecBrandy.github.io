@@ -2,23 +2,24 @@
 title = '[42cursus] get_next_line'
 date = 2023-12-18
 featured_image = "http://t1.daumcdn.net/cfile/15110210A8445BF80D"
-tags = ['C', '42cursus']
+tags = ['c', '42cursus']
 +++
 
-> Reading a line on a fd is way too tedious
+{{<series title="📚 /42cursus" series="42cursus">}}
 
 <br>
 
-# 소개
+## 1. 소개
 ____
-<img src="https://imgur.com/2R4ZmUq.png" width="700">
+
+> Reading a line on a fd is way too tedious
 
 42서울 본과정 입과 후 세번째로 수행한 과제로, 파일 디스크립터로부터 읽혀진 - 개행으로 끝나는 한 줄을 반환하는 함수를 만드는 과제이다. 즉 파일 하나를 연 다음, 파일 내용에서 개행으로 끝나는 줄 하나를 반환해야한다. 파일을 열고, 지정된 **BUFFER_SIZE** 만큼 `read`함수를 통해 파일을 읽다가 개행문자 `\n`이 나타나면 개행문자 전까지만 반환한다.
 
 <br>
 <br>
 
-# get_next_line 명세서
+## 2. get_next_line 명세서
 ____
 - **PROTOTYPE**
 	- `char *get_next_line(int fd);`
@@ -42,22 +43,22 @@ ____
 <br>
 <br>
 
-# 개념 정리
+## 3. 개념 정리
 ___
-## 연결리스트와 OPEN_MAX
+### 3-1. 연결리스트와 OPEN_MAX
 본 과제를 **BONUS**까지 수행한다면, 즉 동시에 여러 파일 디스크립터를 감안하는 프로그램을 만들고 싶다면 크게 두가지 방법이 존재한다.
 
-1. 연결리스트로 구현하는 것이고
+#### 연결리스트로 구현
 연결리스트 구조를 통해 생성되는 파일 디스크립터를 담은 노드를 계속 뒤에 이어 붙이며 관리
 
-2. `OPEN_MAX`로 구현
+#### OPEN_MAX로 구현
 해당 시스템에서 용인하는 최대 파일 디스크립터 수를 정의한 `OPEN_MAX`를 통해 정적 배열로 관리
 
-평가 기준에 다른 카뎃들의 여러가지 논의가 있는 것은 맞으나! 평가자를 납득시킬 수 있는 설명(또는 노력)을 통해 원하는 방법으로 보너스까지 노려보자.
+평가 기준에 다른 카뎃들의 여러가지 논의가 있는 것은 맞으나, 평가자를 납득시킬 수 있는 설명(또는 노력)을 통해 원하는 방법으로 보너스까지 노려보자.
 
 <br>
 
-## OPEN_MAX
+### 3-2. OPEN_MAX
 나는 `OPEN_MAX`를 통해 보너스를 구현했다.
 
 그 이유는 본 과제에서 중요하게 배워야하는 것은 파일 디스크립터라는 생소한 개념과 파일을 열고 read하고 닫고, 동적할당한 메모리를 적절하게 해제하는 것이라고 생각하기 때문이다. 연결리스트로 분명히 구현은 가능하지만, 굳이 공수를 더 들일 필요 또한 없다고 생각했다.
@@ -68,10 +69,10 @@ ___
 
 <br>
 
-## 동적할당과 해제
-메모리 누수를 막기위해서 동적으로 할당한 힙 영역의 메모리는 사용이 끝난 경우 해제해야 하는 것이 당연하다.
-이때 아래 함수를 통해서 free를 조금 더 안전하고 유용하게 사용할 수 있다.
-``` c
+### 3-3. 동적할당과 해제
+메모리 누수를 막기위해서 동적으로 할당한 힙 영역의 메모리는 사용이 끝난 경우 해제해야 하는 것이 당연하다. 이때 아래 함수를 통해서 free를 조금 더 안전하고 유용하게 사용할 수 있다.
+
+``` C
 void	ft_free(void **target)
 {
 	if (target != NULL && (*target) != NULL)
@@ -84,29 +85,28 @@ void	ft_free(void **target)
 메모리 해제 후 포인터를 NULL로 설정함으로써, 포인터의 `Dangling Pointer` 상태(해제된 메모리를 가르키는 상태)를 방지한다. 또한 이 과정을 통해 이미 할당 해제된 메모리 주소에 다시 접근하는 것을 방지할 수 있다.
 
 <br>
-<br>
 
-# Mandatory
+## 4. Mandatory
 ____
 
 <img src="https://imgur.com/w1qsdXS.png" width="700">
 
 <br>
 
-### step 01
+#### step 01
 개행문자 `\n`을 만날 때까지 또는 `EOF`에 도달할 때까지 **BUFFER_SIZE** 만큼 읽어나간다.
 
-### step 02
+#### step 02
 개행문자 전까지만 따로 분리해서 return을 준비한다.
 
-### step 03
+#### step 03
 추후 **BUFFER_SIZE** 실행을 위해서 `main_buf`에 나머지 남은 문자열을 저장한다.
 
 <br>
 
-## Mandatory 구현
+### 4-1. 구현
 
-### get_next_line
+#### get_next_line
 
 ``` c
 char	*get_next_line(int fd)
@@ -138,7 +138,7 @@ char	*get_next_line(int fd)
 <br>
 <br>
 
-# BONUS
+## 5. BONUS
 ____
 
 본 과제를 **BONUS**까지 수행한다면,
@@ -148,8 +148,9 @@ ____
 
 <br>
 
-## BONUS 구현
-``` c
+### 5-1. 구현
+
+``` C
 char	*get_next_line(int fd)
 {
 	static char	*main_buf[OPEN_MAX];
@@ -172,15 +173,11 @@ char	*get_next_line(int fd)
 <br>
 <br>
 
-# Reference
+## 6. Reference
 ____
 - https://man7.org/linux/man-pages/man2/read.2.html
 - https://www.gnu.org/software/libc/manual/html_node/Streams-and-File-Descriptors.html
 - https://code-lab1.tistory.com/65
 
-
 <br>
-{{<alert>}}
-<a href="https://elecbrandy.github.io/tags/42cursus"> 42cursus </a>
-{{</alert>}}
 <br>

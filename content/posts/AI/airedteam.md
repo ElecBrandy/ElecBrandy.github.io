@@ -2,7 +2,7 @@
 title = '생성형 AI 레드팀 챌린지'
 date = 2024-04-11
 featured_image = "https://orgthumb.mt.co.kr/06/2024/03/2024032815132786760_1.jpg"
-tags = ['AI', '42cursus']
+tags = ['ai', '42cursus']
 draft = true
 +++
 

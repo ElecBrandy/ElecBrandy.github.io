@@ -2,16 +2,18 @@
 title = '[42cursus] push_swap'
 date = 2024-02-12
 featured_image = "https://i.imgur.com/SdY8X4J.png"
-tags = ['C', '42cursus']
+tags = ['c', '42cursus']
 draft = false
 +++
 
-> Because Swap_push isn’t as natural
+{{<series title="📚 /42cursus" series="42cursus">}}
 
 <br>
 
-# 소개
+## 1. 소개
 ____
+> Because Swap_push isn’t as natural
+
 42서울 본과정 입과 후 네번째로 수행한 과제로, 스택에 있는 데이터를 한정된 명령어를 이용하여 최대한 적은 횟수 내에 정렬하는 것을 목표로 하는 과제이다.
 상당히 아이러니한 과제이다. 스택이라고 명시되어있지만, 과제에서 요구하는 구조는 스택과는 거리가 멀고, 명령어도 한정되어있다.
 
@@ -23,7 +25,7 @@ ____
 <br>
 <br>
 
-# push_swap 명세서
+## 2. push_swap 명세서
 ____
 - **PROTOTYPE**
 	- `push_swap`
@@ -40,19 +42,21 @@ ____
 <br>
 <br>
 
-# 개념 정리
+## 3. 개념 정리
 ____
 <img src="https://i.imgur.com/tOh91Wf.png" width="700">
 
-## Swap 규칙
+### 3-1. push_swap 규칙
+
+#### Swap 규칙
 - `sa` : stack a의 상위 두 요소를 교환한다.
 - `sb` : stack b의 상위 두 요소를 교환한다.
 
-## Push 규칙
+#### Push 규칙
 - `pa` : stack b의 상위 요소를 stack a의 상위로 보낸다.
 - `pb` : stack a의 상위 요소를 stack b의 상위로 보낸다.
 
-## Rotate 규칙
+#### Rotate 규칙
 - `ra` : stack a의 최상위 요소를 stack a의 최하위로 보낸다.
 - `rb` : stack b의 최상위 요소를 stack b의 최하위로 보낸다.
 - `rra` : stack a의 최하위 요소를 stack a의 최상위로 보낸다.
@@ -60,7 +64,7 @@ ____
 
 <br>
 
-## 기수정렬
+### 3-2. 기수정렬
 해당 과제를 풀이하기 위한 알고리즘은 정말 다양하며, 나는 기수정렬을 사용했다.
 
 기수정렬은 매 시행마다 각 기수(1의자리, 10의 자리, 100의 자리...)를 비교해가며 정렬하는 알고리즘이다.
@@ -77,10 +81,10 @@ ____
 <br>
 <br>
 
-# Mandatory
+## 4. Mandatory
 ____
 
-### step 01 : 사전 최적화
+### 4-1. 사전 최적화
 결국 숫자를 순서대로 정렬하는 것이고, 3진수로 변환해야하기 때문에 인자의 크기는 작을수록 좋다.
 인자의 크기가 커질수록 3진수로 변환된 길이는 길어질 것이고, 그만큼 비교-정렬 과정이 길어질 것이다.
 그렇기 때문에 어떤 정수의 집합이 들어와도, 그것을 0부터 시작하는 집합으로 인덱싱 과정이 필요하다.  
@@ -89,7 +93,7 @@ ____
 
 <br>
 
-### step 02 : Hard sorting
+### 4-2. Hard sorting
 ``` c
 void	ps_hardsort(t_head *head, int len)
 {
@@ -107,12 +111,12 @@ void	ps_hardsort(t_head *head, int len)
 
 <br>
 
-### step 03 : 기수정렬
+### 4-3. 기수정렬
 
 <img src="https://i.imgur.com/yiREh79.png" width="700">
 
 #### 01
-기수 0인 인자는 스**택 B**의 상위로, 기수가 1인 인자는 **스택 A**의 하위로, 기수가 2인 인자는 **스택 B**의 하위로 보내준다.  
+기수 0인 인자는 **스택 B**의 상위로, 기수가 1인 인자는 **스택 A**의 하위로, 기수가 2인 인자는 **스택 B**의 하위로 보내준다.  
 
 #### 02
 0, 1, 2 기수에 따라 분류가 완료되었다면, 이제 다음 자리수의 기수 비교를 위해 나눠진 인자들을 다시 한 공간에 모아야 한다.
@@ -124,9 +128,9 @@ void	ps_hardsort(t_head *head, int len)
 
 <br>
 
-## Mandatory 구현
+### 4-4. Mandatory 구현
 
-### ps_radixsort
+#### ps_radixsort
 
 ``` c
 void	ps_radixsort(t_head *head, int len, int trlen)
@@ -164,7 +168,7 @@ void	ps_radixsort(t_head *head, int len, int trlen)
 
 <br>
 
-### main
+#### main
 ``` c
 int	main(int ac, char **av)
 {
@@ -199,14 +203,11 @@ int	main(int ac, char **av)
 <br>
 <br>
 
-# Reference
+## 5. Reference
 ____
 - [wiki] https://buly.kr/6tZknhQ
 - [tistory] https://buly.kr/CshW9Qu
 - [velog] https://velog.io/@blank_/PushSwap-Radix-Sort
 
 <br>
-{{<alert>}}
-<a href="https://elecbrandy.github.io/tags/42cursus/"> 42cursus</a>
-{{</alert>}}
 <br>
