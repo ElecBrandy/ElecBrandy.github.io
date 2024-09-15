@@ -62,27 +62,29 @@
   <aside class="toc">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#운영체제">운영체제</a></li>
-    <li><a href="#virtual-machinevm">Virtual Machine(VM)</a></li>
-    <li><a href="#debian">Debian</a>
+    <li><a href="#1-소개">1. 소개</a></li>
+    <li><a href="#2-개념-정리">2. 개념 정리</a>
       <ul>
-        <li><a href="#debian과-rocky의-차이점">Debian과 Rocky의 차이점</a></li>
+        <li><a href="#2-1-운영체제">2-1. 운영체제</a></li>
+        <li><a href="#2-2-virtual-machinevm">2-2. Virtual Machine(VM)</a></li>
+        <li><a href="#2-3-debian">2-3. Debian</a></li>
+        <li><a href="#2-4-debian과-rocky의-차이점">2-4. Debian과 Rocky의 차이점</a></li>
+        <li><a href="#2-5-package-management-tools">2-5. Package management tools</a></li>
+        <li><a href="#2-6-apparmor">2-6. AppArmor</a></li>
+        <li><a href="#2-7-sudo">2-7. Sudo</a></li>
+        <li><a href="#2-8-tty">2-8. TTY</a></li>
+        <li><a href="#2-9-ufw">2-9. UFW</a></li>
+        <li><a href="#2-10-ssh">2-10. SSH</a></li>
+        <li><a href="#2-11-linux-partition">2-11. Linux Partition</a></li>
+        <li><a href="#2-12-mbr">2-12. MBR</a></li>
       </ul>
     </li>
-    <li><a href="#package-management-tools">Package management tools</a></li>
-    <li><a href="#apparmor">AppArmor</a></li>
-    <li><a href="#sudo">Sudo</a></li>
-    <li><a href="#tty">TTY</a></li>
-    <li><a href="#ufw">UFW</a></li>
-    <li><a href="#ssh">SSH</a></li>
-    <li><a href="#linux-partition">Linux Partition</a></li>
-    <li><a href="#mbr">MBR</a></li>
-    <li><a href="#lvm">LVM</a>
+    <li><a href="#2-13-lvm">2-13. LVM</a>
       <ul>
-        <li><a href="#lvm-단위-구성">LVM 단위 구성</a></li>
+        <li></li>
+        <li><a href="#2-14-cron">2-14. Cron</a></li>
       </ul>
     </li>
-    <li><a href="#cron">Cron</a></li>
   </ul>
 </nav>
   </aside>
@@ -97,24 +99,52 @@
       <div class="singleTitle">[42cursus] born2beroot</div>
     </div>
   </div>
-  <blockquote>
+  <div class="series">
+  <details>
+    <summary>📚 /42cursus</summary>
+    <ul>
+      
+      
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_0/libft.md">libft</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_1/ft_printf.md">ft_printf</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_1/get_next_line.md">get_next_line</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_1/born2beroot.md">born2beroot</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_2/pipex.md">pipex</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_2/fdf.md">fdf</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_2/push_swap.md">push_swap</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_3/minishell.md">minishell</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_3/philosopher.md">philosopher</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_4/netpractice.md">netpractice</a></li>
+      
+    </ul>
+  </details>
+</div>
+
+<br>
+<h2 id="1-소개">1. 소개</h2>
+<hr>
+<blockquote>
 <p>YOU CAN DO ANYTHING YOU WANT TO DO, VIRTUAL MACHINE, THIS IS YOUR WORLD</p>
 </blockquote>
+<p>42서울 본과정 입과 후 네번째로 수행한 과제로, 가상머신에 리눅스를 설치하고 공부하는 과정이다. 가상머신에 리눅스(Debian or Rocky)를 설치하고, LVM를 통한 파티션 설정과 기타 여러가지 기능을 직접 실습한다. 요구사항이 상당히 많고 처음 접한다면 배워야할 개념도 상당히 많다. 리눅스 설치는 하다보면 10번 넘게 하다보니&hellip; 중요한 개념 위주로만 정리했다.</p>
 <br>
-<h1 id="소개">소개</h1>
+<br>
+<h2 id="2-개념-정리">2. 개념 정리</h2>
 <hr>
-<img src="https://user-images.githubusercontent.com/87311268/221544778-c85cb3d8-32f4-4919-aa1c-0db54b33b38a.jpg" width="700">
-<p>42서울 본과정 입과 후 네번째로 수행한 과제로, 가상머신에 리눅스를 설치하고 공부하는 과정이다.</p>
-<p>가상머신에 리눅스(Debian or Rocky)를 설치하고, LVM를 통한 파티션 설정과 기타 여러가지 기능을 직접 실습한다. 백문불여일견. 요구사항이 상당히 많고 처음 접한다면 배워야할 개념도 상당히 많다&hellip; 화이팅!
-리눅스 설치는 하다보면 100번이라도 해야만 하는 상황이기 때문에 중요한 개념 위주로만 정리했다.</p>
-<br>
-<br>
-<h1 id="개념-정리">개념 정리</h1>
-<hr>
-<h2 id="운영체제">운영체제</h2>
+<h3 id="2-1-운영체제">2-1. 운영체제</h3>
 <p>Operating System은 응용 프로그램 또는 사용자에게 컴퓨터 자원을 사용할 수 있는 인터페이스를 제공하고, 그 결과를 돌려주는 시스템 소프트웨어이다. CPU, Memory, 저장장치 등의 하드웨어를 관리하고 Process 관리, 자원 접근 및 할당, 파일 시스템을 관리한다.</p>
 <br>
-<h2 id="virtual-machinevm">Virtual Machine(VM)</h2>
+<h3 id="2-2-virtual-machinevm">2-2. Virtual Machine(VM)</h3>
 <p>하나의 컴퓨터 안에서 여러 개의 독립된 환경을 만들어 내는 것으로 물리적 하드웨어 시스템 위에 구축되는 소프트웨어 기반의 컴퓨터이다. 자체적인 OS, CPU, Memory, Network interface, 저장장치 등을 가지고 있고, Hypervisor를 통해 하드웨어에서 VM의 소스를 분리하고 적절히 프로비저닝하여 VM에서 사용할 수 있게 만든다.</p>
 <ul>
 <li><strong>VM 장점</strong>
@@ -129,10 +159,10 @@
 </li>
 </ul>
 <br>
-<h2 id="debian">Debian</h2>
+<h3 id="2-3-debian">2-3. Debian</h3>
 <p>다양한 환경에서 광범위 하게 사용되는 운영체제로, 다양한 소프트웨어 패키지를 제공한다.
 커뮤니티 중심으로 개발되는 프로젝트이며, 자유 소프트웨어 원칙을 강력히 지지하는 것이 특징! 패키지 관리자로 Package management tools, 보안 모듈로 AppArmor를 사용한다.</p>
-<h3 id="debian과-rocky의-차이점">Debian과 Rocky의 차이점</h3>
+<h3 id="2-4-debian과-rocky의-차이점">2-4. Debian과 Rocky의 차이점</h3>
 <table>
   <thead>
       <tr>
@@ -185,25 +215,180 @@
   </tbody>
 </table>
 <br>
-<h2 id="package-management-tools">Package management tools</h2>
+<h3 id="2-5-package-management-tools">2-5. Package management tools</h3>
 <p>Linux의 패키징 시스템을 관리하는 도구 모음으로 패키지 설치, 업그레이드, 제거 등을 자동화하여 쉽게 관리 가능하다. 특정 소프트웨어가 필요로 하는 모든 추가 패키지를 자동으로 파악하고 설치함으로써 의존성 문제를 해결했다. <strong>Debian과 Rocky 사이의 Package management tools의 차이점을 더 공부해보자 :)</strong></p>
+<h4 id="debian-apt">Debian-APT</h4>
+<p>Debian은 .deb 패키지 포맷을 사용하며, 패키지 관리 도구로는 주로 **APT (Advanced Package Tool)**를 사용한다. APT는 패키지 설치, 업그레이드, 삭제 등을 쉽게 관리할 수 있도록 도와준다. APT는 의존성 문제를 자동으로 해결하며, 패키지 소스 리스트를 통해 소프트웨어를 중앙 저장소에서 쉽게 설치할 수 있다.</p>
+<ul>
+<li><strong>dpkg</strong>
+<ul>
+<li>APT의 하위 도구로, 패키지를 직접 설치하거나 제거하는 데 사용된다. APT는 dpkg를 기반으로 하여 더 높은 수준의 패키지 관리 기능을 제공한다.</li>
+</ul>
+</li>
+<li><strong>APT의 특징</strong>
+<ul>
+<li>의존성 문제 해결, 패키지 소스 관리, 소프트웨어 업데이트 관리가 자동화되어 있다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="rocky-dnf">Rocky-dnf</h4>
+<p>Rocky Linux는 .rpm 포맷을 사용하며, <strong>dnf (Dandified YUM)</strong> 패키지 관리 도구를 사용한다. dnf는 Red Hat 계열에서 사용되는 패키지 관리 도구로, YUM(Yellowdog Updater, Modified)을 대체하여 더 나은 성능과 의존성 해결 능력을 제공한다.</p>
+<ul>
+<li><strong>dnf</strong>
+<ul>
+<li>패키지 설치, 업데이트, 삭제 등을 관리하며, 다양한 저장소에서 패키지를 가져올 수 있다. 또한, dnf는 여러 의존성 문제를 자동으로 해결하며, 고급 캐싱 및 플러그인 시스템을 지원한다.</li>
+</ul>
+</li>
+<li><strong>rpm</strong>
+<ul>
+<li>.rpm 패키지 포맷을 사용하여 dnf를 통해 관리된다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="차이점-요약">차이점 요약</h4>
+<ul>
+<li><strong>패키지 포맷</strong>
+<ul>
+<li>Debian은 .deb, Rocky Linux는 .rpm을 사용한다.</li>
+</ul>
+</li>
+<li><strong>패키지 관리 도구</strong>
+<ul>
+<li>Debian은 APT, dpkg를 사용하며, Rocky Linux는 dnf와 rpm을 사용한다.</li>
+</ul>
+</li>
+<li><strong>의존성 해결</strong>
+<ul>
+<li>APT와 dnf 모두 의존성을 자동으로 해결하지만, 기본적으로 사용하는 도구와 메커니즘이 다르다.</li>
+</ul>
+</li>
+<li><strong>사용자 경험</strong>
+<ul>
+<li>두 도구 모두 의존성 문제를 자동으로 해결하며, 각 배포판의 철학에 맞게 최적화되어 있다. APT는 Debian 기반의 시스템에서, dnf는 Red Hat 계열 시스템에서 널리 사용된다.</li>
+</ul>
+</li>
+</ul>
 <br>
-<h2 id="apparmor">AppArmor</h2>
-<p>시스템 관리자가 개별 응용프로그램이 엑세스 할 수 있는 시스템 리소스와 권한을 제어 할 수 있게 하는 Linux Kernel 보안 모듈로 MAC(Mandatory Access Control) 방식을 통해 사전에 정의된 규칙(Profile)에 기반하여 권한을 제어한다. 즉, 특정 프로그램이 파일/네트워크/기타 시스템 자원에 접근하는 방식을 경로를 통해 구분한다. 타 모듈에 비해 간단한 설정이 장점이지만, 단순한만큼 복잡한 보안 요구 사항을 충족시키지 못할 수 있으며 Profile 로딩 시간 때문에 시스템 시작 속도에 영향을 미칠 수 있다. 또한 동일 어플리케이션에 대하여 여러 경로가 존재할 수 있기 때문, 한 프로그램에 대하여 여러 보안 Profile이 생성될 수 있다. <strong>그렇다면 AppArmor가 없었던 시절에는 어떻게 관리했을까?</strong></p>
+<h3 id="2-6-apparmor">2-6. AppArmor</h3>
+<p>시스템 관리자가 개별 응용프로그램이 엑세스 할 수 있는 시스템 리소스와 권한을 제어 할 수 있게 하는 Linux Kernel 보안 모듈로 MAC(Mandatory Access Control) 방식을 통해 사전에 정의된 규칙(Profile)에 기반하여 권한을 제어한다. 즉, 특정 프로그램이 파일/네트워크/기타 시스템 자원에 접근하는 방식을 경로를 통해 구분한다.</p>
+<p>타 모듈에 비해 간단한 설정이 장점이지만, 단순한만큼 복잡한 보안 요구 사항을 충족시키지 못할 수 있으며 Profile 로딩 시간 때문에 시스템 시작 속도에 영향을 미칠 수 있다. 또한 동일 어플리케이션에 대하여 여러 경로가 존재할 수 있기 때문, 한 프로그램에 대하여 여러 보안 Profile이 생성될 수 있다.</p>
+<h4 id="그렇다면-apparmor가-없었던-시절에는-어떻게-관리했을까">그렇다면 AppArmor가 없었던 시절에는 어떻게 관리했을까?**</h4>
+<p>AppArmor가 도입되기 전에는 Linux 시스템에서 주로 <strong>DAC (Discretionary Access Control)</strong> 방식으로 권한을 관리했다. DAC는 파일이나 디렉토리의 소유자가 누구에게 접근 권한을 부여할지 결정하는 방식이다. Linux에서 가장 흔한 형태의 DAC는 파일의 소유자, 그룹, 기타 사용자에 대한 <strong>파일 권한 (읽기, 쓰기, 실행 권한)</strong> 설정이다.</p>
+<ul>
+<li>
+<p><strong>DAC의 특징</strong></p>
+<ul>
+<li>소유자가 자신이 소유한 파일이나 디렉토리에 대해 자유롭게 권한을 설정할 수 있다.</li>
+<li>유연하지만, 보안 측면에서는 취약할 수 있다. 예를 들어, 프로그램이 공격에 의해 권한을 획득하면 소유자가 부여한 권한을 남용할 수 있다.</li>
+<li>시스템 전반적인 보안 관리가 어려워, 보안 사고가 발생할 가능성이 더 높았다.</li>
+</ul>
+</li>
+<li>
+<p><strong>AppArmor와의 차이점</strong></p>
+<ul>
+<li>DAC는 파일 소유자가 권한을 설정하고 제어할 수 있었던 반면, AppArmor는 시스템 관리자가 <strong>MAC (Mandatory Access Control)</strong> 방식을 통해 보다 강력하고 체계적인 방식으로 권한을 제어한다. 즉, 프로그램이 어떤 파일에 접근할 수 있는지를 경로 기반의 규칙으로 제한할 수 있다.</li>
+<li>AppArmor는 프로파일을 사용하여, 특정 프로그램이 어떤 자원에 접근할 수 있는지 미리 정의된 규칙에 따라 결정한다. 이는 DAC 방식보다 더 세밀하고 강력한 보안 정책을 적용할 수 있게 해준다.</li>
+</ul>
+</li>
+</ul>
+<p>AppArmor가 도입되기 전에는 <strong>SELinux</strong>와 같은 다른 MAC 방식의 보안 모듈도 존재했지만, 설정이 복잡하고 관리가 어려워 일부 시스템 관리자들에게는 DAC 방식이 여전히 주로 사용되었다.</p>
 <br>
-<h2 id="sudo">Sudo</h2>
-<p>Sudo(Superuser do)는 Unix 및 Linux 기반 시스템에서 슈퍼유저 또는 root 권한으로 명령을 실행할 수 있게 해주는 프로그램이다. 일반 사용자에게 관리자(루트) 권한으로 명령을 실행할 수 있는 권한을 제한적으로 부여하여 루트 사용자로의 지속적인 로그인을 방지하고, 보안 위험을 줄일 수 있다. 또한 루트 권한으로 실행된 모든 명령과 사용자를 기록 가능해 시스템 관리, 감시 추적 등이 용이하다. <strong>sudo log를 어디서 확인 할 수 있을까?</strong></p>
+<h3 id="2-7-sudo">2-7. Sudo</h3>
+<p>Sudo(Superuser do)는 Unix 및 Linux 기반 시스템에서 슈퍼유저 또는 root 권한으로 명령을 실행할 수 있게 해주는 프로그램이다. 일반 사용자에게 관리자(루트) 권한으로 명령을 실행할 수 있는 권한을 제한적으로 부여하여 루트 사용자로의 지속적인 로그인을 방지하고, 보안 위험을 줄일 수 있다. 또한 루트 권한으로 실행된 모든 명령과 사용자를 기록 가능해 시스템 관리, 감시 추적 등이 용이하다.</p>
+<h4 id="sudo-log를-어디서-확인-할-수-있을까">sudo log를 어디서 확인 할 수 있을까?**</h4>
+<p><code>sudo</code> 명령어로 실행된 작업에 대한 로그는 보통 <strong>/var/log/auth.log</strong> 또는 <strong>/var/log/secure</strong> 파일에서 확인할 수 있다. 사용 중인 배포판에 따라 경로가 약간 다를 수 있지만, 일반적으로 다음 경로에서 <code>sudo</code> 관련 로그를 찾을 수 있다:</p>
+<ul>
+<li>
+<p><strong>Debian 기반 배포판 (예: Ubuntu)</strong>: <code>/var/log/auth.log</code></p>
+<ul>
+<li>이 파일에는 인증과 관련된 로그가 저장되며, <code>sudo</code> 명령이 실행된 내역도 포함된다.</li>
+</ul>
+</li>
+<li>
+<p><strong>Red Hat 기반 배포판 (예: Rocky Linux, CentOS)</strong>: <code>/var/log/secure</code></p>
+<ul>
+<li>이 파일에는 보안 관련 정보가 기록되며, <code>sudo</code> 명령 내역도 이곳에 저장된다.</li>
+</ul>
+</li>
+</ul>
+<p>로그 파일에서 <code>sudo</code> 명령을 필터링하여 확인하려면 <code>grep</code> 명령을 사용할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep <span style="color:#e6db74">&#39;sudo&#39;</span> /var/log/auth.log    <span style="color:#75715e"># Debian 기반 시스템</span>
+</span></span><span style="display:flex;"><span>grep <span style="color:#e6db74">&#39;sudo&#39;</span> /var/log/secure      <span style="color:#75715e"># Red Hat 기반 시스템</span>
+</span></span></code></pre></div><br>
+<h3 id="2-8-tty">2-8. TTY</h3>
+<p>TTY(Tele Type Writer)는 컴퓨터와 연결된 가상의 터미널로 한 컴퓨터를 여럿이서 사용하기 위해 (물리적 한계 극복) 사용했으며 현재 UNIX 시스템에서 터미널 역할을 수행한다. 텍스트 기반 인터페이스와 다중 터미널 세션 기능, 원격 접속과 시스템 관리 및 표준 입출력 관리가 특징이다. 이때 Sudo가 TTY를 요구한다는 것은 Sudo 명령어를 사용자가 직접 터미널 세션에서 입력해야만 SUdo 권한을 사용할 수 있다는 것을 의미한다.</p>
+<h4 id="이것이-왜-필요한지-공부해보자">이것이 왜 필요한지 공부해보자!</h4>
+<p><code>sudo</code>가 TTY(Tele Type Writer)를 요구하는 이유는 보안 측면에서 사용자 인증을 강화하고, 비정상적인 사용을 방지하기 위해서이다. TTY는 물리적 또는 가상 터미널로서 사용자가 직접 명령을 입력하는 환경을 제공하는데, 이를 요구함으로써 <code>sudo</code> 명령을 자동화된 스크립트나 백그라운드 프로세스에서 악용하는 것을 막을 수 있다. 이 방식은 다음과 같은 이유로 보안이 강화된다.</p>
+<ol>
+<li>
+<p><strong>직접 사용자 인증 요구</strong><br>
+TTY를 요구함으로써 <code>sudo</code> 명령이 직접 사용자가 터미널 세션을 통해 입력되었는지 확인할 수 있다. 이 과정에서 사용자의 비밀번호를 묻거나, 사용자가 로그인된 터미널에서 명령이 실행되었는지 확인할 수 있어 인증 절차를 강화한다.</p>
+</li>
+<li>
+<p><strong>악성 스크립트 방지</strong><br>
+자동화된 스크립트나 원격 프로세스가 루트 권한을 남용하지 못하게 한다. 만약 TTY 없이 <code>sudo</code>가 허용된다면, 악의적인 사용자가 원격으로 시스템에 접근해 루트 권한을 얻는 데 악용할 수 있다. TTY를 요구함으로써 사용자가 직접 명령을 입력하지 않는 비정상적인 상황에서 <code>sudo</code> 사용을 막는다.</p>
+</li>
+<li>
+<p><strong>로그 추적 및 감시 강화</strong><br>
+TTY 환경에서는 사용자가 어떤 터미널에서 어떤 명령을 실행했는지 명확하게 기록할 수 있다. 이를 통해 <code>sudo</code> 사용 내역을 보다 쉽게 추적할 수 있고, 누가 언제 어디서 루트 권한으로 명령을 실행했는지 확인할 수 있어 보안 관리가 용이해진다.</p>
+</li>
+</ol>
+<p><strong>TTY 요구의 비활성화</strong><br>
+때로는 <code>sudo</code>가 TTY 없이도 작동해야 하는 경우가 있다. 예를 들어, 특정 자동화 작업이나 데몬 프로세스에서 <code>sudo</code> 명령이 필요할 때 TTY 요구를 비활성화할 수 있다. 이를 위해서는 <code>/etc/sudoers</code> 파일에 다음과 같은 규칙을 추가한다:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Defaults !requiretty
+</span></span></code></pre></div><p>그러나, 이 설정은 보안 위험을 초래할 수 있으므로 매우 신중하게 사용해야 한다. TTY 요구는 사용자가 터미널을 통해 직접 인증할 수 있게 하고, 시스템의 보안을 강화하기 위한 중요한 요소이다.</p>
 <br>
-<h2 id="tty">TTY</h2>
-<p>TTY(Tele Type Writer)는 컴퓨터와 연결된 가상의 터미널로 한 컴퓨터를 여럿이서 사용하기 위해 (물리적 한계 극복) 사용했으며 현재 UNIX 시스템에서 터미널 역할을 수행한다. 텍스트 기반 인터페이스와 다중 터미널 세션 기능, 원격 접속과 시스템 관리 및 표준 입출력 관리가 특징이다. 이때 Sudo가 TTY를 요구한다는 것은 Sudo 명령어를 사용자가 직접 터미널 세션에서 입력해야만 SUdo 권한을 사용할 수 있다는 것을 의미한다. <strong>이것이 왜 필요한지 공부해보자!</strong></p>
-<br>
-<h2 id="ufw">UFW</h2>
+<h3 id="2-9-ufw">2-9. UFW</h3>
 <p>UFW(Uncomlicted FireWall)은 사용자 친화적인 방화벽 관리 인터페이스로 기존 iptables의 복잡성을 단순화 시켰으며 주로 입출력 트래픽을 제어하고, 원하지 않는 네트워크 접근을 차단하기 위해 사용한다.</p>
 <br>
-<h2 id="ssh">SSH</h2>
-<p>SSH(Secure SHell) 이란 컴퓨터가 같은 public network를 통해 통신 시 보안적으로 안전하게 통신을 하기 위한 프로토콜으로 보안적으로 안전한 채널을 구축한 뒤 정보를 교환하는 방식(키 기반의 인증 / 암호화)이다. S<strong>SH의 작동원리 두가지 (대칭키 암호화, 비대칭키 암호화)와 키 검증 방식을 공부해보자!</strong></p>
+<h3 id="2-10-ssh">2-10. SSH</h3>
+<p>SSH(Secure SHell) 이란 컴퓨터가 같은 public network를 통해 통신 시 보안적으로 안전하게 통신을 하기 위한 프로토콜으로 보안적으로 안전한 채널을 구축한 뒤 정보를 교환하는 방식(키 기반의 인증 / 암호화)이다.</p>
+<h4 id="ssh의-작동원리를-공부해보자">SSH의 작동원리를 공부해보자!</h4>
+<p>SSH(Secure SHell)는 결국 안전한 원격 접속을 가능하게 하는 프로토콜로, <strong>대칭키 암호화</strong>와 <strong>비대칭키 암호화</strong>를 결합하여 작동하며, 이 과정을 통해 안전한 통신을 보장한다. SSH는 또한 <strong>키 검증</strong>을 통해 통신 상대방의 신뢰성을 확인한다. 각 암호화 방식과 키 검증 방법을 이해하면 SSH의 작동 원리를 잘 이해할 수 있다.</p>
+<ul>
+<li>
+<p><strong>1. 대칭키 암호화</strong></p>
+<ul>
+<li><strong>하나의 동일한 키</strong>를 사용해 데이터를 암호화하고 복호화하는 방식.</li>
+<li>장점 : 암호화와 복호화가 빠름!</li>
+<li>단점 : 대칭키 암호화의 단점은 키가 노출되면 통신이 쉽게 해독될 수 있음</li>
+<li>그래서 SSH는 <strong>세션 키</strong>라고 불리는 대칭키를 안전하게 교환할 수 있는 방법을 추가적으로 사용한다.</li>
+</ul>
+</li>
+<li>
+<p><strong>2. 비대칭키 암호화</strong></p>
+<ul>
+<li><strong>공개키와 개인키</strong>라는 두 가지 키를 사용하여 데이터를 암호화하고 복호화한다.</li>
+<li>공개키는 누구나 볼 수 있지만, 개인키는 오직 소유자만 가지고 있어야 한다.</li>
+</ul>
+</li>
+</ul>
+<p>SSH의 초기 연결 과정에서, 클라이언트는 서버의 <strong>공개키</strong>를 사용하여 세션을 설정하고 대칭키를 암호화하여 전송한다. 서버는 이 대칭키를 자신의 <strong>개인키</strong>로 복호화하고, 그 후에는 대칭키를 사용해 암호화된 데이터 통신을 계속한다. 이 과정에서 대칭키는 보안이 강화된 상태로 안전하게 전달된다.</p>
+<h4 id="ssh-작동-과정-요약">SSH 작동 과정 요약</h4>
+<ol>
+<li><strong>세션 설정</strong>: 클라이언트는 서버와 연결을 시도하고, 서버는 자신의 공개키를 클라이언트에 제공한다.</li>
+<li><strong>세션 키 교환</strong>: 클라이언트는 비대칭키 암호화를 사용해 서버의 공개키로 대칭키(세션 키)를 암호화하여 전송한다.</li>
+<li><strong>세션 시작</strong>: 서버는 개인키로 대칭키를 복호화하고, 이제부터 대칭키를 사용해 빠르고 효율적인 암호화 통신이 시작된다.</li>
+</ol>
+<h4 id="키-검증-방식">키 검증 방식</h4>
+<p>SSH는 <strong>호스트 키 검증</strong>을 통해 클라이언트가 서버의 신뢰성을 확인할 수 있도록 한다. 클라이언트가 서버에 처음 연결할 때 서버는 자신의 공개키를 제공하고, 클라이언트는 이를 기록한다. 이후 연결 시 클라이언트는 다음 방법을 통해 서버의 신뢰성을 검증한다:</p>
+<ul>
+<li>
+<p><strong>Known_hosts 파일</strong>: 클라이언트는 서버의 공개키가 <strong><code>~/.ssh/known_hosts</code></strong> 파일에 저장된 공개키와 일치하는지 확인한다. 만약 서버의 키가 변경되었거나 일치하지 않으면 경고 메시지가 표시되며, 클라이언트는 연결을 중단하거나 위험을 감수하고 계속 연결할 수 있다.</p>
+</li>
+<li>
+<p><strong>디지털 서명</strong>: 서버는 연결 중에 디지털 서명을 사용해 자신의 신원을 증명할 수 있다. 서버는 클라이언트에게 개인키로 서명한 메시지를 제공하고, 클라이언트는 서버의 공개키를 사용해 서명을 검증한다.</p>
+</li>
+</ul>
+<h4 id="요약">요약</h4>
+<ul>
+<li><strong>대칭키 암호화</strong>: SSH는 빠른 암호화 통신을 위해 세션에서 대칭키를 사용한다.</li>
+<li><strong>비대칭키 암호화</strong>: 세션 키(대칭키)를 안전하게 교환하기 위해 비대칭키 암호화가 사용된다.</li>
+<li><strong>키 검증 방식</strong>: SSH는 서버의 공개키를 검증하여 서버의 신뢰성을 확인하고, 이를 통해 도청이나 위장 공격을 방지한다.</li>
+</ul>
+<p>이러한 SSH의 작동 방식은 클라이언트와 서버 간의 안전한 통신을 보장하며, 네트워크 상의 다양한 보안 위협으로부터 보호할 수 있게 한다.</p>
 <br>
-<h2 id="linux-partition">Linux Partition</h2>
+<h3 id="2-11-linux-partition">2-11. Linux Partition</h3>
 <ul>
 <li><strong>Primary Partition</strong>
 <ul>
@@ -242,12 +427,35 @@
 </li>
 </ul>
 <br>
-<h2 id="mbr">MBR</h2>
-<p>MBR(Master Boot Record)은 HDD의 맨 앞에 기록되어 있는 시스템 영역으로 컴퓨터에 전원이 들어오면 가장 먼저 HDD의 MBR에 기록되어있는 <strong>OS의 위치를 식별하며, 시스템 부팅에 사용되는 HDD의 Partition을 결정하는 프로그램</strong>이 읽히게 된다. <strong>MBR과 sba5의 관계에 대하여 공부해보자!</strong></p>
+<h3 id="2-12-mbr">2-12. MBR</h3>
+<p>MBR은 하드 디스크의 첫 번째 섹터(512바이트)에 위치한 데이터로, 하드 디스크의 전체 구조와 운영 체제(OS)의 부팅 정보를 저장하는 영역이다.</p>
+<h4 id="mbr-구성">MBR 구성</h4>
+<ol>
+<li><strong>부트 로더</strong>: 운영 체제를 부팅하기 위한 작은 프로그램이 포함되어 있다. 이 부트 로더는 운영 체제가 설치된 파티션으로의 부팅을 초기화한다.</li>
+<li><strong>파티션 테이블</strong>: 디스크의 파티션 정보를 저장하는 테이블로, 최대 4개의 기본(primary) 파티션 또는 확장 파티션을 관리할 수 있다.</li>
+<li><strong>디스크 시그니처</strong>: 디스크를 고유하게 식별하는 ID로 사용된다.</li>
+</ol>
+<h4 id="sda5">sda5</h4>
+<p><code>sda5</code>는 디스크의 특정 파티션을 나타낸다. 이를 좀 더 구체적으로 살펴보면:</p>
+<ul>
+<li><strong>sda</strong>: 첫 번째 SATA 드라이브를 의미한다. 디스크를 가리키며, 이 디스크에는 여러 파티션이 있을 수 있다.</li>
+<li><strong>숫자 5</strong>: 5는 파티션 번호를 의미한다. 일반적으로 <code>sda1</code>에서 <code>sda4</code>까지는 기본(primary) 또는 확장(extended) 파티션을 나타내고, 그 이상의 번호(<code>sda5</code>, <code>sda6</code> 등)는 확장 파티션 내에서 생성된 <strong>논리(logical) 파티션</strong>이다.</li>
+</ul>
+<h4 id="mbr과-sda5의-관계">MBR과 sda5의 관계</h4>
+<p><code>MBR의 파티션 테이블</code>은 최대 4개의 기본(primary) 파티션 또는 3개의 기본 파티션과 1개의 확장 파티션을 기록할 수 있다. 확장 파티션은 여러 논리(logical) 파티션을 포함할 수 있으며, <code>sda5</code>는 이러한 확장 파티션 내에 위치한 첫 번째 논리 파티션이다.</p>
+<h4 id="부트-프로세스에서의-역할">부트 프로세스에서의 역할</h4>
+<p>MBR은 부트 로더를 통해 운영 체제를 로드할 파티션을 결정한다. 만약 운영 체제가 <code>sda5</code>에 설치되어 있다면, MBR의 부트 로더는 <code>sda5</code>로 부팅을 진행하게 된다. 이 과정에서 MBR은 파티션 테이블을 참조해 <code>sda5</code>의 시작 위치를 찾아 운영 체제가 위치한 논리 파티션으로 부팅을 넘긴다.</p>
+<h4 id="요약-1">요약</h4>
+<ul>
+<li><strong>MBR</strong>은 하드 디스크의 첫 번째 섹터에 위치한 부트 로더와 파티션 테이블을 포함하는 중요한 시스템 영역이다.</li>
+<li><strong>sda5</strong>는 MBR에서 정의된 확장 파티션 내의 첫 번째 논리 파티션으로, 운영 체제가 설치될 수 있는 위치이다.</li>
+<li>MBR은 부트 과정에서 sda5와 같은 파티션을 참조하여 운영 체제를 부팅하는 역할을 한다.</li>
+</ul>
+<p>이처럼 MBR과 sda5는 디스크의 부트 프로세스와 파티션 구조에서 중요한 역할을 하며, MBR은 부팅 시 운영 체제가 위치한 논리 파티션(sda5)을 식별하고 부팅을 진행하게 된다.</p>
 <br>
-<h2 id="lvm">LVM</h2>
+<h2 id="2-13-lvm">2-13. LVM</h2>
 <p>LVM(Linux Volume Manager)은 Linux에서 복잡한 스토리지 구성을 효율적으로 관리하기 위한 시스템으로 물리적 디스크를 하나의 논리적 볼륨으로 결합할 수 있고, 볼륨의 크기를 쉽게 조정 가능하다.</p>
-<h3 id="lvm-단위-구성">LVM 단위 구성</h3>
+<h4 id="lvm-단위-구성">LVM 단위 구성</h4>
 <ul>
 <li><strong>PV</strong>
 <ul>
@@ -284,7 +492,7 @@
 </li>
 </ul>
 <br>
-<h2 id="cron">Cron</h2>
+<h3 id="2-14-cron">2-14. Cron</h3>
 <p>Cron이란 OS Time-based job scheduling으로 demon의 일종이다. <code>/etc/crontab</code> 에 위치해 있다. <strong>Cron 코드 작성 시 Sudo 명령어의 갯수를 잘 카운트해야한다!</strong></p>
 <details>
 <summary>cron code</summary>
@@ -354,12 +562,6 @@
 </details>
 <br>
 <br>
-<div class="alert">
-    <span>
-<a href="https://elecbrandy.github.io/tags/42cursus"> 42cursus </a>
-</span>
-</div>
-
 
 
     

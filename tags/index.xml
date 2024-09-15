@@ -9,11 +9,11 @@
     <lastBuildDate>Wed, 11 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://elecbrandy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CS101</title>
+      <title>cs101</title>
       <link>https://elecbrandy.github.io/tags/cs101/</link>
       <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/cs101/</guid>
-      <description></description>
+      <description>&lt;h4 id=&#34;-tagscs101&#34;&gt;🏷️ /tags/cs101&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
       <title>dataStructure</title>
@@ -23,18 +23,11 @@
       <description>&lt;h4 id=&#34;-tagsdatastructure&#34;&gt;🏷️ /tags/dataStructure&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
-      <title>C&#43;&#43;</title>
+      <title>c&#43;&#43;</title>
       <link>https://elecbrandy.github.io/tags/c&#43;&#43;/</link>
       <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/c&#43;&#43;/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Opp</title>
-      <link>https://elecbrandy.github.io/tags/opp/</link>
-      <pubDate>Mon, 02 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/tags/opp/</guid>
-      <description></description>
+      <description>&lt;h4 id=&#34;-tagsc&#34;&gt;🏷️ /tags/c++&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
       <title>42cursus</title>
@@ -44,60 +37,46 @@
       <description>&lt;h4 id=&#34;-tags42cursus&#34;&gt;🏷️ /tags/42cursus&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
-      <title>C</title>
+      <title>c</title>
       <link>https://elecbrandy.github.io/tags/c/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/c/</guid>
-      <description></description>
+      <description>&lt;h4 id=&#34;-tagsc&#34;&gt;🏷️ /tags/c&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
-      <title>Born2beroot</title>
-      <link>https://elecbrandy.github.io/tags/born2beroot/</link>
-      <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/tags/born2beroot/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
+      <title>linux</title>
       <link>https://elecbrandy.github.io/tags/linux/</link>
-      <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/linux/</guid>
-      <description></description>
+      <description>&lt;h4 id=&#34;-tagslinux&#34;&gt;🏷️ /tags/linux&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
-      <title>OS</title>
+      <title>os</title>
       <link>https://elecbrandy.github.io/tags/os/</link>
       <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/os/</guid>
-      <description></description>
+      <description>&lt;h4 id=&#34;-tagsos&#34;&gt;🏷️ /tags/os&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
-      <title>AI</title>
+      <title>ai</title>
       <link>https://elecbrandy.github.io/tags/ai/</link>
       <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/ai/</guid>
-      <description></description>
+      <description>&lt;h4 id=&#34;-tagsai&#34;&gt;🏷️ /tags/ai&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
-      <title>Colab</title>
-      <link>https://elecbrandy.github.io/tags/colab/</link>
-      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/tags/colab/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
+      <title>python</title>
       <link>https://elecbrandy.github.io/tags/python/</link>
       <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/python/</guid>
-      <description></description>
+      <description>&lt;h4 id=&#34;-tagspython&#34;&gt;🏷️ /tags/python&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
-      <title>UIUX</title>
-      <link>https://elecbrandy.github.io/tags/uiux/</link>
-      <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/tags/uiux/</guid>
-      <description></description>
+      <title>stat</title>
+      <link>https://elecbrandy.github.io/tags/stat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/stat/</guid>
+      <description>&lt;h4 id=&#34;-tagsstat&#34;&gt;🏷️ /tags/stat&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
   </channel>
 </rss>

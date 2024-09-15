@@ -32,9 +32,6 @@
     <loc>https://elecbrandy.github.io/posts/cs101/oop/capsule/</loc>
     <lastmod>2024-09-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://elecbrandy.github.io/tags/opp/</loc>
-    <lastmod>2024-09-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/circle_4/netpractice/</loc>
     <lastmod>2024-08-15T00:00:00+00:00</lastmod>
   </url><url>
@@ -53,14 +50,11 @@
     <loc>https://elecbrandy.github.io/posts/42cursus/circle_1/born2beroot/</loc>
     <lastmod>2024-01-18T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://elecbrandy.github.io/tags/linux/</loc>
+    <lastmod>2024-01-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://elecbrandy.github.io/posts/cs101/etc/filedescriptor/</loc>
     <lastmod>2023-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://elecbrandy.github.io/tags/born2beroot/</loc>
-    <lastmod>2023-12-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://elecbrandy.github.io/tags/linux/</loc>
-    <lastmod>2023-12-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/cs101/etc/lvm/</loc>
     <lastmod>2023-12-20T00:00:00+00:00</lastmod>
@@ -89,21 +83,11 @@
     <loc>https://elecbrandy.github.io/tags/ai/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://elecbrandy.github.io/tags/colab/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://elecbrandy.github.io/tags/python/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://elecbrandy.github.io/tags/uiux/</loc>
-    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://elecbrandy.github.io/posts/uiux/ut101/</loc>
-    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://elecbrandy.github.io/posts/uiux/ux101/</loc>
-    <lastmod>2021-01-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://elecbrandy.github.io/about/</loc>
+  </url><url>
+    <loc>https://elecbrandy.github.io/tags/stat/</loc>
   </url>
 </urlset>
