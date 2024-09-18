@@ -9,14 +9,14 @@ tags = ['dataStructure', 'cs101']
 
 <br>
 
-# List
+## 1. 소개
 ____
 List는 순서가 있는 데이터의 집합을 나타내는 가장 기초적인 자료구조 중 하나로, 배열(array)과의 근본적인 차이는 동적 크기 변화와 복잡한 데이터 구조를 지원하는 것이다. List는 CS에서 다양한 형태로 존재하며, 대표적으로 배열 리스트(Array List)와 연결 리스트(Linked List)가 존재한다.
 
 <br>
 <br>
 
-# Array List
+## 2. Array List
 ____
 ``` C++
 std::vector<int> vec;  // 동적 크기를 갖는 배열 리스트
@@ -29,8 +29,7 @@ vec.push_back(1);      // 새로운 요소 추가
 <br>
 <br>
 
-# Linked List
-____
+## 3. Linked List
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220829110944/LLdrawio.png" width="700">
 
 **Linked List**는 선형 데이터 구조로, 요소가 연속된 메모리 위치에 저장되어있지 않다. 즉, 일반 배열 처럼 `a[i]`의 다음 주소에 `a[i + 1]`이 무조건적으로 존재하지 않는다. 이 각 요소는 포인터를 사용해서 연결되어 있다.  
@@ -48,16 +47,15 @@ Linked List는 노드의 포인터를 통해 연결을 관리하기 때문에 �
 <br>
 <br>
 
-# Linked List의 구현
+## 4. Linked List의 구현
 ____
-42 본과정의 처음부터 끝까지 정말 자주 사용하는 자료구조 중 하나이다. 하물며 본과정 첫 과제인 `Libft`에서 명세에 따르면 Linked List의 구현과 연산 함수를 작성해야한다! 우선그때의 기억을 떠올려서 간단하게 `C`언어를 통해 Linked List를 구현해본 후, `C++`의 STL에 속한 Linked List 자료구조 사용법을 알아보자.
+사실 Linked List는 42 과정의 처음부터 끝까지 정말 자주 사용하는 자료구조 중 하나이다. 하물며 본과정 첫 과제인 `Libft`에서 명세에 따르면 Linked List의 구현과 연산 함수를 작성해야한다! 우선그때의 기억을 떠올려서 간단하게 `C`언어를 통해 Linked List를 구현해본 후, `C++`의 STL에 속한 Linked List 자료구조 사용법을 알아보자.
 
 <br>
 
-## C로 구현한 Linked List
+### 3-1-1. with C
 
-### 노드 구조
-
+#### 노드 구조
 ``` C
 typedef struct s_node {
 	int data;
@@ -68,7 +66,7 @@ typedef struct s_node {
 
 <br>
 
-### 할당과 해제
+#### 할당과 해제
 ``` C
 t_node *create_node(int data) {
 	t_node *new_node = (node *)malloc(sizeof(node));    // 1. 메모리 할당
@@ -85,7 +83,7 @@ void free_node(t_node *node) {
 
 <br>
 
-### 추가 연산
+#### 추가 연산
 ``` C
 void append_node(t_node **head, t_node *new_node) {
 	if ((*head) == NULL) {                  // head가 NULL일 경우 new_node가 새로운 head로!
@@ -102,7 +100,7 @@ void append_node(t_node **head, t_node *new_node) {
 
 <br>
 
-### 탐색 연산
+#### 탐색 연산
 ``` C
 // 노드 탐색_1 (n번째 순서의)
 t_node *get_node_n(t_node *head, int n) {
@@ -128,7 +126,7 @@ t_node *get_node_n(t_node *head, int data) {
 
 <br>
 
-### 삭제 연산
+#### 삭제 연산
 ``` C
 void remove_node(t_node **head, int data) {
 	t_node *cur = *head;
@@ -165,7 +163,7 @@ void remove_node(t_node **head, int data) {
 
 <br>
 
-### 삽입 연산
+#### 삽입 연산
 ``` C
 void insert_node(t_node **head, t_node *new_node, int position) {
 	t_node *cur = *head;
@@ -207,7 +205,7 @@ void insert_node(t_node **head, t_node *new_node, int position) {
 <br>
 <br>
 
-## STL::Linked List
+### 3-1-2. STL::Linked List
 
 ``` C++
 #include <iostream>
@@ -258,15 +256,11 @@ int main() {
 <br>
 <br>
 
-# Reference
+## 5. Reference
 ____
 - https://www.geeksforgeeks.org/linked-list-data-structure/
 - https://code-lab1.tistory.com/2
 - https://www.dotnetnote.com/docs/c-language/c-single-linked-list/
 
-
 <br>
-{{<alert>}}
-<a href="https://elecbrandy.github.io/tags/datastructure/"> 자료구조 </a>
-{{</alert>}}
 <br>

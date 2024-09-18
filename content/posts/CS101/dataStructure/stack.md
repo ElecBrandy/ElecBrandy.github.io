@@ -9,7 +9,7 @@ tags = ['dataStructure', 'cs101']
 
 <br>
 
-# Stack
+## 1. 소개
 ____
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240606180735/Stack-representation-in-Data-Structures-(1).webp" width="700">
 
@@ -18,15 +18,15 @@ Stack은 **LIFO(Last in, First Out)** 방식으로 작동하는 선형 자료구
 <br>
 <br>
 
-# StacK의 구현
+## 2. StacK의 구현
 ____
 여러 환경에서 이미 Stack은 구현되어있는 자료구조이지만, 공부를 위해서 직접 구현해보자. 일단은 `C`를 이용해 Array로 구현해보고, `C++`의 STL에 속한 Stack 자료구조 사용법을 익혀보자. Linked List를 통해서도 Stack을 구현할 수 있으며, 전체용량을 관리하기 쉽다는 이점이 있다. <a href="https://elecbrandy.github.io/tags/dataStructure/list"> Linked List </a> 의 여러 규칙에 규칙을 더해주기만 하면 만들 수 있다.
 
 <br>
 
-## C로 구현한 Stack(Array)
+### 2-1. with C (Array)
 
-### 노드 구조
+#### 노드 구조
 
 ``` C
 typedef struct s_node {
@@ -36,7 +36,7 @@ typedef struct s_node {
 
 <br>
 
-### 스택 구조
+#### 스택 구조
 ``` C
 typedef struct s_stack {
 	int capacity;   // 해당 Stack이 얼마만큼의 노드를 가질 수 있는지 알기 위해
@@ -49,7 +49,7 @@ Stack을 배열로 구현할 경우 용량, 최상위 노드의 위치, 노드 �
 
 <br>
 
-### 할당과 해제
+#### 할당과 해제
 ``` C
 void create_stack(t_stack **stack, int capacity) {
 	(*stack) j= (t_stack *a)malloc(sizeof(t_stack));				// 1. Stack을 할당하고
@@ -68,7 +68,7 @@ void free_stack(t_stack *stack) {
 
 <br>
 
-### Stack 연산
+#### Stack 연산
 ``` C
 void do_push(t_stack *stack, int insert_data) {
 	stack->top++;									// 1. 최상위 인덱스 업데이트 (증가)
@@ -86,7 +86,7 @@ int do_pop(t_stack *stack) {
 <br>
 <br>
 
-## STL::Stack
+### 2-2. STL::Stack
 
 ``` C++
 #include <iostream>
@@ -116,13 +116,10 @@ int main() {
 <br>
 <br>
 
-# Reference
+## 3. Reference
 ____
 - https://www.geeksforgeeks.org/stack-data-structure/
 - https://www.w3schools.com/dsa/dsa_data_stacks.php
 
 <br>
-{{<alert>}}
-<a href="https://elecbrandy.github.io/tags/datastructure/"> 자료구조 </a>
-{{</alert>}}
 <br>
