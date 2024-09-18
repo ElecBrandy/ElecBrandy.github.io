@@ -62,15 +62,14 @@
   <aside class="toc">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#c로-구현한-stackarray">C로 구현한 Stack(Array)</a>
+    <li><a href="#1-소개">1. 소개</a></li>
+    <li><a href="#2-stack의-구현">2. StacK의 구현</a>
       <ul>
-        <li><a href="#노드-구조">노드 구조</a></li>
-        <li><a href="#스택-구조">스택 구조</a></li>
-        <li><a href="#할당과-해제">할당과 해제</a></li>
-        <li><a href="#stack-연산">Stack 연산</a></li>
+        <li><a href="#2-1-with-c-array">2-1. with C (Array)</a></li>
+        <li><a href="#2-2-stlstack">2-2. STL::Stack</a></li>
       </ul>
     </li>
-    <li><a href="#stlstack">STL::Stack</a></li>
+    <li><a href="#3-reference">3. Reference</a></li>
   </ul>
 </nav>
   </aside>
@@ -111,23 +110,23 @@
 </div>
 
 <br>
-<h1 id="stack">Stack</h1>
+<h2 id="1-소개">1. 소개</h2>
 <hr>
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240606180735/Stack-representation-in-Data-Structures-(1).webp" width="700">
 <p>Stack은 <strong>LIFO(Last in, First Out)</strong> 방식으로 작동하는 선형 자료구조이다. 즉, 가장 마지막에 삽입된 데이터가 가장 먼저 삭제되는 구조인 것! Stack의 입/출력은 오로지 Stack의 꼭대기에서만 이루어진다. 갑자기 중간에 있는 데이터를 삭제하거나 끼워넣을 수 없으며, 맨 아래 데이터에 접근하기 위해서는 그 위에 있는 데이터를 모두 걷어내야한다.</p>
 <br>
 <br>
-<h1 id="stack의-구현">StacK의 구현</h1>
+<h2 id="2-stack의-구현">2. StacK의 구현</h2>
 <hr>
 <p>여러 환경에서 이미 Stack은 구현되어있는 자료구조이지만, 공부를 위해서 직접 구현해보자. 일단은 <code>C</code>를 이용해 Array로 구현해보고, <code>C++</code>의 STL에 속한 Stack 자료구조 사용법을 익혀보자. Linked List를 통해서도 Stack을 구현할 수 있으며, 전체용량을 관리하기 쉽다는 이점이 있다. <a href="https://elecbrandy.github.io/tags/dataStructure/list"> Linked List </a> 의 여러 규칙에 규칙을 더해주기만 하면 만들 수 있다.</p>
 <br>
-<h2 id="c로-구현한-stackarray">C로 구현한 Stack(Array)</h2>
-<h3 id="노드-구조">노드 구조</h3>
+<h3 id="2-1-with-c-array">2-1. with C (Array)</h3>
+<h4 id="노드-구조">노드 구조</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> s_node {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> data;
 </span></span><span style="display:flex;"><span>} t_node;
 </span></span></code></pre></div><br>
-<h3 id="스택-구조">스택 구조</h3>
+<h4 id="스택-구조">스택 구조</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> s_stack {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> capacity;   <span style="color:#75715e">// 해당 Stack이 얼마만큼의 노드를 가질 수 있는지 알기 위해
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> top;		<span style="color:#75715e">// 삽입, 제거 연산 시 필요한 최상위 노드의 위치
@@ -135,7 +134,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} t_stack;
 </span></span></code></pre></div><p>Stack을 배열로 구현할 경우 용량, 최상위 노드의 위치, 노드 배열 이렇게 세 가지 정보를 가지고 있어야 한다. 이제 이어서 Stack을 할당하고 해제하는 함수를 만들어보자.</p>
 <br>
-<h3 id="할당과-해제">할당과 해제</h3>
+<h4 id="할당과-해제">할당과 해제</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">create_stack</span>(t_stack <span style="color:#f92672">**</span>stack, <span style="color:#66d9ef">int</span> capacity) {
 </span></span><span style="display:flex;"><span>	(<span style="color:#f92672">*</span>stack) j<span style="color:#f92672">=</span> (t_stack <span style="color:#f92672">*</span>a)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(t_stack));				<span style="color:#75715e">// 1. Stack을 할당하고
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	(<span style="color:#f92672">*</span>stack)<span style="color:#f92672">-&gt;</span>nodes <span style="color:#f92672">=</span> (node <span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(node) <span style="color:#f92672">*</span> capacity) 	<span style="color:#75715e">// 2. size 만큼의 노드를 추가
@@ -149,7 +148,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>이때 컴퓨터 배열 인덱스 상 첫번쨰 요소를 0으로 사용하므로, 비어있는 Stack의 최상위는 이보다 작아야한다. 따라서 <code>top</code>을 <code>-1</code>로 초기화한다. 이어서 삽입과 제거 연산도 만들어보자.</p>
 <br>
-<h3 id="stack-연산">Stack 연산</h3>
+<h4 id="stack-연산">Stack 연산</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">do_push</span>(t_stack <span style="color:#f92672">*</span>stack, <span style="color:#66d9ef">int</span> insert_data) {
 </span></span><span style="display:flex;"><span>	stack<span style="color:#f92672">-&gt;</span>top<span style="color:#f92672">++</span>;									<span style="color:#75715e">// 1. 최상위 인덱스 업데이트 (증가)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	stack<span style="color:#f92672">-&gt;</span>nodes[stack<span style="color:#f92672">-&gt;</span>top].data <span style="color:#f92672">=</span> insert_data;	<span style="color:#75715e">// 2. 업데이트 된 최상위 인덱스의 노드에 data 입력
@@ -162,7 +161,7 @@
 </span></span></code></pre></div><p>이 외에도 Stack이 비어있는지 검사하거나, 최상위 노드 데이터만 반환하는 함수 등을 만들어 사용할 수 있다.</p>
 <br>
 <br>
-<h2 id="stlstack">STL::Stack</h2>
+<h3 id="2-2-stlstack">2-2. STL::Stack</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stack&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -185,19 +184,13 @@
 </span></span></code></pre></div><p><code>C++</code>의 <strong>STL</strong>에서는 std::list라는 자료구조를 제공하여 Stack을 쉽게 사용할 수 있다.</p>
 <br>
 <br>
-<h1 id="reference">Reference</h1>
+<h2 id="3-reference">3. Reference</h2>
 <hr>
 <ul>
 <li><a href="https://www.geeksforgeeks.org/stack-data-structure/">https://www.geeksforgeeks.org/stack-data-structure/</a></li>
 <li><a href="https://www.w3schools.com/dsa/dsa_data_stacks.php">https://www.w3schools.com/dsa/dsa_data_stacks.php</a></li>
 </ul>
 <br>
-<div class="alert">
-    <span>
-<a href="https://elecbrandy.github.io/tags/datastructure/"> 자료구조 </a>
-</span>
-</div>
-
 <br>
 
 

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="/css/reset.css">
+<title>부동소수점 | home</title>
+
+      <link rel="stylesheet" href="/css/main.min.830529474f3e538d158886bdcfa1ba6071455ff9912f37b04b8145c6b716cd97.css" integrity="sha256-gwUpR08&#43;U40ViIa9z6G6YHFFX/mRLzewS4FFxrcWzZc=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/min700.min.c55885430d625813d1a6770ef6712b8534781fdd318699edd1bb9c6f62907507.css" integrity="sha256-xViFQw1iWBPRpncO9nErhTR4H90xhpnt0bucb2KQdQc=" crossorigin="anonymous">
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+	<nav>
+	  <li><a href="/">/home</a></li>
+	  <li><a href="/tags">/tags</a></li>
+	  <li><a href="/about">/about</a></li>
+	  <li id="theme-toggle" style="cursor: pointer;">/todark</li>
+	</nav>
+  </header>
+  
+  <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  const themeToggle = document.getElementById('theme-toggle');
+	  
+	  
+	  let currentTheme = localStorage.getItem('theme') || 'light';
+  
+	  
+	  document.body.setAttribute('data-theme', currentTheme);
+	  themeToggle.textContent = currentTheme === 'dark' ? '/tolight' : '/todark';
+  
+	  
+	  function toggleTheme() {
+		
+		const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  
+		
+		document.body.setAttribute('data-theme', newTheme);
+  
+		
+		localStorage.setItem('theme', newTheme);
+  
+		
+		themeToggle.textContent = newTheme === 'dark' ? '/tolight' : '/todark';
+	  }
+  
+	  
+	  themeToggle.addEventListener('click', toggleTheme);
+	});
+  </script>
+  
+    
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-소개">1. 소개</a></li>
+    <li><a href="#2-소수---이진수">2. 소수 -&gt; 이진수</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#3-고정소수점">3. 고정소수점</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#3-부동소수점">3. 부동소수점</a>
+      <ul>
+        <li><a href="#3-1-ieee-754-표준">3-1. IEEE-754 표준</a></li>
+        <li><a href="#3-2-예시--45625">3-2. 예시 : 45.625</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-편향된-지수">4. 편향된 지수?</a>
+      <ul>
+        <li><a href="#4-1-실제-예시">4-1. 실제 예시</a></li>
+        <li><a href="#4-2-지수-범위">4-2. 지수 범위</a></li>
+        <li><a href="#4-3-특수한-경우">4-3. 특수한 경우</a></li>
+        <li><a href="#4-3-결론">4-3. 결론</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-reference">6. Reference</a></li>
+  </ul>
+</nav>
+  </aside>
+  <div class="featured-container">
+    
+      <div class="featured-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/%ec%9d%b4%ec%b2%a0%ec%8a%b9%2C_%ec%b5%9c%ec%88%9c%ec%a3%bc.jpg/600px-%ec%9d%b4%ec%b2%a0%ec%8a%b9%2C_%ec%b5%9c%ec%88%9c%ec%a3%bc.jpg" alt="Featured Image for 부동소수점">
+      </div>
+    
+    <div class="overlay-text">
+      <small>2024.09.09</small>
+      <div class="singleTitle">부동소수점</div>
+    </div>
+  </div>
+  <!-- <div class="series">
+  <details>
+    <summary>📚 /42cursus</summary>
+    <ul>
+      
+      
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_0/libft/">libft</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_1/ft_printf/">ft_printf</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_1/get_next_line/">get_next_line</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_1/born2beroot/">born2beroot</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_2/pipex/">pipex</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_2/fdf/">fdf</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_2/push_swap/">push_swap</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_3/minishell/">minishell</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_3/philosopher/">philosopher</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/42cursus/circle_4/netpractice/">netpractice</a></li>
+      
+    </ul>
+  </details>
+</div>
+ -->
+<br>
+<h2 id="1-소개">1. 소개</h2>
+<hr>
+<p>**정수(Integer)**는 우리가 흔히 알고 있는 0, 1, 2, 3과 같은 숫자이다. 컴퓨터에서 정수는 정확하게 표현된다. 예를 들어, 숫자 &lsquo;2&rsquo;는 항상 2로 저장되며, 더하거나 빼도 그 값이 정확하게 맞는다. 즉, 정수는 **정확성(Accuracy)**이 매우 뛰어나다. 예를 들어, 2 + 1 = 3이 정확하게 나온다.</p>
+<p>하지만 정수는 소수점 값을 표현할 수 없기 때문에 **정밀도(Precision)**가 떨어진다. 예를 들어, 5 ÷ 2는 2.5이지만, 정수는 소수점을 버리고 2만 저장한다. 이처럼 정수는 소수점 이하의 값들을 무시하기 때문에 작은 차이들을 정확하게 표현하기 어렵다.</p>
+<p>그렇다면 어느 순간 소수를 사용해야하는 상황이 있을때, 컴퓨터는 소수를 어떻게 저장하고 사용할까?</p>
+<br>
+<br>
+<h2 id="2-소수---이진수">2. 소수 -&gt; 이진수</h2>
+<hr>
+<p>우선, 소수를 이진수로 변환하는 과정부터 알아보자. <code>0.n</code>으로 표현된 숫자 역시 이진수로 표현 가능하다. 소수 부분이 0이 될때까지 계속해서 2를 곱해주다가, 그 과정에서 <strong>소수</strong>에서 <strong>정수의 1의 자리</strong> 부분으로 올림이 일어나면 1을 기록하고 - 아니면 0을 기록해나간다. 간단한 예시로 살펴보자.</p>
+<h4 id="025---이진수">0.25 -&gt; 이진수:</h4>
+<ol>
+<li>
+<p>0.25에 2 곱하기: <code>0.25 × 2 = 0.5</code> 정수 부분은 0이므로 0을 기록하고, 소수 부분(0.5)을 다음 단계로 넘긴다.</p>
+</li>
+<li>
+<p>0.5에 2 곱하기: <code>0.5 × 2 = 1.0</code> 정수 부분은 1이므로 기록한다. 소수 부분이 0이 되었으므로, 변환을 종료한다.</p>
+</li>
+<li>
+<p>결과: 0.25의 이진수 표현은 0.01! 이렇게 0.25는 이진수로 딱 떨어지며, 무한 소수로 이어지지 않는다.</p>
+</li>
+</ol>
+<h4 id="01---이진수">0.1 -&gt; 이진수:</h4>
+<ol>
+<li>
+<p>0.1에 2 곱하기: <code>0.1 × 2 = 0.2</code> 정수 부분은 0이므로, 기록하지 않고 소수 부분(0.2)을 다음 단계로 넘긴다.</p>
+</li>
+<li>
+<p>0.2에 2 곱하기: <code>0.2 × 2 = 0.4</code> 정수 부분은 0이므로, 기록하지 않고 소수 부분(0.4)을 다음 단계로 넘긴다.</p>
+</li>
+<li>
+<p>결과: 계산을 계속 진행해보면 알겠지만&hellip; 끝나지 않는다. 즉, 이 경우는 절대로 소수 부분의 값이 0이 되지 않는다. 0.1의 이진수 표현은 0.000110011001100&hellip;으로 무한히 반복된다.</p>
+</li>
+</ol>
+<p>대충 견적이 나오는 것 같다. 컴퓨터에서 소수를 다룰 때는 표현의 한계가 있기 때문에, 소수점을 일정한 자리에서 끊어 표현해야 한다. 소수를 표현하는 방법에는 크게 두 가지가 있는데, 고정소수점과 부동소수점 방식이다. 각각의 방식을 하나씩 자세히 알아보자.</p>
+<h2 id="3-고정소수점">3. 고정소수점</h2>
+<hr>
+<img src="https://modulabs.co.kr/wp-content/uploads/2024/03/fixed-points.png" width="700">
+<p>**고정소수점(Fixed Point)**은 소수점을 고정된 위치에 두고 정수와 소수 부분을 구분하여 숫자를 표현하는 방식이다. 즉, 정수부와 소수부의 자릿수가 미리 정해져 있는 것이 특징입니다. 예를 들어, 소수점 이하 두 자리를 사용할 경우, 12.34와 같은 값을 정확하게 표현할 수 있다! 소수부 자릿수가 고정되어 있기 때문에, **정밀도(Precision)**는 소수부 자릿수만큼만 유지된다. 이 방식은 컴퓨터의 연산 속도가 빠르고 구현이 간단하다는 장점이 있다.</p>
+<p>정확성(Accuracy) 측면에서는 부동소수점에 비해 일정한 범위 내에서는 매우 정확한 값을 표현할 수 있다. 소수부의 자릿수가 고정되어 있기 때문에, 표현할 수 있는 값이 제한되지만 해당 범위 내에서 실수 값을 정확하게 다룰 수 있다.</p>
+<p>그러나 표현 범위는 제한적입니다. 고정된 소수 자릿수 때문에 매우 큰 수나 매우 작은 수를 표현하기 어렵습니다. 예를 들어, 소수점 이하 두 자리를 사용하는 고정소수점 방식에서 1000.01이나 0.001 같은 숫자를 정확히 표현할 수 없습니다. 큰 수나 작은 수는 범위를 초과하거나 정밀도가 손실됩니다.</p>
+<h4 id="정밀도가-떨어지는-정확한-예시">정밀도가 떨어지는 정확한 예시</h4>
+<p><code>0.1</code>을 고정소수점 방식으로 컴퓨터에 저장해보자. 먼저, <code>0.1</code>을 이진수로 변환하면 <code>0.000110011001100...</code> 처럼 무한 소수가 된다. 고정소수점 방식에서 32비트 크기를 사용하는 경우, 이를 표현할 수 있는 방법은 제한적이다. 우선 부호는 양수이므로 <code>+</code> 이고, 정수 부분은 0이다. 소수를 표현할 수 있는 비트는 15비트라고 가정하면, 소수점 이하로 반복되는 무한 소수 중 15번째 자리까지만 기록할 수 있다.</p>
+<p>이렇게 보면, 고정소수점 방식도 나름 소수점을 잘 기록할 수 있는 것처럼 보일 수 있다. 그러나 부동소수점 방식과 비교해보자. 부동소수점 방식은 소수점의 위치를 가변적으로 옮길 수 있어, 32비트 내에서도 더 많은 소수 부분을 표현할 수 있다. 즉, 소수 부분의 비트를 더 확보하여 고정소수점 방식보다 더 많은 무한 소수 자릿수를 저장할 수 있는 것이다. 물론, 부동소수점 방식도 한계는 존재하지만, 고정소수점에 비해 더 유연하며 정확도가 높은 방법이다.</p>
+<br>
+<br>
+<h2 id="3-부동소수점">3. 부동소수점</h2>
+<hr>
+<img src="https://modulabs.co.kr/wp-content/uploads/2024/03/floating-point.png" width="700">
+<p><strong>부동소수점(Floating Point</strong>)은 소수점을 가변적으로 움직여 숫자를 표현하는 방식이다. 이는 숫자의 정수부와 소수부를 나누어 고정된 자리에서 소수를 표현하는 고정소수점 방식과 다르게, 소수점의 위치를 자유롭게 옮길 수 있는 방식이다. 부동소수점은 숫자를 **가수(Mantissa)**와 **지수(Exponent)**로 나누어 표현한다.</p>
+<h3 id="3-1-ieee-754-표준">3-1. IEEE-754 표준</h3>
+<p>부동소수점(Floating Point) 숫자에 대해 설명할 때, 가장 많이 사용하는 표준은 <strong>IEEE-754</strong> 표준이다. 이 표준은 많은 컴퓨터 시스템에서 부동소수점을 처리하는 방식이므로, 한번 공부해보자.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm : meaning
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">31</span>                              <span style="color:#ae81ff">0</span> : bit
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> sign<span style="color:#f92672">(</span>부호<span style="color:#f92672">)</span> / e <span style="color:#f92672">=</span> exponent<span style="color:#f92672">(</span>지수<span style="color:#f92672">)</span> / m <span style="color:#f92672">=</span> mantissa<span style="color:#f92672">(</span>가수<span style="color:#f92672">)</span>
+</span></span></code></pre></div><ol>
+<li><strong>부호</strong></li>
+</ol>
+<ul>
+<li><code>s</code> = <code>Sign</code>: 1bit`
+숫자가 양수인지 음수인지를 결정하며 s = 0이면 양수, s = 1이면 음수를 나타낸다.</li>
+</ul>
+<ol start="2">
+<li><strong>지수</strong></li>
+</ol>
+<ul>
+<li><code>e</code> = <code>Exponent</code>: 8bit`</li>
+<li>수의 크기를 나타내며 IEEE-754에서 실제 지수는 저장된 지수에서 127을 뺀 값이 된다.
+예를 들어, 지수 비트가 01111111(127)이라면 실제 지수는 127 - 127 = 0이 된다.</li>
+</ul>
+<ol start="3">
+<li><strong>가수</strong></li>
+</ol>
+<ul>
+<li><code>m</code> = <code>Mantissa</code>: 23bit</li>
+<li>숫자의 실제 값을 의미하며 항상 1.의 형식으로 가정하고, 실제 저장되는 값은 소수점 이하 부분만 저장된다. 예를 들어, <code>m = 00000000000000000000000</code> 이면 가수는 1.0이 되고, <code>m = 10000000000000000000000</code>이면 가수는 1.5가 된다.</li>
+</ul>
+<p>결국, 123.45라는 숫자가 있다면 <code>1.2345 × 10^2</code> 처럼 표현하는 방식이 부동소수점의 원리이다. 이 방식은 지수를 이용해 소수점의 위치를 표현할 수 있기 때문에 매우 큰 숫자나 매우 작은 숫자를 다룰 때 유용하다.</p>
+<h3 id="3-2-예시--45625">3-2. 예시 : 45.625</h3>
+<p>예시로, 숫자 <strong>45.625</strong>를 부동소수점 형식으로 변환하는 과정을 살펴보자. 여기서는 부호를 1비트, 지수를 8비트, 가수를 23비트로 사용해자!</p>
+<ol>
+<li>
+<p><strong>부호</strong>:
+45.625는 양수이므로 부호는 0이다.</p>
+</li>
+<li>
+<p><strong>정규화</strong>:
+45.625를 2진수로 변환하면, <code>101101.101</code>이 된다. 이를 부동소수점으로 표현하기 위해 정규화하면, <code>1.01101101 × 2^5</code>가 된다. 즉, 2진수 형태에서 소수점을 첫 번째 비트 뒤로 이동시켜 <code>1.xx</code> 형식으로 만든 것이다.</p>
+</li>
+<li>
+<p><strong>지수(Exponent)와 Bias</strong>:
+정규화된 값에서 지수는 5이다. IEEE 754 표준에서는 32비트 부동소수점 수의 경우 <strong>Bias</strong>가 127이다. 따라서 실제 지수 값은 5 + 127 = 132이다. 이를 2진수로 표현하면 <code>10000100</code>이 된다.</p>
+</li>
+<li>
+<p><strong>가수</strong>:
+가수는 소수점 이후의 부분을 사용한다. 즉, <code>01101101</code>이 가수 부분에 해당한다. 부동소수점에서는 23비트까지 가수를 표현할 수 있으므로, 빈 비트가 있으면 0으로 채운다. 따라서 가수는 <code>01101101000000000000000</code>이 된다.</p>
+</li>
+</ol>
+<p>결과적으로, 부동소수점 형식으로 45.625를 표현하면 다음과 같다:</p>
+<ul>
+<li>부호: <code>0</code></li>
+<li>지수: <code>10000100</code></li>
+<li>가수: <code>01101101000000000000000</code></li>
+</ul>
+<br>
+<br>
+<h2 id="4-편향된-지수">4. 편향된 지수?</h2>
+<hr>
+<p>편향된 지수, 개념이 조금 어려울 수 있지만 한 번 더 살펴보자.</p>
+<p>부동소수점에서 **지수(Exponent)**는 숫자의 소수점을 왼쪽이나 오른쪽으로 움직여 숫자를 정규화하는 역할을 한다. 예를 들어, <strong>0.0001</strong>이라는 숫자를 부동소수점으로 표현하려면 **1.0 × 10^(-4)**로 정규화해야 한다. 이때, <strong>지수 -4</strong>를 나타내야 하는데, <strong>음수 지수를 어떻게 표현할까?</strong> 만약 음수를 직접 저장하려면 지수에 음수를 나타내는 <strong>비트</strong>를 하나 더 사용해야 할 것 같다. 하지만 이렇게 되면 지수를 표현할 수 있는 비트 수가 줄어들어, 더 작은 범위만 표현할 수 있다는 문제가 생긴다.</p>
+<p>이 문제를 해결하기 위해 부동소수점에서는 <strong>편향된 지수(Biased Exponent)</strong> 방식을 사용한다. 이 방식은 <strong>음수 지수</strong>도 <strong>양수로 변환</strong>하여 저장하는 방법이다. 이를 위해 편향 값(Bias)을 사용하여 지수 값에 특정 값을 더해 저장하고, 저장된 값을 읽어올 때는 다시 편향 값을 빼서 원래의 지수 값을 복원한다.</p>
+<h3 id="4-1-실제-예시">4-1. 실제 예시</h3>
+<p>8비트 지수를 사용하는 경우, 편향 값(Bias)은 <strong>127</strong>로 설정된다. 편향 값을 127로 설정하면, 지수를 음수와 양수 모두 표현할 수 있다.</p>
+<ul>
+<li>지수 0은 0 + 127 = <strong>127</strong>로 저장된다.</li>
+<li>지수 1은 1 + 127 = <strong>128</strong>로 저장된다.</li>
+<li>지수 -1은 -1 + 127 = <strong>126</strong>로 저장된다.</li>
+</ul>
+<p>이렇게 <strong>음수 지수도 양수로 변환</strong>해 저장할 수 있다. 이를 통해 부동소수점에서는 지수를 저장할 때 양수로만 처리하면서, <strong>지수 표현 범위</strong>를 넓게 유지할 수 있다.</p>
+<h3 id="4-2-지수-범위">4-2. 지수 범위</h3>
+<p>8비트로 표현 가능한 값은 <strong>0부터 255</strong>까지인데, 편향 값(Bias)이 <strong>127</strong>인 경우 실제 지수는 <strong>-127에서 +128</strong>까지 표현할 수 있다. 이처럼 편향된 지수를 사용하면 8비트 안에서 <strong>음수 지수와 양수 지수를 고르게 분배</strong>할 수 있다.</p>
+<ul>
+<li>지수 0 → 편향된 값으로는 127이 저장</li>
+<li>지수 -127 → 편향된 값으로는 0이 저장</li>
+<li>지수 +128 → 편향된 값으로는 255가 저장</li>
+</ul>
+<p>즉, 편향된 지수를 사용하면 <strong>음수와 양수 지수를 하나의 양수 범위 안에 균등하게 포함</strong>시킬 수 있어, 음수 지수를 저장하기 위한 별도의 비트가 필요하지 않다.</p>
+<h3 id="4-3-특수한-경우">4-3. 특수한 경우</h3>
+<blockquote>
+<p>0, 무한대, NaN</p>
+</blockquote>
+<h4 id="0">0</h4>
+<p>IEEE-754에서 0은 특별한 경우로 처리된다. 가수와 지수, 그리고 부호 비트 모두 0일 때 0으로 간주된다.</p>
+<p>+0: <code>0x00000000</code>
+-0: <code>0x80000000</code></p>
+<h4 id="무한대">무한대</h4>
+<p>지수가 모두 1이고, 가수비트가 모두 0이면 무한태를 나타낸다. 이때 부호비트가 0이면 양의 무한대를, 1이면 음의 무한대를 의미한다.</p>
+<p>+∞: <code>0x7f800000</code>
+-∞: <code>0xff800000</code></p>
+<h4 id="nan">NaN</h4>
+<p>NaN은 수학적으로 정의 되지 않는 값, 즉 Not a Number 이다. 지수 비트가 보두 1이고, 가수 비트중 하나라도 1이 존재한다면 그것은 NaN의미 한다.</p>
+<p>NaN: <code>0x7fc00000</code></p>
+<h3 id="4-3-결론">4-3. 결론</h3>
+<p>편향된 지수를 사용하는 가장 큰 이유는 <strong>지수의 크기 비교를 쉽게 할 수 있기 때문</strong>이다. 지수가 양수로 저장되므로, 음수와 양수를 따로 처리할 필요 없이 지수 값끼리 바로 비교가 가능하다. 즉, 지수가 126이면 127보다 작고, 128보다 크다는 것을 간단하게 알 수 있다. 이렇게 하면 연산에서의 복잡성을 줄이고, 비교 연산을 더욱 효율적으로 할 수 있다.</p>
+<p>지수를 저장할 때는 <strong>편향 값</strong>을 더해서 <strong>음수 지수도 양수로 변환</strong>한 뒤 저장하고, 값을 읽을 때는 편향 값을 빼서 <strong>원래의 지수 값</strong>을 복원한다. <strong>편향 값 127</strong>은 8비트 지수 표현에서 <strong>음수와 양수 지수를 균등하게 분배</strong>할 수 있도록 해주며, 지수 비교를 더 쉽게 할 수 있게 도와준다. 이를 통해 부동소수점 방식은 음수와 양수 지수를 모두 효율적으로 처리할 수 있다.</p>
+<br>
+<br>
+<h2 id="6-reference">6. Reference</h2>
+<hr>
+<ul>
+<li><a href="https://modulabs.co.kr/blog/fixed-points-and-floating-points-how-computers-understand-numbers/">https://modulabs.co.kr/blog/fixed-points-and-floating-points-how-computers-understand-numbers/</a></li>
+<li><a href="https://devocean.sk.com/blog/techBoardDetail.do?ID=165276&amp;boardType=techBlog">https://devocean.sk.com/blog/techBoardDetail.do?ID=165276&amp;boardType=techBlog</a></li>
+<li><a href="https://devocean.sk.com/search/techBoardDetail.do?ID=165270">https://devocean.sk.com/search/techBoardDetail.do?ID=165270</a></li>
+<li><a href="https://www.naukri.com/code360/library/fixed-and-floating-point-representation">https://www.naukri.com/code360/library/fixed-and-floating-point-representation</a></li>
+<li><a href="https://1bytenand.hashnode.dev/floating-point-numbers">https://1bytenand.hashnode.dev/floating-point-numbers</a></li>
+</ul>
+<br>
+<br>
+
+
+    
+
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop({
+  diameter: 40,
+  backgroundColor: 'rgb(255, 83, 176)',
+  textColor: '#fff'
+})</script>
+
+</body>
+</html>

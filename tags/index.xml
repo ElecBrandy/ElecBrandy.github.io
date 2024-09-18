@@ -6,12 +6,19 @@
     <description>Recent content in tags on home</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://elecbrandy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>c</title>
+      <link>https://elecbrandy.github.io/tags/c/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/c/</guid>
+      <description>&lt;h4 id=&#34;-tagsc&#34;&gt;🏷️ /tags/c&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
+    </item>
     <item>
       <title>cs101</title>
       <link>https://elecbrandy.github.io/tags/cs101/</link>
-      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/cs101/</guid>
       <description>&lt;h4 id=&#34;-tagscs101&#34;&gt;🏷️ /tags/cs101&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
@@ -35,13 +42,6 @@
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/42cursus/</guid>
       <description>&lt;h4 id=&#34;-tags42cursus&#34;&gt;🏷️ /tags/42cursus&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
-    </item>
-    <item>
-      <title>c</title>
-      <link>https://elecbrandy.github.io/tags/c/</link>
-      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/tags/c/</guid>
-      <description>&lt;h4 id=&#34;-tagsc&#34;&gt;🏷️ /tags/c&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
       <title>linux</title>

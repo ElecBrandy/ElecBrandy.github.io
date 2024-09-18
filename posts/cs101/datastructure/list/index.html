@@ -62,17 +62,16 @@
   <aside class="toc">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#c로-구현한-linked-list">C로 구현한 Linked List</a>
+    <li><a href="#1-소개">1. 소개</a></li>
+    <li><a href="#2-array-list">2. Array List</a></li>
+    <li><a href="#3-linked-list">3. Linked List</a></li>
+    <li><a href="#4-linked-list의-구현">4. Linked List의 구현</a>
       <ul>
-        <li><a href="#노드-구조">노드 구조</a></li>
-        <li><a href="#할당과-해제">할당과 해제</a></li>
-        <li><a href="#추가-연산">추가 연산</a></li>
-        <li><a href="#탐색-연산">탐색 연산</a></li>
-        <li><a href="#삭제-연산">삭제 연산</a></li>
-        <li><a href="#삽입-연산">삽입 연산</a></li>
+        <li><a href="#3-1-1-with-c">3-1-1. with C</a></li>
+        <li><a href="#3-1-2-stllinked-list">3-1-2. STL::Linked List</a></li>
       </ul>
     </li>
-    <li><a href="#stllinked-list">STL::Linked List</a></li>
+    <li><a href="#5-reference">5. Reference</a></li>
   </ul>
 </nav>
   </aside>
@@ -113,12 +112,12 @@
 </div>
 
 <br>
-<h1 id="list">List</h1>
+<h2 id="1-소개">1. 소개</h2>
 <hr>
 <p>List는 순서가 있는 데이터의 집합을 나타내는 가장 기초적인 자료구조 중 하나로, 배열(array)과의 근본적인 차이는 동적 크기 변화와 복잡한 데이터 구조를 지원하는 것이다. List는 CS에서 다양한 형태로 존재하며, 대표적으로 배열 리스트(Array List)와 연결 리스트(Linked List)가 존재한다.</p>
 <br>
 <br>
-<h1 id="array-list">Array List</h1>
+<h2 id="2-array-list">2. Array List</h2>
 <hr>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec;  <span style="color:#75715e">// 동적 크기를 갖는 배열 리스트
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vec.push_back(<span style="color:#ae81ff">1</span>);      <span style="color:#75715e">// 새로운 요소 추가
@@ -126,8 +125,7 @@
 <p>기존 크기가 10인 Array list에 요소를 한가지 더 추가한다면, 내부적으로 11의 공간을 할당한 후, 기존 데이터를 복사한 다음 요소를 추가하는 작업이 존재한다. 물론 일반적으로는 배열 크기를 증가 시킬 때 10 -&gt; 11 처럼 좀좀따리가 아니라 두배정도 증가시켜 추가 연산을 어느정도 제한하고 있다.</p>
 <br>
 <br>
-<h1 id="linked-list">Linked List</h1>
-<hr>
+<h2 id="3-linked-list">3. Linked List</h2>
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220829110944/LLdrawio.png" width="700">
 <p><strong>Linked List</strong>는 선형 데이터 구조로, 요소가 연속된 메모리 위치에 저장되어있지 않다. 즉, 일반 배열 처럼 <code>a[i]</code>의 다음 주소에 <code>a[i + 1]</code>이 무조건적으로 존재하지 않는다. 이 각 요소는 포인터를 사용해서 연결되어 있다.</p>
 <p>보통 각 요소를 하나의 노드라고 칭하며, 각 노드는 <strong>데이터</strong>부분과 다음 노드의 주소가 담긴 <strong>포인터</strong>부분으로 구성되어 있다. 이때 각 노드가 다음 노드 뿐만 아니라 이전 노드의 주소도 담고 있게 만들어 활용할 수 있다. 혹은 마지막 노드가 첫번째 노드의 주소를 담고 있게 하면 Circular Linked List(원형 연결 리스트)로도 구현이 가능하다.</p>
@@ -137,19 +135,19 @@
 <p>이러한 Linked List를 적절히 잘 사용하기 위해서라면&hellip; 응당 무언가의 연산을 가져야 할 것이다. 예를 들어 노드를 생성 한다던가 삭제한다던가. <strong>자료구조를 구축</strong>하기 위한 연산, <strong>자료구조에 저장된 데이터를 활용</strong>하기 위한 연산 모두 필요하다.</p>
 <br>
 <br>
-<h1 id="linked-list의-구현">Linked List의 구현</h1>
+<h2 id="4-linked-list의-구현">4. Linked List의 구현</h2>
 <hr>
-<p>42 본과정의 처음부터 끝까지 정말 자주 사용하는 자료구조 중 하나이다. 하물며 본과정 첫 과제인 <code>Libft</code>에서 명세에 따르면 Linked List의 구현과 연산 함수를 작성해야한다! 우선그때의 기억을 떠올려서 간단하게 <code>C</code>언어를 통해 Linked List를 구현해본 후, <code>C++</code>의 STL에 속한 Linked List 자료구조 사용법을 알아보자.</p>
+<p>사실 Linked List는 42 과정의 처음부터 끝까지 정말 자주 사용하는 자료구조 중 하나이다. 하물며 본과정 첫 과제인 <code>Libft</code>에서 명세에 따르면 Linked List의 구현과 연산 함수를 작성해야한다! 우선그때의 기억을 떠올려서 간단하게 <code>C</code>언어를 통해 Linked List를 구현해본 후, <code>C++</code>의 STL에 속한 Linked List 자료구조 사용법을 알아보자.</p>
 <br>
-<h2 id="c로-구현한-linked-list">C로 구현한 Linked List</h2>
-<h3 id="노드-구조">노드 구조</h3>
+<h3 id="3-1-1-with-c">3-1-1. with C</h3>
+<h4 id="노드-구조">노드 구조</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> s_node {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> data;
 </span></span><span style="display:flex;"><span>	t_node <span style="color:#f92672">*</span>next;
 </span></span><span style="display:flex;"><span>} t_node
 </span></span></code></pre></div><p>위 구조체는 Linked List의 한 노드의 구성이다. 한 노드는 데이터 영역과, 다음 노드의 주소 정보를 담고있는 포인터 영역으로 구분된다.</p>
 <br>
-<h3 id="할당과-해제">할당과 해제</h3>
+<h4 id="할당과-해제">할당과 해제</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>t_node <span style="color:#f92672">*</span><span style="color:#a6e22e">create_node</span>(<span style="color:#66d9ef">int</span> data) {
 </span></span><span style="display:flex;"><span>	t_node <span style="color:#f92672">*</span>new_node <span style="color:#f92672">=</span> (node <span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(node));    <span style="color:#75715e">// 1. 메모리 할당
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	new_node<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> data;                              <span style="color:#75715e">// 2. 데이터 입력
@@ -162,7 +160,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>우선, 힙 영역에 노드 크기만큼 메모리를 할당한다. 그 다음 인자로 입력받은 int 값을 통해 data를 초기화하고, 다음 노드를 가리키는 포인터 변수를 <code>NULL</code>로 초기화한다. 아직 어디에 연결할지는 모르는 상태이기 때문.</p>
 <br>
-<h3 id="추가-연산">추가 연산</h3>
+<h4 id="추가-연산">추가 연산</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">append_node</span>(t_node <span style="color:#f92672">**</span>head, t_node <span style="color:#f92672">*</span>new_node) {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> ((<span style="color:#f92672">*</span>head) <span style="color:#f92672">==</span> NULL) {                  <span style="color:#75715e">// head가 NULL일 경우 new_node가 새로운 head로!
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> new_node;
@@ -175,7 +173,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><br>
-<h3 id="탐색-연산">탐색 연산</h3>
+<h4 id="탐색-연산">탐색 연산</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#75715e">// 노드 탐색_1 (n번째 순서의)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>t_node <span style="color:#f92672">*</span><span style="color:#a6e22e">get_node_n</span>(t_node <span style="color:#f92672">*</span>head, <span style="color:#66d9ef">int</span> n) {
 </span></span><span style="display:flex;"><span>	t_node <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> head;
@@ -197,7 +195,7 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> cur;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><br>
-<h3 id="삭제-연산">삭제 연산</h3>
+<h4 id="삭제-연산">삭제 연산</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">remove_node</span>(t_node <span style="color:#f92672">**</span>head, <span style="color:#66d9ef">int</span> data) {
 </span></span><span style="display:flex;"><span>	t_node <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
 </span></span><span style="display:flex;"><span>	t_node <span style="color:#f92672">*</span>prev <span style="color:#f92672">=</span> NULL;
@@ -229,7 +227,7 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">free</span>(cur);  <span style="color:#75715e">// 삭제할 노드의 메모리 해제
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
 </span></span></code></pre></div><br>
-<h3 id="삽입-연산">삽입 연산</h3>
+<h4 id="삽입-연산">삽입 연산</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">insert_node</span>(t_node <span style="color:#f92672">**</span>head, t_node <span style="color:#f92672">*</span>new_node, <span style="color:#66d9ef">int</span> position) {
 </span></span><span style="display:flex;"><span>	t_node <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
 </span></span><span style="display:flex;"><span>	t_node <span style="color:#f92672">*</span>prev <span style="color:#f92672">=</span> NULL;
@@ -261,7 +259,7 @@
 <p>쉽게 말해, <strong>리스트의 첫 번째 노드를 수정해야 할 때는 이중 포인터를 사용</strong>해서, 함수 안에서 실제 <code>head</code>가 바뀌도록 만들어야 한다.</p>
 <br>
 <br>
-<h2 id="stllinked-list">STL::Linked List</h2>
+<h3 id="3-1-2-stllinked-list">3-1-2. STL::Linked List</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;list&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -306,7 +304,7 @@
 <p>노드 하나에 int 뿐만 아니라 다양한 자료를 담고 싶다면, 원하는 구성의 구조체를 자료형으로 만들고, 그 자료형으로 list를 활용하면 된다.</p>
 <br>
 <br>
-<h1 id="reference">Reference</h1>
+<h2 id="5-reference">5. Reference</h2>
 <hr>
 <ul>
 <li><a href="https://www.geeksforgeeks.org/linked-list-data-structure/">https://www.geeksforgeeks.org/linked-list-data-structure/</a></li>
@@ -314,14 +312,7 @@
 <li><a href="https://www.dotnetnote.com/docs/c-language/c-single-linked-list/">https://www.dotnetnote.com/docs/c-language/c-single-linked-list/</a></li>
 </ul>
 <br>
-<div class="alert">
-    <span>
-<a href="https://elecbrandy.github.io/tags/datastructure/"> 자료구조 </a>
-</span>
-</div>
-
 <br>
-
 
     
 
