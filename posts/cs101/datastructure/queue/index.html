@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="/css/reset.css">
+<title>[자료구조] Queue | home</title>
+
+      <link rel="stylesheet" href="/css/main.min.830529474f3e538d158886bdcfa1ba6071455ff9912f37b04b8145c6b716cd97.css" integrity="sha256-gwUpR08&#43;U40ViIa9z6G6YHFFX/mRLzewS4FFxrcWzZc=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/min700.min.c55885430d625813d1a6770ef6712b8534781fdd318699edd1bb9c6f62907507.css" integrity="sha256-xViFQw1iWBPRpncO9nErhTR4H90xhpnt0bucb2KQdQc=" crossorigin="anonymous">
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+	<nav>
+	  <li><a href="/">/home</a></li>
+	  <li><a href="/tags">/tags</a></li>
+	  <li><a href="/about">/about</a></li>
+	  <li id="theme-toggle" style="cursor: pointer;">/todark</li>
+	</nav>
+  </header>
+  
+  <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  const themeToggle = document.getElementById('theme-toggle');
+	  
+	  
+	  let currentTheme = localStorage.getItem('theme') || 'light';
+  
+	  
+	  document.body.setAttribute('data-theme', currentTheme);
+	  themeToggle.textContent = currentTheme === 'dark' ? '/tolight' : '/todark';
+  
+	  
+	  function toggleTheme() {
+		
+		const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  
+		
+		document.body.setAttribute('data-theme', newTheme);
+  
+		
+		localStorage.setItem('theme', newTheme);
+  
+		
+		themeToggle.textContent = newTheme === 'dark' ? '/tolight' : '/todark';
+	  }
+  
+	  
+	  themeToggle.addEventListener('click', toggleTheme);
+	});
+  </script>
+  
+    
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-소개">1. 소개</a></li>
+    <li><a href="#2-큐의-개념과-종류">2. 큐의 개념과 종류</a></li>
+    <li><a href="#3-큐의-구현">3. 큐의 구현</a>
+      <ul>
+        <li><a href="#3-1-배열-기반-큐-구현-with-c">3-1. 배열 기반 큐 구현 (with C)</a></li>
+        <li><a href="#3-2-stl-queue-사용법-with-c">3-2. STL <code>queue</code> 사용법 (with C++)</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-큐의-활용-예시">4. 큐의 활용 예시</a></li>
+    <li><a href="#5-reference">5. Reference</a></li>
+  </ul>
+</nav>
+  </aside>
+  <div class="featured-container">
+    
+      <div class="featured-image">
+        <img src="https://www.educative.io/v2api/editorpage/5393602882568192/image/6038582739138560" alt="Featured Image for [자료구조] Queue">
+      </div>
+    
+    <div class="overlay-text">
+      <small>2024.09.09</small>
+      <div class="singleTitle">[자료구조] Queue</div>
+    </div>
+  </div>
+  <div class="series">
+  <details>
+    <summary>📚 /dataStructure</summary>
+    <ul>
+      
+      
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/list/">list</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/stack/">stack</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/queue/">queue</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/heap/">heap</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/tree/">tree</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/graph/">graph</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/hashtable/">hashTable</a></li>
+      
+    </ul>
+  </details>
+</div>
+
+<br>
+<h2 id="1-소개">1. 소개</h2>
+<hr>
+<p><strong>Queue</strong>(큐)는 선형 자료구조로, 데이터가 삽입된 순서대로 처리되는 <strong>FIFO(First In First Out)</strong> 방식이다. 즉, 먼저 들어온 데이터가 먼저 나가는 구조이다. 큐는 컴퓨터 시스템에서 작업 예약, 데이터 버퍼링 등 다양한 분야에서 활용된다.</p>
+<br>
+<br>
+<h2 id="2-큐의-개념과-종류">2. 큐의 개념과 종류</h2>
+<hr>
+<p>큐는 한쪽 끝에서는 삽입이, 반대쪽 끝에서는 삭제가 이루어지는 구조이다. 기본적인 큐 외에도 다양한 변형이 존재한다.</p>
+<ul>
+<li><strong>원형 큐(Circular Queue)</strong>: 마지막 위치가 첫 위치와 연결되어 원형으로 구성된 큐이다.</li>
+<li><strong>우선순위 큐(Priority Queue)</strong>: 각 요소에 우선순위가 부여되어, 높은 우선순위의 요소가 먼저 처리되는 큐이다.</li>
+<li><strong>덱(Deque)</strong>: 양쪽 끝에서 삽입과 삭제가 모두 가능한 큐이다.</li>
+</ul>
+<br>
+<br>
+<h2 id="3-큐의-구현">3. 큐의 구현</h2>
+<hr>
+<p>큐는 배열이나 연결 리스트를 이용하여 구현할 수 있다. 여기서는 <code>C</code> 언어를 사용하여 배열 기반의 큐를 구현해보고, <code>C++</code>의 STL에서 제공하는 <code>queue</code>의 사용법을 알아보겠다.</p>
+<br>
+<h3 id="3-1-배열-기반-큐-구현-with-c">3-1. 배열 기반 큐 구현 (with C)</h3>
+<h4 id="큐-구조체-정의">큐 구조체 정의</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define MAX_SIZE 100
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> data[MAX_SIZE];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> front;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> rear;
+</span></span><span style="display:flex;"><span>} Queue;
+</span></span></code></pre></div><p><code>Queue</code> 구조체는 <code>data</code> 배열과 <code>front</code>, <code>rear</code> 인덱스를 포함한다. <code>front</code>는 삭제 위치를, <code>rear</code>는 삽입 위치를 가리킨다.</p>
+<br>
+<h4 id="초기화-함수">초기화 함수</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initQueue</span>(Queue <span style="color:#f92672">*</span>q) {
+</span></span><span style="display:flex;"><span>    q<span style="color:#f92672">-&gt;</span>front <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    q<span style="color:#f92672">-&gt;</span>rear <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>큐를 초기화하여 <code>front</code>와 <code>rear</code>를 0으로 설정한다.</p>
+<br>
+<h4 id="공백-및-포화-상태-확인-함수">공백 및 포화 상태 확인 함수</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">isEmpty</span>(Queue <span style="color:#f92672">*</span>q) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> q<span style="color:#f92672">-&gt;</span>front <span style="color:#f92672">==</span> q<span style="color:#f92672">-&gt;</span>rear;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">isFull</span>(Queue <span style="color:#f92672">*</span>q) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (q<span style="color:#f92672">-&gt;</span>rear <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> MAX_SIZE <span style="color:#f92672">==</span> q<span style="color:#f92672">-&gt;</span>front;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>큐가 비어있는지 또는 가득 찼는지 확인하는 함수이다.</p>
+<br>
+<h4 id="삽입-연산">삽입 연산</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">enqueue</span>(Queue <span style="color:#f92672">*</span>q, <span style="color:#66d9ef">int</span> item) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isFull</span>(q)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Queue is full.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    q<span style="color:#f92672">-&gt;</span>rear <span style="color:#f92672">=</span> (q<span style="color:#f92672">-&gt;</span>rear <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> MAX_SIZE;
+</span></span><span style="display:flex;"><span>    q<span style="color:#f92672">-&gt;</span>data[q<span style="color:#f92672">-&gt;</span>rear] <span style="color:#f92672">=</span> item;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>enqueue</code> 함수는 큐의 <code>rear</code> 위치에 새로운 요소를 추가한다.</p>
+<br>
+<h4 id="삭제-연산">삭제 연산</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">dequeue</span>(Queue <span style="color:#f92672">*</span>q) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isEmpty</span>(q)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Queue is empty.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    q<span style="color:#f92672">-&gt;</span>front <span style="color:#f92672">=</span> (q<span style="color:#f92672">-&gt;</span>front <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> MAX_SIZE;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> q<span style="color:#f92672">-&gt;</span>data[q<span style="color:#f92672">-&gt;</span>front];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>dequeue</code> 함수는 <code>front</code> 위치의 요소를 제거하고 반환한다.</p>
+<br>
+<h4 id="사용-예제">사용 예제</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    Queue q;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">initQueue</span>(<span style="color:#f92672">&amp;</span>q);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">enqueue</span>(<span style="color:#f92672">&amp;</span>q, <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">enqueue</span>(<span style="color:#f92672">&amp;</span>q, <span style="color:#ae81ff">20</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">enqueue</span>(<span style="color:#f92672">&amp;</span>q, <span style="color:#ae81ff">30</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#a6e22e">dequeue</span>(<span style="color:#f92672">&amp;</span>q));  <span style="color:#75715e">// 출력: 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#a6e22e">dequeue</span>(<span style="color:#f92672">&amp;</span>q));  <span style="color:#75715e">// 출력: 20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>위의 예제는 큐에 값을 삽입하고 삭제하는 기본적인 동작을 보여준다.</p>
+<br>
+<br>
+<h3 id="3-2-stl-queue-사용법-with-c">3-2. STL <code>queue</code> 사용법 (with C++)</h3>
+<p><code>C++</code>의 STL에서는 <code>queue</code> 라이브러리를 제공하여 쉽게 큐를 사용할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;queue&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// std::queue 선언
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>queue<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> myQueue;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 요소 추가 (push)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    myQueue.push(<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    myQueue.push(<span style="color:#ae81ff">20</span>);
+</span></span><span style="display:flex;"><span>    myQueue.push(<span style="color:#ae81ff">30</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// front와 back 확인
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Front: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> myQueue.front() <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;  <span style="color:#75715e">// 출력: 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Back: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> myQueue.back() <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;    <span style="color:#75715e">// 출력: 30
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 요소 삭제 (pop)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    myQueue.pop();  <span style="color:#75715e">// 10 제거
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 다시 front 확인
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Front after pop: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> myQueue.front() <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;  <span style="color:#75715e">// 출력: 20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 큐가 빌 때까지 모든 요소 제거
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>myQueue.empty()) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Removing: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> myQueue.front() <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>        myQueue.pop();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>std::queue</code>는 FIFO 구조를 가지며, <code>push</code>, <code>pop</code>, <code>front</code>, <code>back</code>, <code>empty</code> 등의 멤버 함수를 제공한다.</p>
+<br>
+<h4 id="우선순위-큐-priority_queue">우선순위 큐 <code>priority_queue</code></h4>
+<p>우선순위 큐는 <code>priority_queue</code>를 사용하여 구현할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;queue&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// std::priority_queue 선언
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>priority_queue<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> pq;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 요소 추가
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    pq.push(<span style="color:#ae81ff">30</span>);
+</span></span><span style="display:flex;"><span>    pq.push(<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    pq.push(<span style="color:#ae81ff">20</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 가장 큰 요소부터 출력
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>pq.empty()) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> pq.top() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;  <span style="color:#75715e">// 출력: 30 20 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        pq.pop();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>std::priority_queue</code>는 기본적으로 큰 숫자가 높은 우선순위를 가진다.</p>
+<br>
+<br>
+<h2 id="4-큐의-활용-예시">4. 큐의 활용 예시</h2>
+<hr>
+<p>큐는 다음과 같은 다양한 분야에서 활용된다.</p>
+<ul>
+<li><strong>데이터 버퍼링</strong>: 데이터 스트림에서 일시적으로 데이터를 저장하는 데 사용된다.</li>
+<li><strong>작업 스케줄링</strong>: 운영체제에서 프로세스나 스레드의 작업을 예약하고 관리한다.</li>
+<li><strong>너비 우선 탐색(BFS)</strong>: 그래프 탐색 알고리즘에서 방문해야 할 노드의 목록을 관리한다.</li>
+</ul>
+<br>
+<br>
+<h2 id="5-reference">5. Reference</h2>
+<hr>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/queue-data-structure/">GeeksforGeeks - Queue Data Structure</a></li>
+<li><a href="https://cplusplus.com/reference/queue/queue/">C++ Reference - std::queue</a></li>
+<li><a href="https://ko.wikipedia.org/wiki/%ED%81%90_(%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0)">위키백과 - 큐 (자료 구조)</a></li>
+</ul>
+<br>
+<br>
+
+    
+
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop({
+  diameter: 40,
+  backgroundColor: 'rgb(255, 83, 176)',
+  textColor: '#fff'
+})</script>
+
+</body>
+</html>
