@@ -4,7 +4,7 @@
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="/css/reset.css">
-<title>Build C | home</title>
+<title>컴파일 언어의 빌드 | home</title>
 
       <link rel="stylesheet" href="/css/main.min.830529474f3e538d158886bdcfa1ba6071455ff9912f37b04b8145c6b716cd97.css" integrity="sha256-gwUpR08&#43;U40ViIa9z6G6YHFFX/mRLzewS4FFxrcWzZc=" crossorigin="anonymous">
       <link rel="stylesheet" href="/css/min700.min.c55885430d625813d1a6770ef6712b8534781fdd318699edd1bb9c6f62907507.css" integrity="sha256-xViFQw1iWBPRpncO9nErhTR4H90xhpnt0bucb2KQdQc=" crossorigin="anonymous">
@@ -62,31 +62,40 @@
   <aside class="toc">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-preprocessing-전처리">1. Preprocessing (전처리)</a></li>
-    <li><a href="#2-compilation-컴파일">2. Compilation (컴파일)</a></li>
-    <li><a href="#3-assembly-어셈블리">3. Assembly (어셈블리)</a></li>
-    <li><a href="#4-linking-링킹">4. Linking (링킹)</a></li>
-    <li><a href="#5-runtime-런타임">5. Runtime (런타임)</a></li>
+    <li><a href="#1-소개">1. 소개</a></li>
+    <li><a href="#2-빌드-과정">2. 빌드 과정</a>
+      <ul>
+        <li><a href="#2-1-preprocessing-전처리">2-1. Preprocessing (전처리)</a></li>
+        <li><a href="#2-2-compilation-컴파일">2-2. Compilation (컴파일)</a></li>
+        <li><a href="#2-3-assembly-어셈블리">2-3. Assembly (어셈블리)</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-4-linking-링킹">2-4. Linking (링킹)</a></li>
+    <li><a href="#2-5-runtime-런타임">2-5. Runtime (런타임)</a></li>
   </ul>
 </nav>
   </aside>
   <div class="featured-container">
     
       <div class="featured-image">
-        <img src="http://t1.daumcdn.net/cfile/180D9C41504A57C90D" alt="Featured Image for Build C">
+        <img src="http://t1.daumcdn.net/cfile/180D9C41504A57C90D" alt="Featured Image for 컴파일 언어의 빌드">
       </div>
     
     <div class="overlay-text">
       <small>2023.11.11</small>
-      <div class="singleTitle">Build C</div>
+      <div class="singleTitle">컴파일 언어의 빌드</div>
     </div>
   </div>
-  <blockquote>
-<p>컴파일 언어(compiled language)는 소스 코드가 실행되기 전에 컴파일러를 통해 기계어로 변환된 후 실행되는 프로그래밍 언어이다. C 언어는 이러한 컴파일 언어의 대표적인 예시이다.</p>
-</blockquote>
-<br>
-<h2 id="1-preprocessing-전처리">1. Preprocessing (전처리)</h2>
+  <br>
+<h2 id="1-소개">1. 소개</h2>
 <hr>
+<p>무엇인가를 빌드한다는 것은 어떤 것일까? 내가 만든 프로그램을 컴퓨터가 읽는 과정은 어떻게 될까?</p>
+<p>빌드는 소스 코드를 컴파일, 어셈블, 링크하는 일련의 과정을 통해 기계가 실행할 수 있는 실행 파일로 변환하는 과정이다. 이번에는 흔히 <code>C</code> 처럼 소스 코드가 실행되기 전에 컴파일러를 통해 기계어로 변환된 후 실행되는 프로그래밍 언어(<strong>컴파일 언어</strong>)의 빌드 과정을 알아보자!</p>
+<br>
+<br>
+<h2 id="2-빌드-과정">2. 빌드 과정</h2>
+<hr>
+<h3 id="2-1-preprocessing-전처리">2-1. Preprocessing (전처리)</h3>
 <p>전처리는 **전처리기(<code>cpp</code>)**에 의해 수행된다. 이 단계에서는 소스 코드가 컴파일되기 전에 미리 준비해야 하는 작업들이 처리된다. 주요 작업은 다음과 같다:</p>
 <ul>
 <li>
@@ -104,47 +113,24 @@
 </ul>
 <p>이 단계의 결과물은 전처리가 완료된 소스 파일인 <strong><code>.i</code> 파일</strong>이다.</p>
 <br>
+<h3 id="2-2-compilation-컴파일">2-2. Compilation (컴파일)</h3>
+<p>컴파일 단계는 <strong>컴파일러</strong>에 의해 수행된다. 이 단계에서 전처리가 완료된 C 코드를 어셈블리어로 변환한다. 어셈블리어는 기계어와 인간이 이해할 수 있는 코드의 중간 단계에 해당하는 저수준 언어이다.</p>
+<p>전처리된 <strong><code>.i</code> 파일</strong>이 컴파일러에 의해 <strong><code>.s</code> 파일</strong>로 변환된다. <code>.s</code> 파일은 어셈블리어로 작성된 파일이다. 이 단계에서는 변수, 함수, 제어 구조 등이 어셈블리어로 변환되어 코드가 하드웨어에 더 가까운 형태로 표현된다.</p>
 <br>
-<h2 id="2-compilation-컴파일">2. Compilation (컴파일)</h2>
-<hr>
-<p>컴파일 단계는 **컴파일러(<code>cc1</code>)**에 의해 수행된다. 이 단계에서 전처리가 완료된 C 코드를 어셈블리어로 변환한다. 어셈블리어는 기계어와 인간이 이해할 수 있는 코드의 중간 단계에 해당하는 저수준 언어이다.</p>
-<ul>
-<li>전처리된 <strong><code>.i</code> 파일</strong>이 컴파일러에 의해 <strong><code>.s</code> 파일</strong>로 변환된다. <code>.s</code> 파일은 어셈블리어로 작성된 파일이다. 이 단계에서는 변수, 함수, 제어 구조 등이 어셈블리어로 변환되어 코드가 하드웨어에 더 가까운 형태로 표현된다.</li>
-</ul>
-<br>
-<br>
-<h2 id="3-assembly-어셈블리">3. Assembly (어셈블리)</h2>
-<hr>
+<h3 id="2-3-assembly-어셈블리">2-3. Assembly (어셈블리)</h3>
 <p>어셈블리 단계는 **어셈블러(<code>as</code>)**에 의해 수행된다. 어셈블리어 파일을 목적 파일(object file)로 변환하는 과정이다. 목적 파일은 컴퓨터가 실행할 수 있는 기계어로 작성되었지만, 아직 독립적으로 실행할 수 없다.</p>
-<ul>
-<li>어셈블리어로 작성된 <strong><code>.s</code> 파일</strong>이 어셈블러에 의해 <strong><code>.o</code> 파일</strong>(목적 파일)로 변환된다. 이 파일은 이진(binary) 형태로, 실제로 하드웨어에서 실행 가능한 형태에 가까워진다.</li>
-</ul>
+<p>어셈블리어로 작성된 <strong><code>.s</code> 파일</strong>이 어셈블러에 의해 <strong><code>.o</code> 파일</strong>(목적 파일)로 변환된다. 이 파일은 이진(binary) 형태로, 실제로 하드웨어에서 실행 가능한 형태에 가까워진다.</p>
 <br>
-<br>
-<h2 id="4-linking-링킹">4. Linking (링킹)</h2>
-<hr>
+<h2 id="2-4-linking-링킹">2-4. Linking (링킹)</h2>
 <p>링킹은 **링커(<code>ld</code>)**에 의해 수행되는 단계이다. 여러 개의 목적 파일(.o)과 라이브러리 파일을 하나의 실행 파일로 결합하는 과정이다. 이 단계에서 정적 라이브러리나 동적 라이브러리도 함께 연결된다.</p>
-<ul>
-<li>여러 목적 파일을 하나의 실행 가능한 프로그램으로 통합하는 과정이다. 이때 이미 컴파일된 라이브러리 파일도 링크되어 프로그램에서 사용할 수 있게 된다.</li>
-<li>링킹을 통해 실행 가능한 단일 파일이 생성되며, 이 파일은 <code>.out</code> 또는 <code>.exe</code> 형식으로 나타난다. 이 단계가 완료되면 프로그램이 **빌드(build)**되었다고 한다.</li>
-</ul>
+<p>여러 목적 파일을 하나의 실행 가능한 프로그램으로 통합하는 과정이다. 이때 이미 컴파일된 라이브러리 파일도 링크되어 프로그램에서 사용할 수 있게 된다. 링킹을 통해 실행 가능한 단일 파일이 생성되며, 이 파일은 <code>.out</code> 또는 <code>.exe</code> 형식으로 나타난다. 이 단계가 완료되면 프로그램이 **빌드(build)**되었다고 한다.</p>
 <br>
-<br>
-<h2 id="5-runtime-런타임">5. Runtime (런타임)</h2>
-<hr>
-<p>실행 파일이 생성되었더라도, 프로그램의 실행은 빌드와는 별도의 단계이다. 런타임은 프로그램이 실제로 실행되는 동안 일어나는 일들을 의미한다.</p>
-<ul>
-<li><strong>런타임 중 처리</strong>: 메모리 할당, 입출력 처리, 예외 처리 등은 프로그램이 실행 중일 때 일어난다.</li>
-<li>빌드 과정에서 목적 파일로 나누는 이유는 다양한 언어로 작성된 파일을 통합하거나, 큰 프로젝트를 여러 소스 파일로 분리하여 관리하는 것이 더 효율적이기 때문이다. 최종적으로 링킹 단계에서 이 파일들을 모아 하나의 실행 파일로 만든다.</li>
-</ul>
+<h2 id="2-5-runtime-런타임">2-5. Runtime (런타임)</h2>
+<p>실행 파일이 생성되었더라도, 프로그램의 실행은 빌드와는 별도의 단계이다. 런타임은 프로그램이 실제로 실행되는 동안 일어나는 일들을 의미한다. 메모리 할당, 입출력 처리, 예외 처리 등은 프로그램이 실행 중 즉 <strong>런타임 중</strong> 일 때 일어난다.</p>
+<p>빌드 과정에서 목적 파일로 나누는 이유는 다양한 언어로 작성된 파일을 통합하거나, 큰 프로젝트를 여러 소스 파일로 분리하여 관리하는 것이 더 효율적이기 때문이다. 최종적으로 링킹 단계에서 이 파일들을 모아 하나의 실행 파일로 만든다.</p>
 <p>이러한 전체 과정을 통해 C 프로그램은 소스 코드에서 기계어로 변환되어 실제로 실행할 수 있는 상태가 된다.</p>
 <br>
-<div class="alert">
-    <span>
-<a href="https://elecbrandy.github.io/tags/cs101/"> cs101 </a>
-</span>
-</div>
-
+<br>
 
 
     
