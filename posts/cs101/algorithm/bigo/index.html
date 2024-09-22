@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="/css/reset.css">
+<title>[알고리즘] Big O | home</title>
+
+      <link rel="stylesheet" href="/css/main.min.0ce01787cd4bc0759f98b56377f962e02878ce8fb515cc49af5cb83db6a3edfc.css" integrity="sha256-DOAXh81LwHWfmLVjd/li4Ch4zo&#43;1FcxJr1y4Pbaj7fw=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/min700.min.c55885430d625813d1a6770ef6712b8534781fdd318699edd1bb9c6f62907507.css" integrity="sha256-xViFQw1iWBPRpncO9nErhTR4H90xhpnt0bucb2KQdQc=" crossorigin="anonymous">
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+	<nav>
+	  <li><a href="/">/home</a></li>
+	  <li><a href="/tags">/tags</a></li>
+	  <li><a href="/about">/about</a></li>
+	  <li id="theme-toggle" style="cursor: pointer;">/todark</li>
+	</nav>
+  </header>
+  
+  <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  const themeToggle = document.getElementById('theme-toggle');
+	  
+	  
+	  let currentTheme = localStorage.getItem('theme') || 'light';
+  
+	  
+	  document.body.setAttribute('data-theme', currentTheme);
+	  themeToggle.textContent = currentTheme === 'dark' ? '/tolight' : '/todark';
+  
+	  
+	  function toggleTheme() {
+		
+		const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  
+		
+		document.body.setAttribute('data-theme', newTheme);
+  
+		
+		localStorage.setItem('theme', newTheme);
+  
+		
+		themeToggle.textContent = newTheme === 'dark' ? '/tolight' : '/todark';
+	  }
+  
+	  
+	  themeToggle.addEventListener('click', toggleTheme);
+	});
+  </script>
+  
+    
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-big-o-소개">1. Big O 소개</a></li>
+    <li><a href="#1-알고리즘의-분석">1. 알고리즘의 분석</a>
+      <ul>
+        <li><a href="#2-1-점근적-분석법">2-1. 점근적 분석법</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-big-o">1. Big-O</a></li>
+    <li><a href="#5-reference">5. Reference</a></li>
+  </ul>
+</nav>
+  </aside>
+  <div class="featured-container">
+    
+      <div class="featured-image">
+        <img src="https://ih1.redbubble.net/image.1502642451.8092/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="Featured Image for [알고리즘] Big O">
+      </div>
+    
+    <div class="overlay-text">
+      <small>2024.09.09</small>
+      <div class="singleTitle">[알고리즘] Big O</div>
+    </div>
+  </div>
+  <div class="series">
+  <details>
+    <summary>📚 /algorithm</summary>
+    <ul>
+      
+      
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/list/">list</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/stack/">stack</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/queue/">queue</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/heap/">heap</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/tree/">tree</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/graph/">graph</a></li>
+      
+      <li>-<a href="https://elecbrandy.github.io/posts/cs101/datastructure/hashtable/">hashTable</a></li>
+      
+    </ul>
+  </details>
+</div>
+
+<br>
+<h2 id="1-big-o-소개">1. Big O 소개</h2>
+<hr>
+<blockquote>
+<p><strong>Big O 표기법의 형태</strong></p>
+<ul>
+<li>O(1): 상수 시간, 입력 크기에 상관없이 항상 같은 시간이 걸린다.</li>
+<li>O(n): 입력 크기에 비례해서 시간이 걸린다.</li>
+<li>O(log n): 입력 크기가 증가할 때 실행 시간이 천천히 증가한다. 예를 들어, 이진 탐색 알고리즘이 이에 해당된다.</li>
+<li>O(n^2): 이중 반복문처럼, 입력 크기가 증가하면 실행 시간이 제곱으로 증가한다.</li>
+</ul>
+</blockquote>
+<p>빅오표기법(Big-O)은 알고리즘이 실행되는 시간이나 메모리 사용량이 입력 크기(데이터의 양)에 따라 어떻게 변하는지 표현하는 방법이다. 주로 시간 복잡도와 공간 복잡도를 측정하는데 사용된다.</p>
+<p><strong>시간 복잡도</strong> 는 입력 크기가 커질 때 알고리즘이 얼마나 오래 걸리는지를 나타낸다. 예를 들어, 배열에서 특정 값을 찾는 알고리즘이 있다고 하자. 이때, 배열에 있는 모든 요소를 하나씩 비교해야 한다면, 배열의 크기가 클수록 시간이 더 오래 걸리게 된다. 이런 경우 시간 복잡도는 O(n)이다. 여기서 n은 배열의 크기다. 즉, 입력 크기 n에 비례해서 시간이 증가한다는 의미다.</p>
+<p>공간 복잡도는 알고리즘이 실행될 때 필요한 메모리 공간이 입력 크기에 따라 어떻게 변하는지 나타낸다. 예를 들어, 배열을 복사하는 알고리즘은 원본 배열과 같은 크기의 메모리가 추가로 필요하므로 공간 복잡도는 O(n)이다. 하지만 단순히 변수 하나만 사용한다면 O(1)로, 입력 크기와 무관하게 일정한 메모리만 필요하다는 의미다.</p>
+<p>시간 복잡도와 공간 복잡도를 함께 고려하는 이유는 효율적인 알고리즘을 찾기 위해서다. 알고리즘이 빠르게 실행되더라도 너무 많은 메모리를 사용하면 비효율적일 수 있고, 메모리를 적게 사용하더라도 너무 느리면 실용적이지 않기 때문이다. 빅오표기법에서 중요한 것은 정확한 실행 시간이 아니라, 입력 크기에 따라 어떻게 변화하는지의 경향이다. 즉, O(n), O(n^2), O(log n) 같은 표현으로 <em>&ldquo;시간이 얼마나 급격히 늘어나는가&rdquo;</em> 를 나타낸다.</p>
+<br>
+<br>
+<h2 id="1-알고리즘의-분석">1. 알고리즘의 분석</h2>
+<hr>
+<p>어떤 한 알고리즘을 분석할때 우리는 크게 구현 정확성와 효율성에 관심을 가진다. 구현은 실제로 알고리즘이 어떤 구조로 구현이 되어있는지, 정확성은 이 알고리즘이 정말로 기대한 역할을 수행하는지 증명이 되는지 그리고 효율성을 얼마나 빠른지 이다. 이떄 빅오를 통해 우리는 알고리즘의 효율성을 평가할 수 있다.</p>
+<p>알고리즘의 효율성은 어떤 언어로 구현했는지, 같은 방식의 알고리즘이더라도 세부 구현 사항에 따라, 환경에 따라, 사양에 따라, 컴파일러에 따라 상당히 많은 변수에 시간이 바뀘수 있어서 다른 요인들을 제하고 좀 다른 알고리즘끼리 효율성 비교가 쉽게 빅오로 판단하기 위해 ㅂ사용한다. 이때 우리가 관심을 가지는 것은 A라는 알고리즘이 있을때 이 알고리즘이 각 케이스에 어떻게 반응하는지임. 즉, 어떤 경우에 worstcase, bestcase 그리고 average case가 나오는지 이다.물론 우리가 자장 중요하게 생각해야하는건 가장 안좋을때이겟죠.</p>
+<h3 id="2-1-점근적-분석법">2-1. 점근적 분석법</h3>
+<p>점근적 분석이랑 자료의 갯수 n값이 커질수록 이에따라 n에 관한 한 알고리즘의 복잡도가 어떻게 변화하는지 알아보는 것이다. 여기서 포커스는 n. 우리의 목표는 결국 입력사이즈 n값이 매우 커질 떄에도 빠르게 작동하는 알고리즘을 만드는것이 아니겠나. n의 증가에 따라 T가 증가하는 양상으로 성능을 비교한다. 장점으로는 추상화(하드ㅇ웨어나 언어별 이슈 적당 무시), 그리고 알고리즘을 쉽게 분석할 수있는거. 단점으로는 너무 n에만 집중하는 경향이 있는거. 어쨋든 우리는 양상에 집중해보자.</p>
+<h2 id="1-big-o">1. Big-O</h2>
+<p>T(n) : n에 따른 내가 만든 알고리즘의 실행시간
+g(n) : 참조를 위한 함수</p>
+<p>이때 우리가 T(n)은 O(g(n))</p>
+<h2 id="5-reference">5. Reference</h2>
+<hr>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/insertion-sort-algorithm/">https://www.geeksforgeeks.org/insertion-sort-algorithm/</a></li>
+</ul>
+<br>
+<br>
+
+    
+
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop({
+  diameter: 40,
+  backgroundColor: 'rgb(255, 83, 176)',
+  textColor: '#fff'
+})</script>
+
+</body>
+</html>
