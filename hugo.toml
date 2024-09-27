@@ -37,3 +37,8 @@ weight = 30
     [markup.goldmark.renderer]
       unsafe = true
 
+[sitemap]
+  changefreq = "daily"
+  priority = 0.5
+
+
