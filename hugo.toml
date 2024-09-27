@@ -26,6 +26,7 @@ weight = 30
     min = "0.116.0"
 
 [params]
+  googleAnalytics = "G-ZL1NP5K5CJ"
   githubUsername = "elecbrandy"
   copyright = "Copyright © 2024 elecbrandy"
 
