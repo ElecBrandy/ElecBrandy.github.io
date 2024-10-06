@@ -29,6 +29,8 @@ weight = 30
   googleAnalytics = "G-ZL1NP5K5CJ"
   githubUsername = "elecbrandy"
   copyright = "Copyright © 2024 elecbrandy"
+  katex = "true"
+  math = "true"
 
 [taxonomies]
   tag = "tags"
