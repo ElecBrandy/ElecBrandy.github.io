@@ -5,32 +5,19 @@ featured_image = "https://search.pstatic.net/common?quality=75&direct=true&src=h
 tags = ['os', 'linux']
 +++
 
-# LVM
+<br>
 
-## LVM이란?
-- Linux Volume Manager
-- [[Linux]]에서 복잡한 스토리지 구성을 효율적으로 관리하기 위한 시스템
-- 물리적 디스크를 하나의 논리적 볼륨으로 결합할 수 있고, 볼륨의 크기를 쉽게 조정 가능
+## 1. 소개
+____
 
-## LVM 특징
-- **기존 방식과 LVM 방식**
-	- 기존 방식
-		- [[File system]]이 물리적 블록장치와 직접 상호작용
-		- 마운트된 파티션의 용량이 가득 차 이동 시
-			- 추가 디스크 장착
-			- 추가된 디스크에 파티션 생성 및 포맷
-			- 새로운 마운트 포인트(b)를 만들고 추가한 파티션 마운트
-			- 기존 데이터를 (b)에 이동
-			- 기존 파티션 언마운트 후 새 포인트와 연결
-	- LVM 방식
-		- [[File system]]이 LVM이 만든 가상의 블록 장치에 상호작용함
-		- 실제 블록 장치를 추상화하여 더 유연한 접근이 가능함
-		- 마운트된 파티션의 용량이 가득 차 이동 시
-			- 추가 디스크 장착
-			- 추가 디스크에 Partition을 만들고 pv 초기화
-			- pv를 vg에 추가하고 해당 논리 볼륨 사이즈 증가
+**LVM**은 Linux Volume Manager의 약어로, Linux에서 복잡한 스토리지 구성을 효율적으로 관리하기 위한 시스템이다. 물리적 디스크를 하나의 논리적 볼륨으로 결합할 수 있고, 볼륨의 크기를 쉽게 조정 가능하다.
 
-## LVM 단위 구성
+<br>
+<br>
+
+## 2. LVM의 구성
+____
+
 - **PV**
 	- Physical Volume
 	- LVM에서 블록장치에 접근하기 위해서 PV로 초기화가 필요
@@ -60,6 +47,34 @@ tags = ['os', 'linux']
 	- LV를 구성하는 일정한 크기의 블록으로 PE와 마찬가지로 4MB
 	- 각각의 LV들은 PE들과 1:1로 맵핑됨
 
-## Reference
+<br>
+<br>
+
+## 3. 기존방식 vs LVM
+___
+
+### 3-1. 기존 방식
+- File system이 물리적 블록장치와 직접 상호작용
+- 마운트된 파티션의 용량이 가득 차 이동 시
+	- 추가 디스크 장착
+	- 추가된 디스크에 파티션 생성 및 포맷
+	- 새로운 마운트 포인트(b)를 만들고 추가한 파티션 마운트
+	- 기존 데이터를 (b)에 이동
+	- 기존 파티션 언마운트 후 새 포인트와 연결
+
+<br>
+
+### 3-2. LVM 방식
+- File system이 LVM이 만든 가상의 블록 장치에 상호작용함
+- 실제 블록 장치를 추상화하여 더 유연한 접근이 가능함
+- 마운트된 파티션의 용량이 가득 차 이동 시
+	- 추가 디스크 장착
+	- 추가 디스크에 Partition을 만들고 pv 초기화
+	- pv를 vg에 추가하고 해당 논리 볼륨 사이즈 증가
+
+<br>
+<br>
+
+## 4. Reference
 - https://tech.cloud.nongshim.co.kr/2018/11/23/lvmlogical-volume-manager-1-%EA%B0%9C%EB%85%90/
 - https://nayoungs.tistory.com/entry/Linux-LVMLogical-Volume-Manage-PV-VG-LV
