@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 <head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '$', right: '$', display: false}
+            ]
+        });"></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="/css/reset.css">
@@ -74,10 +84,15 @@
   <aside class="toc">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#lvm이란">LVM이란?</a></li>
-    <li><a href="#lvm-특징">LVM 특징</a></li>
-    <li><a href="#lvm-단위-구성">LVM 단위 구성</a></li>
-    <li><a href="#reference">Reference</a></li>
+    <li><a href="#1-소개">1. 소개</a></li>
+    <li><a href="#2-lvm의-구성">2. LVM의 구성</a></li>
+    <li><a href="#3-기존방식-vs-lvm">3. 기존방식 vs LVM</a>
+      <ul>
+        <li><a href="#3-1-기존-방식">3-1. 기존 방식</a></li>
+        <li><a href="#3-2-lvm-방식">3-2. LVM 방식</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-reference">4. Reference</a></li>
   </ul>
 </nav>
   </aside>
@@ -92,48 +107,14 @@
       <div class="singleTitle">LVM</div>
     </div>
   </div>
-  <h1 id="lvm">LVM</h1>
-<h2 id="lvm이란">LVM이란?</h2>
-<ul>
-<li>Linux Volume Manager</li>
-<li>[[Linux]]에서 복잡한 스토리지 구성을 효율적으로 관리하기 위한 시스템</li>
-<li>물리적 디스크를 하나의 논리적 볼륨으로 결합할 수 있고, 볼륨의 크기를 쉽게 조정 가능</li>
-</ul>
-<h2 id="lvm-특징">LVM 특징</h2>
-<ul>
-<li><strong>기존 방식과 LVM 방식</strong>
-<ul>
-<li>기존 방식
-<ul>
-<li>[[File system]]이 물리적 블록장치와 직접 상호작용</li>
-<li>마운트된 파티션의 용량이 가득 차 이동 시
-<ul>
-<li>추가 디스크 장착</li>
-<li>추가된 디스크에 파티션 생성 및 포맷</li>
-<li>새로운 마운트 포인트(b)를 만들고 추가한 파티션 마운트</li>
-<li>기존 데이터를 (b)에 이동</li>
-<li>기존 파티션 언마운트 후 새 포인트와 연결</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>LVM 방식
-<ul>
-<li>[[File system]]이 LVM이 만든 가상의 블록 장치에 상호작용함</li>
-<li>실제 블록 장치를 추상화하여 더 유연한 접근이 가능함</li>
-<li>마운트된 파티션의 용량이 가득 차 이동 시
-<ul>
-<li>추가 디스크 장착</li>
-<li>추가 디스크에 Partition을 만들고 pv 초기화</li>
-<li>pv를 vg에 추가하고 해당 논리 볼륨 사이즈 증가</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="lvm-단위-구성">LVM 단위 구성</h2>
+  <br>
+<h2 id="1-소개">1. 소개</h2>
+<hr>
+<p><strong>LVM</strong>은 Linux Volume Manager의 약어로, Linux에서 복잡한 스토리지 구성을 효율적으로 관리하기 위한 시스템이다. 물리적 디스크를 하나의 논리적 볼륨으로 결합할 수 있고, 볼륨의 크기를 쉽게 조정 가능하다.</p>
+<br>
+<br>
+<h2 id="2-lvm의-구성">2. LVM의 구성</h2>
+<hr>
 <ul>
 <li><strong>PV</strong>
 <ul>
@@ -191,7 +172,39 @@
 </ul>
 </li>
 </ul>
-<h2 id="reference">Reference</h2>
+<br>
+<br>
+<h2 id="3-기존방식-vs-lvm">3. 기존방식 vs LVM</h2>
+<hr>
+<h3 id="3-1-기존-방식">3-1. 기존 방식</h3>
+<ul>
+<li>File system이 물리적 블록장치와 직접 상호작용</li>
+<li>마운트된 파티션의 용량이 가득 차 이동 시
+<ul>
+<li>추가 디스크 장착</li>
+<li>추가된 디스크에 파티션 생성 및 포맷</li>
+<li>새로운 마운트 포인트(b)를 만들고 추가한 파티션 마운트</li>
+<li>기존 데이터를 (b)에 이동</li>
+<li>기존 파티션 언마운트 후 새 포인트와 연결</li>
+</ul>
+</li>
+</ul>
+<br>
+<h3 id="3-2-lvm-방식">3-2. LVM 방식</h3>
+<ul>
+<li>File system이 LVM이 만든 가상의 블록 장치에 상호작용함</li>
+<li>실제 블록 장치를 추상화하여 더 유연한 접근이 가능함</li>
+<li>마운트된 파티션의 용량이 가득 차 이동 시
+<ul>
+<li>추가 디스크 장착</li>
+<li>추가 디스크에 Partition을 만들고 pv 초기화</li>
+<li>pv를 vg에 추가하고 해당 논리 볼륨 사이즈 증가</li>
+</ul>
+</li>
+</ul>
+<br>
+<br>
+<h2 id="4-reference">4. Reference</h2>
 <ul>
 <li><a href="https://tech.cloud.nongshim.co.kr/2018/11/23/lvmlogical-volume-manager-1-%EA%B0%9C%EB%85%90/">https://tech.cloud.nongshim.co.kr/2018/11/23/lvmlogical-volume-manager-1-%EA%B0%9C%EB%85%90/</a></li>
 <li><a href="https://nayoungs.tistory.com/entry/Linux-LVMLogical-Volume-Manage-PV-VG-LV">https://nayoungs.tistory.com/entry/Linux-LVMLogical-Volume-Manage-PV-VG-LV</a></li>

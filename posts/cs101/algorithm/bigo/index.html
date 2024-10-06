@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 <head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '$', right: '$', display: false}
+            ]
+        });"></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="/css/reset.css">
@@ -74,7 +84,11 @@
   <aside class="toc">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-알고리즘-분석">1. 알고리즘 분석</a></li>
+    <li><a href="#1-알고리즘-분석">1. 알고리즘 분석</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
     <li><a href="#2-복잡도">2. 복잡도</a>
       <ul>
         <li></li>
@@ -84,24 +98,14 @@
       <ul>
         <li></li>
         <li><a href="#3-1-big-o">3-1. Big-O</a></li>
-        <li><a href="#2-tn--ogn의-의미">2. T(n) = O(g(n))의 의미</a></li>
-        <li><a href="#3-공식-설명-tn--ogn의-조건">3. 공식 설명: T(n) = O(g(n))의 조건</a></li>
-        <li><a href="#4-예시로-설명">4. 예시로 설명</a></li>
-        <li><a href="#요약">요약:</a></li>
-        <li><a href="#2-1-big-o-표기법">2-1. Big-O 표기법</a></li>
-        <li><a href="#2-3-">2-3. &raquo;&gt;</a></li>
+        <li><a href="#3-2-big-omega-ω">3-2. Big-Omega (Ω)</a></li>
+        <li><a href="#3-2-big-theta-θ">3-2. Big-Theta (Θ)</a></li>
+        <li><a href="#3-4-다양한-예시">3-4. 다양한 예시</a></li>
+        <li><a href="#함수식을-통한-tn--θn의-증명-예시">함수식을 통한 T(n) = Θ(n²)의 증명 예시</a></li>
       </ul>
     </li>
-    <li><a href="#1-big-o-소개">1. Big O 소개</a></li>
-    <li><a href="#1-big-o">1. Big-O</a></li>
-    <li><a href="#5-reference">5. Reference</a>
-      <ul>
-        <li><a href="#점근적-접근-방법">점근적 접근 방법</a></li>
-        <li><a href="#tn과-gn의-관계">T(n)과 g(n)의 관계</a></li>
-        <li><a href="#big-o-세타θ-오메가ω의-관계에서-tn과-gn">Big-O, 세타(Θ), 오메가(Ω)의 관계에서 T(n)과 g(n)</a></li>
-        <li><a href="#요약-1">요약</a></li>
-      </ul>
-    </li>
+    <li><a href="#4-재귀적-분석">4. 재귀적 분석</a></li>
+    <li><a href="#5-reference">5. Reference</a></li>
   </ul>
 </nav>
   </aside>
@@ -144,12 +148,13 @@
 <br>
 <h2 id="1-알고리즘-분석">1. 알고리즘 분석</h2>
 <hr>
-<p>어떤 알고리즘이 있을 때, 어떻게 분석하는게 좋을까? 우리는 <strong>구현 / 정확성 / 효율성</strong>세 가지 핵심 요소를 통해 대상 알고리즘을 효과적으로 분석할 수 있다.</p>
-<ul>
-<li><strong>구현</strong>은 알고리즘이 어떻게 구조화되고 작성되었는지를 의미하며, 코드 레벨에서의 설계와 구현 방식에 대한 부분이다.</li>
-<li><strong>정확성</strong>은 알고리즘이 기대한 대로 정확하게 동작하는지 평가하는 요소로, 원하는 결과를 항상 도출해낼 수 있는지 증명하는 것이다. 알고리즘의 정확한 작동을 담보하기 위해서는 적절한 증명이</li>
-<li><strong>효율성</strong>은 알고리즘이 얼마나 빠르게 동작하는지를 나타내며, 이는 시간과 자원의 소비를 분석하는 중요한 지표이다.</li>
-</ul>
+<p>어떤 알고리즘이 있을 때, 우리는 이 알고리즘을 어떻게 분석하는게 좋을까? 바로 <strong>구현 / 정확성 / 효율성</strong> 세 가지 핵심 요소를 통해 대상 알고리즘을 효과적으로 분석할 수 있다.</p>
+<h4 id="구현">구현</h4>
+<p>구현은 알고리즘이 어떻게 구조화되고 작성되었는지를 의미하며, 코드 레벨에서의 설계와 구현 방식에 대한 부분이다.</p>
+<h4 id="정확성">정확성</h4>
+<p>정확성은 알고리즘이 기대한 대로 정확하게 동작하는지 평가하는 요소로, 원하는 결과를 항상 도출해낼 수 있는지 증명하는 것이다.</p>
+<h4 id="효율성">효율성</h4>
+<p>효율성은 알고리즘이 얼마나 빠르게 동작하는지를 나타내며, 이는 시간과 자원의 소비를 분석하는 중요한 지표이다.</p>
 <br>
 <br>
 <h2 id="2-복잡도">2. 복잡도</h2>
@@ -160,7 +165,7 @@
 <h4 id="공간-복잡도space-complexity">공간 복잡도(Space Complexity)</h4>
 <p>공간 복잡도는 <strong>알고리즘이 사용하는 메모리의 양</strong>이 입력 크기 n에 따라 어떻게 변하는지를 나타낸다. 입력 크기가 커질수록 알고리즘이 얼마나 많은 메모리를 차지하는지를 분석한다.</p>
 <h4 id="복잡도-고려">복잡도 고려</h4>
-<p>시간 복잡도와 공간 복잡도는 모두 중요한 요소지만, 현대 컴퓨터 기술의 발전으로 <strong>공간 복잡도</strong>는 메모리 용량의 증가로 인해 비교적 덜 신경 쓸 수 있게 되었다. 반면, <strong>시간 복잡도</strong>는 여전히 알고리즘 효율성의 핵심 관심사이다. 시간 복잡도를 평가할 때, 세 가지 주요 경우를 고려해야 한다:</p>
+<p>시간 복잡도와 공간 복잡도는 모두 중요한 요소지만, 현대 컴퓨터 기술의 발전으로 <strong>공간 복잡도</strong>는 메모리 용량의 증가로 인해 비교적 아주 살짝 덜 신경 쓸 수 있게 되었다. 내가 중점적으로 볼 것은 바로 <strong>시간 복잡도</strong>이다. 이는 여전히 알고리즘 효율성의 핵심 관심사이며, 시간 복잡도를 평가할 떄는 세 가지 주요 경우를 고려해야 한다:</p>
 <ul>
 <li><strong>Best Case</strong>
 <ul>
@@ -183,143 +188,154 @@
 <br>
 <h2 id="3-점근적-접근-방법">3. 점근적 접근 방법</h2>
 <hr>
-<p><strong>점근적 접근 방법</strong>(asymptotic analysis)은 알고리즘의 성능을 입력 크기 <code>n</code>이 <strong>매우 커질 때</strong>(즉, 무한에 가까울 때) 어떻게 변하는지를 분석하는 방법이다. 이는 작은 입력 크기에서 발생하는 미세한 차이들을 무시하고, 하드웨어, 언어 등의 특정 요인에서 벗어나 추상화하는 과정을 통해 알고리즘이 <strong>입력 크기가 커짐에 따라 성능이 어떻게 변화하는지</strong>에 집중한다. 점근적 분석을 통해 상수 시간이나 작은 차이를 배제하고, 입력 크기와 관련된 <strong>성능 경향</strong>을 평가할 수 있다! 물론 <code>n</code>이 큰 경우에만 의미가 있는 한계가 있다.</p>
-<br>
-<h4 id="tn-gn">T(n), g(n)</h4>
-<p>점근적 분석에서 알고리즘의 성능을 표현할 때는 두 함수 <code>T(n)</code>과 <code>g(n)</code>의 관계를 사용한다.</p>
-<ul>
-<li>
-<p><strong>T(n)</strong>: 입력 크기 <code>n</code>에 따라 알고리즘이 실행되는 <strong>실제 시간</strong> 또는 <strong>실제 자원 사용량</strong>을 나타내는 함수다. 이것은 알고리즘의 성능을 측정하는 실제 실행 시간이나 메모리 사용량일 수 있다.</p>
-</li>
-<li>
-<p><strong>g(n)</strong>: 알고리즘의 성능을 설명하기 위해 사용하는 <strong>비교 함수</strong>이다. 일반적으로는 알고리즘의 시간 복잡도 또는 공간 복잡도를 설명하기 위한 기준 함수로 사용되며, 이는 다양한 수학적 함수(<code>n</code>, <code>n^2</code>. <code>log n</code> 등)로 표현 가능하다.</p>
-</li>
-</ul>
-<p>우리는 이제 시간 복잡도에 집중해서, 알고리즘의 효율성을 표현하는 몇가지 기법을 알아보고자 한다.</p>
+<p><strong>점근적 접근 방법</strong>(asymptotic analysis)은 알고리즘의 성능이 입력 크기 <code>n</code>이 <strong>매우 커질 때</strong>(즉, 무한에 가까울 때) 어떻게 변하는지를 분석하는 방법이다. 이는 작은 입력 크기에서 발생하는 미세한 차이들을 무시하고, 하드웨어, 언어 등의 특정 요인에서 벗어나 추상화하는 과정을 통해 알고리즘이 <strong>입력 크기가 커짐에 따라 성능이 어떻게 변화하는지</strong>에 집중한다. 점근적 분석을 통해 상수 시간이나 작은 차이를 배제하고, 입력 크기와 관련된 <strong>성능 경향</strong>을 평가할 수 있다! 물론 <code>n</code>이 큰 경우에만 의미가 있는 한계가 있다.</p>
+<h4 id="tn과-gn">T(n)과 g(n)</h4>
+<p>앞으로 점근적 분석에서 알고리즘의 성능을 표현할 때는 두 함수 <code>T(n)</code>과 <code>g(n)</code>의 관계를 사용하겠다!</p>
+<p><code>T(n)</code> 은 입력 크기 <code>n</code>에 따라 알고리즘이 실행되는 <strong>실제 시간</strong> 또는 <strong>실제 자원 사용량</strong>을 나타내는 함수다. 이것은 알고리즘의 성능을 측정하는 실제 실행 시간이나 메모리 사용량일 수 있다.</p>
+<p><code>g(n)</code> 은 알고리즘의 성능을 설명하기 위해 사용하는 <strong>비교 함수</strong>이다. 일반적으로는 알고리즘의 시간 복잡도 또는 공간 복잡도를 설명하기 위한 기준 함수로 사용되며, 이는 다양한 수학적 함수(<code>n</code>, <code>n^2</code>. <code>log n</code> 등)로 표현 가능하다.</p>
+<p>그렇다면 이제 시간 복잡도에 집중해서, <strong>알고리즘의 효율성을 표현하는 몇가지 기법</strong>을 알아보자.</p>
 <br>
 <h3 id="3-1-big-o">3-1. Big-O</h3>
-<img src="https://i.imgur.com/vcvF4yg.png" width="700">
+<img src="https://i.imgur.com/WcqkFTe.png" width="700">
 <p><em><code>T(n)</code>, <code>g(n)</code>을 양의 정수 함수라고 하면, 우리는 <code>T(n)</code> 을 런타임이라고 생각할 수 있다.</em></p>
-<h3 id="2-tn--ogn의-의미">2. T(n) = O(g(n))의 의미</h3>
-<p>T(n) = O(g(n))라는 표기는 **T(n)**이 **g(n)**보다 <strong>느리게 증가하거나, 최소한 같게 증가한다</strong>는 것을 의미한다. 즉, 입력 크기 <code>n</code>이 커질 때, 알고리즘의 실행 시간이 <code>g(n)</code> 이라는 기준에 비해 <strong>더 느리게</strong> 늘어나거나 <strong>동일한 비율로</strong> 늘어나는 경우를 나타낸다.</p>
-<h3 id="3-공식-설명-tn--ogn의-조건">3. 공식 설명: T(n) = O(g(n))의 조건</h3>
-<p>T(n) = O(g(n))라고 하기 위해서는 다음 조건을 만족해야 한다:</p>
-<ul>
-<li>
-<p>특정 상수 <strong>c</strong>와 <strong>n0</strong>가 존재해야 한다.</p>
-<ul>
-<li>여기서 <strong>c</strong>는 T(n)이 g(n)보다 얼마나 느리게 증가할 수 있는지를 나타내는 상수이다.</li>
-<li><strong>n0</strong>는 특정 <strong>최소 입력 크기</strong>로, 이 크기부터 조건을 만족하는 것이다.</li>
-</ul>
-</li>
-<li>
-<p>( n \geq n0 )인 모든 ( n )에 대해 **T(n) \leq c \cdot g(n)**을 만족해야 한다. 즉, ( n0 ) 이상의 모든 입력 크기에서 **T(n)**이 **g(n)**보다 더 빠르게 증가하지 않는 경우를 나타낸다.</p>
-</li>
-</ul>
-<h3 id="4-예시로-설명">4. 예시로 설명</h3>
-<p>예를 들어, ( T(n) = 3n + 2 )라는 알고리즘이 있다고 하자. 이 알고리즘이 **O(n)**인지 판단하려면, <strong>g(n) = n</strong>일 때 ( T(n) )이 ( n )보다 느리게 증가하는지 살펴봐야 한다.</p>
-<ul>
-<li>상수 <strong>c</strong>를 4로, <strong>n0</strong>를 1로 설정하면, 모든 ( n \geq 1 )에 대해 ( 3n + 2 \leq 4n )이 성립한다.</li>
-<li>이 경우, ( T(n) )은 ( n )보다 느리게 증가하므로 ( T(n) = O(n) )이다.</li>
-</ul>
-<h3 id="요약">요약:</h3>
-<ul>
-<li>**T(n)**은 알고리즘의 실행 시간을 나타내고, **g(n)**은 이를 비교하는 기준이다.</li>
-<li>**T(n) = O(g(n))**은 T(n)이 g(n)보다 느리게 또는 같은 속도로 증가하는 경우를 의미한다.</li>
-<li>특정 상수 <strong>c</strong>와 <strong>n0</strong>가 존재하여, **T(n)**이 ( c \cdot g(n) )보다 커지지 않으면 **T(n)**은 **O(g(n))**이라고 표현할 수 있다.</li>
-</ul>
-<br>
-<h3 id="2-1-big-o-표기법">2-1. Big-O 표기법</h3>
-<h3 id="2-3-">2-3. &raquo;&gt;</h3>
-<p>T(n): 입력 크기 n에 따른 알고리즘의 실행 시간<br>
-g(n): 비교를 위한 기준 함수</p>
-<p>우리가 **T(n)은 O(g(n))**이라고 할 때, 이 말의 의미는 n이 증가할수록 **g(n)**이 최소한 **T(n)**만큼은 빠르게 증가한다는 뜻이다. 다시 말해, **T(n)**은 **g(n)**보다 느리게 증가한다는 의미이다. 이때 중요한 것은 **T(n)**이 항상 <strong>c \cdot g(n)</strong> (c는 상수)을 넘지 않는다는 점이다. 이 의미는 결국, **T(n)**이 **g(n)**보다 더 빨리 커지지 않으며, 두 함수의 관계가 **g(n)**이 더 크거나 같게 유지된다는 뜻이다.</p>
-<h2 id="1-big-o-소개">1. Big O 소개</h2>
-<hr>
-<blockquote>
-<p><strong>Big O 표기법의 형태</strong></p>
-<ul>
-<li>O(1): 상수 시간, 입력 크기에 상관없이 항상 같은 시간이 걸린다.</li>
-<li>O(n): 입력 크기에 비례해서 시간이 걸린다.</li>
-<li>O(log n): 입력 크기가 증가할 때 실행 시간이 천천히 증가한다. 예를 들어, 이진 탐색 알고리즘이 이에 해당된다.</li>
-<li>O(n^2): 이중 반복문처럼, 입력 크기가 증가하면 실행 시간이 제곱으로 증가한다.</li>
-</ul>
-</blockquote>
-<p>빅오표기법(Big-O)은 알고리즘이 실행되는 시간이나 메모리 사용량이 입력 크기(데이터의 양)에 따라 어떻게 변하는지 표현하는 방법이다. 주로 시간 복잡도와 공간 복잡도를 측정하는데 사용된다.</p>
-<p><strong>시간 복잡도</strong> 는 입력 크기가 커질 때 알고리즘이 얼마나 오래 걸리는지를 나타낸다. 예를 들어, 배열에서 특정 값을 찾는 알고리즘이 있다고 하자. 이때, 배열에 있는 모든 요소를 하나씩 비교해야 한다면, 배열의 크기가 클수록 시간이 더 오래 걸리게 된다. 이런 경우 시간 복잡도는 O(n)이다. 여기서 n은 배열의 크기다. 즉, 입력 크기 n에 비례해서 시간이 증가한다는 의미다.</p>
-<p><strong>공간 복잡도</strong>는 알고리즘이 실행될 때 필요한 메모리 공간이 입력 크기에 따라 어떻게 변하는지 나타낸다. 예를 들어, 배열을 복사하는 알고리즘은 원본 배열과 같은 크기의 메모리가 추가로 필요하므로 공간 복잡도는 O(n)이다. 하지만 단순히 변수 하나만 사용한다면 O(1)로, 입력 크기와 무관하게 일정한 메모리만 필요하다는 의미다.</p>
-<p>시간 복잡도와 공간 복잡도를 함께 고려하는 이유는 효율적인 알고리즘을 찾기 위해서다. 알고리즘이 빠르게 실행되더라도 너무 많은 메모리를 사용하면 비효율적일 수 있고, 메모리를 적게 사용하더라도 너무 느리면 실용적이지 않기 때문이다. 빅오표기법에서 중요한 것은 정확한 실행 시간이 아니라, 입력 크기에 따라 어떻게 변화하는지의 경향이다. 즉, O(n), O(n^2), O(log n) 같은 표현으로 <em>&ldquo;시간이 얼마나 급격히 늘어나는가&rdquo;</em> 를 나타낸다.</p>
-<br>
-<br>
-<h2 id="1-big-o">1. Big-O</h2>
-<p>T(n) : n에 따른 내가 만든 알고리즘의 실행시간
-g(n) : 참조를 위한 함수</p>
-<p>이때 우리가 T(n)은 O(g(n)) 이라고 할때 이것의 뜻은 곧
-n이 증가할때, g(n)이 최소한 T(n) 만큼은 빠르게 증가하는 경우, 곧 T(n)이 g(n)보다는 느리게 증가한다. 말이 좀 어려운데 결국</p>
-<h2 id="5-reference">5. Reference</h2>
-<hr>
-<ul>
-<li><a href="https://www.geeksforgeeks.org/insertion-sort-algorithm/">https://www.geeksforgeeks.org/insertion-sort-algorithm/</a></li>
-</ul>
-<br>
-<br>
-<h3 id="점근적-접근-방법">점근적 접근 방법</h3>
-<p><strong>점근적 접근 방법</strong>(asymptotic analysis)은 알고리즘의 성능을 입력 크기 ( n )이 <strong>매우 커질 때</strong>(즉, 무한에 가까울 때) 어떻게 변하는지를 분석하는 방법입니다. 이는 작은 입력 크기에서 발생하는 미세한 차이들을 무시하고, 알고리즘이 <strong>입력 크기가 커짐에 따라 성능이 어떻게 변화하는지</strong>에 집중하는 방식입니다. 점근적 분석을 통해 상수 시간이나 작은 차이를 배제하고, 입력 크기와 관련된 <strong>성능 경향</strong>을 평가할 수 있습니다.</p>
-<p>점근적 접근 방법의 목적은 알고리즘이 큰 입력 데이터에서도 성능을 유지할 수 있는지 확인하고, 다양한 알고리즘 간의 효율성을 공정하게 비교하는 데 있습니다.</p>
-<h3 id="tn과-gn의-관계">T(n)과 g(n)의 관계</h3>
-<p>점근적 분석에서 알고리즘의 성능을 표현할 때는 두 함수 ( T(n) )과 ( g(n) )의 관계를 사용합니다.</p>
-<ul>
-<li>
-<p><strong>T(n)</strong>: 입력 크기 ( n )에 따라 알고리즘이 실행되는 <strong>실제 시간</strong> 또는 <strong>실제 자원 사용량</strong>을 나타내는 함수입니다. 이것은 알고리즘의 성능을 측정하는 실제 실행 시간이나 메모리 사용량일 수 있습니다.</p>
-</li>
-<li>
-<p><strong>g(n)</strong>: 알고리즘의 성능을 설명하기 위해 사용하는 <strong>비교 함수</strong>입니다. 일반적으로는 알고리즘의 시간 복잡도 또는 공간 복잡도를 설명하기 위한 기준 함수로 사용되며, 이는 다양한 수학적 함수(예: ( n ), ( n^2 ), ( \log n ))로 표현됩니다.</p>
-</li>
-</ul>
-<h3 id="big-o-세타θ-오메가ω의-관계에서-tn과-gn">Big-O, 세타(Θ), 오메가(Ω)의 관계에서 T(n)과 g(n)</h3>
+<p><strong>Big-O 표기법</strong> 은 알고리즘의 실행 시간이 입력 크기에 따라 어떻게 변하는지를 나타내는 방법이다. 쉽게 말해, <strong>알고리즘의 효율성</strong> 을 평가하는 도구이다. 이를 통해 우리는 입력 데이터가 많아질 때 알고리즘이 얼마나 더 느려지거나, 메모리를 얼마나 많이 사용하는지 알 수 있다. Big-O 표기법에서 중요한 것은 정확한 실행 시간을 측정하는 것이 아니라, 입력 크기가 커짐에 따라 시간이 어떻게 변하는지를 보는 것이다. 예를 들어, O(n), O(n²), O(log n) 같은 표현을 통해 시간이 얼마나 급격히 늘어나는지를 나타낸다.</p>
+<h4 id="tn--ogn">T(n) = O(g(n))</h4>
+<p>Big-O 표기법은 결국 <code>T(n)</code> 이 <code>g(n)</code> 보다 느리게 증가하거나, 최소한 같게 증가한다는 것을 의미한다. 이때 <code>T(n) = O(g(n))</code>은 <code>T(n)</code> 이 <code>g(n)</code> 보다 더 느리게 증가하거나, 최소한 동일한 비율로 증가한다는 의미이다. 즉, 입력 크기 <strong>n</strong> 이 커질 때, <code>T(n)</code>이 <code>g(n)</code>보다 더 빨리 커지지 않는다는 뜻이다. <code>g(n)</code>은 <code>T(n)</code>의 상한선인 셈이다. Big-O는 최악의 경우에 <code>T(n)</code>이 <code>g(n)</code>보다 더 빨리 증가하지 않는다는 것을 명시한다!!!</p>
+<p><code>T(n) = O(g(n))</code> 라고 하기 위해서는 다음 조건을 만족해야 한다:</p>
 <ol>
-<li>
-<p><strong>Big-O (O)</strong>:</p>
-<ul>
-<li>( T(n) = O(g(n)) )는 **T(n)**이 입력 크기 ( n )이 커질 때 **g(n)**의 상한선 내에 있음을 의미합니다.</li>
-<li>즉, **T(n)**이 **g(n)**보다 <strong>느리게 증가</strong>하거나 <strong>동일한 속도로 증가</strong>한다는 뜻입니다. 이는 최악의 경우 성능을 나타냅니다.</li>
-</ul>
-<p>[
-T(n) \leq c \cdot g(n) \quad \text{(for sufficiently large ( n ))}
-]
-여기서 ( c )는 상수입니다.</p>
-</li>
-<li>
-<p><strong>세타 (Θ)</strong>:</p>
-<ul>
-<li>( T(n) = \Theta(g(n)) )는 **T(n)**이 **g(n)**과 정확히 같은 비율로 증가한다는 의미입니다.</li>
-<li>상한선과 하한선이 동일할 때, 즉 **T(n)**이 **g(n)**과 정확히 일치하는 속도로 증가하는 경우를 나타냅니다.</li>
-</ul>
-<p>[
-c_1 \cdot g(n) \leq T(n) \leq c_2 \cdot g(n) \quad \text{(for sufficiently large ( n ))}
-]
-여기서 ( c_1 )과 ( c_2 )는 상수입니다.</p>
-</li>
-<li>
-<p><strong>오메가 (Ω)</strong>:</p>
-<ul>
-<li>( T(n) = \Omega(g(n)) )는 **T(n)**이 입력 크기 ( n )이 커질 때 **g(n)**의 하한선 내에 있음을 의미합니다.</li>
-<li>즉, **T(n)**이 **g(n)**보다 <strong>빠르게 증가</strong>하거나 <strong>동일한 속도로 증가</strong>한다는 뜻입니다. 이는 최선의 경우 성능을 나타냅니다.</li>
-</ul>
-<p>[
-T(n) \geq c \cdot g(n) \quad \text{(for sufficiently large ( n ))}
-]</p>
-</li>
+<li>상수 <strong>c</strong> 와 <strong>nₒ</strong>가 존재해야 한다. 여기서 <strong>c</strong> 는 <code>T(n)</code> 이 <code>g(n)</code> 보다 얼마나 느리게 증가할 수 있는지를 나타내는 상수이다. <strong>nₒ</strong> 는 특정 최소 입력 크기이다.</li>
+<li><strong>모든 n ≥ nₒ</strong> 에 대해 <code>T(n) ≤ c * g(n)</code> 을 만족해야 한다. 즉, <strong>nₒ</strong> 이상의 입력 크기에서는 <code>T(n)</code>이 <code>g(n)</code>보다 더 빠르게 증가하지 않아야 한다.</li>
 </ol>
-<h3 id="요약-1">요약</h3>
-<p>점근적 접근 방법은 알고리즘이 입력 크기 ( n )이 커질 때 어떻게 성능이 변하는지를 분석하는 방법입니다. 이를 통해 우리는 알고리즘의 효율성을 Big-O, 세타(Θ), 오메가(Ω) 표기법을 사용하여 상한선, 하한선, 그리고 평균 성능에 대해 설명할 수 있습니다. 이때 **T(n)**과 **g(n)**의 관계를 이용해 알고리즘이 얼마나 빠르게 또는 느리게 성능이 변하는지를 나타냅니다.</p>
+<h4 id="big-o-표기법의-형태"><strong>Big-O 표기법의 형태</strong></h4>
 <ul>
-<li><strong>Big-O</strong>는 상한선으로 최악의 경우를 평가하고,</li>
-<li>**세타(Θ)**는 평균적인 성능을 나타내며,</li>
-<li>**오메가(Ω)**는 하한선으로 최선의 경우 성능을 평가합니다.</li>
+<li><code>O(1)</code> : 상수 시간이다. 입력 크기가 얼마든지 상관없이, 항상 같은 시간이 걸린다. 예를 들어, 배열에서 첫 번째 요소를 찾는 연산은 입력 크기와 관계없이 한 번에 끝난다.</li>
+<li><code>O(n)</code> : 입력 크기만큼 시간이 걸린다. 예를 들어, 배열 안에서 특정 값을 찾기 위해 처음부터 끝까지 하나씩 비교하는 경우, 배열이 길어질수록 시간이 더 오래 걸린다.</li>
+<li><code>O(log n)</code> : 입력 크기가 커질수록 실행 시간이 천천히 증가한다. 예를 들어, <strong>이진 탐색</strong> 알고리즘이 이에 해당한다. 데이터가 두 배로 늘어나도, 탐색 횟수는 조금밖에 늘어나지 않는다.</li>
+<li><code>O(n²)</code>: 이중 반복문처럼 입력 크기가 커지면 실행 시간이 제곱으로 증가한다. 예를 들어, 배열 안의 모든 쌍을 비교하는 알고리즘이 이에 속한다.</li>
 </ul>
-<p>이를 통해 다양한 알고리즘의 성능을 공정하고 일관된 방식으로 비교할 수 있습니다.</p>
-<p>빅세타 - <a href="https://i.imgur.com/WcqkFTe.png">https://i.imgur.com/WcqkFTe.png</a></p>
+<h4 id="big-o-표기법-예시">Big-O 표기법 예시</h4>
+<p>예를 들어, <code>T(n) = 3n + 2</code>라는 알고리즘을 생각해보자. 이 알고리즘이 <code>O(n)</code> 인지 확인해보자. 우선, <code>g(n) = n</code> 으로 두고 <code>T(n) = 3n + 2</code> 가 <strong>n</strong> 보다 더 느리게 증가하는지 살펴보자.</p>
+<ul>
+<li>상수 <strong>c</strong> 를 4로, <code>nₒ</code> 를 1로 설정하면, 모든 <code>n ≥ 1</code> 에서 <code>3n + 2 ≤ 4n</code> 이 성립한다.</li>
+<li>따라서 <code>T(n)</code> 은 <strong>n</strong> 보다 느리게 증가하므로 <code>T(n) = O(n)</code> 이라고 할 수 있다.</li>
+</ul>
+<p>결국, Big-O 표기법은 <strong>알고리즘이 특정 기준보다 빠르게 증가하지 않는다</strong> 는 것을 표현하는 방법이다.</p>
+<br>
+<br>
+<h3 id="3-2-big-omega-ω">3-2. Big-Omega (Ω)</h3>
+<img src="https://i.imgur.com/vcvF4yg.png" width="700">
+<p>알고리즘의 성능을 평가할 때, <strong>Big-Omega (Ω)</strong> 표기법은 <strong>하한선</strong> 을 나타내는 표기법이다. 즉, <strong>최소한 이 정도는 걸린다</strong>는 것을 보장해 주는 도구이다. <strong>Big-O</strong>가 알고리즘의 실행 시간이 최대 얼마나 걸리는지를 나타낸다면, <strong>Big-Omega</strong>는 최소 얼마나 걸리는지를 표현한다. 이는 주로 알고리즘의 <strong>최적의 경우</strong> 성능을 평가할 때 사용된다.</p>
+<h4 id="tn--ωgn">T(n) = Ω(g(n))</h4>
+<p><code>T(n)</code> 을 알고리즘의 시간 복잡도라고 할 때, <code>T(n) = Ω(g(n))</code> 는 <code>T(n)</code> 이 <code>g(n)</code> 보다 더 느리게 증가할 수 없다는 것을 의미한다. 즉, 입력 크기 <strong>n</strong> 이 커질 때, <code>T(n)</code> 이 <code>g(n)</code> 보다 더 작거나 같은 비율로 증가한다는 뜻이다. <strong>Big-Omega</strong> 표기법을 적용하기 위해서는 다음 조건을 만족해야 한다:</p>
+<ol>
+<li>상수 <strong>c</strong> 와 <code>nₒ</code> 가 존재해야 한다. 여기서 <strong>c</strong> 는 <code>T(n)</code> 이 <code>g(n)</code> 보다 얼마나 빠르게 증가할 수 있는지를 나타내는 상수이다. <code>nₒ</code> 는 특정 최소 입력 크기이다.</li>
+<li>모든 <code>n ≥ nₒ</code> 에 대해 <code>T(n) ≥ c * g(n)</code> 을 만족해야 한다. 즉, <code>T(n)</code> 은 <code>g(n)</code> 보다 더 느리게 증가할 수 없다는 뜻이다.</li>
+</ol>
+<h4 id="big-omega-표기법의-의미">Big-Omega 표기법의 의미</h4>
+<p><strong>Big-Omega</strong> 는 알고리즘의 <strong>최소 성능</strong> 을 보장하므로, <strong>최적의 경우</strong> 에 알고리즘이 얼마나 빠르게 동작할 수 있는지를 나타낸다. 이를 통해 우리는 최선의 상황에서 알고리즘이 얼마나 성능을 발휘할 수 있는지 알 수 있다.</p>
+<h4 id="big-omega-표기법-예시">Big-Omega 표기법 예시</h4>
+<p>예를 들어, 알고리즘의 시간 복잡도가 <code>T(n) = 3n + 2</code> 라고 하자. 이 알고리즘이 <code>Ω(n)</code> 에 속하는지 확인해보자. 여기서 <code>g(n) = n</code> 으로 두고 <code>T(n) ≥ c * g(n)</code> 을 만족하는 상수 <strong>c</strong> 와 <code>nₒ</code> 를 찾아보자.</p>
+<ul>
+<li>상수 <strong>c</strong> 를 2로, <code>nₒ</code> 을 1로 설정하면, 모든 <code>n ≥ 1</code> 에서 <code>3n + 2 ≥ 2n</code> 이 성립한다.</li>
+<li>따라서 <code>T(n) = Ω(n)</code> 이라고 할 수 있다.</li>
+</ul>
+<p>이처럼, <strong>Big-Omega</strong> 는 <code>T(n)</code> 이 <code>g(n)</code> 보다 더 느리게 증가할 수 없다는 것을 나타내므로, 알고리즘의 최소 성능을 평가할 때 매우 유용하다. 즉, Big-Omega 표기법은 <strong>알고리즘의 성능이 이 정도 이상으로는 반드시 나온다</strong> 는 보장을 제공하는 중요한 도구이다.</p>
+<br>
+<br>
+<h3 id="3-2-big-theta-θ">3-2. Big-Theta (Θ)</h3>
+<img src="https://i.imgur.com/mLFzEoO.png" width="700">
+<p>알고리즘의 성능을 나타내는 또 다른 중요한 표기법은 <strong>Big-Theta (Θ)</strong> 표기법이다. <strong>Big-O</strong> 표기법이 성능의 상한, <strong>Big-Omega (Ω)</strong> 하한을 나타낸다면, <strong>Big-Theta</strong> 는 알고리즘의 성능이 상한과 하한 모두에서 특정 함수와 같은 비율로 성장함을 나타낸다. 즉, 알고리즘이 입력 크기가 커짐에 따라 <strong>정확하게</strong> 어느 정도의 시간이 걸리는지를 나타내는 더 엄밀한 평가 기준이다.</p>
+<h4 id="tn--θgn">T(n) = Θ(g(n))</h4>
+<p><code>T(n)</code>을 알고리즘의 시간 복잡도라고 할 때, <code>T(n) = Θ(g(n))</code> 는 <code>T(n)</code>이 <code>g(n)</code>과 같은 비율로 증가한다는 의미이다. 즉, 입력 크기 <strong>n</strong> 이 커질수록 <code>T(n)</code>이 <code>g(n)</code>보다 더 빠르게 증가하지 않으면서 동시에 더 느리게 증가하지 않는다는 뜻이다. <strong>Big-Theta</strong> 표기법을 적용하기 위해서는 다음 두 가지 조건을 만족해야 한다:</p>
+<ol>
+<li>상수 <strong>c1, c2</strong> 와 <code>nₒ</code> 가 존재해야 한다. 여기서 <strong>c1</strong> 과 <strong>c2</strong> 는 <code>T(n)</code>이 <code>g(n)</code>보다 얼마나 빠르게 또는 느리게 증가할 수 있는지를 나타내는 상수이다. <code>nₒ</code> 는 특정 최소 입력 크기이다.</li>
+<li>모든 <code>n ≥ nₒ</code> 에 대해 <code>c1 * g(n) ≤ T(n) ≤ c2 * g(n)</code> 을 만족해야 한다. 즉, 입력 크기 <code>nₒ</code> 이상의 모든 입력에서 <code>T(n)</code>은 <code>g(n)</code>과 동일한 비율로 증가해야 한다.</li>
+</ol>
+<h4 id="big-theta-표기법의-의미"><strong>Big-Theta 표기법의 의미</strong></h4>
+<p><strong>Big-Theta</strong> 는 상한선과 하한선을 모두 포함하므로, 알고리즘의 실제 성능을 <strong>정확하게 평가</strong> 하는 데 사용된다. <code>T(n)</code>이 <code>g(n)</code>과 비슷한 비율로 성장한다는 것을 보장하므로, 성능을 평가할 때 Big-Theta는 더 엄격하고 명확한 기준을 제공한다.</p>
+<h4 id="big-theta-표기법-예시">Big-Theta 표기법 예시</h4>
+<p>예를 들어, 알고리즘의 시간 복잡도가 <code>T(n) = 3n + 2</code> 라면, 이 알고리즘이 <code>Θ(n)</code> 에 속하는지 확인해보자. 여기서 <strong>g(n) = n</strong>으로 가정하고, 두 상수 <strong>c1</strong>과 <strong>c2</strong>를 찾아보자.</p>
+<ul>
+<li><strong>c1</strong>을 2로, <strong>c2</strong>를 4로 설정하고 <strong>nₒ</strong>을 1로 설정하면, 모든 <strong>n ≥ 1</strong>에서 <strong>2n ≤ 3n + 2 ≤ 4n</strong>이 성립한다.</li>
+<li>따라서 <strong>T(n) = Θ(n)</strong> 이라고 할 수 있다.</li>
+</ul>
+<p>이처럼, Big-Theta는 알고리즘이 <code>g(n)</code>과 같은 속도로 증가한다는 것을 나타낸다. <code>T(n)</code>이 <code>g(n)</code>과 정확히 같은 비율로 증가할 때 <strong>Big-Theta</strong> 표기법을 사용한다.</p>
+<br>
+<br>
+<h3 id="3-4-다양한-예시">3-4. 다양한 예시</h3>
+<h4 id="함수식을-통한-tn--on의-증명-예시">함수식을 통한 T(n) = O(n²)의 증명 예시</h4>
+<p><strong>01 : 문제</strong><br>
+$$
+\frac{3}{2}n^2 + \frac{5}{2}n - 3 \leq O(n^2)
+$$</p>
+<p>위 수식이 <code>T(n) = O(n²)</code> 인지 증명해보자. 결국 이 문제는 주어진 함수가 <code>n²</code> 보다 더 빠르게 증가하지 않는다는 것을 증명하는 과정이다. 따라서 우리는 상수 <strong>c</strong> 와 <code>nₒ</code>라는 상수를 찾아서 아래 부등식을 만족시키는 것이 목표이다.</p>
+<p>$$
+T(n) \leq c \cdot n^2 \quad \text{(for } n \geq n_0)
+$$</p>
+<p>이를 풀기 위해, 위처럼 우리는 주어진 함수 <code>T(n)</code> 의 각 항을 <code>n²</code>과 비교하면서 <strong>c</strong> 와 <code>nₒ</code>를 찾아야 한다. 주어진 함수는 총 세 개의 항으로 이루어져 있다:</p>
+<ol>
+<li><code>n²</code>항 : <code>n²</code> 의 형태로 되어 있으므로 그대로 유지한다.</li>
+<li><code>n</code>항 : 이 항은 <code>n²</code> 에 비해 작은 값이다. 이는 일정한 상수로 보정해야 한다.</li>
+<li><code>-3</code>항 : 상수항도 입력 크기와는 상관없이 고정된 값이므로 <code>n²</code> 에 비해 작은 값이다.</li>
+</ol>
+<br>
+<p><strong>02 : c, nₒ 찾기</strong></p>
+<p>$$
+\frac{3}{2}n^2 + \frac{5}{2}n - 3 \leq 2n^2
+$$</p>
+<p>상수 <strong>c</strong> 는 <code>n²</code>의 계수보다 크면서, <code>n</code>의 계수와 상수 <code>-3</code>을 포함할 수 있는 값이어야 한다. 예를 들어, <strong>c = 2</strong> 로 설정할 수 있다.</p>
+<p>이젠 부등식이 성립하는 최소 <code>nₒ</code>를 찾아야 한다. <code>n</code>이 충분히 크면 <code>n²</code>가 <code>n</code>부분과 상수보다 커지므로, <strong>nₒ = 1</strong> 로 설정할 수 있다.</p>
+<p>따라서, <strong>c = 2</strong>, <strong>nₒ = 1</strong> 일 때 아래 부등식이 성립한다.</p>
+<p>$$
+T(n) = \frac{3}{2}n^2 + \frac{5}{2}n - 3 \leq 2n^2 \quad \text{for } n \geq 1
+$$</p>
+<p>이로써 <code>T(n) = O(n²)</code>임을 증명할 수 있다.</p>
+<br>
+<br>
+<h3 id="함수식을-통한-tn--θn의-증명-예시">함수식을 통한 T(n) = Θ(n²)의 증명 예시</h3>
+<h4 id="01--문제">01 : 문제</h4>
+<p>$$
+\frac{1}{2}n^2 - 3n = \Theta(n^2)
+$$</p>
+<p>위 수식이 <code>T(n) = Θ(n²)</code> 인지 증명해보자! 이는 함수가 n² 과 정확히 같은 비율로 증가한다는 것을 보이는 문제이다. 우리는 상수 <strong>c₁</strong> , <strong>c₂</strong> 그리고 <code>nₒ</code>를 찾아서 아래 부등식이 성립하는지를 증명해야 한다.</p>
+<p>$$
+c_1 n^2 \leq \frac{1}{2}n^2 - 3n \leq c_2 n^2 \quad \text{(for } n \geq n_0)
+$$</p>
+<h4 id="02--big-o-증명">02 : Big-O 증명</h4>
+<p>우리는 함수의 상한선을 구하기 위해 <strong>c₂</strong>와 <code>nₒ</code>를 찾아야 한다. 우선, 주어진 함수 <code>T(n)</code>이 <code>n²</code>보다 더 빠르게 증가하지 않는지 확인해보자.</p>
+<ol>
+<li>주어진 함수에서 <code>n²</code>항과 <code>n</code>항을 살펴보면, 이미 <code>n²</code> 형태이므로 그대로 유지된다.</li>
+<li><code>-3n</code> 항은 <code>n²</code>에 비해 작은 항이므로 이를 상수 <strong>c₂</strong>로 보정할 수 있다.</li>
+</ol>
+<p>다음 부등식을 만족하는 <strong>c₂</strong>와 <code>nₒ</code>를 찾자.</p>
+<p>$$
+\frac{1}{2}n^2 - 3n \leq c_2 n^2
+$$</p>
+<p>여기서 $ c_2 = 1 $로 설정하면 다음 부등식이 성립한다:</p>
+<p>$$
+\frac{1}{2}n^2 - 3n \leq n^2
+$$</p>
+<p>이 부등식은 <strong>nₒ = 6</strong> 일 때 성립한다. <code>n &gt;= 6</code>에서는 <code>n²</code>항이 <code>-3n</code> 보다 커지므로, 상한을 만족한다. 따라서, <code>T(n) = O(n²)</code>임을 증명할 수 있다.</p>
+<h4 id="03--big-omega-증명">03 : Big-Omega 증명</h4>
+<p>이제 하한선을 구하기 위해 <strong>c₁</strong> 과 <code>nₒ</code>를 찾아보자.</p>
+<p>$$
+c_1 n^2 \leq \frac{1}{2}n^2 - 3n
+$$</p>
+<p>이 부등식이 성립하도록 <strong>c₁</strong> 을 구하면 된다. $c₁ = \frac{1}{3}$ 로 설정하면 다음 부등식이 성립한다:</p>
+<p>$$
+\frac{1}{3}n^2 \leq \frac{1}{2}n^2 - 3n
+$$</p>
+<p>이때도 $nₒ = 8$ 일 때 성립한다. $n \geq 8$ 에서 이 부등식이 만족된다. 따라서 $T(n) = \Omega(n^2)$ 임을 증명할 수 있다.</p>
+<h4 id="04--결론">04 : 결론</h4>
+<p>결국, 상수 $c_1 = \frac{1}{3}$, $c_2 = 1$, 그리고 $n_0 = 8$ 에서 다음 부등식이 성립한다.</p>
+<p>$$
+\frac{1}{3}n^2 \leq \frac{1}{2}n^2 - 3n \leq n^2 \quad \text{(for } n \geq 8)
+$$</p>
+<p>따라서, 주어진 함수는 $ \Theta(n^2) $임을 증명할 수 있다.</p>
+<h2 id="4-재귀적-분석">4. 재귀적 분석</h2>
+<br>
+<br>
+<h2 id="5-reference">5. Reference</h2>
 <ul>
 <li><a href="https://www.geeksforgeeks.org/types-of-asymptotic-notations-in-complexity-analysis-of-algorithms/">https://www.geeksforgeeks.org/types-of-asymptotic-notations-in-complexity-analysis-of-algorithms/</a></li>
 </ul>
