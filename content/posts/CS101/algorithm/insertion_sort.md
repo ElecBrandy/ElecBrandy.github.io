@@ -191,7 +191,7 @@ void insertionSort(int *arr, int N) {
 따라서 선택정렬의 Best Case의 경우, 위 코드의 시간복잡도는 아래와 같다. 
 
 $$
-O(4n - 4) ≈ O(N)
+\Omega(4n - 4) ≈ O(N)
 $$
 
 <br>
