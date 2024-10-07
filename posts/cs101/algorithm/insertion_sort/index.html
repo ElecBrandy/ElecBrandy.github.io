@@ -98,7 +98,12 @@
         <li><a href="#3-3-귀납적-증명">3-3. 귀납적 증명</a></li>
       </ul>
     </li>
-    <li><a href="#4-효율성-분석">4. 효율성 분석</a></li>
+    <li><a href="#4-효율성-분석">4. 효율성 분석</a>
+      <ul>
+        <li><a href="#4-1-best-case">4-1. Best Case</a></li>
+        <li><a href="#4-2-worst-case">4-2. Worst Case</a></li>
+      </ul>
+    </li>
     <li><a href="#5-reference">5. Reference</a></li>
   </ul>
 </nav>
@@ -140,17 +145,15 @@
 </div>
 
 <br>
-<blockquote>
-<p><strong>구현</strong> : 해당 알고리즘은 어떻게 구현 되었나?</p>
-<p><strong>정확성</strong> : 해당 알고리즘이 실제로 동작하는가?</p>
-<p><strong>효율성</strong> : 해당 알고리즘이 빠른가?</p>
-</blockquote>
-<br>
 <h2 id="1-insertion-sort">1. Insertion sort</h2>
 <hr>
 <img src="https://i.imgur.com/sW8twRl.png" width="700">
 <p><code>Insertion sort</code>(삽입 정렬)는 말 그대로 정렬된 배열에 새로운 요소를 삽입하여 정렬을 확장해 나가는 알고리즘이다. 배열을 처리할 때, 전체 배열 중 왼쪽 부분은 이미 정렬된 상태이고, 오른쪽 부분은 아직 정렬되지 않은 상태로 남아 있다. 삽입 정렬은 이 정렬되지 않은 부분에서 하나씩 요소를 가져와서, 정렬된 배열의 어느 위치에 삽입해야 할지 결정하는 방식으로 동작한다.</p>
-<p>이 알고리즘에서 두 개의 주요 루프가 존재한다. <strong>첫 번째 루프</strong> 는 정렬되지 않은 부분에서 인덱스를 하나씩 선택하는 루프로, 인덱스 1부터 배열의 끝(n-1)까지 반복된다. <strong>두 번째 루프</strong> 는 선택된 인덱스를 정렬된 부분에서 어디에 삽입할지를 결정하는 과정이다. 이 과정에서 선택된 값과 정렬된 배열의 값들을 비교하여 적절한 위치를 찾아 삽입하게 된다.</p>
+<p>이 알고리즘에서 두 개의 주요 루프가 존재한다.</p>
+<ul>
+<li><strong>첫 번째 루프</strong> 는 정렬되지 않은 부분에서 인덱스를 하나씩 선택하는 루프로, 인덱스 1부터 배열의 끝(n-1)까지 반복된다.</li>
+<li><strong>두 번째 루프</strong> 는 선택된 인덱스를 정렬된 부분에서 어디에 삽입할지를 결정하는 과정이다. 이 과정에서 선택된 값과 정렬된 배열의 값들을 비교하여 적절한 위치를 찾아 삽입하게 된다.</li>
+</ul>
 <br>
 <br>
 <h2 id="2-구현-분석">2. 구현 분석</h2>
@@ -255,13 +258,119 @@
 <br>
 <h2 id="4-효율성-분석">4. 효율성 분석</h2>
 <hr>
-<p>~(작성중)</p>
+<h3 id="4-1-best-case">4-1. Best Case</h3>
+<p>선택정렬에서 Best Case는 결국 이미 정렬이 된 배열이 Input으로 들어왔을 경우이다.
+해당 경우의 시간복잡도를 자세하게 살펴보자.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">insertionSort</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>arr, <span style="color:#66d9ef">int</span> N) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {			<span style="color:#75715e">// 1. (N - 1) Times
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">int</span> key <span style="color:#f92672">=</span> arr[i];					<span style="color:#75715e">// 2. (N - 1) Times
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;						<span style="color:#75715e">// 3. (N - 1) Times
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">while</span> (j <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> arr[j] <span style="color:#f92672">&gt;</span> key) {	<span style="color:#75715e">// 4. 0 Times
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			arr[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> arr[j];
+</span></span><span style="display:flex;"><span>			j<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		arr[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> key;					<span style="color:#75715e">// 5. (N - 1) Times
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol>
+<li>
+<p><code>for (int i = 1; i &lt; N; i++)</code></p>
+<ul>
+<li><strong>(N - 1)</strong> 번 실행된다.</li>
+</ul>
+</li>
+<li>
+<p><code>int key = arr[i];</code></p>
+<ul>
+<li><strong>(N - 1)</strong> 번 실행된다.</li>
+</ul>
+</li>
+<li>
+<p><code>int j = i - 1;</code></p>
+<ul>
+<li><strong>(N - 1)</strong> 번 실행된다.</li>
+</ul>
+</li>
+<li>
+<p><code>while (j &gt;= 0 &amp;&amp; arr[j] &gt; key)</code></p>
+<ul>
+<li>배열이 이미 정렬된 경우 <code>j</code>의 초기값이 -1 이므로 한번도 실행되지 않는다.</li>
+</ul>
+</li>
+<li>
+<p><code>arr[j + 1] = key;</code></p>
+<ul>
+<li><strong>(N - 1)</strong> 번 실행된다.</li>
+</ul>
+</li>
+</ol>
+<p>따라서 선택정렬의 Best Case의 경우, 위 코드의 시간복잡도는 아래와 같다.</p>
+<p>$$
+\Omega(4n - 4) ≈ O(N)
+$$</p>
+<br>
+<h3 id="4-2-worst-case">4-2. Worst Case</h3>
+<p>선택정렬에서 Worst Case는 역순으로 정렬된 배열이 Input으로 들어왔을 경우이다.
+해당 경우의 시간복잡도를 자세하게 살펴보자.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">insertionSort</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>arr, <span style="color:#66d9ef">int</span> N) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {			<span style="color:#75715e">// 1. (N - 1) Times
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">int</span> key <span style="color:#f92672">=</span> arr[i];					<span style="color:#75715e">// 2. (N - 1) Times
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;						<span style="color:#75715e">// 3. (N - 1) Times
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">while</span> (j <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> arr[j] <span style="color:#f92672">&gt;</span> key) {	<span style="color:#75715e">// 4. 1/2 * (N - 1)N Times
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			arr[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> arr[j];
+</span></span><span style="display:flex;"><span>			j<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		arr[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> key;					<span style="color:#75715e">// 5. (N - 1) Times
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol>
+<li>
+<p><code>for (int i = 1; i &lt; N; i++)</code></p>
+<ul>
+<li>여전히 <strong>(N - 1)</strong> 번 실행된다.</li>
+</ul>
+</li>
+<li>
+<p><code>int key = arr[i];</code></p>
+<ul>
+<li><strong>(N - 1)</strong> 번 실행된다.</li>
+</ul>
+</li>
+<li>
+<p><code>int j = i - 1;</code></p>
+<ul>
+<li><strong>(N - 1)</strong> 번 실행된다.</li>
+</ul>
+</li>
+<li>
+<p><code>while (j &gt;= 0 &amp;&amp; arr[j] &gt; key)</code></p>
+<ul>
+<li><code>i</code>가 1 일때 <code>j</code>는 0 이고, 총 <strong>1</strong> 번 실행된다.</li>
+<li><code>i</code>가 2 일때 <code>j</code>는 1 이고, 총 <strong>2</strong> 번 실행된다.</li>
+<li><code>i</code>가 (N - 1) 일때 <code>j</code>는 (N - 2)이고, 총 <strong>(N - 1)</strong> 번 실행된다.</li>
+<li>결국 총 <code>1 + 2 + ... + (N - 1)</code> 의 합 만큼 실행된다.</li>
+<li>즉, $\frac{N (N - 1)}{2}$ 번 실행된다.</li>
+</ul>
+</li>
+<li>
+<p><code>arr[j + 1] = key;</code></p>
+<ul>
+<li><strong>(N - 1)</strong> 번 실행된다.</li>
+</ul>
+</li>
+</ol>
+<p>따라서 선택정렬의 Best Case의 경우, 위 코드의 시간복잡도는 아래와 같다.</p>
+<p>$$
+O(\frac{1}{2}N^2 + \frac{7}{2}N - 4) ≈ O(N^2)
+$$</p>
 <br>
 <br>
 <h2 id="5-reference">5. Reference</h2>
 <hr>
 <ul>
 <li><a href="https://www.geeksforgeeks.org/insertion-sort-algorithm/">https://www.geeksforgeeks.org/insertion-sort-algorithm/</a></li>
+<li><a href="https://medium.com/humanscape-tech/">https://medium.com/humanscape-tech/</a>코드의-시간-복잡도-계산하기-b67dd8625966</li>
+<li><a href="https://elecbrandy.github.io/posts/cs101/algorithm/bigo/">https://elecbrandy.github.io/posts/cs101/algorithm/bigo/</a></li>
 </ul>
 <br>
 <br>
