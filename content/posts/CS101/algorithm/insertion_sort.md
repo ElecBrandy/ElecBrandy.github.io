@@ -1,5 +1,5 @@
 +++
-title = '[알고리즘] 선택 정렬'
+title = '[알고리즘] 삽입 정렬'
 date = 2024-09-21
 featured_image = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Sorting_shaker_sort_anim.gif"
 tags = ['algorithm']
