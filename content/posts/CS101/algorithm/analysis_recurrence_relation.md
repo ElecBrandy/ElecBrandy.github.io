@@ -1,6 +1,6 @@
 +++
 title = '[알고리즘] 재귀적 분석'
-date = 2024-10-11
+date = 2024-9-30
 featured_image = "https://ih1.redbubble.net/image.1502642451.8092/st,small,507x507-pad,600x600,f8f8f8.jpg"
 tags = ['algorithm']
 +++
@@ -298,7 +298,6 @@ $$
 $$
 T(n) = 4 \cdot T\left(\frac{n}{2}\right) + n
 $$
-
 
 <br>
 <br>

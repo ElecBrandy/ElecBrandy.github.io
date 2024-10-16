@@ -1,6 +1,6 @@
 +++
 title = '[알고리즘] 점근적 분석'
-date = 2024-10-10
+date = 2024-09-29
 featured_image = "https://ih1.redbubble.net/image.1502642451.8092/st,small,507x507-pad,600x600,f8f8f8.jpg"
 tags = ['algorithm']
 +++

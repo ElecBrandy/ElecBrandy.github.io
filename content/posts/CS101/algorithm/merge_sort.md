@@ -1,8 +1,8 @@
 +++
-title = '[알고리즘] merge sort'
+title = '[알고리즘] Merge Sort'
 date = 2024-10-01
 featured_image = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Sorting_shaker_sort_anim.gif"
-tags = ['algorithm']
+tags = ['algorithm', 'sorting']
 +++
 
 {{<series title="📚 /algorithm" series="algorithm">}}
