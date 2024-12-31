@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '$', right: '$', display: false}
+            ]
+        });"></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="/css/reset.css">
+<title>[AI] 01. NLP의 과거와 오늘 | home</title>
+
+      <link rel="stylesheet" href="/css/main.min.0ce01787cd4bc0759f98b56377f962e02878ce8fb515cc49af5cb83db6a3edfc.css" integrity="sha256-DOAXh81LwHWfmLVjd/li4Ch4zo&#43;1FcxJr1y4Pbaj7fw=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/min700.min.c55885430d625813d1a6770ef6712b8534781fdd318699edd1bb9c6f62907507.css" integrity="sha256-xViFQw1iWBPRpncO9nErhTR4H90xhpnt0bucb2KQdQc=" crossorigin="anonymous">
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZL1NP5K5CJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZL1NP5K5CJ');
+</script>
+
+
+</head>
+<body>
+    <header class="main-header">
+	<nav>
+	  <li><a href="/">/home</a></li>
+	  <li><a href="/tags">/tags</a></li>
+	  <li><a href="/about">/about</a></li>
+	  <li id="theme-toggle" style="cursor: pointer;">/todark</li>
+	</nav>
+  </header>
+  
+  <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  const themeToggle = document.getElementById('theme-toggle');
+	  
+	  
+	  let currentTheme = localStorage.getItem('theme') || 'light';
+  
+	  
+	  document.body.setAttribute('data-theme', currentTheme);
+	  themeToggle.textContent = currentTheme === 'dark' ? '/tolight' : '/todark';
+  
+	  
+	  function toggleTheme() {
+		
+		const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  
+		
+		document.body.setAttribute('data-theme', newTheme);
+  
+		
+		localStorage.setItem('theme', newTheme);
+  
+		
+		themeToggle.textContent = newTheme === 'dark' ? '/tolight' : '/todark';
+	  }
+  
+	  
+	  themeToggle.addEventListener('click', toggleTheme);
+	});
+  </script>
+  
+    
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-소개">1. 소개</a></li>
+    <li><a href="#2-자연어-처리와-인공지능의-발전-과정">2. 자연어 처리와 인공지능의 발전 과정</a>
+      <ul>
+        <li><a href="#2-1-인공지능의-시작">2-1. 인공지능의 시작</a></li>
+        <li><a href="#2-2-인공지능은-어떻게-학습하는가">2-2. 인공지능은 어떻게 학습하는가?</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-퍼셉트론-인공지능-학습의-첫걸음">3. 퍼셉트론: 인공지능 학습의 첫걸음</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#4-역전파-알고리즘-학습의-혁명">4. 역전파 알고리즘: 학습의 혁명</a></li>
+    <li><a href="#5-트랜스포머의-등장-nlp의-새로운-시대">5. 트랜스포머의 등장: NLP의 새로운 시대</a></li>
+    <li><a href="#6-reference">6. Reference</a></li>
+  </ul>
+</nav>
+  </aside>
+  <div class="featured-container">
+    
+      <div class="featured-image">
+        <img src="https://wikibook.co.kr/images/cover/l/9791158395629.jpg" alt="Featured Image for [AI] 01. NLP의 과거와 오늘">
+      </div>
+    
+    <div class="overlay-text">
+      <small>2024.12.12</small>
+      <div class="singleTitle">[AI] 01. NLP의 과거와 오늘</div>
+    </div>
+  </div>
+  <div class="series">
+  <details>
+    <summary>📚 /한권으로 끝내는 LLM 파인튜닝</summary>
+    <ul>
+      
+      
+      
+    </ul>
+  </details>
+</div>
+
+<br>
+<h2 id="1-소개">1. 소개</h2>
+<hr>
+<blockquote>
+<p>NLP: Natural Language Processing</p>
+</blockquote>
+<p>2024 겨울방학을 맞아, 위키북스의 <code>한권으로 끝내는 LLM 파인튜닝</code> 스터디를 통해 지난 2023 데이터 청년 캠퍼스, 2024 AI 레드팀 컨퍼런스 등에서 맛보았던 LLM을 체험해보는 시간을 가져보기로 했다.</p>
+<br>
+<br>
+<h2 id="2-자연어-처리와-인공지능의-발전-과정">2. 자연어 처리와 인공지능의 발전 과정</h2>
+<hr>
+<h3 id="2-1-인공지능의-시작">2-1. 인공지능의 시작</h3>
+<p>초기 기계 번역 기술은 컴퓨팅 기술의 한계로 인해 많은 어려움을 겪었다. 그러나 새로운 전환점을 맞이하며 인공지능 연구의 서막이 열리게 된다. 1950년, 앨런 튜링은 <em>Computing Machinery and Intelligence</em> 논문에서 “기계가 생각할 수 있을까?”라는 질문을 던졌다. 이는 현대 인공지능의 기초를 이루는 중요한 개념으로 이어졌다.</p>
+<p>튜링은 “기계가 인간과 구별되지 않는 방식으로 행동할 수 있다면, 그 기계는 ‘생각하고 있다’고 볼 수 있다”고 주장하며, 이를 증명하기 위해 ‘튜링 테스트’를 설계했다. 튜링 테스트는 질문자, 인간 응답자, 그리고 기계 응답자가 참여하는 실험이다. 만약 질문자가 기계를 인간으로 착각한다면, 해당 기계는 튜링 테스트를 통과한 것으로 간주된다. 이러한 실험은 인공지능 연구의 기초를 다지며, 이후 인공지능 발전에 큰 영향을 미쳤다. 실제로, 튜링의 논문은 24,000회 이상 인용되며 학문적 중요성을 입증했다.</p>
+<h3 id="2-2-인공지능은-어떻게-학습하는가">2-2. 인공지능은 어떻게 학습하는가?</h3>
+<p>인공지능의 학습 과정은 인간의 뇌를 모방하려는 노력에서 시작되었다. 1943년, 워런 맥컬록과 월터 피츠는 수학과 논리를 기반으로 한 최초의 신경망 모델을 제안했다. 이 모델은 뉴런이 활성화(1)되거나 비활성화(0)되는 방식을 모사하며 작동했다.</p>
+<p>1949년, 도널드 헤브는 <strong>헤비안 학습</strong>이라는 새로운 이론을 제안했다. “함께 활동하는 뉴런들은 서로 더 강하게 연결된다”는 원리를 바탕으로, 외부의 지시나 보상 없이도 뉴런들이 상호작용하며 스스로 학습할 수 있음을 보여주었다. 이는 인간의 행동이나 습관 형성과 유사한 메커니즘이다.</p>
+<p>1957년, 프랭크 로젠블랫은 현대 인공신경망의 핵심 기술인 <strong>퍼셉트론</strong>을 개발했다. 퍼셉트론은 인간 뇌세포인 뉴런을 모방한 알고리즘으로, 단순한 구조임에도 불구하고 정보의 저장과 조직화에 중요한 역할을 한다. 1958년, 그는 <em>The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain</em>이라는 제목의 논문을 발표하며 퍼셉트론의 가능성을 제시했다.</p>
+<br>
+<br>
+<h2 id="3-퍼셉트론-인공지능-학습의-첫걸음">3. 퍼셉트론: 인공지능 학습의 첫걸음</h2>
+<hr>
+<p>*<The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain>*에서 로젠블랫은 정보의 저장 방식과 저장된 정보가 인식 및 행동에 미치는 영향을 중심으로 논의하였다. 그는 기존 정보 저장 모델이 지나치게 단순하고 정적이라고 지적하며, 사람의 시각 신경계를 기반으로 퍼셉트론을 구현했다.</p>
+<p>퍼셉트론의 구조에서 정보는 고정된 형태로 저장되지 않는다. 대신 활성화된 뉴런들 사이의 새로운 연결 또는 경로를 통해 저장되며, 이는 뉴런 간 연결 강도로 표현된다. 이러한 접근법의 특징은 특정 자극과 반응 사이의 확률적 관계를 학습하며, 연결이 경험에 따라 변화한다는 점이다.  또한 로젠블랫은 입력 신호의 가중합이 특정 임계값을 초과하면 뉴런이 활성화되는 원리를 발견하고 이를 적용했다. 예를 들어, &ldquo;밥을&quot;이라는 입력이 주어지면 &ldquo;밥을&quot;과 자주 연관된 단어가 활성화되고, 연관성이 없는 단어는 억제된다. 로젠블랫은 이를 <strong>자발적 조직화</strong>라고 명명하며, 이 개념을 실험적으로 증명하려 했다.</p>
+<p>로젠블랙은 퍼셉트론 시스템에 두 가지 서로 다른 유형의 자극을 무작위로 입력하는 실험을 진행했다. 퍼셉트론은 두 자극을 스스로 구분하는 능력을 보여주었으며, 이를 통해 <strong>선형적 분리</strong>라는 중요한 개념을 발견했다. 선형적 분리란 퍼셉트론이 주어진 데이터를 직선이나 평면을 이용해 구분할 수 있음을 의미한다. 예를 들어, 한 자극에는 1을, 다른 자극에는 0을 할당하여 두 데이터를 명확히 분리할 수 있다. 그러나 로젠블랫은 자신의 논문에서 퍼셉트론의 다섯 가지 주요 한계점을 지적했다. 물론 퍼셉트론은 한계에도 불구하고, 인공지능 연구의 토대를 마련하며 이후 심화된 신경망 모델 개발의 출발점이 되었다.</p>
+<h4 id="퍼셉트론의-한계점">퍼셉트론의 한계점</h4>
+<ol>
+<li><strong>새로운 접근 방식의 필요성</strong>: 단순한 개선으로는 한계를 극복할 수 없으며, 근본적으로 다른 원칙이 필요하다.</li>
+<li><strong>시간적 요소의 부재</strong>: 퍼셉트론 모델은 시간축을 고려하지 않아 시계열 데이터와 같은 문제를 처리하지 못한다.</li>
+<li><strong>관계 추상화의 한계</strong>: 퍼셉트론은 단순한 패턴 인식과 분류는 가능하지만, 두 자극 간의 관계를 추상화하거나 판단하는 데 어려움을 보인다.</li>
+<li><strong>선형적 분리 문제</strong>: 퍼셉트론은 선형적으로 분리 가능한 문제만 해결할 수 있으며, XOR 문제와 같이 비선형적 분류 문제를 해결하지 못한다.</li>
+<li><strong>복잡한 문제 해결의 한계</strong>: 퍼셉트론은 복잡한 문제에서 더 높은 수준의 학습 및 인식을 수행하기에 부족하다.</li>
+</ol>
+<br>
+<br>
+<h2 id="4-역전파-알고리즘-학습의-혁명">4. 역전파 알고리즘: 학습의 혁명</h2>
+<hr>
+<p>선형성 문제를 어떻게 해결할 수 있을까? 그 전에 비선형성의 개념을 살펴보자. 인공지능에서 선형성과 비선형성은 단순히 직선과 곡선의 문제가 아니다. 이는 신경망이 얼마나 복잡한 패턴을 학습하고 문제를 해결할 수 있는지와 관련된다. 비선형성이란 입력과 출력 사이의 관계가 단순한 비례 관계를 벗어나는 특성을 말한다. 작은 입력 변화가 큰 출력 변화로 이어지거나, 반대로 큰 입력 변화가 작은 출력 변화로 이어질 수 있는 특성이 이를 설명한다.</p>
+<p>단일 퍼셉트론의 한계를 극복하기 위해 연구자들은 다층 퍼셉트론 구조를 제안했다. 초기 인공신경망 연구에서는 주로 순방향 학습만 진행되었다. 그러나 역방향 전파(backpropagation)를 연구하면서 새로운 문제점이 드러났다. 예를 들어, 선형 함수 ( f(x) = ax + b )를 미분하면 상수항 ( b )는 사라진다. 이를 반복해서 미분하면 상수항 ( a )도 사라지며, 역방향 전파 과정을 거칠수록 결국 상수는 0이 된다. 이러한 문제를 해결하기 위해 연구자들은 비선형 함수를 도입하여 가중치를 효과적으로 업데이트할 수 있도록 했다. 비선형 함수 덕분에 신경망은 복잡성과 유연성을 가지게 되었다.</p>
+<p>그렇다면 역전파 알고리즘이란 무엇일까? 1986년 논문 <em>Learning Representations by Back-Propagating Errors</em>는 퍼셉트론의 한계를 극복하고 비선형 문제를 해결할 수 있는 방법을 제시했다. 역전파 알고리즘은 아이에게 그림 그리는 법을 가르치는 과정과 비슷하다.</p>
+<ol>
+<li>신경망은 먼저 입력을 받아 예측 값을 생성한다.</li>
+<li>예측 값과 실제 정답 사이의 오차를 계산한다.</li>
+<li>이 오차를 출력층에서 입력층 방향으로 거꾸로 전파하며, 각 층의 가중치를 조정한다.</li>
+</ol>
+<p>이는 마치 아이의 그림에 대해 구체적인 피드백을 주고, 그 피드백을 바탕으로 그림을 수정해 나가는 과정과 유사하다. 참 사람과 비슷하지 않을 수 없다&hellip; 이 과정에서 <strong>비선형 활성화 함수</strong>는 중요한 역할을 한다. 비선형 활성화 함수는 신경망이 단순한 선형 문제를 넘어 복잡한 비선형 문제를 학습하고 해결할 수 있도록 돕는다. 역전파 알고리즘의 도입은 인공지능 학습의 혁신적인 전환점이 되었으며, 현대 딥러닝의 기초를 형성하는 데 핵심적인 역할을 했다.</p>
+<blockquote>
+<p>부록 참고해서 상세 내용 업데이트 하기</p>
+</blockquote>
+<br>
+<br>
+<h2 id="5-트랜스포머의-등장-nlp의-새로운-시대">5. 트랜스포머의 등장: NLP의 새로운 시대</h2>
+<hr>
+<p>2013년, 단어 임베딩 기술인 Word2Vec이 등장하면서 자연어 처리(NLP)의 새로운 장이 열렸다. Word2Vec은 단어를 벡터 형태로 변환해 의미적으로 가까운 단어들을 유사한 벡터 공간에 배치함으로써, 컴퓨터가 단어 간의 관계를 이해할 수 있도록 했다. 이후 2014년에는 GloVe와 **RNN(Recurrent Neural Network)**이, 2015년에는 어텐션(Attention) 메커니즘이 등장하며 NLP 기술의 발전이 가속화되었다. Word2Vec의 경우 데이터 청년 캠퍼스를 하며 자주 접하고, 실제로 사용도 했었던 기술이라 상당히 반갑다. 반갑기도 하고, 아쉽기도 하다. 이 공부를 조금 일찍 했다면 조금 더 좋은 결과물을 낼 수 있었을텐데.</p>
+<p>2017년에는 트랜스포머(Transformer) 모델이 발표되었다. 트랜스포머는 어텐션 메커니즘을 확장한 구조로, 긴 문장에서도 단어 간의 관계를 효율적으로 학습할 수 있는 기술이었다. 이 모델은 기존의 RNN이나 LSTM(Long Short-Term Memory) 기반 모델보다 학습 속도가 빠르고, 더 높은 성능을 보여주며 NLP 분야에서 큰 반향을 일으켰다.</p>
+<p>트랜스포머를 기반으로 한 기술은 2018년부터 급격히 발전했다. **BERT(Bidirectional Encoder Representations from Transformers)**와 **GPT(Generative Pre-trained Transformer)**와 같은 사전 훈련된 언어 모델이 잇따라 등장하며 NLP의 패러다임을 바꾸었다.</p>
+<p>이후 GPT와 같은 모델은 점점 더 강력해지며, 자연어 생성 및 이해에서 혁신적인 결과를 만들어내고 있다. 다음에는 이러한 GPT 모델에 대해 자세히 살펴보자!</p>
+<br>
+<br>
+<h2 id="6-reference">6. Reference</h2>
+<hr>
+<ul>
+<li><a href="https://product.kyobobook.co.kr/detail/S000214934825">https://product.kyobobook.co.kr/detail/S000214934825</a></li>
+<li><a href="https://wikibook.co.kr/">https://wikibook.co.kr/</a></li>
+</ul>
+<br>
+<br>
+
+    
+
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop({
+  diameter: 40,
+  backgroundColor: 'rgb(255, 83, 176)',
+  textColor: '#fff'
+})</script>
+
+</body>
+</html>

@@ -6,8 +6,22 @@
     <description>Recent content in tags on home</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://elecbrandy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ai</title>
+      <link>https://elecbrandy.github.io/tags/ai/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/ai/</guid>
+      <description>&lt;h4 id=&#34;-tagsai&#34;&gt;🏷️ /tags/ai&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
+    </item>
+    <item>
+      <title>python</title>
+      <link>https://elecbrandy.github.io/tags/python/</link>
+      <pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/tags/python/</guid>
+      <description>&lt;h4 id=&#34;-tagspython&#34;&gt;🏷️ /tags/python&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
+    </item>
     <item>
       <title>algorithm</title>
       <link>https://elecbrandy.github.io/tags/algorithm/</link>
@@ -70,20 +84,6 @@
       <pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
       <guid>https://elecbrandy.github.io/tags/os/</guid>
       <description>&lt;h4 id=&#34;-tagsos&#34;&gt;🏷️ /tags/os&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
-    </item>
-    <item>
-      <title>ai</title>
-      <link>https://elecbrandy.github.io/tags/ai/</link>
-      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/tags/ai/</guid>
-      <description>&lt;h4 id=&#34;-tagsai&#34;&gt;🏷️ /tags/ai&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
-    </item>
-    <item>
-      <title>python</title>
-      <link>https://elecbrandy.github.io/tags/python/</link>
-      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/tags/python/</guid>
-      <description>&lt;h4 id=&#34;-tagspython&#34;&gt;🏷️ /tags/python&lt;/h4&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
       <title>ui.ux</title>
