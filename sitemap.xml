@@ -2,12 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://elecbrandy.github.io/posts/ai/2024_winter_llm/llm_1/</loc>
-    <lastmod>2024-12-31T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://elecbrandy.github.io/posts/ai/2024_winter_llm/llm_2/</loc>
+    <loc>https://elecbrandy.github.io/posts/ai/2024winterllm/llm_1/</loc>
     <lastmod>2024-12-31T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
