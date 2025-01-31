@@ -6,15 +6,8 @@
     <description>Recent content in python on home</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://elecbrandy.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[2025 WINTER LLM] 01. NLP의 과거와 오늘</title>
-      <link>https://elecbrandy.github.io/posts/ai/2024winterllm/llm_1/</link>
-      <pubDate>Tue, 31 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://elecbrandy.github.io/posts/ai/2024winterllm/llm_1/</guid>
-      <description>&lt;div class=&#34;series&#34;&gt;&#xA;  &lt;details&gt;&#xA;    &lt;summary&gt;📚 /한권으로 끝내는 LLM 파인튜닝&lt;/summary&gt;&#xA;    &lt;ul&gt;&#xA;      &#xA;      &#xA;      &#xA;      &lt;li&gt;-&lt;a href=&#34;https://elecbrandy.github.io/posts/ai/2024winterLLm/llm_1/&#34;&gt;01. NLP의 과거와 오늘&lt;/a&gt;&lt;/li&gt;&#xA;      &#xA;      &lt;li&gt;-&lt;a href=&#34;https://elecbrandy.github.io/posts/ai/2024winterLLm/llm_2/&#34;&gt;02. GPT&lt;/a&gt;&lt;/li&gt;&#xA;      &#xA;    &lt;/ul&gt;&#xA;  &lt;/details&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;br&gt;&#xA;&lt;h2 id=&#34;1-소개&#34;&gt;1. 소개&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;NLP: Natural Language Processing&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;2024 겨울방학을 맞아, 위키북스의 &lt;code&gt;한권으로 끝내는 LLM 파인튜닝&lt;/code&gt; 스터디를 통해 지난 2023 데이터 청년 캠퍼스, 2024 AI 레드팀 컨퍼런스 등에서 맛보았던 LLM을 체험해보는 시간을 가져보기로 했다.&lt;/p&gt;&#xA;&lt;br&gt;&#xA;&lt;br&gt;&#xA;&lt;h2 id=&#34;2-자연어-처리와-인공지능의-발전-과정&#34;&gt;2. 자연어 처리와 인공지능의 발전 과정&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;초기 기계 번역 기술은 컴퓨팅 기술의 한계로 인해 많은 어려움을 겪었다. 그러나 새로운 전환점을 맞이하며 인공지능 연구의 서막이 열리게 된다. 1950년, 앨런 튜링은 &lt;em&gt;Computing Machinery and Intelligence&lt;/em&gt; 논문에서 “기계가 생각할 수 있을까?”라는 질문을 던졌다. 이는 현대 인공지능의 기초를 이루는 중요한 개념으로 이어졌다.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>2023 데이터 청년 캠퍼스</title>
       <link>https://elecbrandy.github.io/posts/ai/dataonair/</link>

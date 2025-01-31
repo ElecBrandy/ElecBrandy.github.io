@@ -2,33 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://elecbrandy.github.io/posts/ai/2024winterllm/llm_1/</loc>
-    <lastmod>2024-12-31T00:00:00+00:00</lastmod>
+    <loc>https://elecbrandy.github.io/posts/cs101/cs/cmd/</loc>
+    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://elecbrandy.github.io/tags/ai/</loc>
-    <lastmod>2024-12-31T00:00:00+00:00</lastmod>
+    <loc>https://elecbrandy.github.io/posts/cs101/cs/binary/</loc>
+    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://elecbrandy.github.io/tags/cs/</loc>
+    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/</loc>
-    <lastmod>2024-12-31T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://elecbrandy.github.io/tags/os/</loc>
+    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/</loc>
-    <lastmod>2024-12-31T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://elecbrandy.github.io/tags/python/</loc>
-    <lastmod>2024-12-31T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/tags/</loc>
-    <lastmod>2024-12-31T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -132,6 +137,11 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://elecbrandy.github.io/posts/42cursus/circle_3/minishell/</loc>
+    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/circle_2/pipex/</loc>
     <lastmod>2024-02-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -162,11 +172,6 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://elecbrandy.github.io/tags/os/</loc>
-    <lastmod>2023-12-20T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://elecbrandy.github.io/posts/42cursus/circle_1/get_next_line/</loc>
     <lastmod>2023-12-18T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -188,6 +193,16 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://elecbrandy.github.io/posts/ai/dataonair/</loc>
+    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://elecbrandy.github.io/tags/ai/</loc>
+    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://elecbrandy.github.io/tags/python/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

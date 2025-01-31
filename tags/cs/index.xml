@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cs on home</title>
+    <link>https://elecbrandy.github.io/tags/cs/</link>
+    <description>Recent content in Cs on home</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://elecbrandy.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[CS] 명령어</title>
+      <link>https://elecbrandy.github.io/posts/cs101/cs/cmd/</link>
+      <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/cs101/cs/cmd/</guid>
+      <description>&lt;div class=&#34;series&#34;&gt;&#xA;  &lt;details&gt;&#xA;    &lt;summary&gt;📚 /2025 CS STUDY&lt;/summary&gt;&#xA;    &lt;ul&gt;&#xA;      &#xA;      &#xA;      &#xA;      &lt;li&gt;-&lt;a href=&#34;https://elecbrandy.github.io/posts/ai/2024winterLLm/llm_1/&#34;&gt;01. NLP의 과거와 오늘&lt;/a&gt;&lt;/li&gt;&#xA;      &#xA;      &lt;li&gt;-&lt;a href=&#34;https://elecbrandy.github.io/posts/ai/2024winterLLm/llm_2/&#34;&gt;02. GPT&lt;/a&gt;&lt;/li&gt;&#xA;      &#xA;    &lt;/ul&gt;&#xA;  &lt;/details&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;br&gt;&#xA;&lt;h2 id=&#34;1-소개&#34;&gt;1. 소개&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;컴퓨터는 명령어를 처리하는 기계이다. 즉, 명령어는 컴퓨터를 실질적으로 작동시키는 매우 중요한 정보이다. 우리가 C, C++, Java, Python과 같은 프로그래밍 언어로 만든 소스 코드는 컴퓨터 내부에서 명령어로 반환된다. 이 명령어의 정체가 무엇인지 한번 공부해보자!&lt;/p&gt;&#xA;&lt;br&gt;&#xA;&lt;br&gt;&#xA;&lt;h2 id=&#34;2-고급-언어와-저급-언어&#34;&gt;2. 고급 언어와 저급 언어&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;컴퓨터는 C, C++, Java, Python과 같은 프로그래밍 언어를 이해할 수 없다. 이 언어들은 사람이 이해하고 작성하기 쉽게 만들어진 &lt;strong&gt;고급 언어&lt;/strong&gt; 이기 때문이다. 반대로 컴퓨터가 직접 이해하고 실행할 수 있는 언어를 &lt;strong&gt;저급 언어&lt;/strong&gt;라고 한다. 따라서 우리가 고급 언어를 사용해 열심히 프로그래밍한 결과물은 저급 언어로 변환 과정을 거쳐야 컴퓨터가 비로소 이해하고 실행할 수 있는 것이다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[CS] 이진법</title>
+      <link>https://elecbrandy.github.io/posts/cs101/cs/binary/</link>
+      <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://elecbrandy.github.io/posts/cs101/cs/binary/</guid>
+      <description>&lt;div class=&#34;series&#34;&gt;&#xA;  &lt;details&gt;&#xA;    &lt;summary&gt;📚 /2025 CS STUDY&lt;/summary&gt;&#xA;    &lt;ul&gt;&#xA;      &#xA;      &#xA;      &#xA;      &lt;li&gt;-&lt;a href=&#34;https://elecbrandy.github.io/posts/ai/2024winterLLm/llm_1/&#34;&gt;01. NLP의 과거와 오늘&lt;/a&gt;&lt;/li&gt;&#xA;      &#xA;      &lt;li&gt;-&lt;a href=&#34;https://elecbrandy.github.io/posts/ai/2024winterLLm/llm_2/&#34;&gt;02. GPT&lt;/a&gt;&lt;/li&gt;&#xA;      &#xA;    &lt;/ul&gt;&#xA;  &lt;/details&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;br&gt;&#xA;&lt;h2 id=&#34;1-소개&#34;&gt;1. 소개&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;컴퓨터는 0과 1로 모든 정보를 표현하고 이해하는 이진법을 기준으로 작동한다. 이진법과 이진법 표현, 연산 등을 알아보자.&lt;/p&gt;&#xA;&lt;br&gt;&#xA;&lt;br&gt;&#xA;&lt;h2 id=&#34;2-이진법이란&#34;&gt;2. 이진법이란&lt;/h2&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;이진법이란, 0과 1만 사용하여 숫자를 표현하는 체계를 의미한다. 컴퓨터 공학에서 0과 1을 비트(bit)라고 부르며, 이진수는 이러한 비트의 조합으로 표현된다. 우리가 저장하는 다양한 데이터들은 저장공간에 0과 1로 변환되어 저장되는 셈이다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;bit&lt;/code&gt;란 0과 1, 두가지 값만 가질 수 있는 측정 단위로 이진법으로 표현된 수에서 각각의 자릿수 하나를 비트라고 한다. 주로 데이터 처리, 저장, 전송 표현에 사용된다. &lt;code&gt;byte&lt;/code&gt;란 8개의 &lt;code&gt;bit&lt;/code&gt;가 모인 것으로 1 &lt;code&gt;byte&lt;/code&gt; 로 표현할 수 있는 경우의 수는 2^8 = &lt;strong&gt;256&lt;/strong&gt; 개이다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
